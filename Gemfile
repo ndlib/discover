@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'
 gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
+gem "rb-readline"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
