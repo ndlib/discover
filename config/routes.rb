@@ -5,6 +5,9 @@ Discover::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'records#show'
 
+  get 'demo' => 'demo#catcher', as: :demo_root
+  get 'demo/:action' => 'demo', as: :demo
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
