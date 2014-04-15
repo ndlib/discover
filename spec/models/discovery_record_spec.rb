@@ -11,45 +11,38 @@ describe DiscoveryRecord do
 
   describe "attributes" do
 
-    before(:each) do
-      VCR.use_cassette 'discovery/attributes_single_id_response' do
-        @discovery_record = DiscoveryQuery.new.find_by_id(test_search)
-      end
-    end
-
     it "has a type" do
       expect(subject.type).to eq('book')
     end
 
 
     it "has a title" do
-      subject.title.should == "The once and future king."
+      expect(subject.title).to eq("The once and future king.")
     end
 
 
     it "has the creator_contributor" do
-      subject.creator_contributor.should == "T. H. White [Terence Hanbury], 1906-1964."
+      expect(subject.creator_contributor).to eq("T. H. White [Terence Hanbury], 1906-1964.")
     end
 
 
     it "has details" do
-      subject.details.should == ""
+      expect(subject.details).to eq("")
     end
 
 
-
     it "has publisher_provider" do
-      subject.publisher_provider.should == "New York, Putnam 1958"
+      expect(subject.publisher_provider).to eq("New York, Putnam 1958")
     end
 
 
     it "has availability" do
-      subject.availability.should == "Available"
+      expect(subject.availability).to eq("Available")
     end
 
 
     it "has availabile_library" do
-      subject.available_library.should == "Notre Dame, Hesburgh Library General Collection (PR 6045 .H676 O5 )"
+      expect(subject.available_library).to eq("Notre Dame, Hesburgh Library General Collection (PR 6045 .H676 O5 )")
     end
   end
 
