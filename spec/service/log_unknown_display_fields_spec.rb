@@ -13,5 +13,23 @@ describe LogUnknownDisplayFields do
         subject.call(discovery_record)
       end
     end
+
+    describe '#known_fields' do
+      it 'is an array' do
+        expect(subject.known_fields).to be_a_kind_of(Array)
+      end
+    end
+  end
+
+  describe 'instance' do
+    subject { described_class.new(discovery_record) }
+
+    describe '#unknown_fields' do
+      it 'returns unknown fields'
+    end
+
+    describe '#log' do
+      it 'logs things'
+    end
   end
 end
