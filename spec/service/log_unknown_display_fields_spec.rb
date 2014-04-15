@@ -25,7 +25,14 @@ describe LogUnknownDisplayFields do
     subject { described_class.new(discovery_record) }
 
     describe '#unknown_fields' do
-      it 'returns unknown fields'
+      it 'returns an empty array when all fields are known' do
+        expect(described_class).to receive(:known_fields).and_return(display_fields.keys)
+        expect(subject.unknown_fields).to eq([])
+      end
+      it 'returns an array with any unknown field names' do
+        expect(described_class).to receive(:known_fields).and_return([:title])
+        expect(subject.unknown_fields).to eq([:creator])
+      end
     end
 
     describe '#log' do
