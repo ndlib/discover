@@ -1,14 +1,9 @@
 <dl>
-  <dt>Title</dt>
-  <dd>The catcher in the rye</dd>
-  <dt>Author</dt>
-  <dd>J. D. Salinger [Jerome David], 1919-</dd>
-  <dt>Published</dt>
-  <dd>
-    1st LB Books mass market pbk. ed..
-    Boston : Little, Brown
-    1991, c1951
-    214 p. ; 18 cm..
+  <% @record.detail_content.each do |label, content| %>
+    <dt><%= label %></dt>
+    <dd><%= content %></dd>
+  <% end %>
+
   <dt>Description</dt>
   <dd>Story of Holden Caulfield with his idiosyncrasies, penetrating insight, confusion, sensitivity and negativism. Holden, knowing he is to be expelled from school, decides to leave early. He spends three days in New York City and tells the story of what he did and suffered there. </dd>
   <dt>General Notes</dt>
