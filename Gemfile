@@ -64,4 +64,5 @@ group :development, :test do
   gem "spork", "1.0.0rc4"
   gem "rb-readline"
   gem "growl"
+  gem "vcr"
 end
