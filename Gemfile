@@ -27,6 +27,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem "draper"
 gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'
 gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
 gem "rb-readline"
@@ -62,6 +63,5 @@ group :development, :test do
   gem "guard-rspec"
   gem "guard-spork"
   gem "spork", "1.0.0rc4"
-  gem "rb-readline"
   gem "growl"
 end
