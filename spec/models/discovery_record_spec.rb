@@ -27,7 +27,7 @@ describe DiscoveryRecord do
 
 
     it "has details" do
-      expect(subject.details).to eq("")
+      expect(subject.details).to be_nil
     end
 
 
@@ -43,6 +43,13 @@ describe DiscoveryRecord do
 
     it "has availabile_library" do
       expect(subject.available_library).to eq("Notre Dame, Hesburgh Library General Collection (PR 6045 .H676 O5 )")
+    end
+  end
+
+  describe '#display_fields' do
+    it "is a hash" do
+      expect(subject.display_fields).to be_a_kind_of(Hash)
+      expect(subject.display_fields['title']).to be == "The once and future king."
     end
   end
 
