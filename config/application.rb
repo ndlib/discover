@@ -17,6 +17,7 @@ module Discover
       Rails.root.join('lib'),
       Rails.root.join('app', 'query'),
       Rails.root.join('app', 'decorators'),
+      Rails.root.join('app', 'service'),
     ]
     additional_autoload_directories.each do |directory|
       config.autoload_paths += Dir[directory]
