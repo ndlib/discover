@@ -46,4 +46,11 @@ describe DiscoveryRecord do
     end
   end
 
+  describe '#display_fields' do
+    it "is a hash" do
+      expect(subject.display_fields).to be_a_kind_of(Hash)
+      expect(subject.display_fields['title']).to be == "The once and future king."
+    end
+  end
+
 end

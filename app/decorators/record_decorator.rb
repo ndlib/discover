@@ -5,6 +5,10 @@ class RecordDecorator < Draper::Decorator
     self.new(record)
   end
 
+  def display_fields
+    object.display_fields
+  end
+
   def author
 
   end
