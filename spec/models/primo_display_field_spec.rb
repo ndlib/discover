@@ -28,6 +28,12 @@ describe PrimoDisplayField do
       it 'adds an example' do
         expect{subject.add_example(record_id, body)}.to change{subject.examples.count}.by(1)
       end
+
+      it 'returns an existing example' do
+        example = subject.add_example(record_id, body)
+        expect(example).to be_a_kind_of(PrimoDisplayFieldExample)
+        expect(subject.add_example(record_id, body)).to eq(example)
+      end
     end
   end
 
