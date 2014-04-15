@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415183803) do
+ActiveRecord::Schema.define(version: 20140415184055) do
+
+  create_table "primo_display_field_examples", force: true do |t|
+    t.string   "key"
+    t.string   "record_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "primo_display_field_examples", ["key"], name: "index_primo_display_field_examples_on_key"
 
   create_table "primo_display_fields", force: true do |t|
     t.string   "key"
