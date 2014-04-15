@@ -5,8 +5,9 @@ class PrimoSearchUri
 
   attr_accessor :type, :search
 
-  validates :type, inclusion: { in: %w(title creator sub lsr03 lsr04) }
+  validates :type, inclusion: { in: %w(title creator subject uniform_title related_title series) }
   validates :type, :search, presence: true
+
 
   def self.call(search, type)
     self.new(search, type).uri
@@ -15,7 +16,7 @@ class PrimoSearchUri
 
   def initialize(search, type)
     @search = search
-    @type   = TranslateType.call(type)
+    @type   = type
 
     validate!
   end
@@ -31,13 +32,18 @@ class PrimoSearchUri
     def url_hash
       {
         "vl(freeText0)" => search,
-        "vl(16833817UI0)"=> type,
+        "vl(16833817UI0)"=> translate_type,
         "vl(1UIStartWith0)"=>"exact",
         "fn"=>"search",
         "tab"=>"onesearch",
         "mode"=>"Advanced",
         "vid"=>"NDU"
       }
+    end
+
+
+    def translate_type
+      TranslateType.call(type)
     end
 
 

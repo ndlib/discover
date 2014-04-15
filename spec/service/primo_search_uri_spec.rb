@@ -4,9 +4,12 @@ require 'spec_helper'
 describe PrimoSearchUri do
   subject { PrimoSearchUri }
 
+  TYPE_TRANSLATIONS = { 'creator' => 'creator', 'title' => 'title', 'series' => 'lsr03', 'uniform_title' => 'lsr04', 'related_title' => 'title', 'subject' => 'sub' }
+
   describe :type_translator do
     subject {PrimoSearchUri::TranslateType}
-    { 'series' => 'lsr03', 'uniform_title' => 'lsr04', 'related_title' => 'title', 'subject' => 'sub' }.each do | type, output |
+
+    TYPE_TRANSLATIONS.each do | type, output |
       it "translates #{type} to #{output}" do
         expect(subject.call(type)).to eq(output)
       end
@@ -34,9 +37,9 @@ describe PrimoSearchUri do
 
   describe :uri do
 
-    [ 'lsr03', 'lsr04', 'title', 'creator', 'sub' ].each do | type |
-      it "searches on the type, #{type}" do
-        expect(PrimoSearchUri.call('search', type)).to match("vl%2816833817UI0%29=#{type}")
+   TYPE_TRANSLATIONS.each do | type, search_type |
+      it "searches on the type, #{type} with a value of #{search_type}" do
+        expect(PrimoSearchUri.call('search', type)).to match("vl%2816833817UI0%29=#{search_type}")
       end
     end
 
@@ -54,8 +57,22 @@ describe PrimoSearchUri do
 
   describe :validations do
 
-    it "raises an exception if the the input is not valid" do
-      expect { PrimoSearchUri.call(nil, nil) }.to raise_error
+    it "raises an exception if there is no search" do
+      expect { subject.call(nil, "title") }.to raise_error
+    end
+
+    it "raises an exception if there is no type" do
+      expect { subject.call("search", nil) }.to raise_error
+    end
+
+    it "raise an exception if the type is not valid " do
+      expect { subject.call("search", "not_a_type") }.to raise_error
+    end
+
+    TYPE_TRANSLATIONS.keys.each do | type |
+      it "#{type} is valid type input" do
+        expect{ subject.new("search", type)}.to_not raise_error
+      end
     end
   end
 
