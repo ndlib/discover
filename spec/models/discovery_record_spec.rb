@@ -3,6 +3,12 @@ require 'spec_helper'
 describe DiscoveryRecord do
   let(:test_search) { "ndu_aleph000188916" }
 
+  subject {
+    VCR.use_cassette 'discovery/attributes_single_id_response' do
+      DiscoveryQuery.new.find_by_id(test_search)
+    end
+  }
+
   describe "attributes" do
 
     before(:each) do
@@ -12,38 +18,38 @@ describe DiscoveryRecord do
     end
 
     it "has a type" do
-      expect(@discovery_record.type).to eq('book')
+      expect(subject.type).to eq('book')
     end
 
 
     it "has a title" do
-      @discovery_record.title.should == "The once and future king."
+      subject.title.should == "The once and future king."
     end
 
 
     it "has the creator_contributor" do
-      @discovery_record.creator_contributor.should == "T. H. White [Terence Hanbury], 1906-1964."
+      subject.creator_contributor.should == "T. H. White [Terence Hanbury], 1906-1964."
     end
 
 
     it "has details" do
-      @discovery_record.details.should == ""
+      subject.details.should == ""
     end
 
 
 
     it "has publisher_provider" do
-      @discovery_record.publisher_provider.should == "New York, Putnam 1958"
+      subject.publisher_provider.should == "New York, Putnam 1958"
     end
 
 
     it "has availability" do
-      @discovery_record.availability.should == "Available"
+      subject.availability.should == "Available"
     end
 
 
     it "has availabile_library" do
-      @discovery_record.available_library.should == "Notre Dame, Hesburgh Library General Collection (PR 6045 .H676 O5 )"
+      subject.available_library.should == "Notre Dame, Hesburgh Library General Collection (PR 6045 .H676 O5 )"
     end
   end
 
