@@ -8,6 +8,7 @@ class PrimoDisplayField < ActiveRecord::Base
       display_field = self.new(key: key)
       display_field.save
     end
+    yield display_field if block_given?
     display_field
   end
 end

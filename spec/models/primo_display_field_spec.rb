@@ -30,6 +30,15 @@ describe PrimoDisplayField do
         expect{subject.log_unknown('test')}.to change{subject.count}.by(0)
         expect(subject.log_unknown('test')).to eq(record)
       end
+
+      it 'receives a block' do
+        expect_any_instance_of(subject).to receive(:block_test)
+        record = subject.create(key: 'test')
+        subject.log_unknown('test') do |display_field|
+          display_field.block_test
+          expect(record).to be == display_field
+        end
+      end
     end
   end
 end
