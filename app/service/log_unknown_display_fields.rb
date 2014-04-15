@@ -26,6 +26,20 @@ class LogUnknownDisplayFields
     discovery_record.display_fields.keys.collect{|key| key.to_sym}
   end
 
+  def log_field(key)
+    key = key.to_s
+    display_field = PrimoDisplayField.find_or_initialize_by_key(key)
+    if display_field.new_record?
+      display_field.save
+    end
+    add_example(display_field)
+    display_field
+  end
+
+  def add_example(display_field)
+
+  end
+
   def log
 
   end
