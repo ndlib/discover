@@ -16,4 +16,14 @@ describe PrimoDisplayField do
       expect(subject).to have(0).errors_on(:key)
     end
   end
+
+  describe 'self' do
+    subject { described_class }
+
+    describe '#log_unknown' do
+      it 'creates a record' do
+        expect{subject.log_unknown('test')}.to change{subject.count}.by(1)
+      end
+    end
+  end
 end
