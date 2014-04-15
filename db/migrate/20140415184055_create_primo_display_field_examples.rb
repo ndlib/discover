@@ -8,5 +8,6 @@ class CreatePrimoDisplayFieldExamples < ActiveRecord::Migration
     end
 
     add_index :primo_display_field_examples, :key
+    add_index :primo_display_field_examples, :record_id
   end
 end

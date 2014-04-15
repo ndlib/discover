@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20140415184055) do
   end
 
   add_index "primo_display_field_examples", ["key"], name: "index_primo_display_field_examples_on_key"
+  add_index "primo_display_field_examples", ["record_id"], name: "index_primo_display_field_examples_on_record_id"
 
   create_table "primo_display_fields", force: true do |t|
     t.string   "key"
