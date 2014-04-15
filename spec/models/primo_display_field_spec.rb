@@ -24,6 +24,12 @@ describe PrimoDisplayField do
       it 'creates a record' do
         expect{subject.log_unknown('test')}.to change{subject.count}.by(1)
       end
+
+      it 'returns an existing record' do
+        record = subject.create(key: 'test')
+        expect{subject.log_unknown('test')}.to change{subject.count}.by(0)
+        expect(subject.log_unknown('test')).to eq(record)
+      end
     end
   end
 end
