@@ -22,8 +22,19 @@ class RecordDecorator < Draper::Decorator
     {
       title: "Title",
       author: "Author",
-      published: "Published"
+      published: "Published",
+      description: "Description",
+      general_notes: "General Notes",
+      subjects: "Subjects",
+      language: "Language",
+      identifier: "Identifier",
+      type: "Type",
+      record_id: "Record ID"
     }
+  end
+
+  def display_fields
+    object.display_fields
   end
 
   def title
@@ -38,7 +49,31 @@ class RecordDecorator < Draper::Decorator
     object.publisher_provider
   end
 
-  def display_fields
-    object.display_fields
+  def description
+    "Description Stub"
+  end
+
+  def general_notes
+    "General Notes Stub"
+  end
+
+  def subjects
+    "Subjects Stub"
+  end
+
+  def language
+    "Language Stub"
+  end
+
+  def identifier
+    "Identifier Stub"
+  end
+
+  def type
+    "Type Stub"
+  end
+
+  def record_id
+    "Record ID Stub"
   end
 end

@@ -24,12 +24,12 @@ describe RecordDecorator do
   end
 
   describe '#detail_methods' do
-      it 'responds to each method' do
-        subject.detail_methods.each do |method,label|
-          expect(subject).to respond_to(method)
-        end
+    it 'responds to each method' do
+      subject.detail_methods.each do |method,label|
+        expect(subject).to respond_to(method)
       end
     end
+  end
 
   describe 'found record' do
     let(:search_id) { "ndu_aleph000188916" }
@@ -70,6 +70,34 @@ describe RecordDecorator do
       it 'is the object publisher_provider' do
         expect(subject.published).to be == object.publisher_provider
       end
+    end
+
+    describe '#description' do
+      it 'is the #description'
+    end
+
+    describe '#general_notes' do
+      it 'is the #general_notes'
+    end
+
+    describe '#subjects' do
+      it 'is the #subjects'
+    end
+
+    describe '#language' do
+      it 'is the #language'
+    end
+
+    describe '#identifier' do
+      it 'is the #identifier'
+    end
+
+    describe '#type' do
+      it 'is the #type'
+    end
+
+    describe '#record_id' do
+      it 'is the #record_id'
     end
   end
 end
