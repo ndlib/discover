@@ -27,7 +27,7 @@ describe DiscoveryRecord do
 
 
     it "has details" do
-      expect(subject.details).to eq("")
+      expect(subject.details).to be_nil
     end
 
 

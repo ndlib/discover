@@ -10,7 +10,7 @@ class DiscoveryRecord
 
 
   def title
-    data["display"]["title"].to_s.truncate(250, :separator => ' ')
+    data["display"]["title"]
   end
 
 
@@ -20,17 +20,17 @@ class DiscoveryRecord
 
 
   def creator_contributor
-    data['display']['creator_contributor'].to_s.truncate(250, :separator => ' ')
+    data['display']['creator_contributor']
   end
 
 
   def details
-    data['display']['details'].to_s.truncate(250, :separator => ' ')
+    data['display']['details']
   end
 
 
   def publisher_provider
-    data['display']['publisher_provider'].to_s.truncate(250, :separator => ' ')
+    data['display']['publisher_provider']
   end
 
 
