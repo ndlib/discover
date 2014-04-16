@@ -9,6 +9,18 @@ describe DiscoveryRecord do
     end
   }
 
+  describe '#log_unknown_display_fields' do
+    it 'is called on initialize' do
+      expect_any_instance_of(described_class).to receive(:log_unknown_display_fields)
+      subject
+    end
+
+    it 'calls LogUnknownDisplayFields#call' do
+      expect(LogUnknownDisplayFields).to receive(:call).with(subject)
+      subject.log_unknown_display_fields
+    end
+  end
+
   describe "attributes" do
     it "has an id" do
       expect(subject.id).to eq('dedupmrg21374725')

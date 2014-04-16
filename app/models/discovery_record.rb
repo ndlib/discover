@@ -6,6 +6,13 @@ class DiscoveryRecord
 
   def initialize(json_result)
     @data = json_result
+    log_unknown_display_fields
+  end
+
+  def log_unknown_display_fields
+    if data
+      LogUnknownDisplayFields.call(self)
+    end
   end
 
   def id
@@ -58,7 +65,7 @@ class DiscoveryRecord
   end
 
   def display_fields
-    data['primo']['display']
+    primo['display']
   end
 
 
@@ -66,6 +73,10 @@ class DiscoveryRecord
 
     def self.make_request(id)
       API::Resource.search_catalog(id)
+    end
+
+    def primo
+      data['primo'] || {}
     end
 
 end
