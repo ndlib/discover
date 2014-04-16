@@ -1,7 +1,23 @@
 class LogUnknownDisplayFields
   KNOWN_FIELDS = [
+    :availinstitution,
+    :availlibrary,
+    :availpnx,
+    :contributor,
+    :creationdate,
+    :creator,
+    :format,
+    :identifier,
+    :language,
+    :lds01,
+    :lds02,
+    :publisher,
+    :relation,
+    :subject,
     :title,
-    :creator
+    :type,
+    :unititle,
+    :version
   ]
 
   def self.call(discovery_record)
