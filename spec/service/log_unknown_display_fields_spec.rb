@@ -77,7 +77,24 @@ describe LogUnknownDisplayFields do
     end
 
     describe '#log' do
-      it 'logs things'
+      it 'does not log anything if there are no unknown fields' do
+        subject.stub(:unknown_fields).and_return([])
+        expect(subject).to_not receive(:log_field)
+        subject.log
+      end
+
+      it 'logs an unknown field' do
+        subject.stub(:unknown_fields).and_return([:title])
+        expect(subject).to receive(:log_field).with(:title)
+        subject.log
+      end
+
+      it 'logs multiple unknown fields' do
+        subject.stub(:unknown_fields).and_return([:title, :author])
+        expect(subject).to receive(:log_field).with(:title)
+        expect(subject).to receive(:log_field).with(:author)
+        subject.log
+      end
     end
   end
 end

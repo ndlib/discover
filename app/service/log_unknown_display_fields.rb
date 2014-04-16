@@ -36,7 +36,7 @@ class LogUnknownDisplayFields
 
   def log_field(key)
     key = key.to_s
-    display_field_record = PrimoDisplayField.find_or_initialize_by_key(key)
+    display_field_record = PrimoDisplayField.find_or_initialize_by(key: key)
     if display_field_record.new_record?
       display_field_record.save
     end
@@ -45,7 +45,7 @@ class LogUnknownDisplayFields
   end
 
   def add_example(display_field_record)
-    example = display_field_record.example(record_id)
+    example = display_field_record.examples.where(record_id: record_id).first
     if example.nil?
       example = display_field_record.examples.build(record_id: record_id, body: display_field(display_field_record.key))
       example.save
@@ -58,6 +58,8 @@ class LogUnknownDisplayFields
   end
 
   def log
-
+    unknown_fields.each do |key|
+      log_field(key)
+    end
   end
 end
