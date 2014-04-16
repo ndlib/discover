@@ -10,6 +10,9 @@ describe DiscoveryRecord do
   }
 
   describe "attributes" do
+    it "has an id" do
+      expect(subject.id).to eq('dedupmrg21374725')
+    end
 
     it "has a type" do
       expect(subject.type).to eq('book')

@@ -8,6 +8,10 @@ class DiscoveryRecord
     @data = json_result
   end
 
+  def id
+    data["id"]
+  end
+
 
   def title
     data["display"]["title"]

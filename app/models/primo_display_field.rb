@@ -22,4 +22,8 @@ class PrimoDisplayField < ActiveRecord::Base
     end
     example
   end
+
+  def example(record_id)
+    examples.where(record_id: record_id).first
+  end
 end

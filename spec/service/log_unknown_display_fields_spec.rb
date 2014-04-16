@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe LogUnknownDisplayFields do
   let(:display_fields) { {title: 'Test Title', creator: 'John Doe'} }
-  let(:discovery_record) { double(DiscoveryRecord, display_fields: display_fields) }
+  let(:discovery_record) { double(DiscoveryRecord, display_fields: display_fields, id: 'test_id') }
   let(:field_class) { PrimoDisplayField }
+  let(:key) { 'title' }
 
   describe 'self' do
     subject { described_class }
@@ -36,8 +37,14 @@ describe LogUnknownDisplayFields do
       end
     end
 
+    describe '#display_fields' do
+      it 'calls display_fields on the DiscoveryRecord' do
+        expect(discovery_record).to receive(:display_fields)
+        subject.display_fields
+      end
+    end
+
     describe '#log_field' do
-      let(:key) { 'title' }
 
       it 'creates a record' do
         expect{subject.log_field(key)}.to change{field_class.count}.by(1)
@@ -49,7 +56,24 @@ describe LogUnknownDisplayFields do
         expect(subject.log_field(key)).to eq(record)
       end
 
-      it 'calls #add_example on a record'
+      it 'calls #add_example' do
+        expect(subject).to receive(:add_example).with(kind_of(field_class))
+        subject.log_field(key)
+      end
+    end
+
+    describe '#add_example' do
+      let(:display_field) { field_class.create(key: key) }
+
+      it 'adds an example' do
+        expect{subject.add_example(display_field)}.to change{display_field.examples.count}.by(1)
+      end
+
+      it 'returns an existing example' do
+        example = subject.add_example(display_field)
+        expect(example).to be_a_kind_of(PrimoDisplayFieldExample)
+        expect(subject.add_example(display_field)).to eq(example)
+      end
     end
 
     describe '#log' do
