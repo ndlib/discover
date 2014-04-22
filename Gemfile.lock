@@ -6,6 +6,14 @@ GIT
       rails (~> 4.0.3)
 
 GIT
+  remote: git@git.library.nd.edu:hesburgh_errors
+  revision: c2ed30f973a60119442067ed19e5eb2e676d1fc1
+  specs:
+    hesburgh_errors (0.0.1)
+      rails (~> 4.0.4)
+      state_machine
+
+GIT
   remote: git@git.library.nd.edu:hesburgh_infrastructure
   revision: 6d252a83d28b38f56181927c6356883bb1dec874
   specs:
@@ -211,6 +219,7 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.9)
+    state_machine (1.2.0)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
@@ -249,6 +258,7 @@ DEPENDENCIES
   guard-rspec
   guard-spork
   hesburgh_api!
+  hesburgh_errors!
   hesburgh_infrastructure!
   jbuilder (~> 1.2)
   jquery-rails

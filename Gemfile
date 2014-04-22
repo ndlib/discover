@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 1.2'
 gem "draper"
 gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'
 gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
+gem "hesburgh_errors", git: 'git@git.library.nd.edu:hesburgh_errors'
+
 gem "rb-readline"
 
 group :doc do
