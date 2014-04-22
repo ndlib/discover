@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.4'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -37,7 +37,7 @@ gem "rb-readline"
 gem 'devise'
 gem 'devise_cas_authenticatable'
 
-gem 'mysql'
+gem 'mysql2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
