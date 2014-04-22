@@ -29,9 +29,8 @@ jQuery ($) ->
       newTab.click (event) ->
         event.preventDefault()
         $.get '/record?id='+recordID, (data) ->
-          console.log('hi')
-          console.log(data)
-          newTabContents.html(data)
+          contents = $(data).children()
+          newTabContents.html(contents)
           newTabContents.show()
 
   $(document).ready(ready)
