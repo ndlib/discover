@@ -8,4 +8,15 @@ class ApplicationController < ActionController::Base
   unless Rails.configuration.consider_all_requests_local
     setup_controller_errors
   end
+
+
+  def check_authentication!
+    if !is_admin?
+      raise ActionController::RoutingError.new('404')
+    end
+  end
+
+  def is_admin?
+    Permission.new(current_user).is_admin?
+  end
 end
