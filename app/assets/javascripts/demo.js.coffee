@@ -17,21 +17,21 @@ jQuery ($) ->
     newTabContents
 
   ready = ->
-    $('.EXLDetailsTab').each ->
-      currentTab = $(this)
-      container = currentTab.parents('.EXLSummary')
-      currentTabContents = container.find('.EXLContainer-detailsTab')
+    $('.EXLResult').each ->
+      result = $(this)
+      currentTab = result.find('.EXLDetailsTab')
+      currentTabContents = result.find('.EXLContainer-detailsTab')
+      recordID = result.find('.EXLResultRecordId').attr('id')
       newTab = newDetailsTab(currentTab)
       newTab.insertAfter(currentTab)
       newTabContents = newDetailsTabContents(currentTabContents)
       newTabContents.insertAfter(currentTabContents)
       newTab.click (event) ->
         event.preventDefault()
-        newTabContents.show()
-
-
-
-
+        $.get '/record?id='+recordID, (data) ->
+          console.log('hi')
+          console.log(data)
+          newTabContents.html(data)
+          newTabContents.show()
 
   $(document).ready(ready)
-  $(document).on('page:load', ready)

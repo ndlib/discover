@@ -10,6 +10,8 @@ Discover::Application.routes.draw do
   get 'demo' => 'demo#catcher', as: :demo_root
   get 'demo/:action' => 'demo', as: :demo
 
+  get 'record' => 'records#show', as: :record
+
   resources :records, only: [:show]
 
   # Example of regular route:
