@@ -1,0 +1,15 @@
+<h1>Missing Keys From Primo</h1>
+
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Last Miss</th>
+    <th># misses</th>
+  </tr>
+<% @primo_keys.each do | missing_key | %>
+  <tr>
+    <td><%= link_to missing_key.key, primo_missing_field_path(missing_key) %></td>
+    <td><%= missing_key.last_miss_date %></td>
+    <td><%= missing_key.number_of_misses %></td>
+  </tr>
+<% end %>
