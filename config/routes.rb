@@ -14,6 +14,8 @@ Discover::Application.routes.draw do
 
   resources :records, only: [:show]
 
+  resources :primo_missing_fields, only: [ :index, :show ]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

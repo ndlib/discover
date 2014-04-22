@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20140422150554) do
     t.datetime "updated_at"
   end
 
-  add_index "primo_display_field_examples", ["key"], name: "index_primo_display_field_examples_on_key"
-  add_index "primo_display_field_examples", ["record_id"], name: "index_primo_display_field_examples_on_record_id"
+  add_index "primo_display_field_examples", ["key"], name: "index_primo_display_field_examples_on_key", using: :btree
+  add_index "primo_display_field_examples", ["record_id"], name: "index_primo_display_field_examples_on_record_id", using: :btree
 
   create_table "primo_display_fields", force: true do |t|
     t.string   "key"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140422150554) do
     t.datetime "updated_at"
   end
 
-  add_index "primo_display_fields", ["key"], name: "index_primo_display_fields_on_key"
+  add_index "primo_display_fields", ["key"], name: "index_primo_display_fields_on_key", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",                       null: false
@@ -55,6 +55,6 @@ ActiveRecord::Schema.define(version: 20140422150554) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

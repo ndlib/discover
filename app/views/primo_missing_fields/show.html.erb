@@ -1,0 +1,16 @@
+
+
+<h1><%= @primo_missing_field.key %></h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Content</th>
+  </tr>
+<% @primo_missing_field.recent_misses.each do | field | %>
+  <tr>
+    <td><%= link_to(field.created_at.to_s(:long), record_path(field.record_id) + '.json', target: 'blank') %></td>
+    <td><%= field.body %></td>
+  </tr>
+<% end %>
+</table>

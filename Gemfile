@@ -37,6 +37,7 @@ gem "rb-readline"
 gem 'devise'
 gem 'devise_cas_authenticatable'
 
+gem 'mysql'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
