@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415184055) do
+ActiveRecord::Schema.define(version: 20140422150554) do
 
   create_table "error_logs", force: true do |t|
     t.string   "netid"
@@ -43,5 +43,18 @@ ActiveRecord::Schema.define(version: 20140415184055) do
   end
 
   add_index "primo_display_fields", ["key"], name: "index_primo_display_fields_on_key"
+
+  create_table "users", force: true do |t|
+    t.string   "username",                       null: false
+    t.integer  "sign_in_count",      default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end

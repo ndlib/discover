@@ -1,9 +1,12 @@
 class HesburghErrors::ErrorsController < HesburghErrors::BaseController
-  before_action :check_authentication
+  before_action :authenticate_user!
+  before_action :check_authentication!
 
   protected
 
-    def check_authentication
-      raise "To use the errors controller you must implement authentication!!!!!!!"
+    def check_authentication!
+      if !['jhartzle', 'jkennel', 'rfox2', 'rmalott', 'lthiel'].include?(current_user.username)
+        raise ActionController::RoutingError.new('404')
+      end
     end
 end

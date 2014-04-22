@@ -34,6 +34,10 @@ gem "hesburgh_errors", git: 'git@git.library.nd.edu:hesburgh_errors'
 
 gem "rb-readline"
 
+gem 'devise'
+gem 'devise_cas_authenticatable'
+
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

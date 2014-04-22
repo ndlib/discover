@@ -1,4 +1,5 @@
 Discover::Application.routes.draw do
+  devise_for :users
   mount HesburghErrors::Engine => "/hesburgh_errors"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
