@@ -3,3 +3,25 @@
     display: none;
   }
 }
+
+.EXLNewDetailsTabContent {
+  padding: 5px;
+}
+
+dl {
+  line-height: 1.6;
+  margin-bottom: 1.11111rem;
+  list-style-position: outside;
+  font-family: inherit;
+  display: block;
+
+  dt {
+    font-weight: bold;
+    display: block;
+  }
+
+  dd {
+    margin-bottom: 0.66667rem;
+    display: block;
+  }
+}
