@@ -10,9 +10,7 @@ Discover::Application.routes.draw do
   get 'demo' => 'demo#catcher', as: :demo_root
   get 'demo/:action' => 'demo', as: :demo
 
-  get 'record' => 'records#show', as: :record
-
-  resources :records, only: [:show]
+  get 'record' => 'records#show', as: :record, constraints: {id: /.+/}
 
   resources :primo_missing_fields, only: [ :index, :show ]
 
