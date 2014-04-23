@@ -1,3 +1,5 @@
-.EXLResult .EXLReviewsTab {
-  display: none;
+.EXLResult {
+  .EXLReviewsTab, .EXLOldReviewsTab {
+    display: none;
+  }
 }
