@@ -56,48 +56,80 @@ describe RecordDecorator do
 
     describe '#title' do
       it 'is the object title' do
-        expect(subject.title).to be == object.title
+        expect(object).to receive(:title)
+        subject.title
       end
     end
 
     describe '#author' do
       it 'is the object author' do
-        expect(subject.author).to be == object.creator_contributor
+        expect(object).to receive(:creator)
+        subject.author
       end
     end
 
     describe '#published' do
       it 'is the object publisher_provider' do
-        expect(subject.published).to be == object.publisher_provider
+        expect(object).to receive(:edition)
+        expect(object).to receive(:format)
+        expect(object).to receive(:creation_date)
+        expect(object).to receive(:publisher)
+
+        subject.published
+      end
+
+      it "returns an array" do
+        expect(subject.published).to be_a_kind_of(Array)
       end
     end
 
     describe '#description' do
-      it 'is the #description'
+      it 'is the object#description' do
+        expect(object).to receive(:description)
+        subject.description
+      end
     end
 
     describe '#general_notes' do
-      it 'is the #general_notes'
+      it 'is the subject#general_notes' do
+        expect(object).to receive(:general_notes)
+        subject.general_notes
+      end
     end
 
     describe '#subjects' do
-      it 'is the #subjects'
+      it 'is the object#subjects' do
+        expect(object).to receive(:subjects)
+        subject.subjects
+      end
     end
 
     describe '#language' do
-      it 'is the #language'
+      it 'is the object#language' do
+        expect(object).to receive(:language)
+        subject.language
+      end
     end
 
     describe '#identifier' do
-      it 'is the #identifier'
+      it 'is the #identifier' do
+        expect(object).to receive(:identifier)
+        subject.identifier
+      end
     end
 
     describe '#type' do
-      it 'is the #type'
+      it 'is the object type' do
+        expect(object).to receive(:type)
+        subject.type
+      end
     end
 
     describe '#record_id' do
-      it 'is the #record_id'
+      it 'is the #record_id' do
+        expect(object).to receive(:record_ids)
+        subject.record_ids
+      end
     end
   end
 end

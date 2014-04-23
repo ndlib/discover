@@ -19,50 +19,66 @@ class DiscoveryRecord
     data["id"]
   end
 
-
   def title
-    data["display"]["title"]
+    display_field(:title)
   end
-
 
   def type
-    data['type'].downcase
+    display_field(:type)
   end
 
-
-  def creator_contributor
-    data['display']['creator_contributor']
+  def creator
+    display_field(:creator)
   end
 
-
-  def details
-    data['display']['details']
+  def description
+    display_field(:description)
   end
-
-
-  def publisher_provider
-    data['display']['publisher_provider']
-  end
-
 
   def availability
-    data['display']['availability']
+    display_field(:availpnx)
   end
 
-
-  def available_library
-    data['display']['available_library']
+  def language
+    display_field(:language)
   end
 
-
-  def fulltext_available?
-    data['fulltext_available']
+  def general_notes
+    display_field(:lds01)
   end
 
-
-  def fulltext_url
-    data['links']['fulltext_url']
+  def description
+    display_field(:description)
   end
+
+  def edition
+    display_field(:edition)
+  end
+
+  def publisher
+    display_field(:publisher)
+  end
+
+  def creation_date
+    display_field(:creationdate)
+  end
+
+  def format
+    display_field(:format)
+  end
+
+  def record_ids
+    display_field(:lds02)
+  end
+
+  def identifier
+    display_field(:identifier)
+  end
+
+  def subjects
+    display_field(:subject)
+  end
+
 
   def display_fields
     primo['display']
@@ -77,6 +93,10 @@ class DiscoveryRecord
 
     def primo
       data['primo'] || {}
+    end
+
+    def display_field(key)
+      display_fields[key.to_s]
     end
 
 end

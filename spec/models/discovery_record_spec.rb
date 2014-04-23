@@ -4,9 +4,8 @@ describe DiscoveryRecord do
   let(:test_search) { "ndu_aleph000188916" }
 
   subject {
-    VCR.use_cassette 'discovery/attributes_single_id_response' do
-      DiscoveryQuery.new.find_by_id(test_search)
-    end
+    json = JSON.parse(File.read(Rails.root.join('spec','fixtures','test_json_response.json')))['records'].first
+    DiscoveryRecord.new(json)
   }
 
   describe '#log_unknown_display_fields' do
@@ -23,48 +22,71 @@ describe DiscoveryRecord do
 
   describe "attributes" do
     it "has an id" do
-      expect(subject.id).to eq('dedupmrg21374725')
+      expect(subject.id).to eq('id')
     end
 
     it "has a type" do
       expect(subject.type).to eq('book')
     end
 
-
     it "has a title" do
-      expect(subject.title).to eq("The once and future king.")
+      expect(subject.title).to eq("title")
     end
 
-
-    it "has the creator_contributor" do
-      expect(subject.creator_contributor).to eq("T. H. White [Terence Hanbury], 1906-1964.")
+    it "has the creator" do
+      expect(subject.creator).to eq("creator")
     end
 
-
-    it "has details" do
-      expect(subject.details).to be_nil
+    it "has language" do
+      expect(subject.language).to eq("lang")
     end
 
-
-    it "has publisher_provider" do
-      expect(subject.publisher_provider).to eq("New York, Putnam 1958")
+    it "has edition" do
+      expect(subject.edition).to eq("edition")
     end
 
+    it "has publisher" do
+      expect(subject.publisher).to eq("publisher")
+    end
+
+    it "has creation_date" do
+      expect(subject.creation_date).to eq("creation_date")
+    end
+
+    it "has format" do
+      expect(subject.format).to eq("format")
+    end
+
+    it "has identifier" do
+      expect(subject.identifier).to eq("identifier")
+    end
+
+    it "has all the record_ids" do
+      expect(subject.record_ids).to eq(["recordid1", "recordid2"])
+    end
+
+    it "has the description" do
+      expect(subject.description).to eq("description")
+    end
+
+    it "has the general_notes" do
+      expect(subject.general_notes).to eq("general_notes")
+    end
 
     it "has availability" do
-      expect(subject.availability).to eq("Available")
+      expect(subject.availability).to eq("available")
     end
 
-
-    it "has availabile_library" do
-      expect(subject.available_library).to eq("Notre Dame, Hesburgh Library General Collection (PR 6045 .H676 O5 )")
+    it "has subjects" do
+      expect(subject.subjects).to eq(["subject1", "subject2", "subject3"])
     end
+
   end
 
   describe '#display_fields' do
     it "is a hash" do
       expect(subject.display_fields).to be_a_kind_of(Hash)
-      expect(subject.display_fields['title']).to be == "The once and future king."
+      expect(subject.display_fields['title']).to be == "title"
     end
   end
 

@@ -29,7 +29,7 @@ class RecordDecorator < Draper::Decorator
       language: "Language",
       identifier: "Identifier",
       type: "Type",
-      record_id: "Record ID"
+      record_ids: "Record IDs"
     }
   end
 
@@ -42,38 +42,44 @@ class RecordDecorator < Draper::Decorator
   end
 
   def author
-    object.creator_contributor
+    object.creator
   end
 
   def published
-    object.publisher_provider
+    ret = []
+    ret << object.edition if object.edition
+    ret << object.publisher if object.publisher
+    ret << object.creation_date if object.creation_date
+    ret << object.format if object.format
+
+    ret
   end
 
   def description
-    "Description Stub"
+    object.description
   end
 
   def general_notes
-    "General Notes Stub"
+    object.general_notes
   end
 
   def subjects
-    "Subjects Stub"
+    object.subjects
   end
 
   def language
-    "Language Stub"
+    object.language
   end
 
   def identifier
-    "Identifier Stub"
+    object.identifier
   end
 
   def type
-    "Type Stub"
+    object.type
   end
 
-  def record_id
-    "Record ID Stub"
+  def record_ids
+    object.record_ids
   end
 end
