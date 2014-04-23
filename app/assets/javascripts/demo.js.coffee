@@ -8,29 +8,40 @@ jQuery ($) ->
     newTab.find('a').text('New Details')
     newTab
 
-  newDetailsTabContents = (currentTabContents) ->
-    newTabContents = currentTabContents.clone()
-    newID = currentTabContents.attr('id').replace('details', 'NewDetails')
-    newClass = currentTabContents.attr('class').replace('details', 'NewDetails')
-    newTabContents.attr('id', newID)
-    newTabContents.attr('class', newClass)
-    newTabContents
+  newDetailsTabContainer = (currentTabContainer) ->
+    newTabContainer = currentTabContainer.clone()
+    newID = currentTabContainer.attr('id').replace('details', 'NewDetails')
+    newClass = currentTabContainer.attr('class').replace('details', 'NewDetails')
+    newTabContainer.attr('id', newID)
+    newTabContainer.attr('class', newClass)
+    newTabContainer.html("""
+      <div class="EXLTabHeader"><div class="EXLTabHeaderContent"></div></div>
+      <div class="EXLTabContent EXLNewDetailsTabContent">
+        <div class="EXLDetailsContent"></div>
+      </div>
+        """)
+    newTabContainer
 
   ready = ->
     $('.EXLResult').each ->
       result = $(this)
       currentTab = result.find('.EXLDetailsTab')
-      currentTabContents = result.find('.EXLContainer-detailsTab')
+      currentTabContainer = result.find('.EXLContainer-detailsTab')
       recordID = result.find('.EXLResultRecordId').attr('id')
       newTab = newDetailsTab(currentTab)
       newTab.insertAfter(currentTab)
-      newTabContents = newDetailsTabContents(currentTabContents)
-      newTabContents.insertAfter(currentTabContents)
+      newTabContainer = newDetailsTabContainer(currentTabContainer)
+      newTabContainer.insertAfter(currentTabContainer)
+      contentsContainer = newTabContainer.find('.EXLNewDetailsTabContent')
       newTab.click (event) ->
         event.preventDefault()
+        newTabContainer.siblings('.EXLResultTabContainer').hide()
+        result.find('.EXLTabsRibbon').removeClass('EXLTabsRibbonClosed')
+        result.find('.EXLResultSelectedTab').removeClass('EXLResultSelectedTab')
+        newTab.addClass('EXLResultSelectedTab')
+        newTabContainer.show()
         $.get '/record?id='+recordID, (data) ->
           contents = $(data).children()
-          newTabContents.html(contents)
-          newTabContents.show()
+          contentsContainer.html(contents)
 
   $(document).ready(ready)
