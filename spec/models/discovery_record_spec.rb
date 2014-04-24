@@ -20,6 +20,12 @@ describe DiscoveryRecord do
     end
   end
 
+  describe :display_fields do
+    it "is a hash" do
+      expect(subject.display_fields).to be_a_kind_of(Hash)
+    end
+  end
+
   describe "attributes" do
     it "has an id" do
       expect(subject.id).to eq('id')
@@ -41,21 +47,11 @@ describe DiscoveryRecord do
       expect(subject.language).to eq("lang")
     end
 
-    it "has edition" do
-      expect(subject.edition).to eq("edition")
+
+    it "has published" do
+      expect(subject.published).to eq(["edition", "publisher", "creation_date", "format"])
     end
 
-    it "has publisher" do
-      expect(subject.publisher).to eq("publisher")
-    end
-
-    it "has creation_date" do
-      expect(subject.creation_date).to eq("creation_date")
-    end
-
-    it "has format" do
-      expect(subject.format).to eq("format")
-    end
 
     it "has identifier" do
       expect(subject.identifier).to eq("identifier")
