@@ -1,6 +1,6 @@
 development:
-  token: qtyZ5f6GrM67WWteGFp1
-  url: https://apipprd.library.nd.edu
+  token: whatever
+  url: http://localhost:3005
 test:
   token: qtyZ5f6GrM67WWteGFp1
   url: https://apipprd.library.nd.edu
