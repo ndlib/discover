@@ -62,7 +62,12 @@ class DiscoveryRecord
   end
 
   def record_ids
-    display_field(:lds02)
+    ret = display_field(:lds02)
+    if !ret.is_a?(Array)
+      ret = [ret]
+    end
+
+    ret
   end
 
   def identifier

@@ -57,8 +57,16 @@ describe DiscoveryRecord do
       expect(subject.identifier).to eq("identifier")
     end
 
-    it "has all the record_ids" do
-      expect(subject.record_ids).to eq(["recordid1", "recordid2"])
+    describe :record_ids do
+
+      it "has all the record_ids" do
+        expect(subject.record_ids).to eq(["recordid1", "recordid2"])
+      end
+
+      it "returns an array when there is only 1 record1" do
+        subject.stub(:display_field).with(:lds02).and_return("1record_id")
+        expect(subject.record_ids).to eq(["1record_id"])
+      end
     end
 
     it "has the description" do
