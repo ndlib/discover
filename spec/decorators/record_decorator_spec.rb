@@ -89,9 +89,17 @@ describe RecordDecorator do
     end
 
     describe '#subjects' do
+      before(:each) do
+        object.stub(:subjects).and_return(['subject1 -- subsubject', 'subject2_no_subsubject'])
+      end
+
       it 'is the object#subjects' do
         expect(object).to receive(:subjects)
         subject.subjects
+      end
+
+      it "returns a ul with lis" do
+        expect(subject.subjects).to eq("<ul><li>subject1 -- subsubject</li><li>subject2_no_subsubject</li></ul>")
       end
     end
 

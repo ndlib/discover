@@ -60,7 +60,9 @@ class RecordDecorator < Draper::Decorator
   end
 
   def subjects
-    object.subjects
+    h.content_tag(:ul) do
+      object.subjects.collect { | field | h.concat(h.content_tag(:li, field)) }
+    end
   end
 
   def language
