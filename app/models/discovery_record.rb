@@ -62,12 +62,7 @@ class DiscoveryRecord
   end
 
   def record_ids
-    ret = display_field(:lds02)
-    if !ret.is_a?(Array)
-      ret = [ret]
-    end
-
-    ret
+    ensure_array(display_field(:lds02))
   end
 
   def identifier
@@ -75,7 +70,7 @@ class DiscoveryRecord
   end
 
   def subjects
-    display_field(:subject)
+    ensure_array(display_field(:subject))
   end
 
 
@@ -98,4 +93,12 @@ class DiscoveryRecord
       display_fields[key.to_s]
     end
 
+
+    def ensure_array(result)
+      if !result.is_a?(Array)
+        result = [result]
+      end
+
+      result
+    end
 end

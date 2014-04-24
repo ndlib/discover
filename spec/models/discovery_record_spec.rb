@@ -81,8 +81,15 @@ describe DiscoveryRecord do
       expect(subject.availability).to eq("available")
     end
 
-    it "has subjects" do
-      expect(subject.subjects).to eq(["subject1", "subject2", "subject3"])
+    describe :subjects do
+      it "has subjects" do
+        expect(subject.subjects).to eq(["subject1", "subject2", "subject3"])
+      end
+
+      it "returns an array when there is only 1 record1" do
+        subject.stub(:display_field).with(:subject).and_return("1subject")
+        expect(subject.subjects).to eq(["1subject"])
+      end
     end
 
   end
