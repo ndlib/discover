@@ -5,21 +5,21 @@ describe RecordDecorator do
 
   describe '#detail_content' do
     before do
-      subject.stub(:detail_methods).and_return({title: 'Title', author: 'Author'})
+      subject.stub(:detail_methods).and_return([:title, :author])
     end
 
     it 'returns an array of arrays' do
       subject.stub(:title).and_return('Test Title')
       subject.stub(:author).and_return('John Doe')
 
-      expect(subject.detail_content).to be == [['Title', 'Test Title'],['Author', 'John Doe']]
+      expect(subject.detail_content).to be == [[:title, 'Test Title'],[:author, 'John Doe']]
     end
 
     it 'only returns values for methods with content' do
       subject.stub(:title).and_return('Test Title')
       subject.stub(:author).and_return(nil)
 
-      expect(subject.detail_content).to be == [['Title', 'Test Title']]
+      expect(subject.detail_content).to be == [[:title, 'Test Title']]
     end
   end
 

@@ -20,6 +20,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  record:
+    title: Title
+    author: "Author"
+    published: "Published"
+    description: "Description"
+    general_notes: "General Notes"
+    subjects: "Subjects"
+    language: "Language"
+    identifier: "Identifier"
+    type: "Type"
+    record_ids: "Record IDs"
   devise:
     failure:
       already_authenticated: ""

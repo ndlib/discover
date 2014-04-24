@@ -8,10 +8,10 @@ class RecordDecorator < Draper::Decorator
   def detail_content
     if @detail_content.nil?
       @detail_content = []
-      detail_methods.each do |method, label|
+      detail_methods.each do |method|
         method_content = self.send(method)
         if method_content.present?
-          @detail_content << [label, method_content]
+          @detail_content << [method, method_content]
         end
       end
     end
@@ -19,18 +19,18 @@ class RecordDecorator < Draper::Decorator
   end
 
   def detail_methods
-    {
-      title: "Title",
-      author: "Author",
-      published: "Published",
-      description: "Description",
-      general_notes: "General Notes",
-      subjects: "Subjects",
-      language: "Language",
-      identifier: "Identifier",
-      type: "Type",
-      record_ids: "Record IDs"
-    }
+    [
+      :title,
+      :author,
+      :published,
+      :description,
+      :general_notes,
+      :subjects,
+      :language,
+      :identifier,
+      :type,
+      :record_ids
+    ]
   end
 
   def display_fields
