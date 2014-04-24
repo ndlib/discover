@@ -51,20 +51,14 @@ class DiscoveryRecord
     display_field(:description)
   end
 
-  def edition
-    display_field(:edition)
-  end
+  def published
+    ret = []
+    ret << display_field(:edition) if display_field(:edition)
+    ret << display_field(:publisher) if display_field(:publisher)
+    ret << display_field(:creationdate) if display_field(:creationdate)
+    ret << display_field(:format) if display_field(:format)
 
-  def publisher
-    display_field(:publisher)
-  end
-
-  def creation_date
-    display_field(:creationdate)
-  end
-
-  def format
-    display_field(:format)
+    ret
   end
 
   def record_ids

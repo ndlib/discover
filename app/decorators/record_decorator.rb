@@ -46,13 +46,9 @@ class RecordDecorator < Draper::Decorator
   end
 
   def published
-    ret = []
-    ret << object.edition if object.edition
-    ret << object.publisher if object.publisher
-    ret << object.creation_date if object.creation_date
-    ret << object.format if object.format
-
-    ret
+    h.content_tag(:ul) do
+      object.published.collect { | field | h.concat(h.content_tag(:li, field)) }
+    end
   end
 
   def description
@@ -80,6 +76,9 @@ class RecordDecorator < Draper::Decorator
   end
 
   def record_ids
-    object.record_ids
+    h.content_tag(:ul) do
+      object.record_ids.collect { | field | h.concat(h.content_tag(:li, field)) }
+    end
   end
+
 end

@@ -32,25 +32,16 @@ describe RecordDecorator do
   end
 
   describe 'found record' do
-    let(:search_id) { "ndu_aleph000188916" }
+    let(:object) { double(DiscoveryRecord) }
 
     subject do
-      VCR.use_cassette 'discovery_query/find_by_id' do
-        described_class.find(search_id)
-      end
-    end
-
-    let(:object) { subject.object }
-
-    describe '#object' do
-      it 'is a DiscoveryRecord' do
-        expect(subject.object).to be_a_kind_of(DiscoveryRecord)
-      end
+      RecordDecorator.new(object)
     end
 
     describe '#display_fields' do
-      it 'is a hash' do
-        expect(subject.display_fields).to be_a_kind_of(Hash)
+      it 'is the object display_fields' do
+        expect(object).to receive(:display_fields)
+        subject.display_fields
       end
     end
 
@@ -69,17 +60,17 @@ describe RecordDecorator do
     end
 
     describe '#published' do
-      it 'is the object publisher_provider' do
-        expect(object).to receive(:edition)
-        expect(object).to receive(:format)
-        expect(object).to receive(:creation_date)
-        expect(object).to receive(:publisher)
+      before(:each) do
+        object.stub(:published).and_return(['edition', 'publisher', 'creationdate', 'format'])
+      end
 
+      it 'is the object publisher_provider' do
+        expect(object).to receive(:published)
         subject.published
       end
 
       it "returns an array" do
-        expect(subject.published).to be_a_kind_of(Array)
+        expect(subject.published).to eq("<ul><li>edition</li><li>publisher</li><li>creationdate</li><li>format</li></ul>")
       end
     end
 
@@ -125,10 +116,18 @@ describe RecordDecorator do
       end
     end
 
-    describe '#record_id' do
-      it 'is the #record_id' do
+    describe '#record_ids' do
+      before(:each) do
+        object.stub(:record_ids).and_return(['record_id1', 'record_id2'])
+      end
+
+      it 'is the #record_ids' do
         expect(object).to receive(:record_ids)
         subject.record_ids
+      end
+
+      it "returns an ul with the records id" do
+        expect(subject.record_ids).to eq("<ul><li>record_id1</li><li>record_id2</li></ul>")
       end
     end
   end
