@@ -56,7 +56,9 @@ class RecordDecorator < Draper::Decorator
   end
 
   def general_notes
-    object.general_notes
+    h.content_tag(:ul) do
+      object.general_notes.collect { | field | h.concat(h.content_tag(:li, field)) }
+    end
   end
 
   def subjects

@@ -82,9 +82,17 @@ describe RecordDecorator do
     end
 
     describe '#general_notes' do
+      before(:each) do
+        object.stub(:general_notes).and_return(['general_notes', 'general_notes2'])
+      end
+
       it 'is the subject#general_notes' do
         expect(object).to receive(:general_notes)
         subject.general_notes
+      end
+
+      it "returns a ul with lis" do
+        expect(subject.general_notes).to eq("<ul><li>general_notes</li><li>general_notes2</li></ul>")
       end
     end
 

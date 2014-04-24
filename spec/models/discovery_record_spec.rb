@@ -73,9 +73,17 @@ describe DiscoveryRecord do
       expect(subject.description).to eq("description")
     end
 
-    it "has the general_notes" do
-      expect(subject.general_notes).to eq("general_notes")
+    describe :general_notes do
+      it "has the general_notes" do
+        expect(subject.general_notes).to eq(["general_notes", "general_notes2"])
+      end
+
+      it "returns an array when there is only 1 record" do
+        subject.stub(:display_field).with(:lds01).and_return("1general_notes")
+        expect(subject.general_notes).to eq(["1general_notes"])
+      end
     end
+
 
     it "has availability" do
       expect(subject.availability).to eq("available")

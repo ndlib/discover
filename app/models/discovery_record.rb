@@ -31,6 +31,10 @@ class DiscoveryRecord
     display_field(:creator)
   end
 
+  def contributor
+    display_field(:contributor)
+  end
+
   def description
     display_field(:description)
   end
@@ -44,7 +48,7 @@ class DiscoveryRecord
   end
 
   def general_notes
-    display_field(:lds01)
+    ensure_array(display_field(:lds01))
   end
 
   def description
