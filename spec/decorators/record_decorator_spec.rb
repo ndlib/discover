@@ -116,10 +116,18 @@ describe RecordDecorator do
       end
     end
 
-    describe '#record_id' do
-      it 'is the #record_id' do
+    describe '#record_ids' do
+      before(:each) do
+        object.stub(:record_ids).and_return(['record_id1', 'record_id2'])
+      end
+
+      it 'is the #record_ids' do
         expect(object).to receive(:record_ids)
         subject.record_ids
+      end
+
+      it "returns an ul with the records id" do
+        expect(subject.record_ids).to eq("<ul><li>record_id1</li><li>record_id2</li></ul>")
       end
     end
   end

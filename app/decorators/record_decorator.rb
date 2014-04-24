@@ -46,7 +46,9 @@ class RecordDecorator < Draper::Decorator
   end
 
   def published
-    h.content_tag('ul', h.raw(object.published.collect { | field | h.content_tag('li', field) }.join))
+    h.content_tag(:ul) do
+      object.published.collect { | field | h.concat(h.content_tag(:li, field)) }
+    end
   end
 
   def description
@@ -74,6 +76,9 @@ class RecordDecorator < Draper::Decorator
   end
 
   def record_ids
-    object.record_ids
+    h.content_tag(:ul) do
+      object.record_ids.collect { | field | h.concat(h.content_tag(:li, field)) }
+    end
   end
+
 end
