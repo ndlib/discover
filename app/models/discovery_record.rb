@@ -32,7 +32,7 @@ class DiscoveryRecord
   end
 
   def contributor
-    display_field(:contributor)
+    ensure_array(display_field(:contributor))
   end
 
   def description

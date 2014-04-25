@@ -30,6 +30,7 @@ en:
     language: "Language"
     identifier: "Identifier"
     contents: "Contents"
+    contributor: "Contributor"
     type: "Type"
     record_ids: "Record IDs"
   devise:

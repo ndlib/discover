@@ -6,6 +6,7 @@
   "edition":"edition",
   "publisher":"publisher",
   "creationdate":"creation_date",
+  "contributor": "contributor",
   "format":"format",
   "identifier":"identifier",
   "subject":["subject1",

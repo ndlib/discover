@@ -43,6 +43,10 @@ describe DiscoveryRecord do
       expect(subject.creator).to eq("creator")
     end
 
+    it "has a contributor" do
+      expect(subject.contributor).to eq(["contributor"])
+    end
+
     it "has language" do
       expect(subject.language).to eq("lang")
     end

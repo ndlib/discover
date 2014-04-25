@@ -22,6 +22,7 @@ class RecordDecorator < Draper::Decorator
     [
       :title,
       :author,
+      :contributor,
       :published,
       :description,
       :general_notes,
@@ -46,6 +47,10 @@ class RecordDecorator < Draper::Decorator
     object.creator
   end
 
+  def contributor
+    ulize_array(object.contributor)
+  end
+
   def published
     ulize_array(object.published)
   end
@@ -61,7 +66,6 @@ class RecordDecorator < Draper::Decorator
   def subjects
     ulize_array(object.subjects)
   end
-
 
   def contents
     ulize_array(object.contents)
