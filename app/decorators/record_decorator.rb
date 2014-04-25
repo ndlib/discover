@@ -31,6 +31,7 @@ class RecordDecorator < Draper::Decorator
       :language,
       :identifier,
       :type,
+      :series,
       :record_ids
     ]
   end
@@ -63,6 +64,10 @@ class RecordDecorator < Draper::Decorator
     ulize_array(object.general_notes)
   end
 
+  def series
+    ulize_array(object.series)
+  end
+
   def subjects
     ulize_array(object.subjects)
   end
@@ -86,7 +91,6 @@ class RecordDecorator < Draper::Decorator
   def record_ids
     ulize_array(object.record_ids)
   end
-
 
   private
 

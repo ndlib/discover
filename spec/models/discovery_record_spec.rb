@@ -65,6 +65,23 @@ describe DiscoveryRecord do
     end
 
 
+    describe "#series" do
+      it "has a series" do
+        expect(subject.series).to eq(["series1", 'series2'])
+      end
+
+      it "returns empty array if there is no content" do
+        subject.stub(:display_field).with(:lds30).and_return(nil)
+        expect(subject.series).to eq([])
+      end
+
+      it "returns an array when there is only 1 record" do
+        subject.stub(:display_field).with(:lds30).and_return("1series")
+        expect(subject.series).to eq(["1series"])
+      end
+    end
+
+
     it "has identifier" do
       expect(subject.identifier).to eq("identifier")
     end
