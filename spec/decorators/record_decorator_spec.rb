@@ -111,6 +111,22 @@ describe RecordDecorator do
       end
     end
 
+
+    describe "#contents" do
+      before(:each) do
+        object.stub(:contents).and_return(['contents1', 'contents2', 'contents3'])
+      end
+
+      it "is the object#contents" do
+        expect(object).to receive(:contents)
+        subject.contents
+      end
+
+      it "returns an array" do
+        expect(subject.contents).to eq("<ul><li>contents1</li><li>contents2</li><li>contents3</li></ul>")
+      end
+    end
+
     describe '#language' do
       it 'is the object#language' do
         expect(object).to receive(:language)

@@ -26,6 +26,7 @@ class RecordDecorator < Draper::Decorator
       :description,
       :general_notes,
       :subjects,
+      :contents,
       :language,
       :identifier,
       :type,
@@ -46,9 +47,7 @@ class RecordDecorator < Draper::Decorator
   end
 
   def published
-    h.content_tag(:ul) do
-      object.published.collect { | field | h.concat(h.content_tag(:li, field)) }
-    end
+    ulize_array(object.published)
   end
 
   def description
@@ -56,15 +55,16 @@ class RecordDecorator < Draper::Decorator
   end
 
   def general_notes
-    h.content_tag(:ul) do
-      object.general_notes.collect { | field | h.concat(h.content_tag(:li, field)) }
-    end
+    ulize_array(object.general_notes)
   end
 
   def subjects
-    h.content_tag(:ul) do
-      object.subjects.collect { | field | h.concat(h.content_tag(:li, field)) }
-    end
+    ulize_array(object.subjects)
+  end
+
+
+  def contents
+    ulize_array(object.contents)
   end
 
   def language
@@ -80,9 +80,18 @@ class RecordDecorator < Draper::Decorator
   end
 
   def record_ids
-    h.content_tag(:ul) do
-      object.record_ids.collect { | field | h.concat(h.content_tag(:li, field)) }
-    end
+    ulize_array(object.record_ids)
   end
+
+
+  private
+
+    def ulize_array(arr)
+      if arr.present?
+        h.content_tag(:ul) do
+          arr.collect { | item | h.concat(h.content_tag(:li, item)) }
+        end
+      end
+    end
 
 end

@@ -11,6 +11,7 @@ class LogUnknownDisplayFields
     :language,
     :lds01,
     :lds02,
+    :lds03,
     :publisher,
     :relation,
     :subject,

@@ -29,6 +29,7 @@ en:
     subjects: "Subjects"
     language: "Language"
     identifier: "Identifier"
+    contents: "Contents"
     type: "Type"
     record_ids: "Record IDs"
   devise:
