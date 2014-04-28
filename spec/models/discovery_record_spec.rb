@@ -43,13 +43,42 @@ describe DiscoveryRecord do
       expect(subject.creator).to eq("creator")
     end
 
+    it "has a contributor" do
+      expect(subject.contributor).to eq(["contributor"])
+    end
+
     it "has language" do
       expect(subject.language).to eq("lang")
     end
 
 
-    it "has published" do
-      expect(subject.published).to eq(["edition", "publisher", "creation_date", "format"])
+    describe "#publsihed"  do
+      it "has published" do
+        expect(subject.published).to eq(["edition", "publisher", "creation_date", "format"])
+      end
+
+      it "handels format being an array " do
+        subject.stub(:display_field).and_return('default')
+        subject.stub(:display_field).with(:format).and_return(['format1', 'format2'])
+        expect(subject.published).to eq(["default", "default", "default", "format1", "format2"])
+      end
+    end
+
+
+    describe "#series" do
+      it "has a series" do
+        expect(subject.series).to eq(["series1", 'series2'])
+      end
+
+      it "returns empty array if there is no content" do
+        subject.stub(:display_field).with(:lds30).and_return(nil)
+        expect(subject.series).to eq([])
+      end
+
+      it "returns an array when there is only 1 record" do
+        subject.stub(:display_field).with(:lds30).and_return("1series")
+        expect(subject.series).to eq(["1series"])
+      end
     end
 
 
@@ -67,6 +96,11 @@ describe DiscoveryRecord do
         subject.stub(:display_field).with(:lds02).and_return("1record_id")
         expect(subject.record_ids).to eq(["1record_id"])
       end
+
+      it "returns empty array if there is no content" do
+        subject.stub(:display_field).with(:lds02).and_return(nil)
+        expect(subject.record_ids).to eq([])
+      end
     end
 
     it "has the description" do
@@ -81,6 +115,11 @@ describe DiscoveryRecord do
       it "returns an array when there is only 1 record" do
         subject.stub(:display_field).with(:lds01).and_return("1general_notes")
         expect(subject.general_notes).to eq(["1general_notes"])
+      end
+
+      it "returns empty array if there is no content" do
+        subject.stub(:display_field).with(:lds01).and_return(nil)
+        expect(subject.general_notes).to eq([])
       end
     end
 
@@ -98,9 +137,37 @@ describe DiscoveryRecord do
         subject.stub(:display_field).with(:subject).and_return("1subject")
         expect(subject.subjects).to eq(["1subject"])
       end
+
+      it "returns empty array if there is no content" do
+        subject.stub(:display_field).with(:subject).and_return(nil)
+        expect(subject.subjects).to eq([])
+      end
+    end
+  end
+
+
+  describe "#contents" do
+
+    it "has contents" do
+      expect(subject.contents).to eq(['contents1'])
     end
 
+    it "splits the contents on the -- delimiter" do
+      subject.stub(:display_field).with(:lds03).and_return("contents1-1--contents1-2")
+      expect(subject.contents).to eq(["contents1-1", "contents1-2"])
+    end
+
+    it "strips out extra spaces around the content pieces" do
+      subject.stub(:display_field).with(:lds03).and_return(" contents 1-1 -- contents 1-2 ")
+      expect(subject.contents).to eq(["contents 1-1", "contents 1-2"])
+    end
+
+    it "returns empty array if there is no content" do
+      subject.stub(:display_field).with(:lds03).and_return(nil)
+      expect(subject.contents).to eq([])
+    end
   end
+
 
   describe '#display_fields' do
     it "is a hash" do

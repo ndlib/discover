@@ -29,7 +29,10 @@ en:
     subjects: "Subjects"
     language: "Language"
     identifier: "Identifier"
+    contents: "Contents"
+    contributor: "Contributor"
     type: "Type"
+    series: "Series"
     record_ids: "Record IDs"
   devise:
     failure:

@@ -32,7 +32,7 @@ class DiscoveryRecord
   end
 
   def contributor
-    display_field(:contributor)
+    ensure_array(display_field(:contributor))
   end
 
   def description
@@ -51,8 +51,22 @@ class DiscoveryRecord
     ensure_array(display_field(:lds01))
   end
 
+
+  def series
+    ensure_array(display_field(:lds30))
+  end
+
+
   def description
     display_field(:description)
+  end
+
+
+  def contents
+    contents = display_field(:lds03)
+    contents = split_row(contents)
+
+    ensure_array(contents)
   end
 
   def published
@@ -60,7 +74,9 @@ class DiscoveryRecord
     ret << display_field(:edition) if display_field(:edition)
     ret << display_field(:publisher) if display_field(:publisher)
     ret << display_field(:creationdate) if display_field(:creationdate)
-    ret << display_field(:format) if display_field(:format)
+    if display_field(:format)
+      ret.concat(ensure_array(display_field(:format)))
+    end
 
     ret
   end
@@ -99,10 +115,21 @@ class DiscoveryRecord
 
 
     def ensure_array(result)
-      if !result.is_a?(Array)
+      if result.nil?
+        []
+      elsif !result.is_a?(Array)
         result = [result]
+      else
+        result
       end
+    end
 
-      result
+
+    def split_row(row)
+      if row.present?
+        row.split("--").collect{ | r | r.to_s.strip }
+      else
+        row
+      end
     end
 end
