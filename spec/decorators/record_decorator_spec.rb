@@ -157,9 +157,17 @@ describe RecordDecorator do
     end
 
     describe '#identifier' do
+      before(:each) do
+        object.stub(:identifier).and_return(['identifier1', 'identifier2'])
+      end
+
       it 'is the #identifier' do
         expect(object).to receive(:identifier)
         subject.identifier
+      end
+
+     it "returns an ul" do
+        expect(subject.identifier).to eq("<ul><li>identifier1</li><li>identifier2</li></ul>")
       end
     end
 
@@ -188,7 +196,7 @@ describe RecordDecorator do
         subject.uniform_titles
       end
 
-      it "returns an array" do
+      it "returns an ul" do
         expect(subject.uniform_titles).to eq("<ul><li>uniform_titles1</li><li>uniform_titles2</li></ul>")
       end
     end

@@ -103,8 +103,12 @@ class DiscoveryRecord
   end
 
   def identifier
-    #parse_subfields(display_field(:identifier))
-    display_field(:identifier)
+    id = split_row_semicolon(display_field(:identifier))
+    if id
+      id.collect{ | r | convert_hash_to_key_value(parse_subfields(r)) }
+    else
+      ""
+    end
   end
 
   def subjects
@@ -152,7 +156,21 @@ class DiscoveryRecord
     end
 
 
+    def split_row_semicolon(row)
+      if row.present?
+        row.split(";").collect{ | r | r.to_s.strip }
+      else
+        row
+      end
+    end
+
+
     def parse_subfields(string)
       Hash[string.scan(/\${2}([^\$])([^\$]+)/)]
+    end
+
+
+    def convert_hash_to_key_value(hash)
+      {hash['C'].strip => hash['V'].strip}
     end
 end

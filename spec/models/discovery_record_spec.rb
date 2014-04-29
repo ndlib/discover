@@ -108,9 +108,16 @@ describe DiscoveryRecord do
       end
     end
 
+    describe :identifier do
 
-    it "has identifier" do
-      expect(subject.identifier).to eq("identifier")
+      it "has identifier" do
+        expect(subject.identifier).to eq([{"key"=>"value"}])
+      end
+
+      it "parsers multiple key value pairs into multiple results" do
+        subject.stub(:display_field).with(:identifier).and_return("$$Ckey $$Vvalue; $$Ckey1 $$Vvalue1")
+        expect(subject.identifier).to eq([{"key"=>"value"}, {"key1"=>"value1"}])
+      end
     end
 
     describe :record_ids do

@@ -88,7 +88,7 @@ class RecordDecorator < Draper::Decorator
   end
 
   def identifier
-    object.identifier
+    ulize_array(object.identifier)
   end
 
   def type

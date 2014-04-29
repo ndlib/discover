@@ -8,7 +8,7 @@
   "creationdate":"creation_date",
   "contributor": "contributor",
   "format":"format",
-  "identifier":"identifier",
+  "identifier":"$$Ckey $$Vvalue",
   "subject":["subject1",
   "subject2",
   "subject3"],
