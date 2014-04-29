@@ -80,6 +80,17 @@ describe DiscoveryRecord do
       end
     end
 
+    describe "#uniform_titles"  do
+      it "has uniform_titles" do
+        expect(subject.uniform_titles).to eq(["uniform_titles1", "uniform_titles2"])
+      end
+
+      it "handels format being an array " do
+        subject.stub(:display_field).with(:lds31).and_return('uniform_titles')
+        expect(subject.uniform_titles).to eq(["uniform_titles"])
+      end
+    end
+
 
     describe "#series" do
       it "has a series" do

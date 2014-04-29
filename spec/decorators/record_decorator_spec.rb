@@ -178,6 +178,21 @@ describe RecordDecorator do
       end
     end
 
+    describe '#uniform_titles' do
+      before(:each) do
+        object.stub(:uniform_titles).and_return(['uniform_titles1', 'uniform_titles2'])
+      end
+
+      it 'is the object publisher_provider' do
+        expect(object).to receive(:uniform_titles)
+        subject.uniform_titles
+      end
+
+      it "returns an array" do
+        expect(subject.uniform_titles).to eq("<ul><li>uniform_titles1</li><li>uniform_titles2</li></ul>")
+      end
+    end
+
     describe '#record_ids' do
       before(:each) do
         object.stub(:record_ids).and_return(['record_id1', 'record_id2'])

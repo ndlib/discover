@@ -94,11 +94,16 @@ class DiscoveryRecord
     ret
   end
 
+  def uniform_titles
+    ensure_array(display_field(:lds31))
+  end
+
   def record_ids
     ensure_array(display_field(:lds02))
   end
 
   def identifier
+    #parse_subfields(display_field(:identifier))
     display_field(:identifier)
   end
 
@@ -144,5 +149,10 @@ class DiscoveryRecord
       else
         row
       end
+    end
+
+
+    def parse_subfields(string)
+      Hash[string.scan(/\${2}([^\$])([^\$]+)/)]
     end
 end

@@ -34,6 +34,7 @@ class RecordDecorator < Draper::Decorator
       :type,
       :source,
       :series,
+      :uniform_titles,
       :record_ids
     ]
   end
@@ -98,6 +99,10 @@ class RecordDecorator < Draper::Decorator
     object.source
   end
 
+  def uniform_titles
+    ulize_array(object.uniform_titles)
+  end
+
   def record_ids
     ulize_array(object.record_ids)
   end
@@ -111,5 +116,6 @@ class RecordDecorator < Draper::Decorator
         end
       end
     end
+
 
 end
