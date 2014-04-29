@@ -44,7 +44,13 @@ class DiscoveryRecord
   end
 
   def language
-    display_field(:language)
+    lang = LanguageList::LanguageInfo.find(display_field(:language))
+
+    if !lang.nil?
+      lang.name
+    else
+      display_field(:language)
+    end
   end
 
   def general_notes

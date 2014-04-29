@@ -47,9 +47,17 @@ describe DiscoveryRecord do
       expect(subject.contributor).to eq(["contributor"])
     end
 
-    it "has language" do
-      expect(subject.language).to eq("lang")
+    describe "language" do
+      it "has language" do
+        expect(subject.language).to eq("English")
+      end
+
+      it "uses the language list to look up the name from the iso code" do
+        expect(LanguageList::LanguageInfo).to receive(:find).with('eng')
+        subject.language
+      end
     end
+
 
     it "has a source" do
       expect(subject.source).to eq("source")
