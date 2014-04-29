@@ -12,6 +12,9 @@ class LogUnknownDisplayFields
     :lds01,
     :lds02,
     :lds03,
+    :lds06,  # not used
+    :lds30,
+    :relation,
     :publisher,
     :relation,
     :subject,

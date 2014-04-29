@@ -59,6 +59,13 @@ describe RecordDecorator do
       end
     end
 
+    describe '#related_titles' do
+      it 'is the object related_titles' do
+        expect(object).to receive(:related_titles)
+        subject.related_titles
+      end
+    end
+
     describe '#published' do
       before(:each) do
         object.stub(:published).and_return(['edition', 'publisher', 'creationdate', 'format'])

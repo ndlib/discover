@@ -59,6 +59,10 @@ class DiscoveryRecord
     ensure_array(display_field(:lds30))
   end
 
+  def related_titles
+    display_field(:relation)
+  end
+
 
   def description
     display_field(:description)

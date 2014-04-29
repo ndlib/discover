@@ -55,6 +55,10 @@ describe DiscoveryRecord do
       expect(subject.source).to eq("source")
     end
 
+    it "has a related_titles" do
+      expect(subject.related_titles).to eq("relation")
+    end
+
 
     describe "#publsihed"  do
       it "has published" do

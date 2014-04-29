@@ -26,6 +26,7 @@ class RecordDecorator < Draper::Decorator
       :published,
       :description,
       :general_notes,
+      :related_titles,
       :subjects,
       :contents,
       :language,
@@ -67,6 +68,10 @@ class RecordDecorator < Draper::Decorator
 
   def series
     ulize_array(object.series)
+  end
+
+  def related_titles
+    object.related_titles
   end
 
   def subjects
