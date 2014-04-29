@@ -7,16 +7,23 @@ class LogUnknownDisplayFields
     :creationdate,
     :creator,
     :format,
+    :edition,
     :identifier,
     :language,
     :lds01,
     :lds02,
     :lds03,
+    :lds06,  # not used
+    :lds30,
+    :lds31,
+    :relation,
     :publisher,
     :relation,
     :subject,
     :title,
     :type,
+    :source,
+    :description,
     :unititle,
     :version
   ]

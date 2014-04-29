@@ -59,6 +59,13 @@ describe RecordDecorator do
       end
     end
 
+    describe '#related_titles' do
+      it 'is the object related_titles' do
+        expect(object).to receive(:related_titles)
+        subject.related_titles
+      end
+    end
+
     describe '#published' do
       before(:each) do
         object.stub(:published).and_return(['edition', 'publisher', 'creationdate', 'format'])
@@ -160,6 +167,29 @@ describe RecordDecorator do
       it 'is the object type' do
         expect(object).to receive(:type)
         subject.type
+      end
+    end
+
+
+    describe '#type' do
+      it 'is the object source' do
+        expect(object).to receive(:source)
+        subject.source
+      end
+    end
+
+    describe '#uniform_titles' do
+      before(:each) do
+        object.stub(:uniform_titles).and_return(['uniform_titles1', 'uniform_titles2'])
+      end
+
+      it 'is the object publisher_provider' do
+        expect(object).to receive(:uniform_titles)
+        subject.uniform_titles
+      end
+
+      it "returns an array" do
+        expect(subject.uniform_titles).to eq("<ul><li>uniform_titles1</li><li>uniform_titles2</li></ul>")
       end
     end
 

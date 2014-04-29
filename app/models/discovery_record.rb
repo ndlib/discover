@@ -44,16 +44,29 @@ class DiscoveryRecord
   end
 
   def language
-    display_field(:language)
+    lang = LanguageList::LanguageInfo.find(display_field(:language))
+
+    if !lang.nil?
+      lang.name
+    else
+      display_field(:language)
+    end
   end
 
   def general_notes
     ensure_array(display_field(:lds01))
   end
 
+  def source
+    display_field(:source)
+  end
 
   def series
     ensure_array(display_field(:lds30))
+  end
+
+  def related_titles
+    display_field(:relation)
   end
 
 
@@ -81,11 +94,16 @@ class DiscoveryRecord
     ret
   end
 
+  def uniform_titles
+    ensure_array(display_field(:lds31))
+  end
+
   def record_ids
     ensure_array(display_field(:lds02))
   end
 
   def identifier
+    #parse_subfields(display_field(:identifier))
     display_field(:identifier)
   end
 
@@ -131,5 +149,10 @@ class DiscoveryRecord
       else
         row
       end
+    end
+
+
+    def parse_subfields(string)
+      Hash[string.scan(/\${2}([^\$])([^\$]+)/)]
     end
 end

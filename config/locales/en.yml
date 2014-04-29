@@ -32,7 +32,9 @@ en:
     contents: "Contents"
     contributor: "Contributor"
     type: "Type"
+    source: "Source"
     series: "Series"
+    related_titles: "Related Titles"
     record_ids: "Record IDs"
   devise:
     failure:

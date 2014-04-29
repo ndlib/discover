@@ -47,8 +47,24 @@ describe DiscoveryRecord do
       expect(subject.contributor).to eq(["contributor"])
     end
 
-    it "has language" do
-      expect(subject.language).to eq("lang")
+    describe "language" do
+      it "has language" do
+        expect(subject.language).to eq("English")
+      end
+
+      it "uses the language list to look up the name from the iso code" do
+        expect(LanguageList::LanguageInfo).to receive(:find).with('eng')
+        subject.language
+      end
+    end
+
+
+    it "has a source" do
+      expect(subject.source).to eq("source")
+    end
+
+    it "has a related_titles" do
+      expect(subject.related_titles).to eq("relation")
     end
 
 
@@ -61,6 +77,17 @@ describe DiscoveryRecord do
         subject.stub(:display_field).and_return('default')
         subject.stub(:display_field).with(:format).and_return(['format1', 'format2'])
         expect(subject.published).to eq(["default", "default", "default", "format1", "format2"])
+      end
+    end
+
+    describe "#uniform_titles"  do
+      it "has uniform_titles" do
+        expect(subject.uniform_titles).to eq(["uniform_titles1", "uniform_titles2"])
+      end
+
+      it "handels format being an array " do
+        subject.stub(:display_field).with(:lds31).and_return('uniform_titles')
+        expect(subject.uniform_titles).to eq(["uniform_titles"])
       end
     end
 
@@ -167,6 +194,8 @@ describe DiscoveryRecord do
       expect(subject.contents).to eq([])
     end
   end
+
+
 
 
   describe '#display_fields' do

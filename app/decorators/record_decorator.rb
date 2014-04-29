@@ -26,12 +26,15 @@ class RecordDecorator < Draper::Decorator
       :published,
       :description,
       :general_notes,
+      :related_titles,
       :subjects,
       :contents,
       :language,
       :identifier,
       :type,
+      :source,
       :series,
+      :uniform_titles,
       :record_ids
     ]
   end
@@ -68,6 +71,10 @@ class RecordDecorator < Draper::Decorator
     ulize_array(object.series)
   end
 
+  def related_titles
+    object.related_titles
+  end
+
   def subjects
     ulize_array(object.subjects)
   end
@@ -88,6 +95,14 @@ class RecordDecorator < Draper::Decorator
     object.type
   end
 
+  def source
+    object.source
+  end
+
+  def uniform_titles
+    ulize_array(object.uniform_titles)
+  end
+
   def record_ids
     ulize_array(object.record_ids)
   end
@@ -101,5 +116,6 @@ class RecordDecorator < Draper::Decorator
         end
       end
     end
+
 
 end
