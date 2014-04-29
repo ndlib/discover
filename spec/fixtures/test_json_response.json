@@ -17,6 +17,7 @@
   "availlibrary":["$$IHCC$$LHCC$$1General Collection$$2(813.54 S26 2001 )$$Savailable$$31$$40$$5N$$62$$XHCC50$$YHCC$$ZGEN$$Ohcc_aleph000021761","$$INDU$$LHESB$$1General Collection$$2(PS 3537 .A426 C3 2001 )$$Sunavailable$$31$$41$$5N$$640$$XNDU50$$YHESB$$ZGEN$$Ondu_aleph001890313"],
   "availinstitution":["$$INDU$$Sunavailable","$$IHCC$$Savailable"],
   "availpnx":"available",
+  "source": "source",
   "lds01":[ "general_notes", "general_notes2" ],
   "lds02":["recordid1","recordid2"],
   "lds03": "contents1",

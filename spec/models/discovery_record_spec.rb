@@ -51,6 +51,10 @@ describe DiscoveryRecord do
       expect(subject.language).to eq("lang")
     end
 
+    it "has a source" do
+      expect(subject.source).to eq("source")
+    end
+
 
     describe "#publsihed"  do
       it "has published" do
@@ -167,6 +171,8 @@ describe DiscoveryRecord do
       expect(subject.contents).to eq([])
     end
   end
+
+
 
 
   describe '#display_fields' do

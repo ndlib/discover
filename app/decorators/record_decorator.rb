@@ -31,6 +31,7 @@ class RecordDecorator < Draper::Decorator
       :language,
       :identifier,
       :type,
+      :source,
       :series,
       :record_ids
     ]
@@ -86,6 +87,10 @@ class RecordDecorator < Draper::Decorator
 
   def type
     object.type
+  end
+
+  def source
+    object.source
   end
 
   def record_ids

@@ -163,6 +163,14 @@ describe RecordDecorator do
       end
     end
 
+
+    describe '#type' do
+      it 'is the object source' do
+        expect(object).to receive(:source)
+        subject.source
+      end
+    end
+
     describe '#record_ids' do
       before(:each) do
         object.stub(:record_ids).and_return(['record_id1', 'record_id2'])

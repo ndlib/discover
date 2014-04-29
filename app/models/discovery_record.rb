@@ -51,6 +51,9 @@ class DiscoveryRecord
     ensure_array(display_field(:lds01))
   end
 
+  def source
+    display_field(:source)
+  end
 
   def series
     ensure_array(display_field(:lds30))
