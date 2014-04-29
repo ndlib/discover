@@ -7,6 +7,7 @@ class LogUnknownDisplayFields
     :creationdate,
     :creator,
     :format,
+    :edition,
     :identifier,
     :language,
     :lds01,
