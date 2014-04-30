@@ -132,6 +132,11 @@ GEM
       spork (>= 0.8.4)
     highline (1.6.21)
     hike (1.2.3)
+    hipchat (1.1.0)
+      httparty
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -155,6 +160,7 @@ GEM
     mini_portile (0.5.3)
     minitest (4.7.5)
     multi_json (1.9.2)
+    multi_xml (0.5.5)
     mysql2 (0.3.15)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -279,6 +285,7 @@ DEPENDENCIES
   hesburgh_api!
   hesburgh_errors!
   hesburgh_infrastructure!
+  hipchat
   jbuilder (~> 1.2)
   jquery-rails
   language_list
