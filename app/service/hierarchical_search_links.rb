@@ -29,8 +29,8 @@ class HierarchicalSearchLinks < Draper::Decorator
       total_search = ''
 
       split_search_for_heirarchy.each do | search |
-        total_search += " #{search}"
-        ret << h.link_to(search, PrimoSearchUri.call(total_search, type))
+        total_search += "#{search} "
+        ret << h.link_to(search, PrimoSearchUri.call(total_search, type), title: h.raw("Search for &quot;#{total_search}&quot;"))
       end
 
       ret

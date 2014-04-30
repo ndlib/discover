@@ -144,8 +144,16 @@ describe RecordDecorator do
         subject.series
       end
 
+      it "creates heirarctical links out of the series" do
+        expect(HierarchicalSearchLinks).to receive(:render).twice
+        subject.series
+      end
+
       it "returns an array" do
-        expect(subject.series).to eq("<ul><li>series1</li><li>series2</li></ul>")
+        HierarchicalSearchLinks.stub(:render).with("series1", :series).and_return("series1_link")
+        HierarchicalSearchLinks.stub(:render).with("series2", :series).and_return("series2_link")
+
+        expect(subject.series).to eq("<ul><li>series1_link</li><li>series2_link</li></ul>")
       end
     end
 
@@ -196,8 +204,16 @@ describe RecordDecorator do
         subject.uniform_titles
       end
 
-      it "returns an ul" do
-        expect(subject.uniform_titles).to eq("<ul><li><ul class=\"ndl-heiractical-search\"><li class=\"ndl-heiractical-search-1\"><a href=\"http://primo-fe1.library.nd.edu:1701/primo_library/libweb/action/search.do?fn=search&amp;mode=Advanced&amp;tab=onesearch&amp;vid=NDU&amp;vl%2816833817UI0%29=lsr04&amp;vl%281UIStartWith0%29=exact&amp;vl%28freeText0%29=+uniform_titles1\">uniform_titles1</a></li></ul></li><li><ul class=\"ndl-heiractical-search\"><li class=\"ndl-heiractical-search-1\"><a href=\"http://primo-fe1.library.nd.edu:1701/primo_library/libweb/action/search.do?fn=search&amp;mode=Advanced&amp;tab=onesearch&amp;vid=NDU&amp;vl%2816833817UI0%29=lsr04&amp;vl%281UIStartWith0%29=exact&amp;vl%28freeText0%29=+uniform_titles2\">uniform_titles2</a></li></ul></li></ul>")
+      it "creates heirarctical links out of the series" do
+        expect(HierarchicalSearchLinks).to receive(:render).twice
+        subject.uniform_titles
+      end
+
+      it "returns an array" do
+        HierarchicalSearchLinks.stub(:render).with("uniform_titles1", :series).and_return("title1_link")
+        HierarchicalSearchLinks.stub(:render).with("uniform_titles1", :series).and_return("title2_link")
+
+        expect(subject.series).to eq("<ul><li>title1_link</li><li>title2_link</li></ul>")
       end
     end
 
