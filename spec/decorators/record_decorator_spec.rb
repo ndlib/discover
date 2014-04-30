@@ -197,7 +197,7 @@ describe RecordDecorator do
       end
 
       it "returns an ul" do
-        expect(subject.uniform_titles).to eq("<ul><li>uniform_titles1</li><li>uniform_titles2</li></ul>")
+        expect(subject.uniform_titles).to eq("<ul><li><ul class=\"ndl-heiractical-search\"><li class=\"ndl-heiractical-search-1\"><a href=\"http://primo-fe1.library.nd.edu:1701/primo_library/libweb/action/search.do?fn=search&amp;mode=Advanced&amp;tab=onesearch&amp;vid=NDU&amp;vl%2816833817UI0%29=lsr04&amp;vl%281UIStartWith0%29=exact&amp;vl%28freeText0%29=+uniform_titles1\">uniform_titles1</a></li></ul></li><li><ul class=\"ndl-heiractical-search\"><li class=\"ndl-heiractical-search-1\"><a href=\"http://primo-fe1.library.nd.edu:1701/primo_library/libweb/action/search.do?fn=search&amp;mode=Advanced&amp;tab=onesearch&amp;vid=NDU&amp;vl%2816833817UI0%29=lsr04&amp;vl%281UIStartWith0%29=exact&amp;vl%28freeText0%29=+uniform_titles2\">uniform_titles2</a></li></ul></li></ul>")
       end
     end
 

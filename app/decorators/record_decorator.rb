@@ -100,7 +100,8 @@ class RecordDecorator < Draper::Decorator
   end
 
   def uniform_titles
-    ulize_array(object.uniform_titles)
+    titles = object.uniform_titles.collect { | row | HierarchicalSearchLinks.render(row, :uniform_title) }
+    ulize_array(titles)
   end
 
   def record_ids

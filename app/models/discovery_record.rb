@@ -148,11 +148,7 @@ class DiscoveryRecord
 
 
     def split_row(row)
-      if row.present?
-        row.split("--").collect{ | r | r.to_s.strip }
-      else
-        row
-      end
+      PrimoFieldSplitter.call(row)
     end
 
 
