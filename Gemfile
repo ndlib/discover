@@ -41,6 +41,9 @@ gem 'devise_cas_authenticatable'
 
 gem 'mysql2'
 
+# Server monitoring
+gem 'newrelic_rpm'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
