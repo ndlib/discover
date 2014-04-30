@@ -16,7 +16,7 @@ class PrimoSearchUri
 
   def initialize(search, type)
     @search = search
-    @type   = type
+    @type   = type.to_s
 
     validate!
   end

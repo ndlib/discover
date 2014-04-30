@@ -68,7 +68,8 @@ class RecordDecorator < Draper::Decorator
   end
 
   def series
-    ulize_array(object.series)
+    series = create_heirarchical_links(object.series, :series)
+    ulize_array(series)
   end
 
   def related_titles
@@ -100,7 +101,8 @@ class RecordDecorator < Draper::Decorator
   end
 
   def uniform_titles
-    ulize_array(object.uniform_titles)
+    titles = create_heirarchical_links(object.uniform_titles, :uniform_title)
+    ulize_array(titles)
   end
 
   def record_ids
@@ -117,5 +119,9 @@ class RecordDecorator < Draper::Decorator
       end
     end
 
+
+    def create_heirarchical_links(array, search_type)
+      array.collect { | row | HierarchicalSearchLinks.render(row, search_type) }
+    end
 
 end
