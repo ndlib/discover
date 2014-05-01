@@ -7,11 +7,11 @@ describe HierarchicalSearchLinks do
   end
 
   it "creates heirachical links when the separator is present" do
-    expect(HierarchicalSearchLinks.render("link1 -- link2", "series")).to eq("<ul class=\"ndl-heiractical-search\"><li class=\"ndl-heiractical-search-1\"><a href=\"url\" title=\"Search for &quot;link1 &quot;\">link1</a></li><li class=\"ndl-heiractical-search-2\"><a href=\"url\" title=\"Search for &quot;link1 link2 &quot;\">link2</a></li></ul>")
+    expect(HierarchicalSearchLinks.render("link1 -- link2", "series")).to eq("<ul class=\"ndl-hierarchical-search\"><li class=\"ndl-hierarchical-search-1\"><a href=\"url\" title=\"Search for &quot;link1 &quot;\">link1</a></li><li class=\"ndl-hierarchical-search-2\"><a href=\"url\" title=\"Search for &quot;link1 link2 &quot;\">link2</a></li></ul>")
   end
 
   it "fails over to just one link if there is no separator" do
-    expect(HierarchicalSearchLinks.render("link1", "series")).to eq("<ul class=\"ndl-heiractical-search\"><li class=\"ndl-heiractical-search-1\"><a href=\"url\" title=\"Search for &quot;link1 &quot;\">link1</a></li></ul>")
+    expect(HierarchicalSearchLinks.render("link1", "series")).to eq("<ul class=\"ndl-hierarchical-search\"><li class=\"ndl-hierarchical-search-1\"><a href=\"url\" title=\"Search for &quot;link1 &quot;\">link1</a></li></ul>")
   end
 
   it "uses the primo search uri service to generate the url" do

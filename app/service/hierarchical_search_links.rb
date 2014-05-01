@@ -7,11 +7,11 @@ class HierarchicalSearchLinks < Draper::Decorator
 
 
   def render(type)
-    h.content_tag(:ul, class: 'ndl-heiractical-search') do
-      itereation = 1
+    h.content_tag(:ul, class: 'ndl-hierarchical-search') do
+      iteration = 1
       heirachical_links_array(type).collect do | item |
-        h.concat(h.content_tag(:li, item, class: "ndl-heiractical-search-#{itereation}"))
-        itereation += 1
+        h.concat(h.content_tag(:li, item, class: "ndl-hierarchical-search-#{iteration}"))
+        iteration += 1
       end
     end
   end
