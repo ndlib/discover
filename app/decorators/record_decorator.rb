@@ -52,7 +52,9 @@ class RecordDecorator < Draper::Decorator
   end
 
   def contributor
-    ulize_array(object.contributor)
+    contrib = create_heirarchical_links(object.contributor, :creator)
+
+    ulize_array(contrib)
   end
 
   def published

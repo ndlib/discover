@@ -63,6 +63,8 @@ class LogUnknownDisplayFields
     display_field_record = PrimoDisplayField.find_or_initialize_by(key: key)
     if display_field_record.new_record?
       display_field_record.save
+      #email this puppy!!
+      NotifyOfNewPrimoKey.new_primo_key(display_field_record).deliver
     end
     add_example(display_field_record)
     display_field_record
@@ -83,6 +85,7 @@ class LogUnknownDisplayFields
 
   def log
     unknown_fields.each do |key|
+      puts key
       log_field(key)
     end
   end

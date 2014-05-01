@@ -96,5 +96,22 @@ describe LogUnknownDisplayFields do
         subject.log
       end
     end
+
+    describe "notifications" do
+      it 'does not email anything if there are no unknown fields' do
+        subject.stub(:unknown_fields).and_return([])
+        expect{ subject.log }.to change { ActionMailer::Base.deliveries.count }.by(0)
+      end
+
+      it 'emails an unknown field' do
+        subject.stub(:unknown_fields).and_return([:title])
+        expect{subject.log}.to change { ActionMailer::Base.deliveries.count }.by(1)
+      end
+
+      it 'emails multiple unknown fields' do
+        subject.stub(:unknown_fields).and_return([:title, :author])
+        expect{subject.log}.to change { ActionMailer::Base.deliveries.count }.by(2)
+      end
+    end
   end
 end

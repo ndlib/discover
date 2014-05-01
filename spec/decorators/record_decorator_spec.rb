@@ -72,9 +72,32 @@ describe RecordDecorator do
 
         expect(subject.author).to eq("<ul><li>creator1_link</li></ul>")
       end
-
     end
 
+
+    describe "#contributor" do
+      before(:each) do
+        object.stub(:contributor).and_return(['contributors1', 'contributors2'])
+      end
+
+      it 'is the object author' do
+        expect(object).to receive(:contributor)
+        subject.contributor
+      end
+
+      it "creates heirarctical links out of the contributors" do
+        expect(HierarchicalSearchLinks).to receive(:render).twice
+        subject.contributor
+      end
+
+      it "returns a ul with lis" do
+        HierarchicalSearchLinks.stub(:render).with("contributors1", :creator).and_return("contributors1_link")
+        HierarchicalSearchLinks.stub(:render).with("contributors2", :creator).and_return("contributors2_link")
+
+        expect(subject.contributor).to eq("<ul><li>contributors1_link</li><li>contributors2_link</li></ul>")
+      end
+
+    end
 
     describe '#published' do
       before(:each) do
@@ -152,7 +175,7 @@ describe RecordDecorator do
       end
     end
 
-    describe "#contents" do
+    describe "#series" do
       before(:each) do
         object.stub(:series).and_return(['series1', 'series2'])
       end
