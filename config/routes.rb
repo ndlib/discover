@@ -11,6 +11,7 @@ Discover::Application.routes.draw do
   get 'demo/:action' => 'demo', as: :demo
 
   get 'record' => 'records#show', as: :record, constraints: {id: /.+/}
+  get 'online_access' => 'online_access#show', as: 'online_access', constraints: {id: /.+/}
 
   resources :primo_missing_fields, only: [ :index, :show ]
 
