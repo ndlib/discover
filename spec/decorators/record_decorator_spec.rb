@@ -113,8 +113,16 @@ describe RecordDecorator do
         subject.subjects
       end
 
+      it "creates heirarctical links out of the subjects" do
+        expect(HierarchicalSearchLinks).to receive(:render).twice
+        subject.subjects
+      end
+
       it "returns a ul with lis" do
-        expect(subject.subjects).to eq("<ul><li>subject1 -- subsubject</li><li>subject2_no_subsubject</li></ul>")
+        HierarchicalSearchLinks.stub(:render).with("subject1 -- subsubject", :subject).and_return("sub1_link")
+        HierarchicalSearchLinks.stub(:render).with("subject2_no_subsubject", :subject).and_return("sub2_link")
+
+        expect(subject.subjects).to eq("<ul><li>sub1_link</li><li>sub2_link</li></ul>")
       end
     end
 
@@ -210,10 +218,10 @@ describe RecordDecorator do
       end
 
       it "returns an array" do
-        HierarchicalSearchLinks.stub(:render).with("uniform_titles1", :series).and_return("title1_link")
-        HierarchicalSearchLinks.stub(:render).with("uniform_titles1", :series).and_return("title2_link")
+        HierarchicalSearchLinks.stub(:render).with("uniform_titles1", :uniform_title).and_return("title1_link")
+        HierarchicalSearchLinks.stub(:render).with("uniform_titles2", :uniform_title).and_return("title2_link")
 
-        expect(subject.series).to eq("<ul><li>title1_link</li><li>title2_link</li></ul>")
+        expect(subject.uniform_titles).to eq("<ul><li>title1_link</li><li>title2_link</li></ul>")
       end
     end
 

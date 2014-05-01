@@ -77,7 +77,8 @@ class RecordDecorator < Draper::Decorator
   end
 
   def subjects
-    ulize_array(object.subjects)
+    subs = create_heirarchical_links(object.subjects, :subject)
+    ulize_array(subs)
   end
 
   def contents
