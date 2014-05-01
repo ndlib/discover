@@ -39,8 +39,15 @@ describe DiscoveryRecord do
       expect(subject.title).to eq("title")
     end
 
-    it "has the creator" do
-      expect(subject.creator).to eq("creator")
+    describe :creator do
+      it "has the creator" do
+        expect(subject.creator).to eq(["creator"])
+      end
+
+      it "handels format being an array " do
+        subject.stub(:display_field).with(:creator).and_return(['creator1', 'creator2'])
+        expect(subject.creator).to eq(["creator1", "creator2"])
+      end
     end
 
     it "has a contributor" do

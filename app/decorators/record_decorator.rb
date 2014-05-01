@@ -47,7 +47,8 @@ class RecordDecorator < Draper::Decorator
   end
 
   def author
-    object.creator
+    author = create_heirarchical_links(object.creator, :creator)
+    ulize_array(author)
   end
 
   def contributor
@@ -69,10 +70,6 @@ class RecordDecorator < Draper::Decorator
   def series
     series = create_heirarchical_links(object.series, :series)
     ulize_array(series)
-  end
-
-  def related_titles
-    object.related_titles
   end
 
   def subjects

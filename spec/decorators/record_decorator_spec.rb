@@ -53,18 +53,28 @@ describe RecordDecorator do
     end
 
     describe '#author' do
+      before(:each) do
+        object.stub(:creator).and_return(['creator'])
+      end
+
       it 'is the object author' do
         expect(object).to receive(:creator)
         subject.author
       end
+
+      it "creates heirarctical links out of the author" do
+        expect(HierarchicalSearchLinks).to receive(:render)
+        subject.author
+      end
+
+      it "returns a ul with lis" do
+        HierarchicalSearchLinks.stub(:render).with("creator", :creator).and_return("creator1_link")
+
+        expect(subject.author).to eq("<ul><li>creator1_link</li></ul>")
+      end
+
     end
 
-    describe '#related_titles' do
-      it 'is the object related_titles' do
-        expect(object).to receive(:related_titles)
-        subject.related_titles
-      end
-    end
 
     describe '#published' do
       before(:each) do

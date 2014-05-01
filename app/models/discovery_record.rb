@@ -28,7 +28,7 @@ class DiscoveryRecord
   end
 
   def creator
-    display_field(:creator)
+    ensure_array(display_field(:creator))
   end
 
   def contributor
