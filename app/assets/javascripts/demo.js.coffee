@@ -14,7 +14,7 @@ jQuery ($) ->
     return
 
   ready = ->
-    EXLTA_addTab "New Details", "OtherDetailsTab", location.href, "EXLDetailsTab", "detailsTab", "otherDetailsTab", false, checkTabPresence, ".EXLDetailsTab"
+    EXLTA_addTab "New Details", "OtherDetailsTab", location.href, "EXLDetailsTabDemo", "detailsTab", "otherDetailsTab", false, checkTabPresence, ".EXLDetailsTabDemo"
     $(".OtherDetailsTab").click (e) ->
       tab = $(this)
       link = tab.find('a').get(0)
