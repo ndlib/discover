@@ -26,7 +26,6 @@ class RecordDecorator < Draper::Decorator
       :published,
       :description,
       :general_notes,
-      :related_titles,
       :subjects,
       :contents,
       :language,
