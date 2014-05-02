@@ -113,10 +113,20 @@ class RecordDecorator < Draper::Decorator
     def ulize_array(arr)
       if arr.present?
         h.content_tag(:ul) do
-          arr.collect { | item | h.concat(h.content_tag(:li, item)) }
+          arr.collect { | item | h.concat(h.content_tag(:li, h.raw(item))) }
         end
       end
     end
+
+
+    def dlize_hash(hsh)
+      if hsh.present?
+        h.content_tag(:dl) do
+
+        end
+      end
+    end
+
 
 
     def create_heirarchical_links(array, search_type)

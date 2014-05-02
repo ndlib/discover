@@ -112,8 +112,24 @@ class DiscoveryRecord
   end
 
 
+  def fulltext_links
+    links = ensure_array(link_field(:linktorsrc))
+    if !links && data['fulltext_available']
+      links = [ "$$V#{data['links']['fulltext_url']}$$DNotre Dame Online Access" ]
+    end
+    links = links.collect { | l | parse_subfields(l) }
+
+    links
+  end
+
+
   def display_fields
     primo['display']
+  end
+
+
+  def link_fields
+    primo['links']
   end
 
 
@@ -131,6 +147,10 @@ class DiscoveryRecord
       display_fields[key.to_s]
     end
 
+
+    def link_field(key)
+      link_fields[key.to_s]
+    end
 
     def ensure_array(result)
       if result.nil?
@@ -158,11 +178,22 @@ class DiscoveryRecord
 
 
     def parse_subfields(string)
-      Hash[string.scan(/\${2}([^\$])([^\$]+)/)]
+      ret = Hash[string.scan(/\${2}([^\$])([^\$]+)/)]
+      if ret.empty?
+        ret = string
+      end
+
+      ret
     end
 
 
     def convert_hash_to_key_value(hash)
-      {hash['C'].strip => hash['V'].strip}
+      if hash.is_a?(Hash)
+        {hash['C'].strip => hash['V'].strip}
+      else
+        # This may be an error  identifier: "<b>ISSN: </b>0262-4079",
+        # consider trapping this.
+        hash
+      end
     end
 end

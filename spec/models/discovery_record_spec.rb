@@ -119,6 +119,16 @@ describe DiscoveryRecord do
         subject.stub(:display_field).with(:identifier).and_return("$$Ckey $$Vvalue; $$Ckey1 $$Vvalue1")
         expect(subject.identifier).to eq([{"key"=>"value"}, {"key1"=>"value1"}])
       end
+
+      it "passes the text back if it is not in the $$ format " do
+        subject.stub(:display_field).with(:identifier).and_return("text")
+        expect(subject.identifier).to eq(["text"])
+      end
+
+      it "passes back nil empty when nil" do
+        subject.stub(:display_field).with(:identifier).and_return(nil)
+        expect(subject.identifier).to eq("")
+      end
     end
 
     describe :record_ids do
