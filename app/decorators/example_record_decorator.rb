@@ -20,6 +20,14 @@ class ExampleRecordDecorator < Draper::Decorator
     get 'description'
   end
 
+  def title
+    get 'title'
+  end
+
+  def record_link
+    h.link_to('Details', h.record_path(id: id))
+  end
+
   private
     def get(key)
       object[key.to_s]

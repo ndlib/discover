@@ -1,13 +1,22 @@
 <h1>Example Records</h1>
 
 <table>
-  <thead></thead>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>ID</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
   <tbody>
     <% @examples.each do |example| %>
       <tr>
+        <td><%= example.title %></td>
         <td><%= example.id %></td>
-        <td></td>
-        <td></td>
+        <td><%= example.description %></td>
+        <td><%= example.record_link %></td>
         <td></td>
       </tr>
     <% end %>

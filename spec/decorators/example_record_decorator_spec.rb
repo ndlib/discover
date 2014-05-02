@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ExampleRecordDecorator do
   let(:record) {
-    { 'id' => 'ndu_aleph001890313', 'description' => 'Book with mulitple Identifiers and 5 frbr results.'}
+    { 'id' => 'ndu_aleph001890313', "title" => "The catcher in the rye", 'description' => 'Book with mulitple Identifiers and 5 frbr results.'}
   }
 
   let(:records) { [record] }
@@ -40,6 +40,30 @@ describe ExampleRecordDecorator do
     describe '#object' do
       it 'is the record' do
         expect(subject.object).to eq(record)
+      end
+    end
+
+    describe '#id' do
+      it 'is the record id' do
+        expect(subject.id).to eq(record['id'])
+      end
+    end
+
+    describe '#title' do
+      it 'is the record title' do
+        expect(subject.title).to eq(record['title'])
+      end
+    end
+
+    describe '#description' do
+      it 'is the record description' do
+        expect(subject.description).to eq(record['description'])
+      end
+    end
+
+    describe '#record_link' do
+      it 'links to the record locally' do
+        expect(subject.record_link).to eq("<a href=\"/record?id=#{record['id']}\">Details</a>")
       end
     end
   end
