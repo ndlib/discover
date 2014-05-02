@@ -1,13 +1,13 @@
 records:
   - id: ndu_aleph001890313
     title: The catcher in the rye
-    description: Book with mulitple Identifiers and 5 frbr results.
+    description: Book with multiple identifiers and 5 frbr results.
   - id: ndu_aleph003261780
     title: Salinger's The catcher in the rye
     description: Book with online access and print available. Online access to just a table of contents.
   - id: ndu_aleph001753442
     title: Beethoven
-    description: Audio with a lot of uniform/related titles. Series links with a volume number. Contents.  Multiple Contributors.
+    description: Audio with a lot of uniform/related titles. Series links with a volume number. Contents.  Multiple contributors.
   - id: ndu_aleph003119742
     title: Harry Potter and the Deathly Hallows. Part 2
     description: Video with a lot of contributors and a lot of subjects.

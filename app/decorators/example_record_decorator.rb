@@ -24,8 +24,16 @@ class ExampleRecordDecorator < Draper::Decorator
     get 'title'
   end
 
+  def record_path(format = nil)
+    h.record_path(id: id, format: format)
+  end
+
   def record_link
-    h.link_to('Details', h.record_path(id: id), target: '_blank')
+    h.link_to('Details', record_path, target: '_blank')
+  end
+
+  def json_link
+    h.link_to('JSON', record_path(:json), target: '_blank')
   end
 
   private

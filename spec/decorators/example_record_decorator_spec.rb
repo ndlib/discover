@@ -66,5 +66,11 @@ describe ExampleRecordDecorator do
         expect(subject.record_link).to eq("<a href=\"/record?id=#{record['id']}\" target=\"_blank\">Details</a>")
       end
     end
+
+    describe '#json_link' do
+      it 'links to json' do
+        expect(subject.json_link).to eq("<a href=\"/record.json?id=#{record['id']}\" target=\"_blank\">JSON</a>")
+      end
+    end
   end
 end

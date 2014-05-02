@@ -13,11 +13,11 @@
   <tbody>
     <% @examples.each do |example| %>
       <tr>
-        <td><%= example.title %></td>
+        <td><%= truncate(example.title) %></td>
         <td><%= example.id %></td>
         <td><%= example.description %></td>
         <td><%= example.record_link %></td>
-        <td></td>
+        <td><%= example.json_link %></td>
       </tr>
     <% end %>
   </tbody>
