@@ -36,6 +36,22 @@ class ExampleRecordDecorator < Draper::Decorator
     h.link_to('JSON', record_path(:json), target: '_blank')
   end
 
+  def primo_search_id
+    id.gsub(/^TN_/i, '')
+  end
+
+  def primo_path
+    "/primo_library/libweb/action/search.do?vid=NDU&vl(freeText0)=#{primo_search_id}&fn=search&tab=onesearch"
+  end
+
+  def primo_url
+    "http://primo-fe1.library.nd.edu:1701#{primo_path}"
+  end
+
+  def primo_link
+    h.link_to('Primo 4', primo_url, target: '_blank')
+  end
+
   private
     def get(key)
       object[key.to_s]

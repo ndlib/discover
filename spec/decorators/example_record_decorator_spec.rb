@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ExampleRecordDecorator do
   let(:record) {
-    { 'id' => 'ndu_aleph001890313', "title" => "The catcher in the rye", 'description' => 'Book with mulitple Identifiers and 5 frbr results.'}
+    { 'id' => 'ndu_aleph001890313', "title" => "The catcher in the rye", 'description' => 'Book with multiple identifiers and 5 frbr results.'}
   }
 
   let(:records) { [record] }
@@ -70,6 +70,26 @@ describe ExampleRecordDecorator do
     describe '#json_link' do
       it 'links to json' do
         expect(subject.json_link).to eq("<a href=\"/record.json?id=#{record['id']}\" target=\"_blank\">JSON</a>")
+      end
+    end
+
+    describe '#primo_search_id' do
+      it 'is the ndu_aleph id' do
+        expect(subject.primo_search_id).to eq(subject.id)
+      end
+
+      it 'removes the TN_ prefix' do
+        tn_id = 'TN_gale_ofa277204662'
+        tn_removed = tn_id.gsub('TN_', '')
+        expect(subject).to receive(:id).and_return(tn_id)
+        expect(subject.primo_search_id).to eq(tn_removed)
+      end
+    end
+
+    describe '#primo_link' do
+      it 'links to primo' do
+        expect(subject).to receive(:primo_search_id).and_return(subject.id)
+        expect(subject.primo_link).to eq("<a href=\"http://primo-fe1.library.nd.edu:1701/primo_library/libweb/action/search.do?vid=NDU&amp;vl(freeText0)=#{subject.id}&amp;fn=search&amp;tab=onesearch\" target=\"_blank\">Primo 4</a>")
       end
     end
   end
