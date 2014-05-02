@@ -1,0 +1,15 @@
+records:
+  - id: ndu_aleph001890313
+    description: Book with mulitple Identifiers and 5 frbr results.
+  - id: ndu_aleph003261780
+    description: Book with online access and print available. Online access to just a table of contents.
+  - id: ndu_aleph001753442
+    description: Audio with a lot of uniform/related titles. Series links with a volume number. Contents.  Multiple Contributors.
+  - id: ndu_aleph003119742
+    description: Video with a lot of contributors and a lot of subjects.
+  - id: ndu_aleph002170825
+    description: Journal with a lot of online links.
+  - id: TN_gale_ofa277204662
+    description: Primo Central Journal. ispartof key.
+  - id: ndu_aleph003418217
+    description: Multiple languages. lds05
