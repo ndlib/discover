@@ -36,5 +36,6 @@ jQuery ($) ->
         link = tab.find('a').get(0)
         msTabHandler e, link, "ndl-details-tab", "<div id=\"ndlOtherDetails\" class=\"EXLTabLoading ndl-details-tab-content\"></div>", getOtherDetails, location.href, tab.hasClass("EXLResultSelectedTab")
         return
+    $('.ndl-hierarchical-search li').hover(hoverIn, hoverOut)
 
   $(document).ready(ready)
