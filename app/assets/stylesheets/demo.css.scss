@@ -3,36 +3,3 @@
     display: none;
   }
 }
-
-.ndl-details-tab-Container .EXLTabContent {
-  height: auto;
-}
-
-.ndl-details {
-  padding: 5px;
-  margin-bottom: 0;
-  list-style-position: outside;
-  font-family: inherit;
-  display: block;
-
-  dt {
-    font-weight: bold;
-    display: block;
-  }
-
-  dd {
-    margin-bottom: 0.66667rem;
-    display: block;
-  }
-}
-
-.ndl-hierarchical-search {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-
-  li {
-    display: inline;
-    padding: 0 .2em;
-  }
-}
