@@ -36,6 +36,9 @@ en:
     series: "Series"
     uniform_titles: "Related Titles"
     record_ids: "Record IDs"
+  online_access:
+    fulltext_links: "Fulltext"
+    table_of_contents_links: "Table of Contents"
   devise:
     failure:
       already_authenticated: ""
