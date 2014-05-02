@@ -24,6 +24,14 @@
     margin-bottom: 0.66667rem;
     display: block;
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 .ndl-hierarchical-search {
@@ -33,6 +41,16 @@
 
   li {
     display: inline;
-    padding: 0 .2em;
+    padding-right: 0.5em;
+  }
+
+  li:after {
+    padding-left: 0.5em;
+    content: '>';
+    color: #999;
+  }
+
+  li:last-child:after {
+    content: '';
   }
 }
