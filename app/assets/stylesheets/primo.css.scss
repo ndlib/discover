@@ -35,26 +35,26 @@
 
   li {
     display: inline;
-    padding-right: 0.5em;
+    padding-left: 0.5em;
   }
 
-  li:hover, .ndl-hover {
+  .ndl-hover {
     a {
       text-decoration: underline;
     }
   }
 
-  li:after {
-    padding-left: 0.5em;
+  li:before {
+    padding-right: 0.5em;
     content: '>';
     color: #999;
   }
 
-  li:last-child {
+  li:first-child {
     padding: 0;
   }
 
-  li:last-child:after {
+  li:first-child:before {
     content: '';
     padding: 0;
   }

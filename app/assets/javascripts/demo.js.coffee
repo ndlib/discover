@@ -4,11 +4,11 @@ jQuery ($) ->
 
   hoverIn = ->
     li = $(this)
-    li.prevAll().addClass('ndl-hover')
+    li.prevAll().add(li).addClass('ndl-hover')
 
   hoverOut = ->
     li = $(this)
-    li.prevAll().removeClass('ndl-hover')
+    li.prevAll().add(li).removeClass('ndl-hover')
 
   attachEvents = (container) ->
     container.find('.ndl-hierarchical-search li').hover(hoverIn, hoverOut)
