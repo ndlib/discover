@@ -44,13 +44,24 @@
     padding-right: 0.5em;
   }
 
+  li:hover, .ndl-hover {
+    a {
+      text-decoration: underline;
+    }
+  }
+
   li:after {
     padding-left: 0.5em;
     content: '>';
     color: #999;
   }
 
+  li:last-child {
+    padding: 0;
+  }
+
   li:last-child:after {
     content: '';
+    padding: 0;
   }
 }
