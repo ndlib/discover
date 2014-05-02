@@ -25,7 +25,8 @@ class OnlineAccessDecorator < Draper::Decorator
 
   def detail_methods
     [
-      :fulltext_links
+      :fulltext_links,
+      :table_of_contents_links
     ]
   end
 
@@ -38,6 +39,10 @@ class OnlineAccessDecorator < Draper::Decorator
     ulize_array(object.fulltext_links)
   end
 
+
+  def table_of_contents_links
+    ulize_array(object.table_of_contents_links)
+  end
 
 
   private

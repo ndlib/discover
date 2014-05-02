@@ -114,9 +114,17 @@ class DiscoveryRecord
 
   def fulltext_links
     links = ensure_array(link_field(:linktorsrc))
-    if !links && data['fulltext_available']
-      links = [ "$$V#{data['links']['fulltext_url']}$$DNotre Dame Online Access" ]
+    if links.empty? && data['fulltext_available']
+      links = [ "$$U#{data['links']['fulltext_url']}$$DNotre Dame Online Access" ]
     end
+    links = links.collect { | l | parse_subfields(l) }
+
+    links
+  end
+
+
+  def table_of_contents_links
+    links = ensure_array(link_field(:linktotoc))
     links = links.collect { | l | parse_subfields(l) }
 
     links
@@ -146,7 +154,6 @@ class DiscoveryRecord
     def display_field(key)
       display_fields[key.to_s]
     end
-
 
     def link_field(key)
       link_fields[key.to_s]
