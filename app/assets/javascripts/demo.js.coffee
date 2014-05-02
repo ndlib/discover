@@ -1,6 +1,9 @@
 jQuery ($) ->
   cloneTabClass = "EXLDetailsTabDemo"
-  ajaxPath = "/record"
+  detailsPath = "/record"
+  onlineAccessPath = "/online_access"
+  detailsTabClass = 'ndl-details-tab'
+  onlineAccessTabClass = 'ndl-online-access'
 
   hoverIn = ->
     li = $(this)
@@ -18,24 +21,44 @@ jQuery ($) ->
     recordID = EXLTA_recordId(element)
     if !link.data('loaded')
       success = (data) ->
-        container = link.parents(".EXLResult").find("." + tabType + "-Container").children(".EXLTabContent").children(".ndl-details-tab-content")
+        container = link.parents(".EXLResult").find("." + tabType + "-Container").children(".EXLTabContent").children(".#{tabType}-content")
         container.removeClass('EXLTabLoading')
         container.html data
         link.data('loaded', true)
         attachEvents(container)
         return
-      $.get ajaxPath, {id: recordID, primary: 'ndu_aleph'}, success, "html"
+      $.get detailsPath, {id: recordID, primary: 'ndu_aleph'}, success, "html"
+    return
+
+  getOnlineAccess = (element, tabType) ->
+    link = $(element)
+    recordID = EXLTA_recordId(element)
+    if !link.data('loaded')
+      success = (data) ->
+        container = link.parents(".EXLResult").find(".#{tabType}-Container").children(".EXLTabContent").children(".#{tabType}-content")
+        container.removeClass('EXLTabLoading')
+        container.html data
+        link.data('loaded', true)
+        return
+      $.get onlineAccessPath, {id: recordID, primary: 'ndu_aleph'}, success, "html"
     return
 
   ready = ->
     replaceTab = $(".#{cloneTabClass}")
     if replaceTab.length > 0
-      EXLTA_addTab "New Details", "ndl-details-tab", location.href, cloneTabClass, "detailsTab", "ndl-details-tab", false, checkTabPresence, ".#{cloneTabClass}"
-      $(".ndl-details-tab").click (e) ->
+      EXLTA_addTab "New Details", detailsTabClass, location.href, cloneTabClass, "detailsTab", detailsTabClass, false, checkTabPresence, ".#{cloneTabClass}"
+      $(".#{detailsTabClass}").click (e) ->
         tab = $(this)
         link = tab.find('a').get(0)
-        msTabHandler e, link, "ndl-details-tab", "<div id=\"ndlOtherDetails\" class=\"EXLTabLoading ndl-details-tab-content\"></div>", getOtherDetails, location.href, tab.hasClass("EXLResultSelectedTab")
+        msTabHandler e, link, detailsTabClass, "<div id=\"#{detailsTabClass}-content\" class=\"EXLTabLoading #{detailsTabClass}-content\"></div>", getOtherDetails, location.href, tab.hasClass("EXLResultSelectedTab")
         return
+      EXLTA_addTab "New Online Access", onlineAccessTabClass, location.href, cloneTabClass, "detailsTab", onlineAccessTabClass, false, checkTabPresence, ".#{cloneTabClass}"
+      $(".#{onlineAccessTabClass}").click (e) ->
+        tab = $(this)
+        link = tab.find('a').get(0)
+        msTabHandler e, link, onlineAccessTabClass, "<div id=\"#{onlineAccessTabClass}-content\" class=\"EXLTabLoading #{onlineAccessTabClass}-content\"></div>", getOnlineAccess, location.href, tab.hasClass("EXLResultSelectedTab")
+        return
+
     $('.ndl-hierarchical-search li').hover(hoverIn, hoverOut)
 
   $(document).ready(ready)
