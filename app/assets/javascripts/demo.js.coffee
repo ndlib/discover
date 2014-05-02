@@ -1,7 +1,9 @@
 jQuery ($) ->
+  cloneTabClass = "EXLDetailsTabDemo"
+  ajaxPath = "/record"
+
   hoverIn = ->
     li = $(this)
-    console.log(li)
     li.prevAll().addClass('ndl-hover')
 
   hoverOut = ->
@@ -22,13 +24,13 @@ jQuery ($) ->
         link.data('loaded', true)
         attachEvents(container)
         return
-      $.get "/record", {id: recordID, primary: 'ndu_aleph'}, success, "html"
+      $.get ajaxPath, {id: recordID, primary: 'ndu_aleph'}, success, "html"
     return
 
   ready = ->
-    replaceTab = $('.EXLDetailsTabDemo')
+    replaceTab = $(".#{cloneTabClass}")
     if replaceTab.length > 0
-      EXLTA_addTab "New Details", "ndl-details-tab", location.href, "EXLDetailsTabDemo", "detailsTab", "ndl-details-tab", false, checkTabPresence, ".EXLDetailsTabDemo"
+      EXLTA_addTab "New Details", "ndl-details-tab", location.href, cloneTabClass, "detailsTab", "ndl-details-tab", false, checkTabPresence, ".#{cloneTabClass}"
       $(".ndl-details-tab").click (e) ->
         tab = $(this)
         link = tab.find('a').get(0)

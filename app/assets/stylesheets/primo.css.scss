@@ -1,0 +1,61 @@
+.ndl-details-tab-Container .EXLTabContent {
+  height: auto;
+}
+
+.ndl-details {
+  padding: 5px;
+  margin-bottom: 0;
+  list-style-position: outside;
+  font-family: inherit;
+  display: block;
+
+  dt {
+    font-weight: bold;
+    display: block;
+  }
+
+  dd {
+    margin-bottom: 0.66667rem;
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.ndl-hierarchical-search {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline;
+    padding-right: 0.5em;
+  }
+
+  li:hover, .ndl-hover {
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  li:after {
+    padding-left: 0.5em;
+    content: '>';
+    color: #999;
+  }
+
+  li:last-child {
+    padding: 0;
+  }
+
+  li:last-child:after {
+    content: '';
+    padding: 0;
+  }
+}
