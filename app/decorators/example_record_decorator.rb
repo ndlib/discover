@@ -25,7 +25,7 @@ class ExampleRecordDecorator < Draper::Decorator
   end
 
   def record_link
-    h.link_to('Details', h.record_path(id: id))
+    h.link_to('Details', h.record_path(id: id), target: '_blank')
   end
 
   private

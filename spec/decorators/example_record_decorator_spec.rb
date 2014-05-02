@@ -63,7 +63,7 @@ describe ExampleRecordDecorator do
 
     describe '#record_link' do
       it 'links to the record locally' do
-        expect(subject.record_link).to eq("<a href=\"/record?id=#{record['id']}\">Details</a>")
+        expect(subject.record_link).to eq("<a href=\"/record?id=#{record['id']}\" target=\"_blank\">Details</a>")
       end
     end
   end
