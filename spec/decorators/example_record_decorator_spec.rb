@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ExampleRecordsDecorator do
+describe ExampleRecordDecorator do
   let(:record) {
     { 'id' => 'ndu_aleph001890313', 'description' => 'Book with mulitple Identifiers and 5 frbr results.'}
   }

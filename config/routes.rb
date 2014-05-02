@@ -14,6 +14,7 @@ Discover::Application.routes.draw do
   get 'online_access' => 'online_access#show', as: 'online_access', constraints: {id: /.+/}
 
   resources :primo_missing_fields, only: [ :index, :show ]
+  resources :examples, only: [ :index ]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
