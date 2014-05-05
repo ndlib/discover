@@ -115,9 +115,9 @@ class DiscoveryRecord
   def fulltext_links
     links = ensure_array(link_field(:linktorsrc))
     if links.empty? && data['fulltext_available']
-      links = [ "$$U#{data['links']['fulltext_url']}$$DNotre Dame Online Access" ]
+      links = [ "$$U#{data['links']['fulltext_url']}$$Dlinktosrc_ndu" ]
     end
-    links = links.collect { | l | parse_subfields(l) }
+    links = links.collect { | l | convert_url_hash(parse_subfields(l)) }
 
     links
   end
@@ -203,4 +203,17 @@ class DiscoveryRecord
         hash
       end
     end
+
+
+    def convert_url_hash(hash)
+      if hash.is_a?(Hash)
+        {title: hash['E'].strip, url: hash['U'].strip}
+      else
+        # This may be an error
+        # consider trapping this.
+        hash
+      end
+    end
 end
+
+

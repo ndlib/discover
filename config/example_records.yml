@@ -1,7 +1,7 @@
 records:
   - id: ndu_aleph001890313
     title: The catcher in the rye
-    description: Book with multiple identifiers and 5 frbr results.
+    description: Book with multiple identifiers, heirarcical subjects, and 5 frbr results.
   - id: ndu_aleph003261780
     title: Salinger's The catcher in the rye
     description: Book with online access and print available. Online access to just a table of contents.

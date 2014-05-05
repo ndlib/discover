@@ -23,6 +23,7 @@ class OnlineAccessDecorator < Draper::Decorator
     @detail_content
   end
 
+
   def detail_methods
     [
       :fulltext_links,
@@ -50,8 +51,13 @@ class OnlineAccessDecorator < Draper::Decorator
     def ulize_array(arr)
       if arr.present?
         h.content_tag(:ul) do
-          arr.collect { | item | h.concat(h.content_tag(:li, item)) }
+          arr.collect { | item | h.concat(h.content_tag(:li, link_to_src(item))) }
         end
       end
+    end
+
+
+    def link_to_src(item)
+      h.link_to(h.t("online_access.#{item[:title]}"), item[:url], target: 'blank')
     end
 end

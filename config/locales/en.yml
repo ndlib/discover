@@ -39,6 +39,8 @@ en:
   online_access:
     fulltext_links: "Fulltext"
     table_of_contents_links: "Table of Contents"
+    linktorsrc_hcc: 'Holy Cross'
+    linktorsrc_ndu: 'Notre Dame'
   devise:
     failure:
       already_authenticated: ""
