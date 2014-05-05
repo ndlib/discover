@@ -207,7 +207,7 @@ class DiscoveryRecord
 
     def convert_url_hash(hash)
       if hash.is_a?(Hash)
-        {title: hash['E'].strip, url: hash['U'].strip}
+        {title: hash['E'], url: hash['U']}
       else
         # This may be an error
         # consider trapping this.

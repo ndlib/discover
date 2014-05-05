@@ -65,7 +65,13 @@ class OnlineAccessDecorator < Draper::Decorator
 
 
     def get_domain_name(url)
+      return if url.nil?
+
       uri = URI.parse(url)
-      uri.host.gsub('www.', '')
+      if !uri.present?
+        uri.host.gsub('www.', '')
+      else
+        nil
+      end
     end
 end
