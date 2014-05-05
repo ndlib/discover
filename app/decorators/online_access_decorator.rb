@@ -68,7 +68,7 @@ class OnlineAccessDecorator < Draper::Decorator
       return if url.nil?
 
       uri = URI.parse(url)
-      if !uri.present?
+      if uri.present?
         uri.host.gsub('www.', '')
       else
         nil
