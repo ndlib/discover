@@ -1,3 +1,5 @@
+require 'uri/http'
+
 class OnlineAccessDecorator < Draper::Decorator
 
   def self.find(id)
@@ -58,6 +60,12 @@ class OnlineAccessDecorator < Draper::Decorator
 
 
     def link_to_src(item)
-      h.link_to(h.t("online_access.#{item[:title]}"), item[:url], target: 'blank')
+      h.link_to(h.t("online_access.#{item[:title]}", url: get_domain_name(item[:url])), item[:url], target: 'blank')
+    end
+
+
+    def get_domain_name(url)
+      uri = URI.parse(url)
+      uri.host.gsub('www.', '')
     end
 end
