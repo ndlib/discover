@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ExampleRecordDecorator do
   let(:record) {
-    { 'id' => 'ndu_aleph001890313', "title" => "The catcher in the rye", 'description' => 'Book with multiple identifiers and 5 frbr results.'}
+    { 'id' => 'ndu_aleph001890313', "title" => "The catcher in the rye", 'description' => 'Book with multiple identifiers, hierarchical subjects, and 5 frbr results.'}
   }
 
   let(:records) { [record] }

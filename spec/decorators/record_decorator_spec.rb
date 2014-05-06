@@ -272,5 +272,31 @@ describe RecordDecorator do
         expect(subject.record_ids).to eq("<ul><li>record_id1</li><li>record_id2</li></ul>")
       end
     end
+
+    describe '#oclc' do
+      it 'is the object oclc' do
+        expect(object).to receive(:oclc).and_return("12345")
+        expect(subject.oclc).to eq("12345")
+      end
+
+      it 'removes any leading zeros' do
+        expect(object).to receive(:oclc).and_return("0023456")
+        expect(subject.oclc).to eq("23456")
+      end
+    end
+
+    describe '#isbn' do
+      it 'is the object isbn' do
+        expect(object).to receive(:isbn).and_return("12345")
+        expect(subject.isbn).to eq("12345")
+      end
+    end
+
+    describe '#issn' do
+      it 'is the object issn' do
+        expect(object).to receive(:issn).and_return("12345")
+        expect(subject.issn).to eq("12345")
+      end
+    end
   end
 end

@@ -108,6 +108,48 @@ class RecordDecorator < Draper::Decorator
     ulize_array(object.record_ids)
   end
 
+  def oclc
+    object_oclc = object.oclc
+    if object_oclc.nil?
+      nil
+    else
+      if @oclc.nil?
+        @oclc = object_oclc
+        @oclc.gsub!(/^0+/,'')
+      end
+      @oclc
+    end
+  end
+
+  def isbn
+    object.isbn
+  end
+
+  def issn
+    object.issn
+  end
+
+  def worldcat_identifiers
+    if @worldcat_identifiers.nil?
+      @worldcat_identifiers = []
+      [:oclc, :isbn, :issn].each do |method|
+        value = self.send(method)
+        if value.present?
+          @worldcat_identifiers << [method, value]
+        end
+      end
+    end
+    @worldcat_identifiers
+  end
+
+  def worldcat_identifier
+    worldcat_identifiers.first
+  end
+
+  def worldcat_link
+
+  end
+
   private
 
     def ulize_array(arr)

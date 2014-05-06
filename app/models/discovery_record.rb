@@ -102,6 +102,10 @@ class DiscoveryRecord
     openurl(:isbn)
   end
 
+  def issn
+    openurl(:issn)
+  end
+
   def record_ids
     ensure_array(display_field(:lds02))
   end

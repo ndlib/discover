@@ -235,4 +235,11 @@ describe DiscoveryRecord do
     end
   end
 
+  describe '#isbn' do
+    it 'is the issn value of the json result' do
+      expect(subject).to receive(:openurl).with(:issn).and_return '12345678'
+      expect(subject.issn).to eq("12345678")
+    end
+  end
+
 end
