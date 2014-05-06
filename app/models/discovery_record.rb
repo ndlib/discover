@@ -94,6 +94,14 @@ class DiscoveryRecord
     ensure_array(display_field(:lds31))
   end
 
+  def oclc
+    data['oclc']
+  end
+
+  def isbn
+    openurl(:isbn)
+  end
+
   def record_ids
     ensure_array(display_field(:lds02))
   end
@@ -132,12 +140,16 @@ class DiscoveryRecord
 
 
   def display_fields
-    primo['display']
+    primo['display'] || {}
+  end
+
+  def openurl_fields
+    data['openurl'] || {}
   end
 
 
   def link_fields
-    primo['links']
+    primo['links'] || {}
   end
 
 
@@ -153,6 +165,10 @@ class DiscoveryRecord
 
     def display_field(key)
       display_fields[key.to_s]
+    end
+
+    def openurl(key)
+      openurl_fields[key.to_s]
     end
 
     def link_field(key)
