@@ -146,8 +146,9 @@ class RecordDecorator < Draper::Decorator
     worldcat_identifiers.first
   end
 
-  def worldcat_link
-
+  def worldcat_url
+    key,value = worldcat_identifier
+    "http://www.worldcat.org/#{key}/#{value}"
   end
 
   private

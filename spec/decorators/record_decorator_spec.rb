@@ -318,5 +318,17 @@ describe RecordDecorator do
         expect(subject.worldcat_identifier).to eq(first)
       end
     end
+
+    describe '#worldcat_identifier' do
+      it 'return a url to worldcat for the identifier' do
+        expect(subject).to receive(:worldcat_identifier).and_return([:oclc, "12345"])
+        expect(subject.worldcat_url).to eq("http://www.worldcat.org/oclc/12345")
+      end
+
+      it 'is nil if there is no identifier' do
+        expect(subject).to receive(:worldcat_identifier).and_return(nil)
+        expect(subject.worldcat_url).to be_nil
+      end
+    end
   end
 end
