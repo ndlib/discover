@@ -2,7 +2,7 @@
 
 <dl class="ndl-details">
   <% @record.detail_content.each do |method, content| %>
-    <dt class="ndl-detail-label ndl-detail-label-<%= method %>"><%= t("record.#{method}") %></dt>
+    <dt class="ndl-detail-label ndl-detail-label-<%= method %>"><%= @record.t(method) %></dt>
     <dd class="ndl-detail-content ndl-detail-content-<%= method %>"><%= content %></dd>
   <% end %>
 </dl>

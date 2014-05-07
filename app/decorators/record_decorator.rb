@@ -21,6 +21,7 @@ class RecordDecorator < Draper::Decorator
   def detail_methods
     [
       :title,
+      :links,
       :author,
       :contributor,
       :published,
@@ -129,6 +130,12 @@ class RecordDecorator < Draper::Decorator
     object.issn
   end
 
+  def links
+    links_array = [:worldcat_link].collect{ |method| send(method) }
+    links_array.compact!
+    ulize_array(links_array)
+  end
+
   def worldcat_identifiers
     if @worldcat_identifiers.nil?
       @worldcat_identifiers = []
@@ -153,6 +160,19 @@ class RecordDecorator < Draper::Decorator
     else
       nil
     end
+  end
+
+  def worldcat_link
+    url = worldcat_url
+    if url.present?
+      h.link_to(t('link_labels.worldcat'), url)
+    else
+      nil
+    end
+  end
+
+  def t(key)
+    h.raw(h.t("record.#{key}"))
   end
 
   private

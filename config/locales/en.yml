@@ -36,6 +36,9 @@ en:
     series: "Series"
     uniform_titles: "Related Titles"
     record_ids: "Record IDs"
+    links: Links
+    link_labels:
+      worldcat: This item in WorldCat&reg;
   online_access:
     fulltext_links: "Fulltext"
     table_of_contents_links: "Table of Contents"
