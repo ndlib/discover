@@ -191,16 +191,12 @@ class DiscoveryRecord
 
 
     def split_row(row)
-      PrimoFieldSplitter.call(row)
+      PrimoFieldSplitter.dash(row)
     end
 
 
     def split_row_semicolon(row)
-      if row.present?
-        row.split(";").collect{ | r | r.to_s.strip }
-      else
-        row
-      end
+      PrimoFieldSplitter.semicolon(row)
     end
 
 

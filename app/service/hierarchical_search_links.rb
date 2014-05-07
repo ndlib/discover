@@ -20,7 +20,7 @@ class HierarchicalSearchLinks < Draper::Decorator
   private
 
     def split_search_for_heirarchy
-      PrimoFieldSplitter.call(object)
+      PrimoFieldSplitter.dash(object)
     end
 
 

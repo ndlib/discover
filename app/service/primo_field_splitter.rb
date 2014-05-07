@@ -1,7 +1,13 @@
 class PrimoFieldSplitter
 
-  def self.call(field)
-    self.new(field).split
+
+  def self.dash(field)
+    self.new(field).split('--')
+  end
+
+
+  def self.semicolon(field)
+    self.new(field).split(';')
   end
 
 
@@ -10,9 +16,9 @@ class PrimoFieldSplitter
   end
 
 
-  def split
+  def split(delimiter)
     if @field.present?
-      @field.split("--").collect{ | r | r.to_s.strip }
+      @field.split(delimiter).collect{ | r | r.to_s.strip }
     else
       @field
     end
