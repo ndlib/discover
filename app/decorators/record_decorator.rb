@@ -148,7 +148,11 @@ class RecordDecorator < Draper::Decorator
 
   def worldcat_url
     key,value = worldcat_identifier
-    "http://www.worldcat.org/#{key}/#{value}"
+    if key.present?
+      "http://www.worldcat.org/#{key}/#{value}"
+    else
+      nil
+    end
   end
 
   private
