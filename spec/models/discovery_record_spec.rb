@@ -223,4 +223,23 @@ describe DiscoveryRecord do
     end
   end
 
+  describe '#oclc' do
+    it "is the oclc value of the json result" do
+      expect(subject.oclc).to eq("45798952")
+    end
+  end
+
+  describe '#isbn' do
+    it 'is the isbn value of the json result' do
+      expect(subject.isbn).to eq("9780316769174")
+    end
+  end
+
+  describe '#isbn' do
+    it 'is the issn value of the json result' do
+      expect(subject).to receive(:openurl).with(:issn).and_return '12345678'
+      expect(subject.issn).to eq("12345678")
+    end
+  end
+
 end

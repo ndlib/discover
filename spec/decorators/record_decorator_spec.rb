@@ -272,5 +272,51 @@ describe RecordDecorator do
         expect(subject.record_ids).to eq("<ul><li>record_id1</li><li>record_id2</li></ul>")
       end
     end
+
+    describe '#oclc' do
+      it 'is the object oclc' do
+        expect(object).to receive(:oclc).and_return("12345")
+        expect(subject.oclc).to eq("12345")
+      end
+
+      it 'removes any leading zeros' do
+        expect(object).to receive(:oclc).and_return("0023456")
+        expect(subject.oclc).to eq("23456")
+      end
+    end
+
+    describe '#isbn' do
+      it 'is the object isbn' do
+        expect(object).to receive(:isbn).and_return("12345")
+        expect(subject.isbn).to eq("12345")
+      end
+    end
+
+    describe '#issn' do
+      it 'is the object issn' do
+        expect(object).to receive(:issn).and_return("12345")
+        expect(subject.issn).to eq("12345")
+      end
+    end
+
+    describe '#worldcat_identifiers' do
+      let(:identifiers) { { oclc: '12345', isbn: '23456', issn: '34567'} }
+      it 'returns the oclc, isbn, and issn' do
+        identifiers.keys.each do |method|
+          expect(object).to receive(method).and_return(identifiers[method])
+        end
+        expect(subject.worldcat_identifiers).to eq(identifiers.to_a)
+      end
+    end
+
+    describe '#worldcat_identifier' do
+      let(:identifiers) { [[:oclc, "12345"], [:isbn, "23456"], [:issn, "34567"]] }
+      it 'returns the first worldcat_identifier' do
+        expect(subject).to receive(:worldcat_identifiers).and_return(identifiers)
+        first = identifiers.first
+        expect(identifiers).to receive(:first).and_return(first)
+        expect(subject.worldcat_identifier).to eq(first)
+      end
+    end
   end
 end
