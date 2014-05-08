@@ -15,6 +15,29 @@ jQuery ($) ->
 
   attachEvents = (container) ->
     container.find('.ndl-hierarchical-search li').hover(hoverIn, hoverOut)
+    container.find('.ndl-detail-content > ul').each ->
+      ul = $(this)
+      lis = ul.children('li')
+      if lis.length > 8
+        fifth = $(lis[4])
+        collapsibleLinks = fifth.nextAll()
+        collapsibleLinks.addClass('ndl-hidden')
+        expandLi = $('<li></li>').addClass('ndl-expand')
+        expandA = $('<a></a>').attr('href','#').text('Show More')
+        expandLi.append(expandA)
+        ul.append(expandLi)
+        expandLi.click (event) ->
+          event.preventDefault()
+          if expandLi.hasClass('ndl-expand')
+            expandLi.removeClass('ndl-expand')
+            expandA.text('Show Less')
+            collapsibleLinks.removeClass('ndl-hidden')
+          else
+            expandLi.addClass('ndl-expand')
+            expandA.text('Show More')
+            collapsibleLinks.addClass('ndl-hidden')
+      return
+
 
   getOtherDetails = (element, tabType) ->
     link = $(element)
@@ -59,6 +82,7 @@ jQuery ($) ->
         msTabHandler e, link, onlineAccessTabClass, "<div id=\"#{onlineAccessTabClass}-content\" class=\"EXLTabLoading #{onlineAccessTabClass}-content\"></div>", getOnlineAccess, location.href, tab.hasClass("EXLResultSelectedTab")
         return
 
-    $('.ndl-hierarchical-search li').hover(hoverIn, hoverOut)
+    $('.ndl-details').each ->
+      attachEvents($(this))
 
   $(document).ready(ready)
