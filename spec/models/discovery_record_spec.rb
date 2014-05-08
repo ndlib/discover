@@ -62,6 +62,11 @@ describe DiscoveryRecord do
         expect(subject.language).to eq(["English","Spanish"])
       end
 
+      it "returns nil if there are no languages" do
+        expect(subject).to receive(:display_field).with(:language).and_return(nil)
+        expect(subject.language).to be_nil
+      end
+
       it "uses the language list to look up the name from the iso code" do
         expect(LanguageList::LanguageInfo).to receive(:find).with('eng')
         subject.language

@@ -45,13 +45,17 @@ class DiscoveryRecord
 
   def language
     languages = split_row_semicolon(display_field(:language))
-    languages.collect do |l|
-      translated = LanguageList::LanguageInfo.find(l)
-      if translated.present?
-        translated.name
-      else
-        l
+    if languages.present?
+      languages.collect do |l|
+        translated = LanguageList::LanguageInfo.find(l)
+        if translated.present?
+          translated.name
+        else
+          l
+        end
       end
+    else
+      nil
     end
   end
 
