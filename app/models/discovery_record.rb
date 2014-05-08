@@ -44,12 +44,14 @@ class DiscoveryRecord
   end
 
   def language
-    lang = LanguageList::LanguageInfo.find(display_field(:language))
-
-    if !lang.nil?
-      lang.name
-    else
-      display_field(:language)
+    languages = split_row_semicolon(display_field(:language))
+    languages.collect do |l|
+      translated = LanguageList::LanguageInfo.find(l)
+      if translated.present?
+        translated.name
+      else
+        l
+      end
     end
   end
 

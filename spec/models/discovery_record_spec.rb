@@ -2,11 +2,9 @@ require 'spec_helper'
 
 describe DiscoveryRecord do
   let(:test_search) { "ndu_aleph000188916" }
+  let(:json) { JSON.parse(File.read(Rails.root.join('spec','fixtures','test_json_response.json')))['records'].first }
 
-  subject {
-    json = JSON.parse(File.read(Rails.root.join('spec','fixtures','test_json_response.json')))['records'].first
-    DiscoveryRecord.new(json)
-  }
+  subject { DiscoveryRecord.new(json) }
 
   describe '#log_unknown_display_fields' do
     it 'is called on initialize' do
@@ -54,9 +52,14 @@ describe DiscoveryRecord do
       expect(subject.contributor).to eq(["contributor"])
     end
 
-    describe "language" do
-      it "has language" do
-        expect(subject.language).to eq("English")
+    describe "#language" do
+      it "returns an array with the language" do
+        expect(subject.language).to eq(["English"])
+      end
+
+      it "returns an array with multiple elements" do
+        expect(subject).to receive(:display_field).with(:language).and_return("eng;spa")
+        expect(subject.language).to eq(["English","Spanish"])
       end
 
       it "uses the language list to look up the name from the iso code" do
