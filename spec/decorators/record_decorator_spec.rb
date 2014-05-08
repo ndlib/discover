@@ -199,9 +199,15 @@ describe RecordDecorator do
     end
 
     describe '#language' do
-      it 'is the object#language' do
+
+      it 'calls the object#language' do
         expect(object).to receive(:language)
         subject.language
+      end
+
+      it 'returns a ul' do
+        object.stub(:language).and_return(['English', 'Spanish'])
+        expect(subject.language).to eq("<ul><li>English</li><li>Spanish</li></ul>")
       end
     end
 

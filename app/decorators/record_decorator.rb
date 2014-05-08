@@ -85,7 +85,7 @@ class RecordDecorator < Draper::Decorator
   end
 
   def language
-    object.language
+    ulize_array(object.language)
   end
 
   def identifier
