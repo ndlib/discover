@@ -20,6 +20,9 @@ records:
   - id: ndu_aleph003418217
     title: Beowulf
     description: Multiple languages. lds05
-    id: "TN_mla2008381166"
+  - id: "TN_mla2008381166"
     title: "Chapter: Catcher in the Rye"
     description: "Book chapter with the findtext link. "
+  - id: ndu_aleph002170825
+    title: New scientist
+    description: Journal with a lot of volumes
