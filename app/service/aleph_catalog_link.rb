@@ -3,6 +3,10 @@ class AlephCatalogLink < Draper::Decorator
     object
   end
 
+  def aleph_record?
+    (id =~ /_aleph/).present?
+  end
+
   def institution_code
     id.gsub(/_.*/,'')
   end
@@ -12,7 +16,7 @@ class AlephCatalogLink < Draper::Decorator
   end
 
   def system_number
-    object.gsub(/[^\d]+/,'')
+    id.gsub(/[^\d]+/,'')
   end
 
   def local_base
@@ -36,6 +40,10 @@ class AlephCatalogLink < Draper::Decorator
   end
 
   def direct_link
-    h.link_to(direct_link_title, direct_url)
+    if aleph_record?
+      h.link_to(direct_link_title, direct_url)
+    else
+      id
+    end
   end
 end

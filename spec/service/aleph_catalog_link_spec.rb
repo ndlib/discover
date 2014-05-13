@@ -5,6 +5,17 @@ describe AlephCatalogLink do
   let(:system_number) { record_id.gsub(/[^\d]+/,'')}
   subject { described_class.new(record_id) }
 
+  describe '#aleph_record?' do
+    it 'is true for records with _aleph' do
+      expect(subject.aleph_record?).to be_true
+    end
+
+    it 'is false for records without _aleph' do
+      expect(subject).to receive(:id).and_return('TN_12345')
+      expect(subject.aleph_record?).to be_false
+    end
+  end
+
   describe '#system_number' do
     it 'is the numeric system number' do
       expect(subject.system_number).to eq(system_number)
@@ -50,6 +61,11 @@ describe AlephCatalogLink do
   describe '#direct_link' do
     it 'is the link' do
       expect(subject.direct_link).to eq("<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=001890313&amp;local_base=ndu01pub\">Notre Dame: 001890313</a>")
+    end
+
+    it 'is the id if not an aleph record' do
+      expect(subject).to receive(:aleph_record?).and_return(false)
+      expect(subject.direct_link).to eq(record_id)
     end
   end
 end
