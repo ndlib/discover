@@ -19,8 +19,16 @@ class RecordIdLinkLaw < Draper::Decorator
     h.t("institutions.ndlaw")
   end
 
-  def render
+  def url
+    "http://encore.law.nd.edu/iii/encore/record/C__R#{record_id}?lang=eng"
+  end
+
+  def title
     "#{institution_name}: #{record_id}"
+  end
+
+  def render
+    h.link_to(title, url)
   end
 
 end

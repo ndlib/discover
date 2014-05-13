@@ -16,9 +16,21 @@ describe RecordIdLinkLaw do
     end
   end
 
-  describe '#render' do
+  describe '#url' do
+    it 'is a url to the law catalog record' do
+      expect(subject.url).to eq("http://encore.law.nd.edu/iii/encore/record/C__Rb18599291?lang=eng")
+    end
+  end
+
+  describe '#title' do
     it 'is the labeled record id' do
-      expect(subject.render).to eq("Notre Dame Law School: b18599291")
+      expect(subject.title).to eq("Notre Dame Law School: b18599291")
+    end
+  end
+
+  describe '#render' do
+    it 'is a link to the law catalog record' do
+      expect(subject.render).to eq("<a href=\"http://encore.law.nd.edu/iii/encore/record/C__Rb18599291?lang=eng\">Notre Dame Law School: b18599291</a>")
     end
   end
 end
