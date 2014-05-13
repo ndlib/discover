@@ -20,6 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  institutions:
+    bci: "Bethel"
+    hcc: "Holy Cross"
+    ndu: "Notre Dame"
+    smc: "Saint Mary's"
   record:
     title: Title
     author: "Author"

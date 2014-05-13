@@ -11,27 +11,45 @@ describe AlephCatalogLink do
     end
   end
 
-  describe '#direct_path' do
-    it 'is the direct link path' do
-      expect(subject.direct_path).to eq("/F/?func=direct&doc_number=#{system_number}&local_base=ndu01pub")
-    end
-  end
-
-  describe '#search_path' do
-    it 'is the search path on aleph' do
-      expect(subject.search_path).to eq("/F/?func=scan&scan_code=SYS&scan_start=#{system_number}&local_base=ndu01pub")
-    end
-  end
-
   describe '#institution_code' do
     it 'is ndu' do
       expect(subject.institution_code).to eq('ndu')
     end
   end
 
+  describe '#institution_name' do
+    it 'is Notre Dame' do
+      expect(subject.institution_name).to eq('Notre Dame')
+    end
+  end
+
   describe '#local_base' do
     it 'is ndu01pub' do
       expect(subject.local_base).to eq('ndu01pub')
+    end
+  end
+
+  describe '#direct_path' do
+    it 'is the direct link path' do
+      expect(subject.direct_path).to eq("/F/?func=direct&doc_number=#{system_number}&local_base=ndu01pub")
+    end
+  end
+
+  describe '#direct_url' do
+    it 'is the direct url' do
+      expect(subject.direct_url).to eq('https://alephprod.library.nd.edu/F/?func=direct&doc_number=001890313&local_base=ndu01pub')
+    end
+  end
+
+  describe '#direct_link_title' do
+    it 'is the title of the link' do
+      expect(subject.direct_link_title).to eq("Notre Dame: #{system_number}")
+    end
+  end
+
+  describe '#direct_link' do
+    it 'is the link' do
+      expect(subject.direct_link).to eq("<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=001890313&amp;local_base=ndu01pub\">Notre Dame: 001890313</a>")
     end
   end
 end
