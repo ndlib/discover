@@ -35,10 +35,17 @@ describe RecordIdLink do
     end
   end
 
-  describe 'Primo Central' do
+  describe 'Law library' do
     let(:record_id) { 'ndlaw_iii.b18599291' }
     it '#render_class returns RecordIdLinkLaw' do
       expect(subject.render_class).to eq(RecordIdLinkLaw)
+    end
+  end
+
+  describe 'Hathi Trust' do
+    let(:record_id) { 'hathi_pubMIU01-004528545' }
+    it '#render_class returns RecordIdLinkHathi' do
+      expect(subject.render_class).to eq(RecordIdLinkHathi)
     end
   end
 end
