@@ -266,16 +266,31 @@ describe RecordDecorator do
 
     describe '#record_ids' do
       before(:each) do
-        object.stub(:record_ids).and_return(['record_id1', 'record_id2'])
+        subject.stub(:linked_record_ids).and_return(['ndu_aleph12345', 'hcc_aleph23456'])
       end
 
-      it 'is the #record_ids' do
-        expect(object).to receive(:record_ids)
+      it 'uses the #linked_record_ids' do
+        expect(subject).to receive(:linked_record_ids)
         subject.record_ids
       end
 
-      it "returns an ul with the records id" do
-        expect(subject.record_ids).to eq("<ul><li>record_id1</li><li>record_id2</li></ul>")
+      it "returns an ul with the record ids" do
+        expect(subject.record_ids).to eq("<ul><li>ndu_aleph12345</li><li>hcc_aleph23456</li></ul>")
+      end
+    end
+
+    describe '#linked_record_ids' do
+      before(:each) do
+        object.stub(:record_ids).and_return(['ndu_aleph12345', 'hcc_aleph23456'])
+      end
+
+      it 'uses the object #record_ids' do
+        expect(object).to receive(:record_ids)
+        subject.linked_record_ids
+      end
+
+      it "returns an array with linked record ids" do
+        expect(subject.linked_record_ids).to eq(["<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=12345&amp;local_base=ndu01pub\">Notre Dame: 12345</a>", "<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=23456&amp;local_base=hcc01pub\">Holy Cross: 23456</a>"])
       end
     end
 

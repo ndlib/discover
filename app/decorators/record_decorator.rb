@@ -106,7 +106,11 @@ class RecordDecorator < Draper::Decorator
   end
 
   def record_ids
-    ulize_array(object.record_ids)
+    ulize_array(linked_record_ids)
+  end
+
+  def linked_record_ids
+    object.record_ids.collect { | record_id | AlephCatalogLink.render(record_id) }
   end
 
   def oclc
