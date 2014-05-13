@@ -19,8 +19,16 @@ class RecordIdLinkHathi < Draper::Decorator
     h.t("institutions.hathi")
   end
 
-  def render
+  def title
     "#{institution_name}: #{record_id}"
+  end
+
+  def url
+    "http://catalog.hathitrust.org/Record/#{record_id}"
+  end
+
+  def render
+    h.link_to(title, url)
   end
 
 end

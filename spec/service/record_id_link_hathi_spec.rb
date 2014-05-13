@@ -16,9 +16,21 @@ describe RecordIdLinkHathi do
     end
   end
 
-  describe '#render' do
+  describe '#url' do
+    it 'is a url to the hathi trust' do
+      expect(subject.url).to eq("http://catalog.hathitrust.org/Record/004528545")
+    end
+  end
+
+  describe '#title' do
     it 'is the labeled record id' do
-      expect(subject.render).to eq("Hathi Trust: 004528545")
+      expect(subject.title).to eq("Hathi Trust: 004528545")
+    end
+  end
+
+  describe '#render' do
+    it 'is a link to the hathi trust' do
+      expect(subject.render).to eq("<a href=\"http://catalog.hathitrust.org/Record/004528545\">Hathi Trust: 004528545</a>")
     end
   end
 end
