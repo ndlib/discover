@@ -110,7 +110,7 @@ class RecordDecorator < Draper::Decorator
   end
 
   def linked_record_ids
-    object.record_ids.collect { | record_id | AlephCatalogLink.render(record_id) }
+    object.record_ids.collect { | record_id | RecordIdLink.render(record_id) }
   end
 
   def oclc

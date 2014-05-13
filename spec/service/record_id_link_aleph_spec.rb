@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AlephCatalogLink do
+describe RecordIdLinkAleph do
   let(:record_id) { "ndu_aleph001890313" }
   let(:system_number) { record_id.gsub(/[^\d]+/,'')}
   subject { described_class.new(record_id) }
@@ -63,9 +63,9 @@ describe AlephCatalogLink do
       expect(subject.direct_link).to eq("<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=001890313&amp;local_base=ndu01pub\">Notre Dame: 001890313</a>")
     end
 
-    it 'is the id if not an aleph record' do
+    it 'is the title if not an aleph record' do
       expect(subject).to receive(:aleph_record?).and_return(false)
-      expect(subject.direct_link).to eq(record_id)
+      expect(subject.direct_link).to eq("Notre Dame: 001890313")
     end
   end
 end

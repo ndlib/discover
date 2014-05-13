@@ -1,6 +1,10 @@
-class AlephCatalogLink < Draper::Decorator
+class RecordIdLinkAleph < Draper::Decorator
   def self.render(record_id)
     self.new(record_id).direct_link
+  end
+
+  def self.renders?(record_id)
+    (record_id =~ /_aleph/).present?
   end
 
   def id
@@ -40,14 +44,18 @@ class AlephCatalogLink < Draper::Decorator
   end
 
   def direct_link_title
-    "#{institution_name}: #{system_number}"
+    if institution_code.present?
+      "#{institution_name}: #{system_number}"
+    else
+      id
+    end
   end
 
   def direct_link
     if aleph_record?
       h.link_to(direct_link_title, direct_url)
     else
-      id
+      direct_link_title
     end
   end
 end
