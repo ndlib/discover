@@ -6,7 +6,9 @@ class RecordIdLink < Draper::Decorator
 
   def self.render_classes
     [
-      RecordIdLinkAleph
+      RecordIdLinkAleph,
+      RecordIdLinkPrimoCentral,
+      RecordIdLinkLaw
     ]
   end
 

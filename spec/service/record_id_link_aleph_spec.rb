@@ -58,14 +58,9 @@ describe RecordIdLinkAleph do
     end
   end
 
-  describe '#direct_link' do
+  describe '#render' do
     it 'is the link' do
-      expect(subject.direct_link).to eq("<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=001890313&amp;local_base=ndu01pub\">Notre Dame: 001890313</a>")
-    end
-
-    it 'is the title if not an aleph record' do
-      expect(subject).to receive(:aleph_record?).and_return(false)
-      expect(subject.direct_link).to eq("Notre Dame: 001890313")
+      expect(subject.render).to eq("<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=001890313&amp;local_base=ndu01pub\">Notre Dame: 001890313</a>")
     end
   end
 end

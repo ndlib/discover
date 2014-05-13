@@ -24,8 +24,9 @@ en:
     bci: "Bethel"
     hathi: "Hathi Trust"
     hcc: "Holy Cross"
-    ndlaw: "Notre Dame Law"
+    ndlaw: "Notre Dame Law School"
     ndu: "Notre Dame"
+    primo_central: "Primo Central"
     smc: "Saint Mary's"
   record:
     title: Title

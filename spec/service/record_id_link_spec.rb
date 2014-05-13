@@ -27,4 +27,18 @@ describe RecordIdLink do
       expect(subject.render_class).to eq(RecordIdLinkAleph)
     end
   end
+
+  describe 'Primo Central' do
+    let(:record_id) { 'TN_medline22021833' }
+    it '#render_class returns RecordIdLinkPrimoCentral' do
+      expect(subject.render_class).to eq(RecordIdLinkPrimoCentral)
+    end
+  end
+
+  describe 'Primo Central' do
+    let(:record_id) { 'ndlaw_iii.b18599291' }
+    it '#render_class returns RecordIdLinkLaw' do
+      expect(subject.render_class).to eq(RecordIdLinkLaw)
+    end
+  end
 end
