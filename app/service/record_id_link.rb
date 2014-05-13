@@ -11,10 +11,20 @@ class RecordIdLink < Draper::Decorator
   end
 
   def render
-    render_class.render(object)
+    if render_class.present?
+      render_class.render(object)
+    else
+      object
+    end
   end
 
   def render_class
-    self.class.render_classes.first
+    class_to_render = nil
+    self.class.render_classes.each do |klass|
+      if klass.renders?(object)
+        class_to_render = klass
+      end
+    end
+    class_to_render
   end
 end
