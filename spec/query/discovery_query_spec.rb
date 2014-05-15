@@ -22,7 +22,7 @@ describe DiscoveryQuery do
     }
 
     it "searches the api for the result " do
-      expect(HesburghAPI::Discovery).to receive(:record).with('search')
+      expect(HesburghAPI2::Discovery).to receive(:record).with('search')
       subject.find_by_id('search')
     end
 
