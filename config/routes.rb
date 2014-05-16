@@ -7,6 +7,8 @@ Discover::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'records#show', id: "ndu_aleph000188916"
 
+  get 'check' => 'health_check#check'
+
   get 'demo' => 'demo#catcher', as: :demo_root
   get 'demo/:action' => 'demo', as: :demo
 
