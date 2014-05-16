@@ -9,6 +9,7 @@ require 'hesburgh/jenkins'
 require 'hesburgh/prompt_branch'
 # require 'hesburgh/whenever'
 require 'hipchat/capistrano'
+require 'new_relic/recipes'
 
 set :application, 'discover'
 set :repository,  "git@git.library.nd.edu:discover"
@@ -31,3 +32,5 @@ task :production do
   set :rails_env, 'production'
   role :app, "discoverprod-vm.library.nd.edu"
 end
+
+after "deploy:update", "newrelic:notice_deployment"
