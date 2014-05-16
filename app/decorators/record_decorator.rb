@@ -21,7 +21,7 @@ class RecordDecorator < Draper::Decorator
   def detail_methods
     [
       :title,
-      :links,
+#      :links,
       :author,
       :contributor,
       :published,
@@ -30,7 +30,7 @@ class RecordDecorator < Draper::Decorator
       :subjects,
       :contents,
       :language,
-      :identifier,
+      :identifiers,
       :type,
       :source,
       :series,
@@ -44,7 +44,7 @@ class RecordDecorator < Draper::Decorator
   end
 
   def title
-    object.title
+    ulize_array(object.title)
   end
 
   def author
@@ -59,11 +59,12 @@ class RecordDecorator < Draper::Decorator
   end
 
   def published
-    ulize_array(object.published)
+    published = object.published.collect { | p | ulize_array(p) }
+    ulize_array(published)
   end
 
   def description
-    object.description
+    ulize_array(object.description)
   end
 
   def general_notes
@@ -88,8 +89,8 @@ class RecordDecorator < Draper::Decorator
     ulize_array(object.language)
   end
 
-  def identifier
-    ulize_array(object.identifier)
+  def identifiers
+    dlize_hash(object.identifiers)
   end
 
   def type
@@ -193,15 +194,15 @@ class RecordDecorator < Draper::Decorator
     def dlize_hash(hsh)
       if hsh.present?
         h.content_tag(:dl) do
-
+          hsh.collect { | key, values | h.concat(h.content_tag(:dt, key) + h.content_tag(:dd, ulize_array(values)))}
         end
       end
     end
 
 
 
-    def create_heirarchical_links(array, search_type)
-      array.collect { | row | HierarchicalSearchLinks.render(row, search_type) }
+    def create_heirarchical_links(field, search_type)
+      field['hierarchical'].collect { | row | HierarchicalSearchLinks.render(row, search_type) }
     end
 
 end

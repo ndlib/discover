@@ -16,19 +16,13 @@ class HierarchicalSearchLinks < Draper::Decorator
     end
   end
 
-
   private
-
-    def split_search_for_heirarchy
-      PrimoFieldSplitter.dash(object)
-    end
-
 
     def heirachical_links_array(type)
       ret = []
       total_search = ''
 
-      split_search_for_heirarchy.each do | search |
+      object.each do | search |
         total_search += "#{search} "
         ret << h.link_to(search, PrimoSearchUri.call(total_search, type), title: h.raw("Search for &quot;#{total_search}&quot;"))
       end

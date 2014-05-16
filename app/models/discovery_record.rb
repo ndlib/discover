@@ -19,31 +19,26 @@ class DiscoveryRecord
     data["id"]
   end
 
-  def title
-    display_field(:title)
-  end
-
   def type
-    display_field(:type)
+    data['type']
   end
 
-  def creator
-    ensure_array(display_field(:creator))
+  # identifier methods
+  [:isbn, :issn, :eissn, :doi, :pmid, :lccn, :oclc, :record_ids].each do |field|
+    define_method(field) do
+      identifiers_field(field)
+    end
   end
 
-  def contributor
-    ensure_array(display_field(:contributor))
+  # display methods
+  [:title, :language, :general_notes, :source, :description, :contents, :edition, :publisher, :creation_date, :format, :is_part_of, :creator, :contributor, :subjects, :series, :uniform_titles].each do |field|
+    define_method(field) do
+      display(field)
+    end
   end
 
-  def description
-    display_field(:description)
-  end
 
-  def availability
-    display_field(:availpnx)
-  end
-
-  def language
+  def language_old
     languages = split_row_semicolon(display_field(:language))
     if languages.present?
       languages.collect do |l|
@@ -59,74 +54,25 @@ class DiscoveryRecord
     end
   end
 
-  def general_notes
-    ensure_array(display_field(:lds01))
-  end
-
-  def source
-    display_field(:source)
-  end
-
-  def series
-    ensure_array(display_field(:lds30))
-  end
-
-
-  def description
-    display_field(:description)
-  end
-
-
-  def contents
-    contents = display_field(:lds03)
-    contents = split_row(contents)
-
-    ensure_array(contents)
-  end
 
   def published
     ret = []
-    ret << display_field(:edition) if display_field(:edition)
-    ret << display_field(:publisher) if display_field(:publisher)
-    ret << display_field(:creationdate) if display_field(:creationdate)
-    if display_field(:format)
-      ret.concat(ensure_array(display_field(:format)))
+    [:edition, :publisher, :creation_date, :format].each do | field |
+      ret << send(field) if send(field)
     end
 
     ret
   end
 
-  def uniform_titles
-    ensure_array(display_field(:lds31))
-  end
 
-  def oclc
-    data['oclc']
-  end
-
-  def isbn
-    openurl(:isbn)
-  end
-
-  def issn
-    openurl(:issn)
-  end
-
-  def record_ids
-    ensure_array(display_field(:lds02))
-  end
-
-  def identifier
-    id = split_row_semicolon(display_field(:identifier))
-    if id
-      id.collect{ | r | convert_hash_to_key_value(parse_subfields(r)) }
-    else
-      ""
+  def identifiers
+    ret = {}
+    [:isbn, :issn, :eissn, :doi, :pmid, :lccn, :oclc].each do | field |
+      ret[field] = self.send(field)
     end
-  end
+    ret.delete_if {|k,v| v.blank?}
 
-  def subjects
-    ensure_array(display_field(:subject))
+    ret
   end
 
 
@@ -169,13 +115,19 @@ class DiscoveryRecord
       API::Resource.search_catalog(id)
     end
 
+
+    def identifiers_field(key)
+      data['identifiers'][key.to_s]
+    end
+
     def primo
       data['primo'] || {}
     end
 
-    def display_field(key)
-      display_fields[key.to_s]
+    def display(key)
+      data['display'][key.to_s]
     end
+
 
     def openurl(key)
       openurl_fields[key.to_s]

@@ -46,15 +46,24 @@ describe RecordDecorator do
     end
 
     describe '#title' do
+      before(:each) do
+        object.stub(:title).and_return( [ 'title' ])
+      end
+
       it 'is the object title' do
         expect(object).to receive(:title)
         subject.title
+      end
+
+
+      it "returns a ul " do
+        expect(subject.title).to eq("<ul><li>title</li></ul>")
       end
     end
 
     describe '#author' do
       before(:each) do
-        object.stub(:creator).and_return(['creator'])
+        object.stub(:creator).and_return( { 'fulltext' => ['creator'], 'hierarchical' => [ ['creator'] ] })
       end
 
       it 'is the object author' do
@@ -68,7 +77,7 @@ describe RecordDecorator do
       end
 
       it "returns a ul with lis" do
-        HierarchicalSearchLinks.stub(:render).with("creator", :creator).and_return("creator1_link")
+        HierarchicalSearchLinks.stub(:render).with(["creator"], :creator).and_return("creator1_link")
 
         expect(subject.author).to eq("<ul><li>creator1_link</li></ul>")
       end
@@ -77,7 +86,7 @@ describe RecordDecorator do
 
     describe "#contributor" do
       before(:each) do
-        object.stub(:contributor).and_return(['contributors1', 'contributors2'])
+        object.stub(:contributor).and_return({ 'fulltext' => ['contributors1', 'contributors2'], 'hierarchical' => [ ['contributors1'], ['contributors2'] ] } )
       end
 
       it 'is the object author' do
@@ -91,8 +100,8 @@ describe RecordDecorator do
       end
 
       it "returns a ul with lis" do
-        HierarchicalSearchLinks.stub(:render).with("contributors1", :creator).and_return("contributors1_link")
-        HierarchicalSearchLinks.stub(:render).with("contributors2", :creator).and_return("contributors2_link")
+        HierarchicalSearchLinks.stub(:render).with(["contributors1"], :creator).and_return("contributors1_link")
+        HierarchicalSearchLinks.stub(:render).with(["contributors2"], :creator).and_return("contributors2_link")
 
         expect(subject.contributor).to eq("<ul><li>contributors1_link</li><li>contributors2_link</li></ul>")
       end
@@ -101,7 +110,7 @@ describe RecordDecorator do
 
     describe '#published' do
       before(:each) do
-        object.stub(:published).and_return(['edition', 'publisher', 'creationdate', 'format'])
+        object.stub(:published).and_return([ ['edition'], ['publisher'], ['creationdate'], ['format'] ])
       end
 
       it 'is the object publisher_provider' do
@@ -110,7 +119,7 @@ describe RecordDecorator do
       end
 
       it "returns an array" do
-        expect(subject.published).to eq("<ul><li>edition</li><li>publisher</li><li>creationdate</li><li>format</li></ul>")
+        expect(subject.published).to eq("<ul><li><ul><li>edition</li></ul></li><li><ul><li>publisher</li></ul></li><li><ul><li>creationdate</li></ul></li><li><ul><li>format</li></ul></li></ul>")
       end
     end
 
@@ -138,7 +147,7 @@ describe RecordDecorator do
 
     describe '#subjects' do
       before(:each) do
-        object.stub(:subjects).and_return(['subject1 -- subsubject', 'subject2_no_subsubject'])
+        object.stub(:subjects).and_return( { 'fulltext' => ['subject1 -- subsubject', 'subject2_no_subsubject'], 'hierarchical' => [ [ 'subject1', 'subsubject'], ['subject2_no_subsubject'] ]} )
       end
 
       it 'is the object#subjects' do
@@ -152,8 +161,8 @@ describe RecordDecorator do
       end
 
       it "returns a ul with lis" do
-        HierarchicalSearchLinks.stub(:render).with("subject1 -- subsubject", :subject).and_return("sub1_link")
-        HierarchicalSearchLinks.stub(:render).with("subject2_no_subsubject", :subject).and_return("sub2_link")
+        HierarchicalSearchLinks.stub(:render).with(["subject1", "subsubject"], :subject).and_return("sub1_link")
+        HierarchicalSearchLinks.stub(:render).with(["subject2_no_subsubject"], :subject).and_return("sub2_link")
 
         expect(subject.subjects).to eq("<ul><li>sub1_link</li><li>sub2_link</li></ul>")
       end
@@ -177,7 +186,7 @@ describe RecordDecorator do
 
     describe "#series" do
       before(:each) do
-        object.stub(:series).and_return(['series1', 'series2'])
+        object.stub(:series).and_return({ 'fulltext' => ['series1', 'series2'], 'hierarchical' => [ [ 'series1'], ['series2'] ]})
       end
 
       it "is the object#contents" do
@@ -191,8 +200,8 @@ describe RecordDecorator do
       end
 
       it "returns an array" do
-        HierarchicalSearchLinks.stub(:render).with("series1", :series).and_return("series1_link")
-        HierarchicalSearchLinks.stub(:render).with("series2", :series).and_return("series2_link")
+        HierarchicalSearchLinks.stub(:render).with(["series1"], :series).and_return("series1_link")
+        HierarchicalSearchLinks.stub(:render).with(["series2"], :series).and_return("series2_link")
 
         expect(subject.series).to eq("<ul><li>series1_link</li><li>series2_link</li></ul>")
       end
@@ -213,16 +222,16 @@ describe RecordDecorator do
 
     describe '#identifier' do
       before(:each) do
-        object.stub(:identifier).and_return(['identifier1', 'identifier2'])
+        object.stub(:identifiers).and_return({ id: ['identifier1'], id2: ['identifier2'] })
       end
 
-      it 'is the #identifier' do
-        expect(object).to receive(:identifier)
-        subject.identifier
+      it 'is the #identifiers' do
+        expect(object).to receive(:identifiers)
+        subject.identifiers
       end
 
      it "returns an ul" do
-        expect(subject.identifier).to eq("<ul><li>identifier1</li><li>identifier2</li></ul>")
+        expect(subject.identifiers).to eq("<dl><dt>id</dt><dd><ul><li>identifier1</li></ul></dd><dt>id2</dt><dd><ul><li>identifier2</li></ul></dd></dl>")
       end
     end
 
@@ -243,7 +252,7 @@ describe RecordDecorator do
 
     describe '#uniform_titles' do
       before(:each) do
-        object.stub(:uniform_titles).and_return(['uniform_titles1', 'uniform_titles2'])
+        object.stub(:uniform_titles).and_return({ 'fulltext' => ['uniform_titles1', 'uniform_titles2'], 'hierarchical' => [['uniform_titles1'], ['uniform_titles2']] })
       end
 
       it 'is the object publisher_provider' do
@@ -257,8 +266,8 @@ describe RecordDecorator do
       end
 
       it "returns an array" do
-        HierarchicalSearchLinks.stub(:render).with("uniform_titles1", :uniform_title).and_return("title1_link")
-        HierarchicalSearchLinks.stub(:render).with("uniform_titles2", :uniform_title).and_return("title2_link")
+        HierarchicalSearchLinks.stub(:render).with(['uniform_titles1'], :uniform_title).and_return("title1_link")
+        HierarchicalSearchLinks.stub(:render).with(['uniform_titles2'], :uniform_title).and_return("title2_link")
 
         expect(subject.uniform_titles).to eq("<ul><li>title1_link</li><li>title2_link</li></ul>")
       end
