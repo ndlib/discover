@@ -86,7 +86,8 @@ class RecordDecorator < Draper::Decorator
   end
 
   def language
-    ulize_array(object.language)
+    languages = ConvertLanguageCodes.call(object.language)
+    ulize_array(languages)
   end
 
   def identifiers
