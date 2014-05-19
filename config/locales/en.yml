@@ -20,6 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  identifiers:
+    doi: Digital Object Identifier
+    eissn: Electronic International Standard Serial Number
+    isbn: International Standard Book Number
+    issn: International Standard Serial Number
+    pmid: PubMed identifier
+    lccn: Library of Congress Control Number
+    oclc: OCLC Control Number
   institutions:
     bci: "Bethel"
     hathi: "Hathi Trust"

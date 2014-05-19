@@ -30,11 +30,11 @@ class RecordDecorator < Draper::Decorator
       :subjects,
       :contents,
       :language,
-      :identifiers,
       :type,
       :source,
       :series,
       :uniform_titles,
+      :identifiers,
       :record_ids
     ]
   end
@@ -91,7 +91,12 @@ class RecordDecorator < Draper::Decorator
   end
 
   def identifiers
-    dlize_hash(object.identifiers)
+    labeled_hash = {}
+    object.identifiers.each do |key, value|
+      title = h.content_tag(:span, key, title: I18n.t("identifiers.#{key}"))
+      labeled_hash[title] = value
+    end
+    dlize_hash(labeled_hash)
   end
 
   def type

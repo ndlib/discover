@@ -222,7 +222,7 @@ describe RecordDecorator do
 
     describe '#identifier' do
       before(:each) do
-        object.stub(:identifiers).and_return({ id: ['identifier1'], id2: ['identifier2'] })
+        object.stub(:identifiers).and_return({ issn: ['12345678'], oclc: ['987654321'] })
       end
 
       it 'is the #identifiers' do
@@ -231,7 +231,7 @@ describe RecordDecorator do
       end
 
      it "returns an ul" do
-        expect(subject.identifiers).to eq("<dl><dt>id</dt><dd><ul><li>identifier1</li></ul></dd><dt>id2</dt><dd><ul><li>identifier2</li></ul></dd></dl>")
+        expect(subject.identifiers).to eq("<dl><dt><span title=\"International Standard Serial Number\">issn</span></dt><dd><ul><li>12345678</li></ul></dd><dt><span title=\"OCLC Control Number\">oclc</span></dt><dd><ul><li>987654321</li></ul></dd></dl>")
       end
     end
 
