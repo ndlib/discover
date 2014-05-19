@@ -78,12 +78,12 @@ describe DiscoveryRecord do
 
   describe :published do
     it "has published" do
-      expect(subject.published).to eq([["edition"], ["publisher"], ["creation_date"], ["format"]])
+      expect(subject.published).to eq(["edition", "publisher", "creation_date", "format"])
     end
 
     it "excludes fields that are not in use" do
       subject.stub('edition').and_return(nil)
-      expect(subject.published).to eq([["publisher"], ["creation_date"], ["format"]])
+      expect(subject.published).to eq(["publisher", "creation_date", "format"])
     end
   end
 

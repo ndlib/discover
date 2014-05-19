@@ -59,8 +59,7 @@ class RecordDecorator < Draper::Decorator
   end
 
   def published
-    published = object.published.collect { | p | ulize_array(p) }
-    ulize_array(published)
+    ulize_array(object.published)
   end
 
   def description
@@ -104,7 +103,7 @@ class RecordDecorator < Draper::Decorator
   end
 
   def source
-    object.source
+    ulize_array(object.source)
   end
 
   def uniform_titles
