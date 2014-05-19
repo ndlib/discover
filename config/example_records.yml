@@ -32,3 +32,7 @@ records:
   - id: TN_gale_ofa246103668
     title: "'Voldemort' tries to salve worries over tenure issue"
     description: Record with FindText tab
+  - id: ndu_aleph002808607
+    title: "Government finance stats"
+    description: Gov doc with some extra fields and a link with descriptive text.
+
