@@ -38,23 +38,6 @@ class DiscoveryRecord
   end
 
 
-  def language_old
-    languages = split_row_semicolon(display_field(:language))
-    if languages.present?
-      languages.collect do |l|
-        translated = LanguageList::LanguageInfo.find(l)
-        if translated.present?
-          translated.name
-        else
-          l
-        end
-      end
-    else
-      nil
-    end
-  end
-
-
   def published
     ret = []
     [:edition, :publisher, :creation_date, :format].each do | field |

@@ -99,7 +99,7 @@ class RecordDecorator < Draper::Decorator
   end
 
   def source
-    object.source
+    ulize_array(object.source)
   end
 
   def uniform_titles

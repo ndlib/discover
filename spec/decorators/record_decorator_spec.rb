@@ -243,11 +243,20 @@ describe RecordDecorator do
     end
 
 
-    describe '#type' do
+    describe '#source' do
+      before(:each) do
+        object.stub(:source).and_return(['source'])
+      end
       it 'is the object source' do
         expect(object).to receive(:source)
         subject.source
       end
+
+     it "returns an ul" do
+        expect(subject.source).to eq("<ul><li>source</li></ul>")
+     end
+
+
     end
 
     describe '#uniform_titles' do
