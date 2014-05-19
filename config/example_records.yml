@@ -13,7 +13,7 @@ records:
     description: Video with a lot of contributors and a lot of subjects.
   - id: ndu_aleph002170825
     title: New scientist
-    description: Journal with a lot of online links.
+    description: Journal with a lot of online links and volumes.
   - id: TN_gale_ofa277204662
     title: Firing on all synapses.(feature articles that have been covered by New Scientist)
     description: Primo Central Journal. ispartof key.
@@ -22,16 +22,13 @@ records:
     description: Multiple languages. lds05
   - id: "TN_mla2008381166"
     title: "Chapter: Catcher in the Rye"
-    description: "Book chapter with the findtext link. "
-  - id: ndu_aleph002170825
-    title: New scientist
-    description: Journal with a lot of volumes
-    id: ndu_aleph003618300
+    description: "Book chapter with the findtext link."
+  - id: ndu_aleph003618300
     title: The Transformation of magic...
     description: e-book that makes use of the proxy server.
-    id: dedupmrg95161015
+  - id: dedupmrg95161015
     title: American Journal of Theology
     description: because it is a complicated record
-    id: TN_gale_ofa246103668
-    title: 'Voldemort' tries to salve worries over tenure issue
+  - id: TN_gale_ofa246103668
+    title: "'Voldemort' tries to salve worries over tenure issue"
     description: Record with FindText tab
