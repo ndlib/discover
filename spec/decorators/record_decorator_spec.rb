@@ -110,7 +110,7 @@ describe RecordDecorator do
 
     describe '#published' do
       before(:each) do
-        object.stub(:published).and_return([ ['edition'], ['publisher'], ['creationdate'], ['format'] ])
+        object.stub(:published).and_return([ 'edition', 'publisher', 'creationdate', 'format' ])
       end
 
       it 'is the object publisher_provider' do
@@ -119,7 +119,7 @@ describe RecordDecorator do
       end
 
       it "returns an array" do
-        expect(subject.published).to eq("<ul><li><ul><li>edition</li></ul></li><li><ul><li>publisher</li></ul></li><li><ul><li>creationdate</li></ul></li><li><ul><li>format</li></ul></li></ul>")
+        expect(subject.published).to eq("<ul><li>edition</li><li>publisher</li><li>creationdate</li><li>format</li></ul>")
       end
     end
 
