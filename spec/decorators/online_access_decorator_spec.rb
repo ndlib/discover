@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-descirbe OnlineAccessDecorator do
+describe OnlineAccessDecorator do
 
 
 
