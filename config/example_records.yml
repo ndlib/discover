@@ -35,4 +35,6 @@ records:
   - id: ndu_aleph002808607
     title: "Government finance stats"
     description: Gov doc with some extra fields and a link with descriptive text.
-
+  - id: ndu_aleph003407084
+    title: "Tomodachi"
+    description: Vernacular Title

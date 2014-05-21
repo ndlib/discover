@@ -186,7 +186,7 @@ describe RecordDecorator do
 
     describe "#series" do
       before(:each) do
-        object.stub(:series).and_return({ 'fulltext' => ['series1', 'series2'], 'hierarchical' => [ [ 'series1'], ['series2'] ]})
+        object.stub(:series).and_return([ { 'series_title' => 'series1', 'series_volume' => 'series2' } ] )
       end
 
       it "is the object#contents" do
@@ -195,15 +195,14 @@ describe RecordDecorator do
       end
 
       it "creates heirarctical links out of the series" do
-        expect(HierarchicalSearchLinks).to receive(:render).twice
+        expect(SeriesSearchLinks).to receive(:render)
         subject.series
       end
 
       it "returns an array" do
-        HierarchicalSearchLinks.stub(:render).with(["series1"], :series).and_return("series1_link")
-        HierarchicalSearchLinks.stub(:render).with(["series2"], :series).and_return("series2_link")
+        SeriesSearchLinks.stub(:render).with([{ 'series_title' => 'series1', 'series_volume' => 'series2' }], :series).and_return("<ul><li>series1_link</li></ul>")
 
-        expect(subject.series).to eq("<ul><li>series1_link</li><li>series2_link</li></ul>")
+        expect(subject.series).to eq("<ul><li>series1_link</li></ul>")
       end
     end
 

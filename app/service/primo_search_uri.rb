@@ -55,7 +55,7 @@ class PrimoSearchUri
 
 
     class TranslateType
-      TYPE_TRANSLATIONS = { 'series' => 'lsr03', 'uniform_title' => 'lsr04', 'related_title' => 'title', 'subject' => 'sub' }
+      TYPE_TRANSLATIONS = { 'series' => 'lsr30', 'uniform_title' => 'lsr31', 'related_title' => 'title', 'subject' => 'sub' }
 
       def self.call(type)
         self.new.translate(type)

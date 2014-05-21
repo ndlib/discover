@@ -31,7 +31,7 @@ class DiscoveryRecord
   end
 
   # display methods
-  [:title, :language, :general_notes, :source, :description, :contents, :edition, :publisher, :creation_date, :format, :is_part_of, :creator, :contributor, :subjects, :series, :uniform_titles].each do |field|
+  [:title, :vernacular_title,:language, :general_notes, :source, :description, :contents, :edition, :publisher, :creation_date, :format, :is_part_of, :creator, :contributor, :subjects, :series, :uniform_titles].each do |field|
     define_method(field) do
       display(field)
     end
