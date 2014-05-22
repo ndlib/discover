@@ -7,6 +7,7 @@ module VCRSetup
     # has access to -- the responses can be cached
     # and re-used.
     require 'vcr'
+#    require 'webmock/rspec'
 
     # To allow us to do real HTTP requests in a VCR.turned_off, we
     # have to tell webmock to let us.
@@ -14,6 +15,7 @@ module VCRSetup
 
     VCR.configure do |c|
       c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+#      c.hook_into :webmock
       c.allow_http_connections_when_no_cassette = false
     end
   end

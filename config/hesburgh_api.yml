@@ -3,7 +3,7 @@ development:
   url: http://localhost:3005
 test:
   token: qtyZ5f6GrM67WWteGFp1
-  url: https://apipprd.library.nd.edu
+  url: http://localhost:3005
 pre_production:
   token: qtyZ5f6GrM67WWteGFp1
   url: https://apipprd.library.nd.edu
