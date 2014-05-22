@@ -59,118 +59,48 @@ class DiscoveryRecord
   end
 
 
-  def fulltext_links
-    links = ensure_array(link_field(:linktorsrc))
-    if links.empty? && data['fulltext_available']
-      links = [ "$$U#{data['links']['fulltext_url']}$$Dlinktosrc_ndu" ]
-    end
-    links = links.collect { | l | convert_url_hash(parse_subfields(l)) }
-
-    links
-  end
-
-
-  def table_of_contents_links
-    links = ensure_array(link_field(:linktotoc))
-    links = links.collect { | l | parse_subfields(l) }
-
-    links
-  end
-
-
   def display_fields
-    primo['display'] || {}
-  end
-
-  def openurl_fields
-    data['openurl'] || {}
+    primo('display') || {}
   end
 
 
-  def link_fields
-    primo['links'] || {}
+  def ndu_links
+    links("ndu") || {}
+  end
+
+  def smc_links
+    links("smc") || {}
+  end
+
+  def hcc_links
+    links("hcc") || {}
+  end
+
+  def bth_links
+    links("bth") || {}
   end
 
 
   private
-
-    def self.make_request(id)
-      API::Resource.search_catalog(id)
-    end
 
 
     def identifiers_field(key)
       data['identifiers'][key.to_s]
     end
 
-    def primo
-      data['primo'] || {}
+    def primo(key)
+      data['primo'][key.to_s]
+    end
+
+
+    def links(key)
+      data['links'][key.to_s]
     end
 
     def display(key)
       data['display'][key.to_s]
     end
 
-
-    def openurl(key)
-      openurl_fields[key.to_s]
-    end
-
-    def link_field(key)
-      link_fields[key.to_s]
-    end
-
-    def ensure_array(result)
-      if result.nil?
-        []
-      elsif !result.is_a?(Array)
-        result = [result]
-      else
-        result
-      end
-    end
-
-
-    def split_row(row)
-      PrimoFieldSplitter.dash(row)
-    end
-
-
-    def split_row_semicolon(row)
-      PrimoFieldSplitter.semicolon(row)
-    end
-
-
-    def parse_subfields(string)
-      ret = Hash[string.scan(/\${2}([^\$])([^\$]+)/)]
-      if ret.empty?
-        ret = string
-      end
-
-      ret
-    end
-
-
-    def convert_hash_to_key_value(hash)
-      if hash.is_a?(Hash)
-        {hash['C'].strip => hash['V'].strip}
-      else
-        # This may be an error  identifier: "<b>ISSN: </b>0262-4079",
-        # consider trapping this.
-        hash
-      end
-    end
-
-
-    def convert_url_hash(hash)
-      if hash.is_a?(Hash)
-        {title: hash['E'], url: hash['U']}
-      else
-        # This may be an error
-        # consider trapping this.
-        hash
-      end
-    end
 end
 
 

@@ -28,8 +28,16 @@ class ExampleRecordDecorator < Draper::Decorator
     h.record_path(id: id, format: format)
   end
 
+  def online_access_path(format = nil)
+    h.online_access_path(id: id, format: format)
+  end
+
   def record_link
     h.link_to('Details', record_path, target: '_blank')
+  end
+
+  def online_access_link()
+    h.link_to('Online Access', online_access_path, target: 'blank')
   end
 
   def json_link

@@ -24,7 +24,7 @@ describe DiscoveryRecord do
     end
 
     it "display_fields returns the fields from the original primo record" do
-      subject.stub(:primo).and_return({ 'display' => { 'primo_display' => 'true '} })
+      subject.stub(:primo).with('display').and_return( { 'primo_display' => 'true '} )
       expect(subject.display_fields).to eq({ 'primo_display' => 'true '})
     end
   end
@@ -88,4 +88,34 @@ describe DiscoveryRecord do
   end
 
 
+  describe :ndu_links do
+
+    it "has ndu_links" do
+      expect(subject.ndu_links).to eq({"fulltext"=>[], "findtext"=>"", "ill"=>{}, "report_a_problem"=>{}})
+    end
+  end
+
+
+  describe :smc_links do
+
+    it "has smc_links" do
+      expect(subject.smc_links).to eq({"fulltext"=>[], "findtext"=>"", "ill"=>{}, "report_a_problem"=>{}})
+    end
+  end
+
+
+  describe :hcc_links do
+
+    it "has hcc_links" do
+      expect(subject.hcc_links).to eq({"fulltext"=>[], "findtext"=>"", "ill"=>{}, "report_a_problem"=>{}})
+    end
+  end
+
+
+  describe :bth_links do
+
+    it "has bth_links" do
+      expect(subject.bth_links).to eq({"fulltext"=>[], "findtext"=>"", "ill"=>{}, "report_a_problem"=>{}})
+    end
+  end
 end

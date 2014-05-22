@@ -67,6 +67,12 @@ describe ExampleRecordDecorator do
       end
     end
 
+    describe '#online_access_link' do
+      it 'links to the online_access locally' do
+        expect(subject.online_access_link).to eq("<a href=\"/online_access?id=ndu_aleph001890313\" target=\"blank\">Online Access</a>")
+      end
+    end
+
     describe '#json_link' do
       it 'links to json' do
         expect(subject.json_link).to eq("<a href=\"/record.json?id=#{record['id']}\" target=\"_blank\">JSON</a>")

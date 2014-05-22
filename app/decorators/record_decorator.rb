@@ -43,6 +43,10 @@ class RecordDecorator < Draper::Decorator
     object.display_fields
   end
 
+  def page_title
+    object.title.first
+  end
+
   def title
     ulize_array(object.title)
   end

@@ -1,6 +1,23 @@
-<dl class="ndl-details">
-  <% @record.detail_content.each do |method, content| %>
-    <dt class="ndl-detail-label ndl-detail-label-<%= method %>"><%= t("online_access.#{method}") %></dt>
-    <dd class="ndl-detail-content ndl-detail-content-<%= method %>"><%= content %></dd>
-  <% end %>
-</dl>
+
+<% if @record.nd_links.has_fulltext_links? %>
+  <h2>Notre Dame</h2>
+  <%= render partial: 'institution', locals: { institution: @record.nd_links } %>
+<% end %>
+
+
+<% if @record.smc_links.has_fulltext_links? %>
+  <h2>Saint Mary's College</h2>
+  <%= render partial: 'institution', locals: { institution: @record.smc_links } %>
+<% end %>
+
+
+<% if @record.hcc_links.has_fulltext_links? %>
+  <h2>Holy Cross College</h2>
+  <%= render partial: 'institution', locals: { institution: @record.hcc_links } %>
+<% end %>
+
+
+<% if @record.bth_links.has_fulltext_links? %>
+  <h2>Bethel College</h2>
+  <%= render partial: 'institution', locals: { institution: @record.hcc_links } %>
+<% end %>
