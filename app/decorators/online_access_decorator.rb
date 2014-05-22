@@ -48,6 +48,8 @@ class OnlineAccessDecorator < Draper::Decorator
   end
 
 
+
+
   private
 
     def ulize_array(arr)

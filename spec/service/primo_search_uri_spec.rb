@@ -4,7 +4,7 @@ require 'spec_helper'
 describe PrimoSearchUri do
   subject { PrimoSearchUri }
 
-  TYPE_TRANSLATIONS = { 'creator' => 'creator', 'title' => 'title', 'series' => 'lsr03', 'uniform_title' => 'lsr04', 'related_title' => 'title', 'subject' => 'sub' }
+  TYPE_TRANSLATIONS = { 'creator' => 'creator', 'title' => 'title', 'series' => 'lsr30', 'uniform_title' => 'lsr31', 'related_title' => 'title', 'subject' => 'sub' }
 
   describe :type_translator do
     subject {PrimoSearchUri::TranslateType}

@@ -85,7 +85,6 @@ class LogUnknownDisplayFields
 
   def log
     unknown_fields.each do |key|
-      puts key
       log_field(key)
     end
   end

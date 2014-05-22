@@ -13,6 +13,7 @@
   },
   "display":{
     "title":["title"],
+    "vernacular_title": ["vernacular_title"],
     "creator":{"fulltext":["creator"],"hierarchical":[ ["creator", "creator"] ]},
     "contributor":{"fulltext":["contributor"],"hierarchical":[["contributor","contributor"]]},
     "language":["language"],

@@ -20,7 +20,7 @@ class RecordDecorator < Draper::Decorator
 
   def detail_methods
     [
-      :title,
+#      :title,
 #      :links,
       :author,
       :contributor,
@@ -71,8 +71,7 @@ class RecordDecorator < Draper::Decorator
   end
 
   def series
-    series = create_heirarchical_links(object.series, :series)
-    ulize_array(series)
+    SeriesSearchLinks.render(object.series, :series)
   end
 
   def subjects
