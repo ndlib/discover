@@ -1,5 +1,5 @@
 class NotifyOfNewPrimoKey < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "discover-notifier@library.nd.edu"
 
 
   def new_primo_key(primo_display_field)
