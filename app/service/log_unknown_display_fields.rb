@@ -14,6 +14,7 @@ class LogUnknownDisplayFields
     :lds02,
     :lds03,
     :lds06,  # not used
+    :lds07,  # not used
     :lds30,
     :lds31,
     :relation,

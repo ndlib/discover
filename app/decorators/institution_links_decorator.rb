@@ -1,7 +1,7 @@
 class InstitutionLinksDecorator < Draper::Decorator
 
   def fulltext
-    object['fulltext'].collect { | link | LinkDecorator.new(link) }
+    object['fulltext'].collect { | link | LinkDecorator.factory(link) }
   end
 
 

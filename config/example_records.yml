@@ -44,3 +44,7 @@ records:
   - id: hathi_pubMIU01-001593127
     title: "A list of emigrant..."
     description: Hathi Trust book.
+  - id: dedupmrg97328716
+    title: "The hunting of the snark"
+    description: Complicated Hathi book
+

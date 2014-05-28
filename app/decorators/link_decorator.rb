@@ -1,12 +1,17 @@
 class LinkDecorator < Draper::Decorator
 
   def self.factory(object)
-
+    determine_class(object).new(object)
   end
 
   def self.determine_class(object)
-    LinkDecorator
+    [ OpenURLDecorator, HathiTrustLinkDecorator ].each do | klass |
+      return klass if klass.use_this_class?(object)
+    end
+
+    return LinkDecorator
   end
+
 
   def link
     h.link_to title, url, target: 'blank'
@@ -31,16 +36,26 @@ class LinkDecorator < Draper::Decorator
     object['url']
   end
 
-
 end
 
 
 class OpenURLDecorator < LinkDecorator
 
+  def self.use_this_class?(object)
+    object['source'].downcase == 'openurl'
+  end
 
 end
 
 
 class PrimoKeyLinkDecorator < LinkDecorator
 
+end
+
+
+class HathiTrustLinkDecorator < LinkDecorator
+
+  def self.use_this_class?(object)
+    object['title'] == 'linktorsrc_pub' && object['url'].match(/^http:\/\/catalog[.]hathitrust/)
+  end
 end

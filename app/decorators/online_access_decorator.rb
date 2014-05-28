@@ -9,7 +9,6 @@ class OnlineAccessDecorator < Draper::Decorator
 
 
   def nd_links
-    puts object.ndu_links
     InstitutionLinksDecorator.new(object.ndu_links)
   end
 
