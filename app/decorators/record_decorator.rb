@@ -21,7 +21,7 @@ class RecordDecorator < Draper::Decorator
   def detail_methods
     [
 #      :title,
-#      :links,
+      :links,
       :author,
       :contributor,
       :published,
@@ -123,16 +123,11 @@ class RecordDecorator < Draper::Decorator
   end
 
   def oclc
-    object_oclc = object.oclc
-    if object_oclc.nil?
-      nil
-    else
-      if @oclc.nil?
-        @oclc = object_oclc
-        @oclc.gsub!(/^0+/,'')
-      end
-      @oclc
+    if @oclc.nil?
+      # We need to strip any leading zeroes from the oclc numbers
+      @oclc = object.oclc.collect{|o| o.gsub(/^0+/,'')}
     end
+    @oclc
   end
 
   def isbn
@@ -149,21 +144,17 @@ class RecordDecorator < Draper::Decorator
     ulize_array(links_array)
   end
 
-  def worldcat_identifiers
-    if @worldcat_identifiers.nil?
-      @worldcat_identifiers = []
+  def worldcat_identifier
+    if @worldcat_identifier.nil?
       [:oclc, :isbn, :issn].each do |method|
         value = self.send(method)
         if value.present?
-          @worldcat_identifiers << [method, value]
+          @worldcat_identifier = [method, value.first]
+          break
         end
       end
     end
-    @worldcat_identifiers
-  end
-
-  def worldcat_identifier
-    worldcat_identifiers.first
+    @worldcat_identifier
   end
 
   def worldcat_url
