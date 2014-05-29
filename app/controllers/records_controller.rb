@@ -3,7 +3,7 @@ class RecordsController < ApplicationController
     @record = RecordDecorator.find(params[:id])
     respond_to do |format|
       format.html do
-        if request.xhr?
+        if request.xhr? || params[:xhr].present?
           render layout: false
         else
           render

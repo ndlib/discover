@@ -3,7 +3,7 @@ class OnlineAccessController < ApplicationController
     @record = OnlineAccessDecorator.find(params[:id])
     respond_to do |format|
       format.html do
-        if request.xhr?
+        if request.xhr? || params[:xhr].present?
           render layout: false
         else
           render
