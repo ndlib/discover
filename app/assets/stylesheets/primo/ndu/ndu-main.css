@@ -13,7 +13,7 @@ height: 100px;
   float: left;
 }
 
-#exlidMainMenuTile { width:17em; margin-right: 15px; float right; margin-top: -.35em; }
+#exlidMainMenuTile { width:17em; margin-right: 15px; float: right; margin-top: -.35em; }
 #exlidMainMenuTile div.EXLMainMenuContainer  { width:17em; }
 .EXLMainMenuITEMHelp { display: none ; }
 
