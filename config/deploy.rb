@@ -11,6 +11,8 @@ require 'hesburgh/prompt_branch'
 begin
   require 'hipchat/capistrano'
   require 'new_relic/recipes'
+
+  after "deploy:update", "newrelic:notice_deployment"
 rescue LoadError
 end
 
@@ -35,5 +37,3 @@ task :production do
   set :rails_env, 'production'
   role :app, "discoverprod-vm.library.nd.edu"
 end
-
-after "deploy:update", "newrelic:notice_deployment"
