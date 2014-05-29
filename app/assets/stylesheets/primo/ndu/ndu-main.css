@@ -80,9 +80,7 @@ ul#tl-style1{position:relative;right:1em}
 
 #exlidHeaderTile {background-image:url(../../images.v3/onesearch.head.jpg);}
 
-.EXLResultsList h2.EXLResultTitle {font-size:18px}
 .EXLResultTitle a {color:#133250;}
-.EXLResultsList h3.EXLResultAuthor {font-size:14px;font-weight:bold;color:#404040;}
 
 body {
     font-family: Arial,Helvetica,serif;
@@ -102,13 +100,15 @@ body {
 }
 
 .EXLResultsList h2.EXLResultTitle {
-  font-size:16px !important;
+  font-size:16px;
 }
 
 .EXLResultsList h3.EXLResultAuthor  {
-  margin-bottom:12px;
+  font-weight: bold;
+  color: #404040;
+  margin-bottom: 12px;
   line-height: 100%;
-  font-size: 13px !important;
+  font-size: 13px;
 }
 
 p.EXLResultAvailability {
