@@ -1,0 +1,1011 @@
+      /*      CODE FOR ND WEBSITE HEADER   */
+#exlidHeaderTile {
+float:left;
+padding-bottom:0em;
+padding-left:0em;
+padding-top:0em;
+width: 100%;
+height: 100px;
+}
+
+#exlidUserAreaTile{
+  margin-left:15px;
+  float: left;
+}
+
+#exlidMainMenuTile { width:17em; margin-right: 15px; float right; margin-top: -.35em; }
+#exlidMainMenuTile div.EXLMainMenuContainer  { width:17em; }
+.EXLMainMenuITEMHelp { display: none ; }
+
+
+
+/*
+#exlidMainMenuTile { width:30em; }
+#exlidMainMenuTile { margin-top:3em; }
+#exlidMainMenuTile div.EXLMainMenuContainer  { width:30em; }
+*/
+#exlidAdvancedSearchTile{
+  width: 100%;
+
+  padding-bottom: 70px;
+}
+
+
+#exlidHeaderTile {background:url(../../images.v3/hesbcatalogplus.jpg) #2b5681 center top no-repeat; margin:0 auto; padding:0; height: 100px;}
+
+#website-header h3                              {clear:both; margin:0; display:block;}
+#website-header h3 a                            {display:block; width:700px; height:50px; margin:0; text-indent:-9999px; border:none; overflow:hidden;}
+#website-header h4                              {margin:0;}
+#website-header h4 a                            {display:block;width:700px; height:40px; margin:0; text-indent:-9999px; border:none; overflow:hidden;}
+
+#website-header ul                              {margin:8px 0 10px; padding:0;}
+#website-header ul li                           {float:left; display:inline; margin:0 0 0 3px; padding:0; list-style:none;}
+/*
+#website-header                                 {background:url(http://rhoda.library.nd.edu:1701/primo_library/libweb/images.v3/hesbcatalogplus2.gif) center bottom no-repeat; margin:0 auto; padding:0;}
+*/
+#website-header                                 {position:relative; width:700px; min-height:75px; border:0px solid #fff;}
+#website-header #nav_util                       {float:left; margin-left:25px;}
+
+#website-header #nav_util li,
+#website-header #nav_global li          {position:relative; padding:0 7px 0 3px; border-right:1px solid #4b6772;}
+
+#website-header #nav_util li a,
+#website-header #nav_global li a        {
+        float:left;
+        display:block;
+        font-size: 12px;text-decoration:none; border-bottom:1px dotted #4b6772;
+        }
+
+#website-header #nav_util li.omega,
+#website-header #nav_global li.omega,
+#website-header #nav_global #text_size  {border:none;}
+
+#website-header #nav_global                     {float:right; margin-right:25px;}
+
+#website-header #nav_global li#text_size                        {width:53px; margin:-3px 0 0 5px; padding:0; background:url(http://www.library.nd.edu/css/images/text-size.gif) left center no-repeat;}
+
+#website-header #nav_global li#text_size a              {display:block; float:left; overflow:hidden; width:16px; height:16px; margin-right:1px; border:none; text-indent:-9999px;}
+
+ul#tl-style1{position:relative;right:1em}
+
+.hide {display:none;}
+
+/*
+.EXLResult .EXLRequestTab {
+       display: none;
+}
+*/
+
+/* OneSearch Rebranding */
+
+#exlidHeaderTile {background-image:url(../../images.v3/onesearch.head.jpg);}
+
+.EXLResultsList h2.EXLResultTitle {font-size:18px}
+.EXLResultTitle a {color:#133250;}
+.EXLResultsList h3.EXLResultAuthor {font-size:14px;font-weight:bold;color:#404040;}
+
+body {
+    font-family: Arial,Helvetica,serif;
+}
+
+.EXLResultsList td.EXLSummary {
+  padding-top:1em;
+  padding-bottom:1.5em;
+}
+
+.EXLResultsList td.EXLThumbnail {
+  padding-top:2em;
+}
+
+.EXLSummaryFields {
+  color:#7f7f7f;
+}
+
+.EXLResultsList h2.EXLResultTitle {
+  font-size:16px !important;
+}
+
+.EXLResultsList h3.EXLResultAuthor  {
+  margin-bottom:12px;
+  line-height: 100%;
+  font-size: 13px !important;
+}
+
+p.EXLResultAvailability {
+  display: inline-block;
+}
+
+.EXLTabsRibbon {
+  height:36px;
+  margin-bottom: 0;
+}
+
+.EXLTabsRibbon div{
+  width:100%;
+}
+
+.EXLTabsRibbon div li.EXLResultSelectedTab {
+  margin-left: 0;
+}
+
+.EXLTabsRibbon div li.EXLResultTab a {
+  color:#17375e;
+  text-transform:uppercase;
+  font-size:12px;
+}
+
+.EXLTabsRibbon div li.EXLResultTab {
+  padding:10px;
+  background-color:#f0f0f0;
+}
+
+.EXLTabsRibbon div li.EXLResultSelectedTab {
+  background:#fff;
+}
+
+.EXLTabsRibbon div li.EXLResultTabIconPopout {
+  padding-right:20px;
+  background-position: 92% center;
+}
+
+.EXLResultsContainer {
+  margin-top:0;
+}
+
+#exlidHeaderContainer {
+  background-color:#133250;
+  width:auto;
+ }
+
+ #exlidAdvancedSearchTile {
+  background:none;
+  border:none;
+ }
+
+ #exlidMainMenuTile {
+  margin-top:0 !important;
+ }
+
+#exlidMainMenuTile div.EXLMainMenuContainer {
+  width:auto !important;
+}
+
+#exlidAdvancedSearchRibbon div.EXLSearchFieldRibbon {
+  border:none;
+}
+
+ #exlidMainMenuRibbon {
+  width:300px;
+  padding-top:0;
+ }
+
+#exlidUserAreaRibbon li span.EXLUserAreaStart{
+  background:none;
+}
+
+.EXLRefinementRibbon {
+  padding-bottom: 6px;
+}
+
+ #exlidUserAreaRibbon li {
+  background:none;
+  margin-top:5px;
+ }
+
+ #exlidMainMenuRibbon li {
+  margin-top:;
+
+ }
+
+ #exlidMainMenuRibbon li span {
+  border:none;
+ }
+
+ #exlidMainMenuRibbon li a,  #exlidUserAreaRibbon li a, .EXLUserNameDisplay {
+  color:#fff;
+  text-transform: uppercase;
+ }
+
+.EXLResultsHeader {
+  text-transform: uppercase;
+  border-top:none;
+}
+
+.EXLResultsHeader h1, .EXLResultsHeader div.EXLResultsNumbers div.EXLResultsSortBy, .EXLResultsHeader div.EXLResultsNavigation {
+  font-size: 13px;
+  font-weight: normal;
+  padding-top:5px;
+}
+
+.EXLResultsContainer div.EXLResultsTile {
+  padding-top:28px;
+}
+
+.EXLResultsHeader div.EXLResultsNumbers div.EXLResultsSortBy {
+  width:16em;
+  text-align:center;
+  border:solid #ccc;
+  border-width: 1px 1px 0 1px;
+  padding:5px 0;
+  position: relative;
+}
+
+#resultsFooterNoId {
+  margin-top: 0;
+  padding-top:0;
+}
+
+#resultsFooterNoId div.EXLResultsNumbers div.EXLResultsSortBy {
+  border-width: 0 1px 1px 1px;
+}
+
+.EXLResultsHeader div.EXLResultsNumbers div.EXLResultsSortBy div.EXLResultsSortByMenu {
+  float:none;
+  position: absolute;
+  top:23px;
+  right:18px;
+}
+
+
+
+.EXLResultsHeader div.EXLResultsNumbers div.EXLResultsSortBy ul {
+  margin-left: 0;
+}
+
+.EXLResultsHeader div.EXLResultsNumbers div.EXLResultsSortBy span.EXLResultsSortByLabel {
+  float:none;
+}
+
+.EXLResultsHeader h1 em {
+  font-weight: normal;
+}
+
+.EXLUserNameDisplay {
+  color:#999;
+}
+
+ #exlidSearchTile {
+  border-top-color:#133250;
+  height:140px;
+ }
+
+ #exlidAdvancedSearchTile {
+
+ }
+
+ #exlidSearchRibbon {
+  margin-top:30px;
+ }
+
+ .EXLResultsHeader h1 em {
+  color:#666;
+ }
+
+ .EXLResultsSortByLabel {
+  color:#8C8C8C;
+ }
+
+.EXLSearchFieldRibbonAdvancedSearchLink {
+  margin-left:0;
+ }
+
+.EXLTabHeaderButtons {
+
+  position:absolute;
+  top:10px;
+  right:0;
+}
+
+/*
+.EXLTabHeaderButtons ol.EXLTabHeaderButtonSendToList li.EXLButtonSendToDelicious {
+  display:none ;
+}
+*/
+
+.EXLTabHeaderButtonSendTo {
+  position: relative;
+}
+
+.EXLTabHeader .EXLTabHeaderButtons {
+  margin-top:0;
+}
+
+ .EXLTabHeaderButtons ol.EXLTabHeaderButtonSendToList {
+  right:0;
+  z-index: 4000;
+ }
+
+ .EXLSummaryContainer .EXLTabHeaderButtons ol.EXLTabHeaderButtonSendToList {
+  top:15px;
+  }
+
+.EXLTabHeaderButtons ol.EXLTabHeaderButtonSendToList li a:link {
+  display:block;
+  width:100%;
+  float:left;
+  padding:3px 0;
+}
+.EXLTabHeaderButtons ol.EXLTabHeaderButtonSendToList li a:hover {
+  background:#eee;
+}
+
+ .EXLTabHeaderButtons ol.EXLTabHeaderButtonSendToList li span.EXLButtonSendToIcon {
+  height:16px;
+ }
+
+ .EXLResultsList em.EXLResultStatusNotAvailable span.EXLResultStatusAvailable {
+  color:#5CA301;
+ }
+
+/*.EXLResultsList div.EXLSummaryContainer cite.EXLResultFRBR {
+  bottom:-47px;
+  float:none;
+  right:0;
+  top: auto;
+  border-radius: 0;
+  border:none;
+ }*/
+
+ .EXLResultsList div.EXLSummaryContainer cite.EXLResultFRBR {
+    float:left;
+    clear:left;
+    padding:10px 0 0;
+    background:none;
+    position:static;
+    border:none;
+    margin-left:0;
+ }
+
+ .EXLResultsList div.EXLSummaryContainer cite.EXLResultFRBR a {
+  font-size: 13px;
+  color:#5485B0;
+  line-height: 120%;
+  font-weight:bold;
+ }
+
+
+
+.EXLResultsList div.EXLSummaryContainer {
+  float: left;
+}
+
+.EXLResultsList span.EXLAvailabilityLibraryName, .EXLResultsList span.EXLAvailabilityCollectionName, .EXLResultsList span.EXLAvailabilityCallNumber {
+  color:#133250;
+
+}
+
+ #backup {
+  opacity: .6;
+  font-size:12px;
+  text-align: center;
+  margin:0 auto;
+  padding: 5px;
+  top: 75px;
+  width: 100%;
+  position: absolute;
+  background-color: #FAA;
+  border: 1px solid #F00;
+ }
+
+ .searchword {
+  padding:0 2px;
+  background:#ff9;
+ }
+
+ a:link, a:visited {
+  color:#17375e;
+ }
+
+ .EXLFacetContainer {
+  margin-bottom: 0;
+  position:relative;
+ }
+
+ .EXLFacetsDisplayMore, .EXLFacetsDisplayLess {
+  position:absolute;
+  z-index: 30;
+  right:8px;
+  top:-2px;
+ }
+
+ .EXLFacetList h1 {
+  font-size:16px;
+  color:#133250;
+  text-transform: uppercase;
+  background:none;
+  border-top: none;
+ }
+
+ .EXLFacetList h1 ~ .EXLFacetsList .EXLFacetsDisplayMore,  .EXLFacetList h1 ~ .EXLFacetsList .EXLFacetsDisplayLess {
+  top:22px;
+ }
+
+ #exlidFacet0 h4 {
+  display:none;
+ }
+
+  .EXLFacetsDisplayMore a, .EXLFacetsDisplayLess a {
+    display:block;
+    height:0;
+    overflow: hidden;
+    padding-top:31px;
+    width:100%;
+  }
+
+  .EXLRefinementRibbon div.EXLRefinementsList  {
+    width:100%;
+  }
+
+.EXLFacetsDisplayMore a {
+  background:url(http://primotest.library.nd.edu:1701/primo_library/libweb/images/icon_open_subMenu.png)  right 12px no-repeat;
+}
+
+.EXLFacetsDisplayLess a {
+  background:url(http://primotest.library.nd.edu:1701/primo_library/libweb/images/icon_close_subMenu.png) right 12px no-repeat;
+}
+
+ .EXLFacetContainer h4 {
+  padding:6px 8px;
+  border-top:solid 2px #ccc;
+  border-bottom:solid 1px #ccc;
+ }
+
+ .EXLFacetContainer ol {
+  padding-left:1em;
+ }
+
+ .EXLFacetContainer ol li {
+  padding:5px 0;
+  width:100%;
+ }
+
+.EXLFacetTile div.EXLFacetList {
+  margin-top:2em;
+}
+
+.EXLFacetTile div.EXLFacetList h3 {
+    font-size:14px;
+  color:#133250;
+  text-transform: uppercase;
+  background:none;
+  border-top: none;
+}
+
+ .EXLSearchTab a {
+  color:#fff;
+  font-size:12px;
+
+  font-weight: bold;
+ }
+
+.EXLSearchTabSelected a {
+  color:#17375E;
+  font-size:20px;
+  text-transform: none;
+}
+
+#exlidSearchRibbon div.EXLSearchFieldRibbon, #exlidSearchRibbon input.submit, #exlidSearchTabs li.EXLSearchTabSelected {
+  border:none;
+}
+
+#exlidSearchTabs li {
+  margin-top:-5px;
+}
+
+ #exlidSearchTabs li a.Libraries {
+  background-color:#263D49;
+  border-radius: 3px;
+
+}
+
+#exlidSearchTabs li a:hover, #exlidSearchTabs li a:hover {
+  background-color:#414C3E ;
+  text-decoration: none;
+}
+
+
+#exlidSearchTabs li.EXLSearchTabSelected {
+  background-color:#415A72;
+
+  border-bottom:3px solid #CC9A07;
+  height:32px;
+  margin: -11px 20px 0;
+  border-radius: 3px 3px 0 0 ;
+  padding-top:4px;
+}
+
+#exlidSearchTabs li.EXLSearchTabSelected:first-child {
+  margin-left:0;
+}
+
+#exlidSearchTabs li.EXLSearchTabSelected a {
+  color:#CFA016;
+  background-color:transparent;
+
+}
+
+#exlidSearchTabs li.EXLSearchTabSelected a:hover {
+  background-color: transparent;
+}
+
+.EXLSearchFieldRibbonFormSelectedCollection, .EXLSearchFieldRibbonFormSelectedCollectionLabel {height:36px;}
+.EXLSearchFieldRibbonFormSelectedCollectionLabel {
+  background:#fff;
+  border:none;
+}
+
+#exlidSearchRibbon input.EXLSearchFieldMaximized {
+  width:99%;
+}
+
+#exlidAdvancedSearchRibbon input {
+  width:240px;
+}
+
+#exlidSearchRibbon input.submit, #exlidAdvancedSearchRibbon input.submit {
+  background-image: none;
+  background-color:#cbb53f;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+#exlidSearchRibbon input.submit, #exlidSearchRibbon input.EXLSearchFieldMaximized {
+  -webkit-box-shadow: 1px 1px 5px rgba(00, 00, 00, .6);
+box-shadow: 1px 1px 5px rgba(00, 00, 00, .6);
+
+}
+
+#exlidSearchRibbon input.EXLSearchFieldMaximized {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  padding:4px 30px 4px 12px;
+  height:36px;
+}
+
+#exlidSearchRibbon div.EXLSearchFieldRibbon {
+  background:none;
+}
+
+body.EXLFullView div.EXLResultsList h1.EXLResultTitle {
+  font-size:18px;
+  color:#133250;
+}
+
+body.EXLFullView div.EXLResultsList h2.EXLResultAuthor {
+    color: #404040;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom:12px;
+}
+
+div.EXLBackToResults a, .EXLResultsNavigation .EXLDisplayedCountTitle, .EXLResultsNavigation .EXLPrev,
+ .EXLResultsFooter .EXLResultsNavigation .EXLNext, .EXLResultsNavigation .EXLDisplayedCount {
+  font-size:14px;
+}
+
+.EXLResultsNavigation .EXLPrev img {
+  padding-right:4px;
+}
+.EXLResultsNavigation .EXLNext img {
+  padding-left:4px;
+}
+
+.EXLResultsList td.EXLThumbnail {
+  width:85px;
+}
+
+.EXLResultsList td.EXLThumbnail img, .multipleCoverImageContainer {
+  width:57px;
+  height:80px;
+}
+
+.multipleCoverImageContainer {
+  background-position: center;
+}
+
+.EXLResultsHeader div.EXLResultsNumbers li a {
+  color:#133250;
+}
+.EXLResultsHeader div.EXLResultsNumbers li a:hover {
+  color:#000;
+  text-decoration: underline;
+}
+
+#exlidHeaderSystemFeedback .EXLSystemFeedback {
+  margin:0;
+}
+
+#exlidHeaderSystemFeedback {
+  background: #fff;
+  margin-bottom:-24px;
+}
+
+#exlidHeaderSystemFeedback a:link, #exlidHeaderSystemFeedback a:visited {
+
+}
+
+.EXLSearchFieldRibbonAdvancedSearchLink a, #exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormLinks a {
+  color:#fff !important;
+  font-size:12px;
+  text-transform: uppercase;
+}
+
+#exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormLinks {
+  margin-left:0;
+  float:none;
+}
+
+
+
+.EXLSearchTabSelected {
+  margin-top:-6px;
+}
+
+.EXLSearchTabSelected .EXLSearchTabLABELOneSearch {
+    background: url(/primo_library/libweb/images.v3/onesearch.big.png) no-repeat;
+    padding-top:30px;
+    padding-left:0;
+    padding-right:0;
+    width:113px;
+}
+
+.EXLSearchTabLABELOneSearch {
+  height:0;
+  padding: 28px 4px 0;
+  width:83px;
+  overflow: hidden;
+  background: url(/primo_library/libweb/images.v3/onesearch.sml.png) no-repeat 4px 3px #263D49;
+  border-radius: 3px;
+  display:block;
+}
+
+.EXLSearchTabSelected .EXLSearchTabLABELWorldCat {
+    background: url(/primo_library/libweb/images.v3/worldcat.big.png) no-repeat;
+    padding-top:30px;
+    padding-left:0;
+    padding-right:0;
+    width:113px;
+}
+
+.EXLSearchTabLABELWorldCat {
+  height:0;
+  padding: 28px 4px 0;
+  width:89px;
+  overflow: hidden;
+  background: url(/primo_library/libweb/images.v3/worldcat.sml.png) no-repeat 4px 3px #263D49;
+  border-radius: 3px;
+  display:block;
+}
+
+#exlidSearchTabs li.EXLSearchTabSelected .Campus {
+  background: url(/primo_library/libweb/images.v3/nd.campus.big.png) no-repeat;
+  padding-top:30px;
+  padding-left:0;
+  padding-right:0;
+  width:104px;
+  height: 0 !important;
+  overflow: hidden;
+  display:block;
+  padding: 28px 4px 0;
+}
+
+#exlidSearchTabs li .Campus {
+  background: url(/primo_library/libweb/images.v3/nd.campus.sml.png) no-repeat 4px 4px #263D49;
+  padding:28px 4px 0;
+  border-radius: 3px;
+  height: 0 !important;
+  overflow: hidden;
+  display:block;
+  width:75px;
+}
+
+#exlidSearchTabs li.EXLSearchTabSelected .Libraries {
+  background: url(/primo_library/libweb/images.v3/area.big.png) no-repeat;
+  padding-top:30px;
+  padding-left:0;
+  padding-right:0;
+  width:146px;
+  height: 0 !important;
+  overflow: hidden;
+  display:block;
+  padding: 28px 4px 0;
+}
+
+#exlidSearchTabs li .Libraries {
+  background: url(/primo_library/libweb/images.v3/area.sml.png) no-repeat 4px 4px #263D49;
+  padding:28px 4px 0;
+  border-radius: 3px;
+  height: 0 !important;
+  overflow: hidden;
+  display:block;
+  width:111px;
+}
+
+.EXLResultTabContainer div.EXLTabHeader {
+  position:relative;
+  z-index: 3000;
+}
+
+.EXLResultTabContainer div.EXLTabHeader .EXLTabHeaderButtons {
+  top:0;
+}
+
+#exlidHeaderSystemFeedback strong {
+  color:#933;
+}
+
+.EXLTabsRibbon div li.EXLResultSelectedTab {
+  border-bottom-color: #fff;
+}
+
+/* Color Box */
+#cboxClose {
+  right:10px;
+}
+
+#cboxLoadedContent {
+  margin:0 10px;
+}
+
+/* Modal Window */
+
+#cboxOverlay {
+  background-color: #000;
+  opacity: .8 !important;
+}
+
+#cboxContent {
+  height:auto !important;
+}
+
+#cboxContent td, #cboxLoadedContent {
+  vertical-align: top;
+  height: auto !important;
+}
+
+#cboxClose {
+  font-size: 11px
+}
+
+#cboxLoadedContent td, #cboxLoadedContent th {
+  font-size:12px;
+}
+
+#cboxLoadedContent div {
+  font-size: 11px;
+  width: 100% !important;
+}
+
+#cboxLoadedContent div[style="margin-bottom: 10px;"] {
+  margin:0 !important;
+  height: 0;
+}
+
+#item-tbl {
+  border-collapse:collapse;
+  border-color: #ddd !important;
+  width: 100%;
+  width:577px;
+}
+
+#item-tbl .tbl-hd {
+  background: #DCD5B6 !important;
+}
+
+#item-tbl td {
+  padding:10px !important;
+  border-color: #ddd !important;
+  width:auto;
+}
+
+.maps {
+  float:none !important;
+}
+
+#exlidUserAreaRibbon li span.EXLMyShelfStarSelected {
+  background: url("../../images.v3/icon_star_on.png");
+}
+
+.sign_in_alert {
+  font-size:16px;
+  padding:4px;
+  border:#CC9A07 1px dashed;
+  background:  #FFFF99;
+}
+
+.findtext {
+  padding-left:15px;
+  background: url("../../images.v3/findtext.png") no-repeat left top;
+}
+
+.EXLResultMediaTYPEbook .multipleCoverImageContainer {
+  background-image: url("../../images.v3/icon_book.png");
+}
+.EXLResultMediaTYPEjournal .multipleCoverImageContainer {
+  background-image: url("../../images.v3/icon_journal.png");
+}
+.EXLResultMediaTYPEarticle .multipleCoverImageContainer {
+  background-image: url("../../images.v3/icon_article.png");
+}
+
+.EXLResultMediaTYPEaudio .multipleCoverImageContainer {
+  background-image: url("../../images.v3/icon_audio.png");
+}
+
+.EXLResultMediaTYPEvideo .multipleCoverImageContainer {
+  background-image: url("../../images.v3/icon_video.png");
+}
+
+.EXLResultMediaTYPEnewspaper .multipleCoverImageContainer {
+  background-image: url("../../images.v3/icon_newspaper.png");
+}
+
+
+.EXLResultNumber { display:block;text-align:center;vertical-align:middle; }
+
+.EXLResultsList td,  .EXLResultsList td.EXLMyShelfStar {padding-top: 2em;}
+
+
+/* -- Help Tooktips -- */
+
+#help-box {
+    position:relative;
+    width:690px;
+    margin:0 auto;
+    top:70px;
+    top:98px;
+}
+
+/* #help-box {
+  top:106px;
+}*/
+
+#help-icon {
+  position: absolute;
+  color:#666;
+  right:72px;
+  top:-2px;
+  display: block;
+  height:0;
+  width:26px;
+  padding-top:29px;
+  background:url(../../images/help.gif) no-repeat 3px 3px #fff;
+  overflow:hidden;
+}
+/*
+#help-icon {
+  background:none;
+  height:auto;
+  padding-top:0;
+  color:#fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  width:auto;
+}*/
+
+ .advanced #help-icon{
+  right:-65px;
+}
+
+.advanced #search_example_default {
+  right:-65px;
+}
+
+#search_example_default {
+  position: absolute;
+  top:25px;
+  right:0;
+  border:solid 1px #fff;
+  background-color: #133250;
+  padding:0 1em 1em;
+  z-index: 500000;
+  /*-webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+*/
+display: none;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#search_example_default {
+  top:25px;
+}
+
+
+
+#help-icon:hover + #search_example_default, #search_example_default:hover {
+
+  /*-webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;*/
+  display: block;
+  z-index: 30000;
+}
+
+#search_example_default * {
+  color:#fff;
+  font-size: 12px;
+}
+
+#search_example_default dt {
+  color:#CC9A07;
+  margin-top:1em;
+}
+
+#search_example_default dd {
+
+  margin-left: 2em;
+  color:#fff;
+}
+
+#search_example_default .example_expl {
+  /*color:#999;*/
+  color:#bbb;
+  padding-left: 1em;
+}
+
+#exlidAdvancedSearchTile {
+  padding-top:30px;
+  padding-bottom:0;
+  height:250px;
+}
+
+
+#exlidAdvancedSearchRibbon {
+  margin-top:0px;
+  width:830px;
+}
+#exlidAdvancedSearchRibbon div.EXLSearchFieldRibbon {
+  width: auto;
+}
+
+#exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormFieldsGroup1 {
+  width: 38.5em;
+}
+
+#exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormFieldsGroup2 {
+  width:310px;
+  padding-top:.5em;
+}
+
+#exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormFieldsGroup2 label {
+  margin-left: 0;
+  width: 7em;
+}
+
+
+#search_example_default {
+  border:solid 2px #133250;
+  background:#F8F7E9;
+}
+
+#search_example_default dt {
+  color:#304962;
+  font-weight: bold;
+}
+
+#search_example_default dd {
+  color:#000;
+  font-weight: bold;
+}
+
+#search_example_default .example_expl {
+  color:#333;
+  font-weight: normal;
+}
+.EXLSearchFieldRibbonFormCollectionsList {
+  z-index: 50000;
+}
+
+.EXLResultsHeader div.EXLResultsNavigation {
+    font-size: 14px;
+}
+
+.EXLResultsNavigation .EXLDisplayedCount {
+    font-weight: bold;
+}
