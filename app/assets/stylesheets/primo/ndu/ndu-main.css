@@ -31,7 +31,7 @@ height: 100px;
 }
 
 
-#exlidHeaderTile {background:url(../../images.v3/hesbcatalogplus.jpg) #2b5681 center top no-repeat; margin:0 auto; padding:0; height: 100px;}
+#exlidHeaderTile {background:url(header.jpg) #2b5681 center top no-repeat; margin:0 auto; padding:0; height: 100px;}
 
 #website-header h3                              {clear:both; margin:0; display:block;}
 #website-header h3 a                            {display:block; width:700px; height:50px; margin:0; text-indent:-9999px; border:none; overflow:hidden;}
@@ -40,31 +40,9 @@ height: 100px;
 
 #website-header ul                              {margin:8px 0 10px; padding:0;}
 #website-header ul li                           {float:left; display:inline; margin:0 0 0 3px; padding:0; list-style:none;}
-/*
-#website-header                                 {background:url(http://rhoda.library.nd.edu:1701/primo_library/libweb/images.v3/hesbcatalogplus2.gif) center bottom no-repeat; margin:0 auto; padding:0;}
-*/
+
 #website-header                                 {position:relative; width:700px; min-height:75px; border:0px solid #fff;}
-#website-header #nav_util                       {float:left; margin-left:25px;}
 
-#website-header #nav_util li,
-#website-header #nav_global li          {position:relative; padding:0 7px 0 3px; border-right:1px solid #4b6772;}
-
-#website-header #nav_util li a,
-#website-header #nav_global li a        {
-        float:left;
-        display:block;
-        font-size: 12px;text-decoration:none; border-bottom:1px dotted #4b6772;
-        }
-
-#website-header #nav_util li.omega,
-#website-header #nav_global li.omega,
-#website-header #nav_global #text_size  {border:none;}
-
-#website-header #nav_global                     {float:right; margin-right:25px;}
-
-#website-header #nav_global li#text_size                        {width:53px; margin:-3px 0 0 5px; padding:0; background:url(http://www.library.nd.edu/css/images/text-size.gif) left center no-repeat;}
-
-#website-header #nav_global li#text_size a              {display:block; float:left; overflow:hidden; width:16px; height:16px; margin-right:1px; border:none; text-indent:-9999px;}
 
 ul#tl-style1{position:relative;right:1em}
 
@@ -77,8 +55,6 @@ ul#tl-style1{position:relative;right:1em}
 */
 
 /* OneSearch Rebranding */
-
-#exlidHeaderTile {background-image:url(../../images.v3/onesearch.head.jpg);}
 
 .EXLResultTitle a {color:#133250;}
 
@@ -437,11 +413,11 @@ p.EXLResultAvailability {
   }
 
 .EXLFacetsDisplayMore a {
-  background:url(http://primotest.library.nd.edu:1701/primo_library/libweb/images/icon_open_subMenu.png)  right 12px no-repeat;
+  background:url(../icon_open_subMenu.png)  right 12px no-repeat;
 }
 
 .EXLFacetsDisplayLess a {
-  background:url(http://primotest.library.nd.edu:1701/primo_library/libweb/images/icon_close_subMenu.png) right 12px no-repeat;
+  background:url(../icon_close_subMenu.png) right 12px no-repeat;
 }
 
  .EXLFacetContainer h4 {
@@ -636,92 +612,6 @@ div.EXLBackToResults a, .EXLResultsNavigation .EXLDisplayedCountTitle, .EXLResul
   float:none;
 }
 
-
-
-.EXLSearchTabSelected {
-  margin-top:-6px;
-}
-
-.EXLSearchTabSelected .EXLSearchTabLABELOneSearch {
-    background: url(/primo_library/libweb/images.v3/onesearch.big.png) no-repeat;
-    padding-top:30px;
-    padding-left:0;
-    padding-right:0;
-    width:113px;
-}
-
-.EXLSearchTabLABELOneSearch {
-  height:0;
-  padding: 28px 4px 0;
-  width:83px;
-  overflow: hidden;
-  background: url(/primo_library/libweb/images.v3/onesearch.sml.png) no-repeat 4px 3px #263D49;
-  border-radius: 3px;
-  display:block;
-}
-
-.EXLSearchTabSelected .EXLSearchTabLABELWorldCat {
-    background: url(/primo_library/libweb/images.v3/worldcat.big.png) no-repeat;
-    padding-top:30px;
-    padding-left:0;
-    padding-right:0;
-    width:113px;
-}
-
-.EXLSearchTabLABELWorldCat {
-  height:0;
-  padding: 28px 4px 0;
-  width:89px;
-  overflow: hidden;
-  background: url(/primo_library/libweb/images.v3/worldcat.sml.png) no-repeat 4px 3px #263D49;
-  border-radius: 3px;
-  display:block;
-}
-
-#exlidSearchTabs li.EXLSearchTabSelected .Campus {
-  background: url(/primo_library/libweb/images.v3/nd.campus.big.png) no-repeat;
-  padding-top:30px;
-  padding-left:0;
-  padding-right:0;
-  width:104px;
-  height: 0 !important;
-  overflow: hidden;
-  display:block;
-  padding: 28px 4px 0;
-}
-
-#exlidSearchTabs li .Campus {
-  background: url(/primo_library/libweb/images.v3/nd.campus.sml.png) no-repeat 4px 4px #263D49;
-  padding:28px 4px 0;
-  border-radius: 3px;
-  height: 0 !important;
-  overflow: hidden;
-  display:block;
-  width:75px;
-}
-
-#exlidSearchTabs li.EXLSearchTabSelected .Libraries {
-  background: url(/primo_library/libweb/images.v3/area.big.png) no-repeat;
-  padding-top:30px;
-  padding-left:0;
-  padding-right:0;
-  width:146px;
-  height: 0 !important;
-  overflow: hidden;
-  display:block;
-  padding: 28px 4px 0;
-}
-
-#exlidSearchTabs li .Libraries {
-  background: url(/primo_library/libweb/images.v3/area.sml.png) no-repeat 4px 4px #263D49;
-  padding:28px 4px 0;
-  border-radius: 3px;
-  height: 0 !important;
-  overflow: hidden;
-  display:block;
-  width:111px;
-}
-
 .EXLResultTabContainer div.EXLTabHeader {
   position:relative;
   z-index: 3000;
@@ -804,7 +694,7 @@ div.EXLBackToResults a, .EXLResultsNavigation .EXLDisplayedCountTitle, .EXLResul
 }
 
 #exlidUserAreaRibbon li span.EXLMyShelfStarSelected {
-  background: url("../../images.v3/icon_star_on.png");
+  background: url("../icon_star_on.png");
 }
 
 .sign_in_alert {
@@ -816,29 +706,29 @@ div.EXLBackToResults a, .EXLResultsNavigation .EXLDisplayedCountTitle, .EXLResul
 
 .findtext {
   padding-left:15px;
-  background: url("../../images.v3/findtext.png") no-repeat left top;
+  background: url("../findtext.png") no-repeat left top;
 }
 
 .EXLResultMediaTYPEbook .multipleCoverImageContainer {
-  background-image: url("../../images.v3/icon_book.png");
+  background-image: url("../icon_book.png");
 }
 .EXLResultMediaTYPEjournal .multipleCoverImageContainer {
-  background-image: url("../../images.v3/icon_journal.png");
+  background-image: url("../icon_journal.png");
 }
 .EXLResultMediaTYPEarticle .multipleCoverImageContainer {
-  background-image: url("../../images.v3/icon_article.png");
+  background-image: url("../icon_article.png");
 }
 
 .EXLResultMediaTYPEaudio .multipleCoverImageContainer {
-  background-image: url("../../images.v3/icon_audio.png");
+  background-image: url("../icon_audio.png");
 }
 
 .EXLResultMediaTYPEvideo .multipleCoverImageContainer {
-  background-image: url("../../images.v3/icon_video.png");
+  background-image: url("../icon_video.png");
 }
 
 .EXLResultMediaTYPEnewspaper .multipleCoverImageContainer {
-  background-image: url("../../images.v3/icon_newspaper.png");
+  background-image: url("../icon_newspaper.png");
 }
 
 
@@ -870,7 +760,7 @@ div.EXLBackToResults a, .EXLResultsNavigation .EXLDisplayedCountTitle, .EXLResul
   height:0;
   width:26px;
   padding-top:29px;
-  background:url(../../images/help.gif) no-repeat 3px 3px #fff;
+  background:url(../help.gif) no-repeat 3px 3px #fff;
   overflow:hidden;
 }
 /*

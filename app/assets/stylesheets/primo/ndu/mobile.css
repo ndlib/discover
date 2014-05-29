@@ -81,21 +81,21 @@
 
 
   .EXLResultMediaTYPEbook .multipleCoverImageContainer {
-    background-image: url("../../images.v3/icon_book.png");
+    background-image: url("../icon_book.png");
   }
   .EXLResultMediaTYPEjournal .multipleCoverImageContainer {
-    background-image: url("../../images.v3/icon_journal.png");
+    background-image: url("../icon_journal.png");
   }
   .EXLResultMediaTYPEarticle .multipleCoverImageContainer {
-    background-image: url("../../images.v3/icon_article.png");
+    background-image: url("../icon_article.png");
   }
 
   .EXLResultMediaTYPEaudio .multipleCoverImageContainer {
-    background-image: url("../../images.v3/icon_audio.png");
+    background-image: url("../icon_audio.png");
   }
 
   .EXLResultMediaTYPEvideo .multipleCoverImageContainer {
-    background-image: url("../../images.v3/icon_video.png");
+    background-image: url("../icon_video.png");
   }
 
   /* Record */

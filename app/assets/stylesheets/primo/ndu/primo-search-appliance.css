@@ -326,7 +326,7 @@ p.about-tab {
   padding:0;
   width: 20px;
   height: 20px;
-  background:url(../../images/help.gif) no-repeat;
+  background:url(../help.gif) no-repeat;
   z-index:2;
 }
 
@@ -386,7 +386,7 @@ span.EXLSearchFieldRibbonFormSelectedCollectionLabel {
 
 .EXLBrowseList #help-box {
   display: none;
-} 
+}
 
 .EXLSearchFieldRibbonFormSelectedBrowse {
   border: none;
