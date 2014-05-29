@@ -8,8 +8,11 @@ require 'hesburgh/rails_db'
 require 'hesburgh/jenkins'
 require 'hesburgh/prompt_branch'
 # require 'hesburgh/whenever'
-require 'hipchat/capistrano'
-require 'new_relic/recipes'
+begin
+  require 'hipchat/capistrano'
+  require 'new_relic/recipes'
+rescue
+end
 
 set :application, 'discover'
 set :repository,  "git@git.library.nd.edu:discover"
