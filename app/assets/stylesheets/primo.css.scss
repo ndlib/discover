@@ -11,12 +11,28 @@
 
   dt {
     font-weight: bold;
-    display: block;
+    display: inline-block;
+    text-align:right;
+    width:25%;
+    vertical-align: top;
+  }
+  dt:after {
+    content:":";
   }
 
   dd {
     margin-bottom: 0.66667rem;
-    display: block;
+    display: inline-block;
+    width:70%;
+    li {
+      list-style: none;
+    }
+    dt {
+      width:5%;
+    }
+    dd {
+      width:90%;
+    }
   }
 
   a {
