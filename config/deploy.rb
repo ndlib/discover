@@ -11,7 +11,7 @@ require 'hesburgh/prompt_branch'
 begin
   require 'hipchat/capistrano'
   require 'new_relic/recipes'
-rescue
+rescue LoadError
 end
 
 set :application, 'discover'
