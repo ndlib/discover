@@ -1,0 +1,572 @@
+.search-appliance {
+  clear: left;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  background-color:#F8F7E9;
+}
+
+.search-appliance button.btn::-moz-focus-inner,
+.search-appliance input[type="submit"].btn::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+.search-appliance ul.contained.tabs-content {
+  padding-bottom: 1.25em;
+  margin-bottom: 0;
+}
+
+.search-appliance ul.contained.tabs-content > li {
+  margin-bottom: 0;
+}
+
+.search-appliance .extra-links {
+  margin-top:15px;
+  margin-left: 5px;
+  clear: left;
+}
+
+#exlidAdvancedSearchTile .extra-links{
+  margin-top: 0;
+}
+
+p.about-tab {
+  display: inline;
+  float: right;
+  padding: 0 !important;
+}
+
+#exlidHeaderContainer {
+  position: relative;
+  z-index: 200;
+  background-color: #304962;
+}
+
+#exlidUserAreaTile, #exlidMainMenuTile {
+  padding: 6px 10px;
+  margin: 0;
+  height: auto;
+  width:auto;
+}
+
+#exlidUserAreaTile {
+  margin-left: 15%;
+}
+
+#exlidMainMenuTile {
+  margin-right: 15%;
+}
+
+#exlidUserAreaRibbon li, #exlidMainMenuRibbon li {
+  margin-top: 0;
+  height: auto;
+}
+
+#exlidUserAreaRibbon li span.EXLUserAreaStart {
+  display: none;
+}
+
+#exlidUserAreaRibbon li span.EXLMyShelfStarSelected {
+  height: 13px;
+  width: 13px;
+  padding: 0;
+  margin: 0;
+}
+
+#exlidMainMenuContainer {
+  width: auto;
+}
+
+#exlidUserAreaRibbon, #exlidMainMenuRibbon {
+  width: auto;
+  height: auto;
+}
+
+#exlidSearchTile {
+  height: auto;
+}
+
+#exlidAdvancedSearchTile {
+  padding-top: 1.5em;
+  height: auto;
+}
+
+#exlidAdvancedSearchRibbon {
+  width: 830px;
+}
+
+#exlidSearchRibbon {
+  margin-top: 1.5em;
+  height: auto;
+  padding-left: 0;
+}
+
+#exlidSearchRibbon div.EXLSearchTabsContainer, #exlidAdvancedSearchRibbon fieldset div.EXLSearchTabsContainer {
+  height: 36px;
+  margin: 0;
+}
+
+#exlidSearchRibbon {
+  width: 740px;
+}
+
+#exlidSearchRibbon fieldset {
+  float: none;
+  width: auto;
+}
+
+#exlidSearchBanner {
+  float: none;
+  display: none;
+}
+
+#exlidSearchRibbon div.EXLSearchFieldRibbon {
+  width: 706px;
+}
+
+#exlidAdvancedSearchRibbon div.EXLSearchFieldRibbon {
+  padding: 0;
+}
+
+.about-outer-box {
+    position:relative;
+    top:0px;
+}
+
+.about-tab {
+  z-index: 30001;
+}
+
+.about-tab:hover + .tab-about-box, .tab-about-box:hover, .about-outer-box:hover .tab-about-box {
+  display: block;
+  z-index: 30000;
+}
+
+.search-appliance .tab-about-box {
+  position: absolute;
+  top:-20px !important;
+  right:-3px !important;
+  width: 595px;
+  background: none repeat scroll 0 0 #F8F7E9;
+  border: 2px solid #133250 !important;
+  padding: 20px;
+  color: #000000;
+
+  display: none;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.search-appliance .tab-about-box h2{
+    font-size: 19px;
+    margin-bottom: 14px;
+}
+
+.search-appliance .tab-about-box p{
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 14px;
+}
+
+.search-appliance .tab-about-box ul {
+    list-style: disc outside none;
+    margin-left: 25px;
+}
+
+.search-appliance .tab-about-box li {
+    line-height: 20px;
+}
+
+.EXLBrowseList .EXLSearchFieldRibbonFormFields {
+  width: 100% !important;
+}
+
+#exlidSearchRibbon #partner-libraries-checkbox {
+  float: left;
+  height: auto;
+  width: auto;
+  margin: 0 3px 0 0;
+  padding: 0 !important;
+  display: block;
+}
+
+#exlidSearchRibbon .partner-libraries {
+  margin-top: 6px;
+  position: absolute;
+  left: 395px;
+}
+
+#exlidSearchRibbon .partner-libraries label {
+  line-height: 18px;
+  height: 18px;
+  color: #777;
+}
+
+#exlidAdvancedSearchRibbon input, #exlidSearchRibbon input.EXLSearchFieldMaximized {
+  -webkit-box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+}
+
+#exlidAdvancedSearchRibbon input {
+  display:inline-block;
+  border:none;
+  height: 28px;
+  width: 232px
+}
+
+#exlidAdvancedSearchRibbon #input_freeText0 {
+  padding-right: 30px !important;
+}
+
+#exlidAdvancedSearchRibbon select, #exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormFieldsGroup2 select {
+  border: 1px solid #f0f0f0;
+  height: 28px;
+  line-height: 26px;
+  font-size: 13px;
+}
+
+#exlidAdvancedSearchRibbon option {
+  padding: 0 4px;
+}
+
+#exlidAdvancedSearchRibbon div.EXLAdvancedSearchFormRow {
+  padding-bottom: 0;
+  float: none;
+  width: auto;
+  margin-left: 0;
+}
+
+#exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormFieldsGroup1 {
+  padding-left: 0;
+  padding-right: 1em;
+  width: auto;
+}
+
+#exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormFieldsGroup1 div.EXLAdvancedSearchFormRow {
+  padding-bottom: 0;
+  margin-left: 0;
+}
+
+.EXLSearchFieldRibbonFormFields {
+  width:88%;
+}
+
+/* Prevent the select boxes from being too long so the advanced form doesn't wrap */
+#exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormFieldsGroup1 select {
+  max-width: 115px;
+}
+
+
+#exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormFieldsGroup2 {
+  padding-top: 0;
+  padding-left: 1em;
+  width: auto;
+}
+
+#exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormFieldsGroup2 label {
+  height: 28px;
+  line-height: 28px;
+}
+
+#exlidAdvancedSearchRibbon .EXLAdvancedSearchFormRowInlineInput {
+  margin-right: 3px;
+}
+
+.EXLSearchFieldRibbonFormSubmitSearch {
+  width: auto;
+}
+
+#exlidAdvancedSearchRibbon fieldset div.EXLSearchFieldRibbon {
+  height: auto;
+}
+
+#exlidAdvancedSearchRibbon fieldset div.EXLSearchFieldRibbonFormSubmitSearch {
+  margin: 0;
+  border: none;
+}
+
+#exlidSearchRibbon input.submit, #exlidAdvancedSearchRibbon input.submit {
+  margin: 0;
+  border: none;
+  width: auto;
+  padding: 4px 10px !important;
+  height: 36px;
+  font-size: 14px;
+  line-height: 18px;
+  display: inline-block;
+}
+
+#exlidAdvancedSearchRibbon input.clear-button {
+  background-color: #CCC;
+  margin-right: 0.5em;
+}
+
+#exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonPreFilters {
+  min-height: 0;
+}
+
+#help-box {
+  width: 740px;
+  top: 79px;
+}
+
+#help-box.advanced {
+  width: 830px;
+  top: 74px;
+}
+
+#help-icon {
+  text-indent: -9999px;
+  right:111px;
+  top: 28px;
+  padding:0;
+  width: 20px;
+  height: 20px;
+  background:url(../help.gif) no-repeat;
+  z-index:2;
+}
+
+.advanced #help-icon{
+  right:360px;
+  top:29px;
+}
+
+#search_example_default, .advanced #search_example_default {
+  right: 10px;
+}
+
+span.EXLSearchFieldRibbonFormSelectedCollectionLabel {
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #FFFFFF;
+  border: none;
+  color: #555555;
+  display: inline-block;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  height: 36px;
+  line-height: 28px;
+  margin: 0;
+  padding: 4px;
+  vertical-align: middle;
+  width: 98%;
+}
+
+.search-appliance .EXLSearchFieldRibbonFormCollectionsList {
+  background-color: #FFFFFF;
+  border: 1px solid #C0C0C0;
+  clear: both;
+  cursor: pointer;
+  display: block;
+  float: left;
+  left: 60%;
+  margin-top: 0;
+  position: relative;
+  top: -9px;
+  width: auto;
+  z-index: 1000;
+}
+
+.EXLResultsHeader div.EXLResultsNumbers div.EXLResultsSortBy {
+  width: auto;
+  padding: 5px 12px;
+}
+
+.EXLAdvancedBrowseRibbon {
+  width:740px !important;
+}
+
+.EXLBrowseList #help-box {
+  display: none;
+}
+
+.EXLSearchFieldRibbonFormSelectedBrowse {
+  border: none;
+}
+
+
+
+.EXLSearchFieldRibbonFormSelectedCollectionLabel a {
+  line-height: 210% !important;
+}
+
+#exlidAdvancedSearchRibbon.EXLAdvancedBrowseRibbon input#search_field {
+  width:85%;
+  height: 36px;
+}
+
+.EXLBrowseList  #exlidAdvancedSearchRibbon fieldset div.EXLSearchFieldRibbonFormSubmitSearch {
+  margin-top:-46px !important;
+}
+
+.EXLSearchFieldRibbonAdvancedSearchLink a, #exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormLinks a {
+  color: #17375E !important;
+ }
+
+
+.EXLFacetsLightboxTabsRibbon, .EXLMyAccountTabsRibbon, .EXLMyAccountTabsRibbon div li.EXLMyAccountSelectedTab {
+  border-color: #304962;
+}
+
+.EXLMyAccountTabsRibbon div li.EXLMyAccountSelectedTab, .EXLMyAccountMainContainer form input.submit {
+  background-image: none;
+}
+
+.EXLMyAccountMainContainer form input.submit, #exlidFacetsLightboxContainer a.EXLSubmit, .EXLSliderRefine a, .EXLSliderRefine a:hover, .EXLMyAccountTabsRibbon div li.EXLMyAccountSelectedTab {
+  background-color: #304962;
+}
+
+.EXLFacetContainer ol li.EXLFacetsDisplayMore {
+  margin-top:0;
+}
+
+.EXLResultsNavigation .EXLDisplayedCount {
+  background:#ccc;
+  padding: 2px 3px;
+}
+
+@media only screen and (max-width: 500px) {
+  .search-appliance ul.contained.tabs-content > li {
+    padding: 10px 5px !important;
+  }
+
+  #exlidUserAreaTile {
+    margin: 0;
+  }
+
+  #backup {
+    top: -25px;
+    height: auto !important;
+    padding: 1px !important;
+  }
+
+  #backup a {
+    display: inline;
+    padding: 0;
+  }
+
+  #exlidSearchRibbon, #exlidAdvancedSearchRibbon {
+    width: auto;
+  }
+
+  #search_box {
+    padding-top: 5px;
+  }
+
+  #exlidSearchRibbon div.EXLSearchFieldRibbon {
+    width: 100%;
+    height: auto;
+  }
+
+  .EXLSearchFieldRibbonFormFields {
+    height: auto;
+  }
+
+  #exlidAdvancedSearchTile {
+    padding-top: 0;
+  }
+
+  #exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormFieldsGroup2 {
+    padding-left: 0;
+    border: none;
+  }
+
+  #exlidSearchTile #exlidSearchRibbon input.EXLSearchFieldMaximized {
+    margin: 0;
+  }
+
+  #help-box {
+    display: none;
+  }
+
+  .partner-libraries {
+    display: none;
+  }
+
+  #exlidSearchRibbon div.EXLSearchTabsContainer, div.EXLSearchTabsContainer {
+    display: none;
+  }
+
+  .search-appliance ul.contained.tabs-content {
+    padding-bottom: 5px;
+  }
+
+  .about-outer-box {
+    display: none;
+  }
+
+  .search-appliance .tab-about-box {
+    width: auto;
+  }
+
+  .EXLNext, .EXLPrevious {
+    margin:0 .5em 0 0;
+  }
+
+  .EXLResultsHeader div.EXLResultsNavigation {
+    float: left;
+    width: 100%;
+    box-sizing:border-box;
+    height:auto;
+    margin:0;
+    padding:12px;
+  }
+
+  .EXLResultsHeader h1 {
+    width:auto;
+    padding:5px 1em;
+    line-height: 25px;
+  }
+
+  .EXLResultsHeader div.EXLResultsNumbers div.EXLResultsSortBy {
+    border-width: 1px 0 1px 1px;
+  }
+
+  .EXLResultsHeader div.EXLResultsNavigation {
+    clear:both;
+  }
+
+  .EXLResultsHeader {
+    margin-bottom: 4px;
+  }
+
+  .EXLResultsList td {
+    display: table-cell;
+  }
+
+  .EXLNext, .EXLPrevious {
+    float: left;
+  }
+
+  #resultsNavNoId a:last-child {
+    float: right;
+  }
+
+  .EXLResultsList td.EXLSummary {
+    padding-top:0;
+  }
+
+  .EXLResultsList td.EXLSummary .EXLSummaryFields {
+    padding-top:2em;
+  }
+
+  .EXLTabHeaderButtons {
+    top:5px;
+  }
+
+  .EXLResultsList h2 {
+    padding:0;
+  }
+  .EXLResultsList td.EXLThumbnail {
+    width:auto;
+    padding:2em 5px .5em;
+  }
+}

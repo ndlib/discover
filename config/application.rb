@@ -45,6 +45,7 @@ module Discover
     config.assets.precompile += %w(
       primo/ndu/index.js
       primo/malc/index.js
+      primo/ndu/index.css
     )
 
     config.assets.initialize_on_precompile = false

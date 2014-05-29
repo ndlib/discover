@@ -1,0 +1,202 @@
+#website-header h3 a {
+  height: 100px;
+}
+
+#website-header h4 {
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  #exlidHeaderTile {
+  	padding:0 !important;
+    background-size: auto 100%;
+    background-position: left top;
+    height: 45px;
+    width:100% !important;
+  }
+
+  #exlidHeaderTile img {
+    display:none;
+  }
+
+  #exlidHeaderContainer {
+  	background-color:#133250;
+  	height:auto;
+  	width:auto !important;
+  }
+
+  #website-header {
+    width: 100%;
+    min-height: 0;
+  }
+
+  #website-header h3 a {
+    height: 45px;
+    padding-top: 0;
+    width: 100%;
+  }
+
+  #exlidMainMenuTile {
+    display: none;
+  }
+
+  #exlidSearchRibbon div.EXLSearchTabsContainer {
+  	height:8px;
+  }
+
+  #exlidSearchTile {
+  	height:auto;
+    padding: 0 !important;
+  }
+
+  .EXLSearchFieldRibbonFormFields {
+  	height:auto;
+  }
+
+  body.EXLFullView div.EXLResultsHeader div.EXLResultsNavigation {
+    padding:.5em 0 1em;
+  }
+
+  .EXLResultsHeader div.EXLResultsNavigation {
+    margin-bottom: 0 !important;
+  }
+
+  .EXLResultsList {
+    clear: both;
+  }
+
+  /* Images */
+  .EXLResultsList td.EXLThumbnail {
+  	width:90px;
+  }
+
+  .EXLResultsList td.EXLThumbnail img, .multipleCoverImageContainer  {
+  	width:57px;
+  	height:80px;
+  }
+
+  .multipleCoverImageContainer {
+  	background-position: center;
+  }
+
+
+  .EXLResultMediaTYPEbook .multipleCoverImageContainer {
+    background-image: url("../icon_book.png");
+  }
+  .EXLResultMediaTYPEjournal .multipleCoverImageContainer {
+    background-image: url("../icon_journal.png");
+  }
+  .EXLResultMediaTYPEarticle .multipleCoverImageContainer {
+    background-image: url("../icon_article.png");
+  }
+
+  .EXLResultMediaTYPEaudio .multipleCoverImageContainer {
+    background-image: url("../icon_audio.png");
+  }
+
+  .EXLResultMediaTYPEvideo .multipleCoverImageContainer {
+    background-image: url("../icon_video.png");
+  }
+
+  /* Record */
+  .EXLResultsContainer {
+  	padding-top:.5em;
+  }
+
+  .EXLResultsList h3, body.EXLFullView div.EXLResultsList h2.EXLResultAuthor {
+  	font-size:14px;
+  	color:#666;
+  }
+
+  .EXLResultsHeader div.EXLResultsNavigation {
+  	clear:both;
+  	padding:0 1em 1em;
+  	height:1.1em;
+  	position: relative;
+  }
+
+  .EXLAvailabilityCallNumber {
+  	font-weight: bold !important;
+  }
+
+  .EXLResultsList em.EXLResultStatusNotAvailable {
+  	color:#E54F4F !important;
+  }
+  .EXLResultsList em.EXLResultStatusAvailable {
+  	color:#5CA301 !important;
+  }
+
+  .EXLResultsList em.EXLResultStatusAvailable .availability, .EXLResultsList em.EXLResultStatusAvailable .availability_details {
+  	color:#5CA301 !important;
+  	font-weight: bold;
+  }
+
+  .EXLResultsList em.EXLResultStatusNotAvailable .availability, .EXLResultsList em.EXLResultStatusNotAvailable .availability_details {
+  	color:#E54F4F !important;
+  	font-weight: bold;
+  }
+
+  .EXLResultsList em .availability, .EXLResultsList em .availability_details {
+  	font-weight: bold;
+  }
+
+  .EXLResultsList div.EXLSummaryContainer {
+    float: none;
+  }
+
+  .EXLSummary.EXLResult .availability_details {
+  	display:none;
+  }
+
+  .EXLNext, .EXLPrevious {
+  	float:right;
+  	padding:5px 6px;
+  	background:#ccc;
+  	-moz-border-radius: 3px;
+  	-webkit-border-radius: 3px;
+  	border-radius: 3px;
+  	margin:0 1em;
+  }
+
+  .EXLDisplayedCountTitle, .EXLDisplayedCount {
+  	display:none;
+  }
+
+  .EXLPrevious {
+  	float:left;
+  }
+  .EXLDisplayedCount {
+  	text-align: center;
+  	width: 100%;
+  	top:5px;
+  	margin:0 auto;
+  	position:absolute;
+  	left:0;
+  }
+
+  #exlidSearchTile #exlidSearchRibbon input.EXLSearchFieldMaximized {
+    width:98%;
+    -webkit-appearance: none;
+    height:35px;
+    padding:0;
+    border:none;
+  }
+
+  #exlidSearchTile #exlidSearchRibbon input.submit {
+    background-color: #CBB53F;
+    background-image: none;
+    font-weight: normal;
+    text-transform: uppercase;
+    -webkit-appearance: none;
+  }
+
+  #exlidSearchTile #exlidSearchRibbon input {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+  }
+
+  #exlidSearchTile .EXLSearchFieldRibbonFormFields {
+    width:75%;
+  }
+}
