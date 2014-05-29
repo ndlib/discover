@@ -34,11 +34,19 @@ module Discover
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    # Enable the asset pipeline
+    config.assets.enabled = true
+
+    # Version of your assets, change this if you want to expire all your assets
+    config.assets.version = '1.0'
+
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
     # config.assets.precompile += %w( search.js )
     config.assets.precompile += %w(
       primo/ndu/index.js
       primo/malc/index.js
     )
+
+    config.assets.initialize_on_precompile = false
   end
 end
