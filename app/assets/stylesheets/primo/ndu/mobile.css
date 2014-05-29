@@ -67,7 +67,7 @@
 
   /* Images */
   .EXLResultsList td.EXLThumbnail {
-  	width:90px;
+  	width:auto;
   }
 
   .EXLResultsList td.EXLThumbnail img, .multipleCoverImageContainer  {
@@ -113,6 +113,12 @@
   	padding:0 1em 1em;
   	height:1.1em;
   	position: relative;
+        float: left;
+    width: 100%;
+    box-sizing:border-box;
+    height:auto;
+    margin:0;
+    padding:12px;
   }
 
   .EXLAvailabilityCallNumber {
@@ -148,14 +154,22 @@
   	display:none;
   }
 
+  .EXLResultsContainer div.EXLResultsTile {
+    padding-top: 0;
+  }
+
+  .EXLResultsSortBySelected, .EXLResultsSortByMenu {
+    display: inline;
+  }
+
   .EXLNext, .EXLPrevious {
-  	float:right;
+
   	padding:5px 6px;
   	background:#ccc;
   	-moz-border-radius: 3px;
   	-webkit-border-radius: 3px;
   	border-radius: 3px;
-  	margin:0 1em;
+  	margin:0 .5em 0 0;
   }
 
   .EXLDisplayedCountTitle, .EXLDisplayedCount {
