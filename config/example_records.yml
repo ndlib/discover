@@ -47,4 +47,10 @@ records:
   - id: dedupmrg97328716
     title: "The hunting of the snark"
     description: Complicated Hathi book
+  - id: bci_aleph000133859
+    title: "Pacifica review peace, security & global change."
+    description: Bethel College record
+  - id: ndu_aleph003607256
+    title: "JSTOR ebook collection"
+    description: uses eresources.library.nd.edu as a redirect to the proxied resource
 
