@@ -25,8 +25,8 @@ records:
     description: "Book chapter with the findtext link."
   - id: ndu_aleph003618300
     title: The Transformation of magic...
-    description: e-book that makes use of the proxy server.
-  - id: dedupmrg95161015
+    description: e-book that makes use of the proxy server.  Also potential link titling work.
+  - id: ndu_aleph002072723
     title: American Journal of Theology
     description: because it is a complicated record
   - id: TN_gale_ofa246103668
