@@ -15,6 +15,7 @@
     text-align:right;
     width:25%;
     vertical-align: top;
+    margin-right:1em;
   }
   dt:after {
     content:":";
@@ -29,9 +30,11 @@
     }
     dt {
       width:5%;
+      clear: left;
+      text-align: left;
     }
     dd {
-      width:90%;
+      width:91%;
     }
   }
 
