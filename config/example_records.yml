@@ -53,4 +53,11 @@ records:
   - id: ndu_aleph003607256
     title: "JSTOR ebook collection"
     description: uses eresources.library.nd.edu as a redirect to the proxied resource
+  - id: ndu_aleph001300212
+    title: "The State of Small Busineess"
+    description: Super complicated titling history.
+  - id: TN_gale_ofg16841917
+    title: "Constantine XI Paleologos"
+    description: Record with Findtext tab and onshelf access.
+
 
