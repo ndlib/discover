@@ -16,7 +16,7 @@ class InstitutionLinksDecorator < Draper::Decorator
 
 
   def has_fulltext_links?
-    (object['fulltext'].present?)
+    (object['fulltext'].present? || sfx_link)
   end
 
 
