@@ -1,0 +1,23 @@
+.ndl-online-access {
+  h2 {
+    font-size: 1.25em;
+    margin-bottom: 0.25em;
+  }
+
+  ul {
+    padding-left: 1.5em;
+    list-style: none;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  li {
+    margin-bottom: 0.5em;
+
+    li {
+      margin-bottom: 0;
+    }
+  }
+}
