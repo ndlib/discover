@@ -377,13 +377,6 @@ p.EXLResultAvailability {
   position:relative;
  }
 
- .EXLFacetsDisplayMore, .EXLFacetsDisplayLess {
-  position:absolute;
-  z-index: 30;
-  right:8px;
-  top:2px;
- }
-
  .EXLFacetList h1 {
   font-size:16px;
   color:#133250;
@@ -402,8 +395,9 @@ p.EXLResultAvailability {
 
  .EXLFacetContainer h4 {
   padding:6px 8px;
-  border-top:solid 2px #ccc;
-  border-bottom:solid 1px #ccc;
+  border-top:solid 2px #aaa;
+  border-bottom:solid 1px #aaa;
+  color: #333;
  }
 
  .EXLFacetContainer ol {
