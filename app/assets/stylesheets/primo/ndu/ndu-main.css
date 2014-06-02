@@ -381,7 +381,7 @@ p.EXLResultAvailability {
   position:absolute;
   z-index: 30;
   right:8px;
-  top:-2px;
+  top:2px;
  }
 
  .EXLFacetList h1 {
@@ -392,33 +392,13 @@ p.EXLResultAvailability {
   border-top: none;
  }
 
- .EXLFacetList h1 ~ .EXLFacetsList .EXLFacetsDisplayMore,  .EXLFacetList h1 ~ .EXLFacetsList .EXLFacetsDisplayLess {
-  top:22px;
- }
-
- #exlidFacet0 h4 {
+ #exlidFacet0 h4, #exlidFacet0 .EXLFacetsDisplayMore {
   display:none;
  }
-
-  .EXLFacetsDisplayMore a, .EXLFacetsDisplayLess a {
-    display:block;
-    height:0;
-    overflow: hidden;
-    padding-top:31px;
-    width:100%;
-  }
 
   .EXLRefinementRibbon div.EXLRefinementsList  {
     width:100%;
   }
-
-.EXLFacetsDisplayMore a {
-  background:url(../icon_open_subMenu.png)  right 12px no-repeat;
-}
-
-.EXLFacetsDisplayLess a {
-  background:url(../icon_close_subMenu.png) right 12px no-repeat;
-}
 
  .EXLFacetContainer h4 {
   padding:6px 8px;
@@ -432,7 +412,6 @@ p.EXLResultAvailability {
 
  .EXLFacetContainer ol li {
   padding:5px 0;
-  width:100%;
  }
 
 .EXLFacetTile div.EXLFacetList {
