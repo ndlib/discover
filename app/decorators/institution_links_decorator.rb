@@ -22,7 +22,7 @@ class InstitutionLinksDecorator < Draper::Decorator
 
   def sfx_link
     if object['findtext']
-      LinkDecorator.new(object['findtext'])
+      LinkDecorator.new(object['findtext']).link
     end
   end
 

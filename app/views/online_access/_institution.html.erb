@@ -6,7 +6,9 @@
     <%= link.notes %>
   </li>
 <% end %>
-  <li><%= institution.sfx_link.link %></li>
+<% if institution.sfx_link %>
+  <li><%= institution.sfx_link %></li>
+<% end %>
 
 </ul>
 
