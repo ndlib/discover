@@ -1,3 +1,3 @@
 jQuery ($) ->
-  $('.EXLFacetsDisplayMore').click (event) ->
+  $('.EXLFacetsDisplayMore a').click (event) ->
     event.preventDefault()
