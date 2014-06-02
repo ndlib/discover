@@ -51,6 +51,7 @@ en:
     source: "Source"
     series: "Series"
     uniform_titles: "Related Titles"
+    earlier_title: "Earlier Title"
     record_ids: "Record IDs"
     links: Links
     link_labels:

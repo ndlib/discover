@@ -62,6 +62,11 @@ describe DiscoveryRecord do
     end
   end
 
+  describe :other_titles do
+    it "returns the a hash" do
+      expect(subject.other_titles).to eq({"title"=>"other_titles"})
+    end
+  end
 
   describe :identifiers do
 

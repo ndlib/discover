@@ -34,6 +34,7 @@ class RecordDecorator < Draper::Decorator
       :source,
       :series,
       :uniform_titles,
+      :other_titles,
       :identifiers,
       :record_ids
     ]
@@ -112,6 +113,17 @@ class RecordDecorator < Draper::Decorator
   def uniform_titles
     titles = create_heirarchical_links(object.uniform_titles, :uniform_title)
     ulize_array(titles)
+  end
+
+  def other_titles
+    labeled_hash = {}
+    object.other_titles.each do |key, value|
+      if value.present?
+        title = I18n.t("record.#{key}")
+        labeled_hash[title] = [ HierarchicalSearchLinks.render(value, :title) ]
+      end
+    end
+    dlize_hash(labeled_hash)
   end
 
   def record_ids
