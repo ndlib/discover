@@ -1,26 +1,26 @@
-<h3>Debug ID: <%= @record.object.id %></h3>
+<div class="ndl-online-access">
+  <h3>Debug ID: <%= @record.object.id %></h3>
 
-<% if @record.nd_links.has_fulltext_links? %>
-  <h2>Notre Dame</h2>
-  <%= render partial: 'institution', locals: { institution: @record.nd_links } %>
-<% end %>
-
-
-<% if @record.smc_links.has_fulltext_links? %>
-  <h2>Saint Mary's College</h2>
-  <%= render partial: 'institution', locals: { institution: @record.smc_links } %>
-<% end %>
+  <% if @record.nd_links.has_fulltext_links? %>
+    <h2>Notre Dame</h2>
+    <%= render partial: 'institution', locals: { institution: @record.nd_links } %>
+  <% end %>
 
 
-<% if @record.hcc_links.has_fulltext_links? %>
-  <h2>Holy Cross College</h2>
-  <%= render partial: 'institution', locals: { institution: @record.hcc_links } %>
-<% end %>
+  <% if @record.smc_links.has_fulltext_links? %>
+    <h2>Saint Mary's College</h2>
+    <%= render partial: 'institution', locals: { institution: @record.smc_links } %>
+  <% end %>
 
 
-<% if @record.bth_links.has_fulltext_links? %>
-  <h2>Bethel College</h2>
-  <%= render partial: 'institution', locals: { institution: @record.hcc_links } %>
-<% end %>
+  <% if @record.hcc_links.has_fulltext_links? %>
+    <h2>Holy Cross College</h2>
+    <%= render partial: 'institution', locals: { institution: @record.hcc_links } %>
+  <% end %>
 
 
+  <% if @record.bth_links.has_fulltext_links? %>
+    <h2>Bethel College</h2>
+    <%= render partial: 'institution', locals: { institution: @record.hcc_links } %>
+  <% end %>
+</div>
