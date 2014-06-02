@@ -53,10 +53,10 @@ en:
     uniform_titles: "Related Titles"
     earlier_title: "Earlier Title"
     variant_title: "Variant Title"
-    later_title: "Later Title",
-    supplement: "Has Supplement",
-    supplement_to: "Supplement To",
-    issued_with: "Issued With",
+    later_title: "Later Title"
+    supplement: "Supplement"
+    supplement_to: "Supplement To"
+    issued_with: "Issued With"
     record_ids: "Record IDs"
     links: Links
     link_labels:
