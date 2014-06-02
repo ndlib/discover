@@ -27,6 +27,7 @@ class OnlineAccessDecorator < Draper::Decorator
     InstitutionLinksDecorator.new( object.bth_links )
   end
 
+
   private
 
     def get_domain_name(url)

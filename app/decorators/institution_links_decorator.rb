@@ -19,4 +19,11 @@ class InstitutionLinksDecorator < Draper::Decorator
     (object['fulltext'].present?)
   end
 
+
+  def sfx_link
+    if object['findtext']
+      LinkDecorator.new(object['findtext'])
+    end
+  end
+
 end

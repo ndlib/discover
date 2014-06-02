@@ -63,7 +63,6 @@ class DiscoveryRecord
     primo('display') || {}
   end
 
-
   def ndu_links
     links("ndu") || {}
   end
@@ -80,6 +79,9 @@ class DiscoveryRecord
     links("bth") || {}
   end
 
+  def sfx_link
+    links('findtext') || {}
+  end
 
   private
 
