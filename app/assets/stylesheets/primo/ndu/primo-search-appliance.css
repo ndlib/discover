@@ -546,10 +546,6 @@ span.EXLSearchFieldRibbonFormSelectedCollectionLabel {
     float: left;
   }
 
-  #resultsNavNoId a:last-child {
-    float: right;
-  }
-
   .EXLResultsList td.EXLSummary {
     padding-top:0;
   }
