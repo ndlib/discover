@@ -5,7 +5,8 @@ jQuery ($) ->
     indx = ((page_number - 1) * pageSize) + 1
     "&pag=nxt&indx=" + indx
   $pageElement = $(".EXLBriefResultsPaginationPageCount").first()
-  if $pageElement.length > 0
+  $tab = $('#tab')
+  if $pageElement.length > 0 && $tab.val() == 'nd_campus'
     $paginationContainers = $('.EXLResultsNavigation')
     $paginationContainer = $paginationContainers.first()
     $totalElement = $pageElement.next()
