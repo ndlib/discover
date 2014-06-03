@@ -59,5 +59,8 @@ records:
   - id: TN_gale_ofg16841917
     title: "Constantine XI Paleologos"
     description: Record with Findtext tab and onshelf access.
+  - id: ndu_aleph001600269
+    title: Apokalypse der deutschen Seele
+    description: Multivolume in German
 
 
