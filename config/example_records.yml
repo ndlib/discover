@@ -62,5 +62,6 @@ records:
   - id: ndu_aleph001600269
     title: Apokalypse der deutschen Seele
     description: Multivolume in German
-
-
+  - id: ndu_aleph000161175
+    title: Shakespeare
+    description: Old book that returns 67 objects from SFX (long load time)

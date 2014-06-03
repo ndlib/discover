@@ -15,3 +15,4 @@
 //= require ../jquery.cookie.js
 //= require ../pagination.js
 //= require ../fix-dateslider.js
+//= require ../fix-facets.js
