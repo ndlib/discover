@@ -76,8 +76,8 @@ class DiscoveryRecord
     links("hcc") || {}
   end
 
-  def bth_links
-    links("bth") || {}
+  def bci_links
+    links("bci") || {}
   end
 
   def sfx_link

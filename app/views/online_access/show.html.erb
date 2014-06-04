@@ -19,8 +19,8 @@
   <% end %>
 
 
-  <% if @record.bth_links.has_fulltext_links? %>
+  <% if @record.bci_links.has_fulltext_links? %>
     <h2>Bethel College</h2>
-    <%= render partial: 'institution', locals: { institution: @record.hcc_links } %>
+    <%= render partial: 'institution', locals: { institution: @record.bci_links } %>
   <% end %>
 </div>

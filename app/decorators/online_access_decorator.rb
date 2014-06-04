@@ -23,8 +23,8 @@ class OnlineAccessDecorator < Draper::Decorator
   end
 
 
-  def bth_links
-    InstitutionLinksDecorator.new( object.bth_links )
+  def bci_links
+    InstitutionLinksDecorator.new( object.bci_links )
   end
 
 
