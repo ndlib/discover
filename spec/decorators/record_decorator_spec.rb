@@ -12,14 +12,14 @@ describe RecordDecorator do
       subject.stub(:title).and_return('Test Title')
       subject.stub(:author).and_return('John Doe')
 
-      expect(subject.detail_content).to be == [[:title, 'Test Title'],[:author, 'John Doe']]
+      expect(subject.detail_content(subject.detail_methods)).to be == [[:title, 'Test Title'],[:author, 'John Doe']]
     end
 
     it 'only returns values for methods with content' do
       subject.stub(:title).and_return('Test Title')
       subject.stub(:author).and_return(nil)
 
-      expect(subject.detail_content).to be == [[:title, 'Test Title']]
+      expect(subject.detail_content(subject.detail_methods)).to be == [[:title, 'Test Title']]
     end
   end
 
@@ -314,46 +314,46 @@ describe RecordDecorator do
     describe '#oclc' do
       it 'is the object oclc' do
         expect(object).to receive(:oclc).and_return(["12345"])
-        expect(subject.oclc).to eq(["12345"])
+        expect(subject.oclc).to eq("<ul><li>12345</li></ul>")
       end
 
       it 'removes any leading zeros' do
         expect(object).to receive(:oclc).and_return(["0023456"])
-        expect(subject.oclc).to eq(["23456"])
+        expect(subject.oclc).to eq("<ul><li>23456</li></ul>")
       end
     end
 
     describe '#isbn' do
       it 'is the object isbn' do
-        expect(object).to receive(:isbn).and_return("12345")
-        expect(subject.isbn).to eq("12345")
+        expect(object).to receive(:isbn).and_return(["12345"])
+        expect(subject.isbn).to eq("<ul><li>12345</li></ul>")
       end
     end
 
     describe '#issn' do
       it 'is the object issn' do
-        expect(object).to receive(:issn).and_return("12345")
-        expect(subject.issn).to eq("12345")
+        expect(object).to receive(:issn).and_return(["12345"])
+        expect(subject.issn).to eq("<ul><li>12345</li></ul>")
       end
     end
 
     describe '#worldcat_identifier' do
       let(:identifiers) { [[:oclc, ["12345"]], [:isbn, ["23456"]], [:issn, ["34567"]]] }
       it 'returns the the oclc number first' do
-        subject.stub(:oclc).and_return(["12345"])
+        object.stub(:oclc).and_return(["12345"])
         expect(subject.worldcat_identifier).to eq([:oclc, "12345"])
       end
 
       it 'returns the the isbn second' do
-        subject.stub(:oclc).and_return(nil)
-        subject.stub(:isbn).and_return(["12345"])
+        object.stub(:oclc).and_return(nil)
+        object.stub(:isbn).and_return(["12345"])
         expect(subject.worldcat_identifier).to eq([:isbn, "12345"])
       end
 
       it 'returns the the issn third' do
-        subject.stub(:oclc).and_return(nil)
-        subject.stub(:isbn).and_return(nil)
-        subject.stub(:issn).and_return(["12345"])
+        object.stub(:oclc).and_return(nil)
+        object.stub(:isbn).and_return(nil)
+        object.stub(:issn).and_return(["12345"])
         expect(subject.worldcat_identifier).to eq([:issn, "12345"])
       end
     end

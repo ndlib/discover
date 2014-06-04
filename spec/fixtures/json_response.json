@@ -29,7 +29,12 @@
     "creation_date":["creation_date"],
     "format":["format"],
     "is_part_of":["is_part_of"],
-    "other_titles":{"title":"other_titles"}},
+    "earlier_title":["earlier_title"],
+    "later_title":["later_title"],
+    "supplement":["supplement"],
+    "supplement_to":["supplement_to"],
+    "issued_with":["issued_with"],
+    "variant_title":["variant_title"]},
   "links":{
     "ndu": {"fulltext": [], "findtext": "", "ill": { }, "report_a_problem": {} },
     "smc": {"fulltext": [], "findtext": "", "ill": { }, "report_a_problem": {} },

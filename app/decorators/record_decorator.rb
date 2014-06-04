@@ -5,40 +5,55 @@ class RecordDecorator < Draper::Decorator
     self.new(record)
   end
 
-  def detail_content
-    if @detail_content.nil?
-      @detail_content = []
-      detail_methods.each do |method|
-        method_content = self.send(method)
-        if method_content.present?
-          @detail_content << [method, method_content]
-        end
+  def detail_content(fields)
+    detail_content = []
+    fields.each do |method|
+      method_content = self.send(method)
+      if method_content.present?
+        detail_content << [method, method_content]
       end
     end
-    @detail_content
+
+    detail_content
   end
+
 
   def detail_methods
     [
-#      :title,
-      :links,
+      :description,
+      :contents,
       :author,
       :contributor,
-      :published,
-      :description,
-      :general_notes,
       :subjects,
-      :contents,
-      :language,
-      :type,
-      :source,
       :series,
-      :uniform_titles,
-      :other_titles,
-      :identifiers,
-      :record_ids
+      #:is_part_of,
+      :published,
+      :source,
+      :language,
+      :general_notes,
+      :type,
     ]
   end
+
+  def identifiers_methods
+    [
+      :isbn, :issn, :eissn, :doi, :pmid, :lccn, :oclc, :record_ids
+    ]
+  end
+
+  def other_titles_methods
+    [
+      :uniform_titles, :variant_title
+    ]
+  end
+
+
+  def related_works_methods
+    [
+      :earlier_title, :later_title, :supplement, :supplement_to, :issued_with
+    ]
+  end
+
 
   def display_fields
     object.display_fields
@@ -115,17 +130,6 @@ class RecordDecorator < Draper::Decorator
     ulize_array(titles)
   end
 
-  def other_titles
-    labeled_hash = {}
-    object.other_titles.each do |key, value|
-      if value.present?
-        title = I18n.t("record.#{key}")
-        labeled_hash[title] = [ HierarchicalSearchLinks.render(value, :title) ]
-      end
-    end
-    dlize_hash(labeled_hash)
-  end
-
   def record_ids
     ulize_array(linked_record_ids)
   end
@@ -139,15 +143,52 @@ class RecordDecorator < Draper::Decorator
       # We need to strip any leading zeroes from the oclc numbers
       @oclc = object.oclc.collect{|o| o.gsub(/^0+/,'')}
     end
-    @oclc
+
+    ulize_array(@oclc)
   end
 
   def isbn
-    object.isbn
+    ulize_array(object.isbn)
   end
 
   def issn
-    object.issn
+    ulize_array(object.issn)
+  end
+
+  def eissn
+    ulize_array(object.eissn)
+  end
+
+  def doi
+    ulize_array(object.doi)
+  end
+
+  def pmid
+    ulize_array(object.pmid)
+  end
+
+  def lccn
+    ulize_array(object.lccn)
+  end
+
+  def earlier_title
+    ulize_array(object.earlier_title)
+  end
+
+  def later_title
+    ulize_array(object.later_title)
+  end
+
+  def supplement
+    ulize_array(object.supplement)
+  end
+
+  def supplement_to
+    ulize_array(object.supplement_to)
+  end
+
+  def issued_with
+    ulize_array(object.issued_with)
   end
 
   def links
@@ -156,10 +197,14 @@ class RecordDecorator < Draper::Decorator
     ulize_array(links_array)
   end
 
+  def variant_title
+    ulize_array(object.variant_title)
+  end
+
   def worldcat_identifier
     if @worldcat_identifier.nil?
       [:oclc, :isbn, :issn].each do |method|
-        value = self.send(method)
+        value = object.send(method)
         if value.present?
           @worldcat_identifier = [method, value.first]
           break

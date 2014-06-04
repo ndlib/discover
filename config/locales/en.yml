@@ -20,6 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  details:
+    section_titles:
+      identifiers: "Identifiers"
+      other_titles: "Other Titles"
+      related_works: "Related Works"
   identifiers:
     doi: Digital Object Identifier
     eissn: Electronic International Standard Serial Number

@@ -1,8 +1,13 @@
 <% content_for(:title, @record.page_title) %>
 <h3>Debug ID: <%= @record.object.id %></h3>
-<dl class="ndl-details">
-  <% @record.detail_content.each do |method, content| %>
-    <dt class="ndl-detail-label ndl-detail-label-<%= method %>"><%= @record.t(method) %></dt>
-    <dd class="ndl-detail-content ndl-detail-content-<%= method %>"><%= content %></dd>
-  <% end %>
-</dl>
+
+
+<%= render(partial: 'detail_section', locals: { title_key: false, content: @record.detail_content(@record.detail_methods) } ) %>
+
+<%= render(partial: 'detail_section', locals: { title_key: 'other_titles', content: @record.detail_content(@record.other_titles_methods) } ) %>
+
+<%= render(partial: 'detail_section', locals: { title_key: 'related_works', content: @record.detail_content(@record.related_works_methods) } ) %>
+
+<%= render(partial: 'detail_section', locals: { title_key: 'identifiers', content: @record.detail_content(@record.identifiers_methods) } ) %>
+
+

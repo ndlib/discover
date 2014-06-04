@@ -48,7 +48,7 @@ describe DiscoveryRecord do
 
   describe :display_attributes do
     # standar attributes
-    [:title, :vernacular_title, :language, :general_notes, :source, :description, :contents, :edition, :publisher, :creation_date, :format, :is_part_of].each do | key |
+    [:title, :vernacular_title, :language, :general_notes, :source, :description, :contents, :edition, :publisher, :creation_date, :format, :is_part_of, :earlier_title, :later_title, :supplement, :supplement_to, :issued_with, :variant_title].each do | key |
       it "returns the #{key}" do
         expect(subject.send(key)).to eq([key.to_s])
       end
@@ -59,12 +59,6 @@ describe DiscoveryRecord do
       it "returns the #{key}" do
         expect(subject.send(key)).to eq( { 'fulltext' => [key.to_s], 'hierarchical' => [ [key.to_s, key.to_s] ] } )
       end
-    end
-  end
-
-  describe :other_titles do
-    it "returns the a hash" do
-      expect(subject.other_titles).to eq({"title"=>"other_titles"})
     end
   end
 
