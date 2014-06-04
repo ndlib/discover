@@ -8,5 +8,5 @@ pre_production:
   token: qtyZ5f6GrM67WWteGFp1
   url: https://apipprd.library.nd.edu
 production:
-  token: not_a_token
+  token: qtyZ5f6GrM67WWteGFp1
   url: https://apipprd.library.nd.edu
