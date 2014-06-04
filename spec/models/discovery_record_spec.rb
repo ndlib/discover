@@ -111,10 +111,10 @@ describe DiscoveryRecord do
   end
 
 
-  describe :bth_links do
+  describe :bci_links do
 
-    it "has bth_links" do
-      expect(subject.bth_links).to eq({"fulltext"=>[], "findtext"=>"", "ill"=>{}, "report_a_problem"=>{}})
+    it "has bci_links" do
+      expect(subject.bci_links).to eq({"fulltext"=>[], "findtext"=>"", "ill"=>{}, "report_a_problem"=>{}})
     end
   end
 end
