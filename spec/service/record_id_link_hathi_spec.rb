@@ -12,7 +12,7 @@ describe RecordIdLinkHathi do
 
   describe '#institution_name' do
     it 'is Notre Dame' do
-      expect(subject.institution_name).to eq('Hathi Trust')
+      expect(subject.institution_name).to eq('HathiTrust')
     end
   end
 
@@ -24,13 +24,13 @@ describe RecordIdLinkHathi do
 
   describe '#title' do
     it 'is the labeled record id' do
-      expect(subject.title).to eq("Hathi Trust: 004528545")
+      expect(subject.title).to eq("HathiTrust: 004528545")
     end
   end
 
   describe '#render' do
     it 'is a link to the hathi trust' do
-      expect(subject.render).to eq("<a href=\"http://catalog.hathitrust.org/Record/004528545\">Hathi Trust: 004528545</a>")
+      expect(subject.render).to eq("<a href=\"http://catalog.hathitrust.org/Record/004528545\">HathiTrust: 004528545</a>")
     end
   end
 end

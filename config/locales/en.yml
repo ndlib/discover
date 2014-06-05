@@ -51,6 +51,27 @@ en:
       link_labels:
         worldcat: This item in WorldCat&reg;
     record_title:
+      title: Title
+      author: "Author"
+      published: "Published"
+      description: "Description"
+      general_notes: "General Notes"
+      subjects: "Subjects"
+      language: "Language"
+      identifiers: "Identifiers"
+      contents: "Contents"
+      contributor: "Contributor"
+      type: "Type"
+      source: "Source"
+      series: "Series"
+      uniform_titles: "Related Titles"
+      earlier_title: "Earlier Title"
+      variant_title: "Variant Title"
+      later_title: "Later Title"
+      supplement: "Supplement"
+      supplement_to: "Supplement To"
+      issued_with: "Issued With"
+      record_ids: "Record IDs"
       doi: Digital Object Identifier
       eissn: Electronic International Standard Serial Number
       isbn: International Standard Book Number
@@ -63,6 +84,14 @@ en:
     table_of_contents_links: "Table of Contents"
     linktorsrc_hcc: 'Holy Cross ( %{url} ) '
     linktorsrc_ndu: 'Notre Dame'
+  institutions:
+    ndu: Notre Dame
+    smc: Saint Mary's College
+    hcc: Holy Cross College
+    bci: Bethel College
+    ndlaw: Notre Dame Law School
+    primo_central: Primo Central
+    hathi: HathiTrust
   devise:
     failure:
       already_authenticated: ""
