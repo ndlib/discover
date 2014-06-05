@@ -15,12 +15,22 @@ class Utilities::SfxCompare
 
 
   def current_value(key)
-    current_params[key].join(",")
+    value = current_params[key].join(",")
+    if value.present?
+      "&#{key}=#{value}"
+    else
+      ""
+    end
   end
 
 
   def api_value(key)
-    api_params[key].join(",")
+    value = api_params[key].join(",")
+    if value.present?
+      "&#{key}=#{value}"
+    else
+      ""
+    end
   end
 
 
