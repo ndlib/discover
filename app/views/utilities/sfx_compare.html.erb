@@ -1,0 +1,31 @@
+
+<%= form_tag "/utilities/sfx_compare", method: "post" do %>
+  <label> Current Tab Query: <input type="text" name="current_query" value="<%= params[:current_query] %>"></label>
+  <label> Api Query: <input type="text" name="api_query" value="<%= params[:api_query] %>" ></label>
+  <button name="search">Compare!</button>
+<% end %>
+
+
+<% if params[:search] %>
+<form>
+  <h2>Comparison Table </h2>
+  <table>
+    <tr><th>Key</th><th>Current Value</th><th>Api Value</th></tr>
+    <% i = 0 %>
+    <% @sfx_compare.all_keys.each do | key | %>
+      <tr>
+        <td><%= key %></td>
+        <td><%= @sfx_compare.current_value(key) %></td>
+        <td><%= @sfx_compare.api_value(key) %></td>
+      </tr>
+    <% end %>
+  <table>
+  </form>
+  <h2>Current Query</h2>
+  <p><%= link_to @sfx_compare.current_query, @sfx_compare.current_query, target: 'blank' %></p>
+
+
+  <h2>Api Query</h2>
+  <p><%= link_to @sfx_compare.api_query, @sfx_compare.api_query, target: 'blank' %></p>
+
+<% end %>

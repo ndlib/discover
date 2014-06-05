@@ -18,6 +18,9 @@ Discover::Application.routes.draw do
   resources :primo_missing_fields, only: [ :index, :show ]
   resources :examples, only: [ :index ]
 
+  get 'utilities/sfx_compare' => 'utilities#sfx_compare'
+  post 'utilities/sfx_compare' => 'utilities#sfx_compare'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
