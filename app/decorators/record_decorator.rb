@@ -226,7 +226,7 @@ class RecordDecorator < Draper::Decorator
   def worldcat_link
     url = worldcat_url
     if url.present?
-      h.link_to(t('link_labels.worldcat'), url)
+      h.link_to(t('details.record.link_labels.worldcat'), url)
     else
       nil
     end

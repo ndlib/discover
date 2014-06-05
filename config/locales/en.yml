@@ -58,14 +58,6 @@ en:
       pmid: PubMed identifier
       lccn: Library of Congress Control Number
       oclc: OCLC Control Number
-  institutions:
-    bci: "Bethel"
-    hathi: "Hathi Trust"
-    hcc: "Holy Cross"
-    ndlaw: "Notre Dame Law School"
-    ndu: "Notre Dame"
-    primo_central: "Primo Central"
-    smc: "Saint Mary's"
   online_access:
     fulltext_links: "Fulltext"
     table_of_contents_links: "Table of Contents"

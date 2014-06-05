@@ -219,20 +219,6 @@ describe RecordDecorator do
       end
     end
 
-    describe '#identifier' do
-      before(:each) do
-        object.stub(:identifiers).and_return({ issn: ['12345678'], oclc: ['987654321'] })
-      end
-
-      it 'is the #identifiers' do
-        expect(object).to receive(:identifiers)
-        subject.identifiers
-      end
-
-     it "returns an ul" do
-        expect(subject.identifiers).to eq("<dl><dt><span title=\"International Standard Serial Number\">issn</span></dt><dd><ul><li>12345678</li></ul></dd><dt><span title=\"OCLC Control Number\">oclc</span></dt><dd><ul><li>987654321</li></ul></dd></dl>")
-      end
-    end
 
     describe '#type' do
       it 'is the object type' do
