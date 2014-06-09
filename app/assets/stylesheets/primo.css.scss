@@ -1,9 +1,24 @@
-.ndl-details-tab-Container .EXLTabContent {
+.ndl-details-tab-Container .EXLTabContent, .ndl-online-access-Container .EXLTabContent {
   height: auto;
 }
 
-.ndl-details {
+.ndl-details, .ndl-online-access {
   padding: 5px;
+
+  h2 {
+    font-size: 1.25em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
+
+  .ndl-debug {
+    text-align: right;
+  }
+}
+
+.ndl-details-list {
   margin-bottom: 0;
   list-style-position: outside;
   font-family: inherit;
