@@ -7,14 +7,16 @@ class SeriesSearchLinks < Draper::Decorator
 
 
   def render(type)
-    return nil if !series_links_array(type).present?
-
-    h.content_tag(:ul, class: 'ndl-series-search') do
-      iteration = 1
-      series_links_array(type).collect do | item |
-        h.concat(h.content_tag(:li, item, class: "ndl-series-search-#{iteration}"))
-        iteration += 1
+    if series_links_array(type).present?
+      h.content_tag(:ul, class: 'ndl-series-search') do
+        iteration = 1
+        series_links_array(type).collect do | item |
+          h.concat(h.content_tag(:li, item, class: "ndl-series-search-#{iteration}"))
+          iteration += 1
+        end
       end
+    else
+      nil
     end
   end
 
