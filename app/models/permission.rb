@@ -7,7 +7,7 @@ class Permission
 
 
   def is_admin?
-    ['jhartzle', 'jkennel', 'rfox2', 'rmalott', 'lthiel'].include?(user.username)
+    ['jhartzle', 'jkennel', 'rfox2', 'rmalott', 'lthiel', 'hanstra', 'msuhovec', 'abales', 'lajamie'].include?(user.username)
   end
 
 end
