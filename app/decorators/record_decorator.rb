@@ -50,7 +50,7 @@ class RecordDecorator < Draper::Decorator
 
   def related_works_methods
     [
-      :series, :earlier_title, :later_title, :supplement, :supplement_to, :issued_with
+      :earlier_title, :later_title, :supplement, :supplement_to, :issued_with
     ]
   end
 
