@@ -106,6 +106,8 @@ GEM
       railties (>= 3.0.0)
     faker (1.2.0)
       i18n (~> 0.5)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.3)
     formatador (0.2.4)
     growl (1.0.3)
@@ -161,6 +163,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.10.0)
     multi_xml (0.5.5)
+    multipart-post (2.0.0)
     mysql2 (0.3.15)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -275,6 +278,7 @@ DEPENDENCIES
   draper
   factory_girl_rails
   faker
+  faraday
   growl
   guard
   guard-bundler

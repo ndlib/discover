@@ -1,5 +1,5 @@
 class PrimoDemo
-  attr_reader :search_term
+  attr_reader :search_term, :params
 
   def initialize(params)
     @params = params

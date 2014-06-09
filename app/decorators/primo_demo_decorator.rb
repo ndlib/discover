@@ -14,19 +14,39 @@ class PrimoDemoDecorator < Draper::Decorator
   end
 
   def base_url
-    "http://#{host}/primo_library/libweb"
+    "http://#{host}"
   end
 
-  def url
-    "#{base_url}/action/search.do?mode=Basic&vid=#{vid}&vl(freeText0)=#{search_term}&fn=search&tab=#{tab}"
+  def primo_path(path_string = nil)
+    "/primo_library/libweb/#{path_string}"
   end
 
-  def open_url
-    if @open.nil?
-      require 'open-uri'
-      @open = open(url)
+  def libweb_url(path_string = nil)
+    "#{base_url}#{primo_path(path_string)}"
+  end
+
+  def search_url
+    libweb_url("/action/search.do")
+  end
+
+  def connection
+    if @connection.nil?
+      @connection = Faraday.new()
     end
-    @open
+    @connection
+  end
+
+  def params
+    {
+      "mode" => "Basic",
+      "vid" => vid,
+      "fn" => "search",
+      "tab" => tab
+    }.merge(object.params)
+  end
+
+  def search
+    @search ||= connection.get(search_url, params)
   end
 
   def demo_path
@@ -39,27 +59,38 @@ class PrimoDemoDecorator < Draper::Decorator
       @body = fix_primo_links(@body)
       @body = set_local_css(@body)
       @body = fix_form(@body)
+      @body = rename_reviews_tab(@body)
+      # @body = disable_pds(@body)
     end
     @body
   end
 
   def fix_primo_links(text)
-    text = text.gsub("href=\"../", "href=\"#{base_url}/")
-    text = text.gsub("src=\"../", "src=\"#{base_url}/")
+    text = text.gsub("href=\"../", "href=\"#{libweb_url}/")
+    text = text.gsub("src=\"../", "src=\"#{libweb_url}/")
     text
   end
 
   def set_local_css(text)
     local_css = h.stylesheet_link_tag("primo/ndu/index", media: "all")
+    local_css += h.stylesheet_link_tag("demo", media: "all")
     text = text.gsub(/<link[^>]+discover.library.nd.edu[^>]+>/, local_css)
     text
   end
 
   def fix_form(text)
-    text = text.gsub(/action="\/primo_library\/libweb\/action\/search.do[^"]+"/,"action=\"#{demo_path}\"")
+    text.gsub(/action="\/primo_library\/libweb\/action\/search.do[^"]+"/,"action=\"#{demo_path}\"")
+  end
+
+  def rename_reviews_tab(text)
+    text.gsub("class=\"EXLReviewsTab", "class=\"EXLOldReviewsTab")
+  end
+
+  def disable_pds(text)
+    text.gsub('exlIdssologinRequest','')
   end
 
   def original_body
-    @original_body ||= open_url.read
+    @original_body ||= search.body
   end
 end
