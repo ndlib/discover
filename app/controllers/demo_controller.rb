@@ -8,7 +8,7 @@ class DemoController < ApplicationController
   def index
     require 'open-uri'
 
-    @demo = PrimoDemo.new('test')
+    @demo = PrimoDemo.new(params)
     render text: @demo.body
   end
 end
