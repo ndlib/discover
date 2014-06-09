@@ -7,7 +7,7 @@ class SeriesSearchLinks < Draper::Decorator
 
 
   def render(type)
-    return nil if !@series_links_array.present?
+    return nil if !series_links_array(type).present?
 
     h.content_tag(:ul, class: 'ndl-series-search') do
       iteration = 1
@@ -21,12 +21,13 @@ class SeriesSearchLinks < Draper::Decorator
   private
 
     def series_links_array(type)
-      return if @series_links_array.present?
+      if @series_links_array.nil?
 
-      @series_links_array ||= []
+        @series_links_array = []
 
-      object.each do | search |
-        @series_links_array << series_link(search, type) + series_volume(search)
+        object.each do | search |
+          @series_links_array << series_link(search, type) + series_volume(search)
+        end
       end
 
       @series_links_array
