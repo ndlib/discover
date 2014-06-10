@@ -1,4 +1,5 @@
 class PrimoProxyController < ApplicationController
+  protect_from_forgery except: :index
 
   def index
     @proxy = PrimoProxy.new(params)
