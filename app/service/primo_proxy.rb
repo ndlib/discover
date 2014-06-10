@@ -41,6 +41,10 @@ class PrimoProxy < Draper::Decorator
     (/search\.do/ =~ page)
   end
 
+  def display_page?
+    (/display\.do/ =~ page)
+  end
+
   def page_path
     libweb_path(page)
   end
@@ -61,7 +65,7 @@ class PrimoProxy < Draper::Decorator
   end
 
   def body
-    if search_page?
+    if search_page? || display_page?
       PrimoProxySearch.format(self)
     else
       original_body

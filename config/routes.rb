@@ -19,7 +19,11 @@ Discover::Application.routes.draw do
   post 'utilities/sfx_compare' => 'utilities#sfx_compare'
 
   get 'demo', to: redirect('/primo_library/libweb/action/search.do?mode=Basic&vid=NDU&vl(freeText0)=test&fn=search&tab=nd_campus')
+
+  get 'primo_library/libweb/tiles/local/discover-details.jsp' => 'records#show', xhr: true
+  get 'primo_library/libweb/tiles/local/discover-online-access.jsp' => 'online_access#show', xhr: true
   get 'primo_library/libweb/*path' => 'primo_proxy#index', as: :proxy
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
