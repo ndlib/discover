@@ -13,4 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require demo.js
+//= require primo/tab-details
