@@ -179,10 +179,6 @@ p.about-tab {
     line-height: 20px;
 }
 
-.EXLBrowseList .EXLSearchFieldRibbonFormFields {
-  width: 100% !important;
-}
-
 #exlidSearchRibbon #partner-libraries-checkbox {
   float: left;
   height: auto;
@@ -378,33 +374,6 @@ span.EXLSearchFieldRibbonFormSelectedCollectionLabel {
 .EXLResultsHeader div.EXLResultsNumbers div.EXLResultsSortBy {
   width: auto;
   padding: 5px 12px;
-}
-
-.EXLAdvancedBrowseRibbon {
-  width:740px !important;
-}
-
-.EXLBrowseList #help-box {
-  display: none;
-}
-
-.EXLSearchFieldRibbonFormSelectedBrowse {
-  border: none;
-}
-
-
-
-.EXLSearchFieldRibbonFormSelectedCollectionLabel a {
-  line-height: 210% !important;
-}
-
-#exlidAdvancedSearchRibbon.EXLAdvancedBrowseRibbon input#search_field {
-  width:85%;
-  height: 36px;
-}
-
-.EXLBrowseList  #exlidAdvancedSearchRibbon fieldset div.EXLSearchFieldRibbonFormSubmitSearch {
-  margin-top:-46px !important;
 }
 
 .EXLSearchFieldRibbonAdvancedSearchLink a, #exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormLinks a {

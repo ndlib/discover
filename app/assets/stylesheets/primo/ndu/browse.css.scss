@@ -15,3 +15,32 @@
 .EXLBrowseList #resultsTileNoId {
   border:none;
 }
+
+.EXLBrowseList .EXLSearchFieldRibbonFormFields {
+  width: 100% !important;
+}
+
+.EXLAdvancedBrowseRibbon {
+  width:740px !important;
+}
+
+.EXLBrowseList #help-box {
+  display: none;
+}
+
+.EXLSearchFieldRibbonFormSelectedBrowse {
+  border: none;
+}
+
+.EXLSearchFieldRibbonFormSelectedCollectionLabel a {
+  line-height: 210% !important;
+}
+
+#exlidAdvancedSearchRibbon.EXLAdvancedBrowseRibbon input#search_field {
+  width:85%;
+  height: 36px;
+}
+
+.EXLBrowseList  #exlidAdvancedSearchRibbon fieldset div.EXLSearchFieldRibbonFormSubmitSearch {
+  margin-top:-46px !important;
+}
