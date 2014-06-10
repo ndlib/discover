@@ -16,3 +16,4 @@
 //= require ../pagination.js
 //= require ../fix-dateslider.js
 //= require ../fix-facets.js
+//= require ../fix-browse-search.js

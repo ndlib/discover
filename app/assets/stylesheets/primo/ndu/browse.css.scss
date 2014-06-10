@@ -44,3 +44,8 @@
 .EXLBrowseList  #exlidAdvancedSearchRibbon fieldset div.EXLSearchFieldRibbonFormSubmitSearch {
   margin-top:-46px !important;
 }
+
+.EXLBrowseList #exlidAdvancedSearchTile, .EXLBrowseSearch #exlidAdvancedSearchTile {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  background-color: #F8F7E9;
+}
