@@ -7,7 +7,7 @@ class Permission
 
 
   def is_admin?
-    ['jhartzle', 'jkennel', 'rfox2', 'rmalott', 'lthiel', 'hanstra', 'msuhovec', 'abales', 'lajamie'].include?(user.username)
+    Rails.env.development? || ['jhartzle', 'jkennel', 'rfox2', 'rmalott', 'lthiel', 'hanstra', 'msuhovec', 'abales', 'lajamie', 'awetheri'].include?(user.username)
   end
 
 end
