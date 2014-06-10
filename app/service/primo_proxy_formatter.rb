@@ -1,4 +1,4 @@
-class PrimoProxySearch < Draper::Decorator
+class PrimoProxyFormatter < Draper::Decorator
   delegate :original_body, :libweb_url, to: :object
 
   def body
