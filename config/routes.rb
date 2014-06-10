@@ -9,9 +9,6 @@ Discover::Application.routes.draw do
 
   get 'check' => 'health_check#check'
 
-  get 'demo' => 'demo#catcher', as: :demo_root
-  get 'demo/:action' => 'demo', as: :demo
-
   get 'record' => 'records#show', as: :record, constraints: {id: /.+/}
   get 'online_access' => 'online_access#show', as: 'online_access', constraints: {id: /.+/}
 
@@ -20,6 +17,9 @@ Discover::Application.routes.draw do
 
   get 'utilities/sfx_compare' => 'utilities#sfx_compare'
   post 'utilities/sfx_compare' => 'utilities#sfx_compare'
+
+  get 'demo', to: redirect('/primo_library/libweb/action/search.do?mode=Basic&vid=NDU&vl(freeText0)=test&fn=search&tab=nd_campus')
+  get 'primo_library/libweb/*path' => 'primo_proxy#index', as: :proxy
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

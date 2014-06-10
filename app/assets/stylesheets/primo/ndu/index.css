@@ -1,5 +1,6 @@
 /*
  *= require_self
+ *= require ../primo-base.css
  *= require ../../primo.css
  *= require ../../primo-online-access.css
  *= require ./ndu-main.css
