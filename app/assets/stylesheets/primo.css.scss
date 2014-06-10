@@ -7,10 +7,12 @@
 
   h2 {
     font-size: 1.25em;
+    margin-bottom: 0.25em;
   }
 
   h3 {
     font-size: 1.1em;
+    margin-bottom: 0.25em;
   }
 
   .ndl-debug {
@@ -31,7 +33,7 @@
     font-weight: bold;
     display: inline-block;
     text-align:right;
-    width:25%;
+    width:15%;
     vertical-align: top;
     margin-right:1em;
   }
@@ -42,7 +44,7 @@
   dd {
     margin-bottom: 0.66667rem;
     display: inline-block;
-    width:70%;
+    width:80%;
     li {
       list-style: none;
     }
