@@ -9,8 +9,28 @@ class PrimoProxy < Draper::Decorator
     @params ||= original_params.reject{|k,v| STRIP_PARAMS.include?(k)}
   end
 
-  def original_params
+  def request
     object
+  end
+
+  def original_params
+    request.params
+  end
+
+  def query_string
+    fix_browse_query_string(request.query_string)
+  end
+
+  def fix_browse_query_string(string)
+    if string =~ /fn=showBrowse/ && string =~ /fn=search/
+      string.gsub(/&fn=search/,'')
+    else
+      string
+    end
+  end
+
+  def request_parameters
+    request.request_parameters
   end
 
   def vid
@@ -37,12 +57,8 @@ class PrimoProxy < Draper::Decorator
     "#{base_url}#{libweb_path(path_string)}"
   end
 
-  def search_page?
-    (/search\.do/ =~ page)
-  end
-
-  def display_page?
-    (/display\.do/ =~ page)
+  def format_page?
+    (/(search|dlSearch|display)\.do/ =~ page)
   end
 
   def page_path
@@ -51,21 +67,48 @@ class PrimoProxy < Draper::Decorator
 
   def connection
     if @connection.nil?
-      @connection = Faraday.new(url: base_url)
+      @connection = Faraday.new(url: base_url) do |faraday|
+        faraday.request  :url_encoded             # form-encode POST params
+        faraday.response :logger                  # log requests to STDOUT
+        faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+      end
     end
     @connection
   end
 
-  def get
-    @get ||= connection.get(page_path, params)
+  def response
+    if @response.nil?
+      url = page_path+'?'+ query_string
+      if request.post?
+        @response ||= connection.post do |req|
+          req.url url
+          req.body = request_parameters.to_query
+        end
+      else
+        @response ||= connection.get(url)
+      end
+    end
+    @response
+  end
+
+  def redirect?
+    response.status == 302
+  end
+
+  def parsed_location_header
+    @parsed_location_header ||= URI.parse(response.headers['location'])
+  end
+
+  def redirect_path
+    "#{parsed_location_header.path}?#{parsed_location_header.query}"
   end
 
   def original_body
-    @original_body ||= get.body
+    @original_body ||= response.body
   end
 
   def body
-    if search_page? || display_page?
+    if format_page?
       PrimoProxySearch.format(self)
     else
       original_body
