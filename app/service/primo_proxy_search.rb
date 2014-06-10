@@ -6,7 +6,7 @@ class PrimoProxySearch < Draper::Decorator
       @body = original_body
       @body = fix_primo_links(@body)
       @body = set_local_css(@body)
-      # @body = fix_form(@body)
+      @body = set_local_js(@body)
       @body = rename_reviews_tab(@body)
       # @body = disable_sso(@body)
     end
@@ -22,12 +22,12 @@ class PrimoProxySearch < Draper::Decorator
   def set_local_css(text)
     local_css = h.stylesheet_link_tag("primo/ndu/index", media: "all")
     local_css += h.stylesheet_link_tag("demo", media: "all")
-    text = text.gsub(/<link[^>]+discover.library.nd.edu[^>]+>/, local_css)
-    text
+    text.gsub(/<link[^>]+discover.library.nd.edu[^>]+>/, local_css)
   end
 
-  def fix_form(text)
-    text.gsub(/action="\/primo_library\/libweb\/action\/search.do[^"]+"/,"action=\"#{demo_path}\"")
+  def set_local_js(text)
+    local_js = h.javascript_include_tag("primo/ndu/index")
+    text.gsub(/<script[^>]+discover.library.nd.edu[^>]+><\/script>/, local_js)
   end
 
   def rename_reviews_tab(text)
