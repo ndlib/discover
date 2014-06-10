@@ -1,10 +1,9 @@
 /*
  *= require_self
  *= require ../primo-base.css
- *= require ../../primo.css
- *= require ../../primo-online-access.css
  *= require ./ndu-main.css
  *= require ./primo-search-appliance.css
-
+ *= require ../discover-tabs.css
+ *= require ./browse.css
  *= require ./mobile.css
  */
