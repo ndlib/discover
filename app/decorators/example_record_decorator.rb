@@ -52,6 +52,10 @@ class ExampleRecordDecorator < Draper::Decorator
     "/primo_library/libweb/action/search.do?vid=NDU&vl(freeText0)=#{primo_search_id}&fn=search&tab=onesearch"
   end
 
+  def primo_proxy_link
+    h.link_to("Primo Local", primo_path, target: '_blank')
+  end
+
   def primo_url
     "http://primo-fe1.library.nd.edu:1701#{primo_path}"
   end
