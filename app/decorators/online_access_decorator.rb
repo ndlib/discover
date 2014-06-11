@@ -3,7 +3,7 @@ require 'uri/http'
 class OnlineAccessDecorator < Draper::Decorator
 
   def self.find(id)
-    record = DiscoveryQuery.find_by_id(id)
+    record = DiscoveryQuery.fullview(id)
     self.new(record)
   end
 

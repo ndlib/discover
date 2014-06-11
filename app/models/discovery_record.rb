@@ -97,7 +97,7 @@ class DiscoveryRecord
 
 
     def links(key)
-      data['links'][key.to_s]
+      (data['links'] || data['online_access'])[key.to_s]
     end
 
     def display(key)
