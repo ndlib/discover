@@ -1,6 +1,8 @@
 // Hide the original tabs
-.EXLTabsRibbon .EXLDetailsTab, .EXLTabsRibbon .EXLViewOnlineTab {
-  display: none;
+.EXLTabsRibbon {
+  .EXLDetailsTab, .EXLViewOnlineTab, .EXLLocationsTab {
+    display: none;
+  }
 }
 
 // Hide debug text by default
