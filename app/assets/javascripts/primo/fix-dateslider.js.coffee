@@ -5,6 +5,7 @@ jQuery ($) ->
     $start = $('#startdate')
     $end = $('#enddate')
     $dateSubmit = $('#dateSubmit')
+    minYear = 1
     maxYear = new Date().getFullYear()
     years = window.limits
 
@@ -40,19 +41,21 @@ jQuery ($) ->
     updateStart = (event) ->
       startValue = parseInt($start.val())
       endValue = parseInt($end.val())
-      if startValue < 1
-        $start.val(1)
+      if startValue < minYear
+        startValue = minYear
       else if startValue > endValue
-        $start.val(endValue)
+        startValue = endValue
+      $start.val(startValue)
       updateSlider()
 
     updateEnd = (event) ->
       startValue = parseInt($start.val())
       endValue = parseInt($end.val())
       if endValue > maxYear
-        $end.val(maxYear)
+        endValue = maxYear
       else if endValue < startValue
-        $end.val(startValue)
+        endValue = startValue
+      $end.val(endValue)
       updateSlider()
 
     yearIndex = (year) ->
