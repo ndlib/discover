@@ -1,13 +1,14 @@
 jQuery ($) ->
   $slider = $('#slider-range')
   if $slider.length > 0
+    $sliderURL = $("#sliderURL")
     $start = $('#startdate')
     $end = $('#enddate')
+    $dateSubmit = $('#dateSubmit')
     maxYear = new Date().getFullYear()
     years = window.limits
 
     removePreviousDates = ->
-      $sliderURL = $("#sliderURL")
       originalURL = $sliderURL.val()
       modifiedURL = originalURL
       nameMatches = originalURL.match(/fctN=[^&]+&?/g)
@@ -19,6 +20,16 @@ jQuery ($) ->
           modifiedURL = modifiedURL.replace(valueMatch, "")
         return
       $sliderURL.val modifiedURL
+
+    getURL = ->
+      url = $sliderURL.val()
+      url = url.replace('fctN=xxx', "fctN=facet_creationdate")
+      dateString = "fctV=%5b#{$start.val()}+TO+#{$end.val()}%5d"
+      url = url.replace('fctV=xxx', dateString)
+      url
+
+    updateURL = ->
+      $dateSubmit.attr('href', getURL())
 
     restrictCharacters = (event) ->
       keyValue = String.fromCharCode(event.which)
@@ -61,6 +72,7 @@ jQuery ($) ->
       $slider.slider("option", "max", years.length - 1)
 
     updateSlider = ->
+      updateURL()
       $slider.slider("values",0,yearIndex($start.val()))
       $slider.slider("values",1,yearIndex($end.val()))
       window.changeTooltipsHeadeValues($slider, $start.val(), $end.val())
@@ -72,6 +84,8 @@ jQuery ($) ->
       $end.keypress(restrictCharacters)
       $start.blur(updateStart)
       $end.blur(updateEnd)
+      $start.change(updateURL)
+      $end.change(updateURL)
 
     ready = ->
       removePreviousDates()
