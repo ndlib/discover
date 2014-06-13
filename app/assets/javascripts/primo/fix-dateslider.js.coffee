@@ -32,7 +32,9 @@ jQuery ($) ->
     updateURL = ->
       $dateSubmit.attr('href', getURL())
 
-    restrictCharacters = (event) ->
+    gotoURL = ->
+      window.location.href = getURL()
+
     restrictKeyPress = (event) ->
       keyValue = String.fromCharCode(event.which)
       if keyValue && /\D/.test(keyValue)
@@ -52,6 +54,16 @@ jQuery ($) ->
         minYear
       else
         parseInt(string)
+
+    submitStart = (event) ->
+      if event.which == 13
+        updateStart()
+        gotoURL()
+
+    submitEnd = (event) ->
+      if event.which == 13
+        updateEnd()
+        gotoURL()
 
     updateStart = (event) ->
       startValue = yearValue($start)
@@ -105,6 +117,8 @@ jQuery ($) ->
       $inputs.change(updateURL)
       $start.blur(updateStart)
       $end.blur(updateEnd)
+      $start.keypress(submitStart)
+      $end.keypress(submitEnd)
 
     ready = ->
       removePreviousDates()
