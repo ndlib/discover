@@ -71,11 +71,17 @@ jQuery ($) ->
     originalTabs = $(".#{originalTabClass}")
     if originalTabs.length > 0
       EXLTA_addTab newTabName, newTabClass, location.href, originalTabClass, newTabClass, newTabClass, false, checkTabPresence, ".#{originalTabClass}"
-      $(".#{newTabClass}").click (e) ->
+      newTabs = $(".#{newTabClass}")
+      newTabs.each ->
+        newTab = $(this)
+        originalTab = newTab.siblings(".#{originalTabClass}")
+        originalTab.after(newTab)
+      newTabs.click (e) ->
         tab = $(this)
         link = tab.find('a').get(0)
         msTabHandler e, link, newTabClass, "<div id=\"#{newTabClass}-content\" class=\"EXLTabLoading #{newTabClass}-content\"></div>", loadTabFunction, location.href, tab.hasClass("EXLResultSelectedTab")
         return
+
 
   ready = ->
     addTab(originalDetailsTabClass, detailsTabClass, "Details", getOtherDetails)
