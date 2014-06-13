@@ -215,7 +215,12 @@ div.EXLSearchFiledRibbonFormSearchFor input{
   background-color:#ffffff; border:1px solid #d7d9da; color:#424e53; height:auto;margin:0;padding-left:0.5em ; margin-left:0.5em; display:inline-block; margin-top:0.3em;
 }
 .EXLRemoveRefinement img{
-  float: right;
+  float: none;
+}
+
+.EXLRefinementRibbonWithExclude span img {
+  padding-left: 0;
+  vertical-align: bottom;
 }
 
 .EXLResultsHeader{
