@@ -25,9 +25,14 @@ jQuery ($) ->
     getURL = ->
       url = $sliderURL.val()
       url = url.replace('fctN=xxx', "fctN=facet_creationdate")
-      dateString = "fctV=%5b#{$start.val()}+TO+#{$end.val()}%5d"
+      dateString = "fctV=%5b#{padYear($start.val())}+TO+#{padYear($end.val())}%5d"
       url = url.replace('fctV=xxx', dateString)
       url
+
+    padYear = (year) ->
+      year = '' + year
+      pad = "0000"
+      pad.substring(0, pad.length - year.length) + year
 
     updateURL = ->
       $dateSubmit.attr('href', getURL())
