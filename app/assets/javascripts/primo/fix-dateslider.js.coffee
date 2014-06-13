@@ -3,6 +3,7 @@ jQuery ($) ->
   if $slider.length > 0
     $start = $('#startdate')
     $end = $('#enddate')
+    maxYear = new Date().getFullYear()
     years = window.limits
 
     removePreviousDates = ->
@@ -25,6 +26,24 @@ jQuery ($) ->
         event.preventDefault()
       return
 
+    updateStart = (event) ->
+      startValue = parseInt($start.val())
+      endValue = parseInt($end.val())
+      if startValue < 1
+        $start.val(1)
+      else if startValue > endValue
+        $start.val(endValue)
+      updateSlider()
+
+    updateEnd = (event) ->
+      startValue = parseInt($start.val())
+      endValue = parseInt($end.val())
+      if endValue > maxYear
+        $end.val(maxYear)
+      else if endValue < startValue
+        $end.val(startValue)
+      updateSlider()
+
     yearIndex = (year) ->
       year = parseInt(year)
       index = years.indexOf(year)
@@ -46,19 +65,13 @@ jQuery ($) ->
       $slider.slider("values",1,yearIndex($end.val()))
       window.changeTooltipsHeadeValues($slider, $start.val(), $end.val())
 
-
-
-
     addEventHandlers = ->
       $start.attr('onblur', '').attr('onkeyup', '')
       $end.attr('onblur', '').attr('onkeyup', '')
       $start.keypress(restrictCharacters)
       $end.keypress(restrictCharacters)
-      $start.blur(updateSlider)
-      $end.blur(updateSlider)
-
-
-
+      $start.blur(updateStart)
+      $end.blur(updateEnd)
 
     ready = ->
       removePreviousDates()
