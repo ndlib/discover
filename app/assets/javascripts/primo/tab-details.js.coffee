@@ -72,10 +72,12 @@ jQuery ($) ->
     if originalTabs.length > 0
       EXLTA_addTab newTabName, newTabClass, location.href, originalTabClass, newTabClass, newTabClass, false, checkTabPresence, ".#{originalTabClass}"
       newTabs = $(".#{newTabClass}")
+      # Insert the new tab after its original counterpart
       newTabs.each ->
         newTab = $(this)
         originalTab = newTab.siblings(".#{originalTabClass}")
         originalTab.after(newTab)
+      # Click handler for loading the new tab content
       newTabs.click (e) ->
         tab = $(this)
         link = tab.find('a').get(0)

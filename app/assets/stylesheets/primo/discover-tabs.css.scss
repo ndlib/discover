@@ -1,3 +1,8 @@
+// Hide the original tabs
+.EXLTabsRibbon .EXLDetailsTab, .EXLTabsRibbon .EXLViewOnlineTab {
+  display: none;
+}
+
 .ndl-details-tab-Container .EXLTabContent, .ndl-online-access-Container .EXLTabContent {
   height: auto;
 }
