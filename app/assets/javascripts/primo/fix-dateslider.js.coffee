@@ -5,6 +5,7 @@ jQuery ($) ->
     $start = $('#startdate')
     $end = $('#enddate')
     $dateSubmit = $('#dateSubmit')
+    linkHidden = false
     minYear = 1
     maxYear = new Date().getFullYear()
     years = window.limits
@@ -22,7 +23,18 @@ jQuery ($) ->
         return
       $sliderURL.val modifiedURL
 
+    hideLink = ->
+      if !linkHidden
+        linkHidden = true
+        $dateSubmit.addClass('ndl-hidden')
+
+    showLink = ->
+      if linkHidden
+        linkHidden = false
+        $dateSubmit.removeClass('ndl-hidden')
+
     getURL = ->
+      showLink()
       url = $sliderURL.val()
       url = url.replace('fctN=xxx', "fctN=facet_creationdate")
       dateString = "fctV=%5b#{padYear($start.val())}+TO+#{padYear($end.val())}%5d"
@@ -126,9 +138,11 @@ jQuery ($) ->
       $end.blur(updateEnd)
       $start.keypress(submitStart)
       $end.keypress(submitEnd)
+      $slider.on "slidestop", updateSlider
 
     ready = ->
       removePreviousDates()
+      hideLink()
       addEventHandlers()
 
     $(document).ready(ready)
