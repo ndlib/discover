@@ -112,6 +112,8 @@ jQuery ($) ->
     addEventHandlers = ->
       $inputs = $start.add($end)
       $inputs.attr('onblur', '').attr('onkeyup', '')
+      # Set a numeric pattern to bring up the number keyboard for touch screens
+      $inputs.attr('pattern', '[0-9]*')
       $inputs.keypress(restrictKeyPress)
       $inputs.keyup(restrictKeyUp)
       $inputs.change(updateURL)
