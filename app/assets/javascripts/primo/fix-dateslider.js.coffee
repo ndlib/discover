@@ -38,9 +38,17 @@ jQuery ($) ->
         event.preventDefault()
       return
 
+    yearValue = (input) ->
+      string = input.val().replace(/\D/g,'')
+      if string == ''
+        minYear
+      else
+        parseInt(string)
+
     updateStart = (event) ->
-      startValue = parseInt($start.val())
-      endValue = parseInt($end.val())
+      startValue = yearValue($start)
+      console.log(startValue)
+      endValue = yearValue($end)
       if startValue < minYear
         startValue = minYear
       else if startValue > endValue
@@ -49,8 +57,8 @@ jQuery ($) ->
       updateSlider()
 
     updateEnd = (event) ->
-      startValue = parseInt($start.val())
-      endValue = parseInt($end.val())
+      startValue = yearValue($start)
+      endValue = yearValue($end)
       if endValue > maxYear
         endValue = maxYear
       else if endValue < startValue
@@ -76,9 +84,11 @@ jQuery ($) ->
 
     updateSlider = ->
       updateURL()
-      $slider.slider("values",0,yearIndex($start.val()))
-      $slider.slider("values",1,yearIndex($end.val()))
-      window.changeTooltipsHeadeValues($slider, $start.val(), $end.val())
+      startValue = yearValue($start)
+      endValue = yearValue($end)
+      $slider.slider("values",0,yearIndex(startValue))
+      $slider.slider("values",1,yearIndex(endValue))
+      window.changeTooltipsHeadeValues($slider, startValue, endValue)
 
     addEventHandlers = ->
       $start.attr('onblur', '').attr('onkeyup', '')
