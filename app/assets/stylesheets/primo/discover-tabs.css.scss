@@ -10,8 +10,12 @@
   display: none;
 }
 
-.ndl-details-tab-Container .EXLTabContent, .ndl-online-access-Container .EXLTabContent {
-  height: auto;
+// Make the tab container the height of its content rather than scrolling
+.EXLSummary {
+  .ndl-details-tab-Container .EXLTabContent, .ndl-online-access-Container .EXLTabContent {
+    height: auto;
+    overflow: hidden;
+  }
 }
 
 .ndl-details, .ndl-online-access {
