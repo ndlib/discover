@@ -1,9 +1,10 @@
 jQuery ($) ->
-  cloneTabClass = "EXLDetailsTab"
+  originalDetailsTabClass = "EXLDetailsTab"
+  originalOnlineAccessTabClass = "EXLViewOnlineTab"
   detailsPath = "/primo_library/libweb/tiles/local/discover-details.jsp"
   onlineAccessPath = "/primo_library/libweb/tiles/local/discover-online-access.jsp"
   detailsTabClass = 'ndl-details-tab'
-  onlineAccessTabClass = 'ndl-online-access'
+  onlineAccessTabClass = 'ndl-online-access-tab'
 
   hoverIn = ->
     li = $(this)
@@ -67,15 +68,17 @@ jQuery ($) ->
     return
 
   ready = ->
-    replaceTab = $(".#{cloneTabClass}")
-    if replaceTab.length > 0
-      EXLTA_addTab "New Details", detailsTabClass, location.href, cloneTabClass, "detailsTab", detailsTabClass, false, checkTabPresence, ".#{cloneTabClass}"
+    detailsTabs = $(".#{originalDetailsTabClass}")
+    if detailsTabs.length > 0
+      EXLTA_addTab "Details", detailsTabClass, location.href, originalDetailsTabClass, "detailsTab", detailsTabClass, false, checkTabPresence, ".#{originalDetailsTabClass}"
       $(".#{detailsTabClass}").click (e) ->
         tab = $(this)
         link = tab.find('a').get(0)
         msTabHandler e, link, detailsTabClass, "<div id=\"#{detailsTabClass}-content\" class=\"EXLTabLoading #{detailsTabClass}-content\"></div>", getOtherDetails, location.href, tab.hasClass("EXLResultSelectedTab")
         return
-      EXLTA_addTab "New Online Access", onlineAccessTabClass, location.href, cloneTabClass, "detailsTab", onlineAccessTabClass, false, checkTabPresence, ".#{cloneTabClass}"
+    onlineTabs = $(".#{originalOnlineAccessTabClass}")
+    if onlineTabs.length > 0
+      EXLTA_addTab "Access Online", onlineAccessTabClass, location.href, originalOnlineAccessTabClass, "detailsTab", onlineAccessTabClass, false, checkTabPresence, ".#{originalOnlineAccessTabClass}"
       $(".#{onlineAccessTabClass}").click (e) ->
         tab = $(this)
         link = tab.find('a').get(0)
