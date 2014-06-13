@@ -33,9 +33,17 @@ jQuery ($) ->
       $dateSubmit.attr('href', getURL())
 
     restrictCharacters = (event) ->
+    restrictKeyPress = (event) ->
       keyValue = String.fromCharCode(event.which)
       if keyValue && /\D/.test(keyValue)
         event.preventDefault()
+      return
+
+    restrictKeyUp = (event) ->
+      input = $(this)
+      newValue = input.val().replace(/\D/g,'')
+      if newValue != input.val()
+        input.val(newValue)
       return
 
     yearValue = (input) ->
@@ -47,7 +55,6 @@ jQuery ($) ->
 
     updateStart = (event) ->
       startValue = yearValue($start)
-      console.log(startValue)
       endValue = yearValue($end)
       if startValue < minYear
         startValue = minYear
@@ -91,14 +98,13 @@ jQuery ($) ->
       window.changeTooltipsHeadeValues($slider, startValue, endValue)
 
     addEventHandlers = ->
-      $start.attr('onblur', '').attr('onkeyup', '')
-      $end.attr('onblur', '').attr('onkeyup', '')
-      $start.keypress(restrictCharacters)
-      $end.keypress(restrictCharacters)
+      $inputs = $start.add($end)
+      $inputs.attr('onblur', '').attr('onkeyup', '')
+      $inputs.keypress(restrictKeyPress)
+      $inputs.keyup(restrictKeyUp)
+      $inputs.change(updateURL)
       $start.blur(updateStart)
       $end.blur(updateEnd)
-      $start.change(updateURL)
-      $end.change(updateURL)
 
     ready = ->
       removePreviousDates()
