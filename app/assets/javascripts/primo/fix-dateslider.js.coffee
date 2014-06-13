@@ -5,9 +5,10 @@ jQuery ($) ->
     $start = $('#startdate')
     $end = $('#enddate')
     $dateSubmit = $('#dateSubmit')
-    linkHidden = false
     minYear = 1
     maxYear = new Date().getFullYear()
+    # By default Primo creates an array of years to show in the slider
+    # We are going to modify that array in order to allow years that fall outside of that range
     years = window.limits
 
     removePreviousDates = ->
@@ -24,14 +25,10 @@ jQuery ($) ->
       $sliderURL.val modifiedURL
 
     hideLink = ->
-      if !linkHidden
-        linkHidden = true
-        $dateSubmit.addClass('ndl-hidden')
+      $dateSubmit.hide()
 
     showLink = ->
-      if linkHidden
-        linkHidden = false
-        $dateSubmit.removeClass('ndl-hidden')
+      $dateSubmit.show()
 
     getURL = ->
       showLink()
@@ -133,6 +130,7 @@ jQuery ($) ->
       $inputs.attr('pattern', '[0-9]*')
       $inputs.keypress(restrictKeyPress)
       $inputs.keyup(restrictKeyUp)
+      $inputs.keyup(showLink)
       $inputs.change(updateURL)
       $start.blur(updateStart)
       $end.blur(updateEnd)
