@@ -67,23 +67,19 @@ jQuery ($) ->
       $.get onlineAccessPath, {id: recordID, primary: 'ndu_aleph'}, success, "html"
     return
 
+  addTab = (originalTabClass, newTabClass, newTabName, loadTabFunction) ->
+    originalTabs = $(".#{originalTabClass}")
+    if originalTabs.length > 0
+      EXLTA_addTab newTabName, newTabClass, location.href, originalTabClass, newTabClass, newTabClass, false, checkTabPresence, ".#{originalTabClass}"
+      $(".#{newTabClass}").click (e) ->
+        tab = $(this)
+        link = tab.find('a').get(0)
+        msTabHandler e, link, newTabClass, "<div id=\"#{newTabClass}-content\" class=\"EXLTabLoading #{newTabClass}-content\"></div>", loadTabFunction, location.href, tab.hasClass("EXLResultSelectedTab")
+        return
+
   ready = ->
-    detailsTabs = $(".#{originalDetailsTabClass}")
-    if detailsTabs.length > 0
-      EXLTA_addTab "Details", detailsTabClass, location.href, originalDetailsTabClass, "detailsTab", detailsTabClass, false, checkTabPresence, ".#{originalDetailsTabClass}"
-      $(".#{detailsTabClass}").click (e) ->
-        tab = $(this)
-        link = tab.find('a').get(0)
-        msTabHandler e, link, detailsTabClass, "<div id=\"#{detailsTabClass}-content\" class=\"EXLTabLoading #{detailsTabClass}-content\"></div>", getOtherDetails, location.href, tab.hasClass("EXLResultSelectedTab")
-        return
-    onlineTabs = $(".#{originalOnlineAccessTabClass}")
-    if onlineTabs.length > 0
-      EXLTA_addTab "Access Online", onlineAccessTabClass, location.href, originalOnlineAccessTabClass, "detailsTab", onlineAccessTabClass, false, checkTabPresence, ".#{originalOnlineAccessTabClass}"
-      $(".#{onlineAccessTabClass}").click (e) ->
-        tab = $(this)
-        link = tab.find('a').get(0)
-        msTabHandler e, link, onlineAccessTabClass, "<div id=\"#{onlineAccessTabClass}-content\" class=\"EXLTabLoading #{onlineAccessTabClass}-content\"></div>", getOnlineAccess, location.href, tab.hasClass("EXLResultSelectedTab")
-        return
+    addTab(originalDetailsTabClass, detailsTabClass, "Details", getOtherDetails)
+    addTab(originalOnlineAccessTabClass, onlineAccessTabClass, "Access Online", getOnlineAccess)
 
     $('.ndl-details').each ->
       attachEvents($(this))
