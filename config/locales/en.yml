@@ -47,6 +47,13 @@ en:
       supplement_to: "Supplement To"
       issued_with: "Issued With"
       record_ids: "Record IDs"
+      doi: DOI
+      eissn: eISSN
+      isbn: ISBN
+      issn: ISSN
+      pmid: PMID
+      lccn: LCCN
+      oclc: OCLC
       links: Links
       link_labels:
         worldcat: This item in WorldCat&reg;
