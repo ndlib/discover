@@ -3,6 +3,11 @@
   display: none;
 }
 
+// Hide debug text by default
+.ndl-debug {
+  display: none;
+}
+
 .ndl-details-tab-Container .EXLTabContent, .ndl-online-access-Container .EXLTabContent {
   height: auto;
 }
