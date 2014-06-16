@@ -8,10 +8,14 @@ jQuery ($) ->
     timestamp = new Date().getTime()
     url = ""
     mode = $("#mode").val()
+    sessionKey = ''
+    sessionMatch = location.href.match(/;jsessionid=[^?]+/)
+    if sessionMatch
+      sessionKey = sessionMatch[0]
     unless action is "searchDB"
-      url = action + ".do" + "?fn=" + fn + "&ts=" + timestamp + additionalParameters
+      url = action + ".do" + sessionKey + "?fn=" + fn + "&ts=" + timestamp + additionalParameters
     else
-      url = action + ".do" + "?fn=" + fn + "&ts=" + timestamp
+      url = action + ".do" + sessionKey + "?fn=" + fn + "&ts=" + timestamp
       if additionalParameters is "IamDeepLink"
         document.getElementById("flagForFindDbDeepLink").title = "DeepLink"
       else
