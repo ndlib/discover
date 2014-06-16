@@ -587,7 +587,6 @@ div.EXLBackToResults a, .EXLResultsNavigation .EXLDisplayedCountTitle, .EXLResul
 
 .EXLResultTabContainer div.EXLTabHeader {
   position:relative;
-  z-index: 3000;
 }
 
 .EXLResultTabContainer div.EXLTabHeader .EXLTabHeaderButtons {
