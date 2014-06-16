@@ -21,12 +21,13 @@ class PrimoProxyFormatter < Draper::Decorator
 
   def set_local_css(text)
     local_css = h.stylesheet_link_tag("primo/ndu/index", media: "all")
-    local_css += h.stylesheet_link_tag("demo", media: "all")
+    local_css += h.stylesheet_link_tag("proxy", media: "all")
     text.gsub(/<link[^>]+discover.library.nd.edu[^>]+>/, local_css)
   end
 
   def set_local_js(text)
     local_js = h.javascript_include_tag("primo/ndu/index")
+    local_js += h.javascript_include_tag("proxy")
     text.gsub(/<script[^>]+discover.library.nd.edu[^>]+><\/script>/, local_js)
   end
 
