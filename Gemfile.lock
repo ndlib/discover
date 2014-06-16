@@ -1,6 +1,6 @@
 GIT
   remote: git@git.library.nd.edu:hesburgh_api
-  revision: d8b3f998b53288a681fe6b5a6410da5a1384712d
+  revision: b226d359cd94c45946d0fb06ad07b1196afd82a5
   specs:
     hesburgh_api (0.0.1)
       rails (~> 4.0.3)
