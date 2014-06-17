@@ -2,13 +2,13 @@ $('.EXLSummary').live('mouseover',function(){
 
 	var resultNum = $(this).parents('.EXLResult').attr("id");
 	$('#' + resultNum + ' .EXLTabsRibbon li').css('background-color','#eeeeee');
-	})
+	});
 
 $('.EXLSummary').live('mouseout',function(){
 
         var resultNum = $(this).parents('.EXLResult').attr("id");
         $('#' + resultNum + ' .EXLTabsRibbon li').css('background-color','');
-        })
+        });
 
 
 /*
@@ -27,19 +27,19 @@ $('#exlidReviewFormSubmit').live('mousedown',function(){
 $('#exlidAdvancedSearchRibbon .submit').live('click',function(){
 	var input = false ;
 	$('.EXLSearchFieldRibbonFormFieldsGroup1 input').each(function(){
-		if ( $(this).val() ) { input = true }
-	})
+		if ( $(this).val() ) { input = true; }
+	});
 
 	var filters = false ;
 	$('.EXLSearchFieldRibbonFormFieldsGroup2 select').each(function(){
 		if ( $(this).children('option:eq(0)').val() != $(this).children('option:selected').val() ) {
 			filters = true ;
 		}
-	})
+	});
 
 	if ( filters && !input ) { $('.EXLSearchFieldRibbonFormFieldsGroup1 input:eq(0)').val('alldocuments'); }
 
-})
+});
 
 $(document).ready(function(){
 
@@ -47,11 +47,11 @@ $(document).ready(function(){
 
 	var vid = $(location).attr('href').match(/vid=\w*/)   ;
 	if ( vid == "vid=NDUWC" ) {
-		var wcTab = $(location).attr('search').match(/(tab.worldcat)\w*/)
+		var wcTab = $(location).attr('search').match(/(tab.worldcat)\w*/);
 		var guest = $('#exlidUserAreaRibbon').hasClass('EXLEShelfTileGuest');
 		if ( wcTab && guest) {
 			var signIn = $('#exlidSignOut a').attr('href');
-			$(location).attr('href',signIn)
+			$(location).attr('href',signIn);
 		}
 	}
 
@@ -67,7 +67,7 @@ $(document).ready(function(){
 		if( !on_campus && !logged_in && (!tab[1] || tab[1] == "onesearch" )      ) {
 				$('.EXLResultsTable').before(
 					'<h1 class="sign_in_alert">Please <a href="' + logURL + '">sign in</a> to see all search results when off-campus.</h1>'
-				)
+				);
 			}
 		});
 
@@ -78,7 +78,7 @@ $(document).ready(function(){
 		//var onshelf_sel = $('.EXLSearchRefinementRemovefacet_tlevel').html().match(/On Shelf/);
 		var top_facet_selected = $('.EXLSearchRefinementRemovefacet_tlevel strong').html();
 		if ( ( top_facet_selected == 'On Shelf' )&& (!tab[1] || tab[1] == "onesearch" ) ) {
-			$('.EXLResultsTable').before('<div class="sign_in_alert">Note: On Shelf results do not include articles or book chapters, even when the relevant journals or books are available in the library.</div>')
+			$('.EXLResultsTable').before('<div class="sign_in_alert">Note: On Shelf results do not include articles or book chapters, even when the relevant journals or books are available in the library.</div>');
 		}
 	}
 
@@ -209,49 +209,49 @@ if ($('.EXLSearchRefinementRemovefacet_creationdate strong').attr('class') == 'E
   	$(".publication ol").children('.EXLAdditionalFacet').show();
   	$(".publication ol").children('.EXLFacetsDisplayMore').hide();
 	$(".publication ol").children('.EXLFacetsDisplayLess').show();
-};
+}
 
 if ($('.EXLSearchRefinementRemovefacet_lang strong').attr('class') == 'EXLSearchRefinementfacet_lang') {
   	$(".language ol").children('.EXLAdditionalFacet').show();
   	$(".language ol").children('.EXLFacetsDisplayMore').hide();
 	$(".language ol").children('.EXLFacetsDisplayLess').show();
-};
+}
 
 if ($('.EXLSearchRefinementRemovefacet_topic strong').attr('class') == 'EXLSearchRefinementfacet_topic') {
   	$(".topic ol").children('.EXLAdditionalFacet').show();
   	$(".topic ol").children('.EXLFacetsDisplayMore').hide();
 	$(".topic ol").children('.EXLFacetsDisplayLess').show();
-};
+}
 
 if ($('.EXLSearchRefinementRemovefacet_creator strong').attr('class') == 'EXLSearchRefinementfacet_creator') {
   	$(".author ol").children('.EXLAdditionalFacet').show();
   	$(".author ol").children('.EXLFacetsDisplayMore').hide();
 	$(".author ol").children('.EXLFacetsDisplayLess').show();
-};
+}
 
 if ($('.EXLSearchRefinementRemovefacet_library strong').attr('class') == 'EXLSearchRefinementfacet_library') {
   	$(".library ol").children('.EXLAdditionalFacet').show();
   	$(".library ol").children('.EXLFacetsDisplayMore').hide();
 	$(".library ol").children('.EXLFacetsDisplayLess').show();
-};
+}
 
 if ($('.EXLSearchRefinementRemovefacet_lcc strong').attr('class') == 'EXLSearchRefinementfacet_lcc') {
   	$(".call ol").children('.EXLAdditionalFacet').show();
   	$(".call ol").children('.EXLFacetsDisplayMore').hide();
 	$(".call ol").children('.EXLFacetsDisplayLess').show();
-};
+}
 
 if ($('.EXLSearchRefinementRemovefacet_domain strong').attr('class') == 'EXLSearchRefinementfacet_domain') {
   	$(".collection ol").children('.EXLAdditionalFacet').show();
   	$(".collection ol").children('.EXLFacetsDisplayMore').hide();
 	$(".collection ol").children('.EXLFacetsDisplayLess').show();
-};
+}
 
 if ($('.EXLSearchRefinementRemovefacet_rtype strong').attr('class') == 'EXLSearchRefinementfacet_rtype') {
   	$(".resource ol").children('.EXLAdditionalFacet').show();
   	$(".resource ol").children('.EXLFacetsDisplayMore').hide();
 	$(".resource ol").children('.EXLFacetsDisplayLess').show();
-};
+}
 
 
 // Facet Open Close
@@ -453,7 +453,7 @@ function fixReviews(){
 		var reviewHtml = $(this).parent().html();
 		reviewHtml = reviewHtml.replace(/new_review/,'new_malc_review');
 		$(this).parent().html(reviewHtml);
-	})
+	});
 	$('.EXLReviewEditRatingSelect option[value=1]').before('<option value="0">&nbsp;</option>');
 	$('.EXLReviewEditRatingSelect option[value=0]').attr("selected","selected");
 	$('#displayReviewWriter').hide();
@@ -499,11 +499,11 @@ function showHideDetails(){
 		alert('worked');
 	}
     // Set variables to identify the fields
-        var contrib = $('div.EXLDetailsContent ul li strong:contains("Contributor")').parent()
+        var contrib = $('div.EXLDetailsContent ul li strong:contains("Contributor")').parent();
 		//alert (contrib);
-        var subjects = $('div.EXLDetailsContent ul li strong:contains("Subjects")').parent()
+        var subjects = $('div.EXLDetailsContent ul li strong:contains("Subjects")').parent();
 		//alert (subjects);
-        var desc = $('div.EXLDetailsContent ul li strong:contains("Description")').parent()
+        var desc = $('div.EXLDetailsContent ul li strong:contains("Description")').parent();
 		//alert (desc);
 
    // Set variables for show-hide links
@@ -541,13 +541,13 @@ function showHideDetails(){
                         contrib.children('a:gt(2)').show() ;
                         contrib.children('br:gt(2)').show() ;
                         $('.toggleAuth').toggle();
-                        return false
+                        return false;
                 } ) ;
                 $('#hideAuth').live( "click",function(){
                         contrib.children('a:gt(2)').hide() ;
                         contrib.children('br:gt(2)').hide();
                         $('.toggleAuth').toggle();
-                        return false
+                        return false;
                 });
     }  // End of Contributors
 
@@ -576,13 +576,13 @@ function showHideDetails(){
                         subjects.children('a:gt(2)').show();
                         subjects.children('br:gt(2)').show();
                         $('.toggleSubj').toggle();
-                        return false
+                        return false;
                 } ) ;
                 $('#hideSub').live( "click",function(){
                         subjects.children('a:gt(2)').hide();
                         subjects.children('br:gt(2)').hide();
                         $('.toggleSubj').toggle();
-                        return false
+                        return false;
                 } ) ;
 
     }   // End of Subjects
@@ -601,7 +601,7 @@ function showHideDetails(){
         if (descCount > 1) {
                 descHtml = desc.html();
                 descHtml = descHtml.replace(/<br>/,'<span id="descMore"><br>');
-                descHtml = descHtml + '</span>'
+                descHtml = descHtml + '</span>';
 
                 desc.html(descHtml);
                 $('#descMore').hide();
@@ -612,12 +612,12 @@ function showHideDetails(){
                 $('.showDesc').live( "click",function(){
                         $('#descMore').show();
                         $('.toggleDesc').toggle();
-                        return false
+                        return false;
                 } ) ;
                 $('.hideDesc').live( "click",function(){
                         $('#descMore').hide();
                         $('.toggleDesc').toggle();
-                        return false
+                        return false;
                 } ) ;
 
     }   // End of description
