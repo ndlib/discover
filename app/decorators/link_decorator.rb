@@ -14,7 +14,7 @@ class LinkDecorator < Draper::Decorator
 
 
   def link
-    h.link_to title, url, target: 'blank'
+    h.link_to title, url, target: '_blank'
   end
 
 

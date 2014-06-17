@@ -37,7 +37,7 @@ class ExampleRecordDecorator < Draper::Decorator
   end
 
   def online_access_link()
-    h.link_to('Online Access', online_access_path, target: 'blank')
+    h.link_to('Online Access', online_access_path, target: '_blank')
   end
 
   def json_link

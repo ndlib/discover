@@ -7,7 +7,7 @@
   </tr>
 <% @primo_missing_field.recent_misses.each do | field | %>
   <tr>
-    <td><%= link_to(field.created_at.to_s(:long), record_path(id: field.record_id, format: :json), target: 'blank') %></td>
+    <td><%= link_to(field.created_at.to_s(:long), record_path(id: field.record_id, format: :json), target: '_blank') %></td>
     <td><%= field.body %></td>
   </tr>
 <% end %>
