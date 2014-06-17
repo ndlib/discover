@@ -152,20 +152,25 @@ $(document).ready(function(){
 			}
 			if (online || fulltxt || nofulltxt || findtext) {
 				//$('#' + resultNum + '-ViewOnlineTab').css('font-size','200%');
-
-				//this triggers the online tab clicked
-				var ont = $(this).parent().parent().parent().find('.EXLViewOnlineTab');
-				var ontu = ont.children('a').attr('href');
-				var ontc = ont.attr('class');
-				var ontp = new RegExp("EXLResultTabIconPopout");
-				if(ontp.test(ontc) && ontu){
-					window.open(ontu, '_catalogplus_url');
-				}else{
-					$(this).parent().parent().parent().find('.EXLViewOnlineTab a').trigger('click');
-				}
+        var container = $(this).parents('.EXLSummary');
+        var newOnlineTab = container.find('.ndl-online-access-tab');
+        //this triggers the online tab clicked
+        if (newOnlineTab.length > 0) {
+          newOnlineTab.trigger('click');
+        } else {
+  				var ont = container.find('.EXLViewOnlineTab');
+  				var ontu = ont.children('a').attr('href');
+  				var ontc = ont.attr('class');
+  				var ontp = new RegExp("EXLResultTabIconPopout");
+  				if(ontp.test(ontc) && ontu){
+  					window.open(ontu, '_catalogplus_url');
+  				}else{
+  					ont.find('a').trigger('click');
+  				}
+        }
 			}
 		}
-        });
+  });
 
         $('.inprint').live('click', function(event){
                 if(event.type == 'click'){
