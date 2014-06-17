@@ -22,7 +22,7 @@ $('#exlidReviewFormSubmit').live('mousedown',function(){
 
 
 /* added 20110126 A. Bales */
-*/ on clicking submit on advanced search, if filter is selected but input is blank, will supply 'alldocuments' as input */
+/* on clicking submit on advanced search, if filter is selected but input is blank, will supply 'alldocuments' as input */
 
 $('#exlidAdvancedSearchRibbon .submit').live('click',function(){
 	var input = false ;
