@@ -6,7 +6,7 @@ jQuery ($) ->
     vid = ''
     tab = ''
 
-    buildLinks = (record) ->
+    buildLinks = (record, index) ->
       recordID = record.find('.EXLResultRecordId').attr('id')
       console.log(recordID)
 
@@ -28,13 +28,13 @@ jQuery ($) ->
                   </a>
                 </li>
                 <li class="EXLButtonSendToMail">
-                  <a href="#{addSessionId('email.do')}?fn=email&amp;docs=#{recordID}&amp;vid=#{vid}&amp;fromCommand=true&amp;doc=#{recordID}&amp;scope=#{escape(scopes)}&amp;indx=1&amp;" title="Send record by E-mail(opens in a new window)" target="_blank">
+                  <a href="#{addSessionId('email.do')}?fn=email&amp;docs=#{recordID}&amp;vid=#{vid}&amp;fromCommand=true&amp;doc=#{recordID}&amp;scope=#{escape(scopes)}&amp;indx=#{index}&amp;" title="Send record by E-mail(opens in a new window)" target="_blank">
                   <span class="EXLButtonSendToLabel">E-mail</span>
                   <span class="EXLButtonSendToIcon EXLButtonSendToIconMail"></span>
                   </a>
                 </li>
                 <li class="EXLButtonSendToPrint">
-                  <a href="#{addSessionId('display.do')}?fn=print&amp;tab=#{tab}&amp;indx=1&amp;display=print&amp;docs=#{recordID}&amp;indx=1&amp;" title="Print record (opens in a new window)" target="_blank">
+                  <a href="#{addSessionId('display.do')}?fn=print&amp;tab=#{tab}&amp;indx=#{index}&amp;display=print&amp;docs=#{recordID}&amp;indx=#{index}&amp;" title="Print record (opens in a new window)" target="_blank">
                   <span class="EXLButtonSendToLabel">Print</span>
                   <span class="EXLButtonSendToIcon EXLButtonSendToIconPrint"></span>
                   </a>
@@ -121,8 +121,10 @@ jQuery ($) ->
       scopes = $('#scopesListContainer').find('input:checked').val()
       vid = $('#vid').val()
       tab = $('#tab').val()
-      records.each ->
+      startIndex = parseInt($('#indx').val())
+
+      records.each (index, element) ->
         record = $(this)
-        buildLinks(record)
+        buildLinks(record, index + startIndex)
 
     $(document).ready(ready)
