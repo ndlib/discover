@@ -42,11 +42,23 @@ class PrimoProxy < Draper::Decorator
   end
 
   def host
-    "primo-fe1.library.nd.edu:1701"
+    "primo-fe1.library.nd.edu"
+  end
+
+  def port
+    1701
+  end
+
+  def host_with_port
+    if port == 80
+      host
+    else
+      "#{host}:#{port}"
+    end
   end
 
   def base_url
-    "http://#{host}"
+    "http://#{host_with_port}"
   end
 
   def libweb_path(path_string = nil)
@@ -100,7 +112,11 @@ class PrimoProxy < Draper::Decorator
   end
 
   def redirect_path
-    "#{parsed_location_header.path}?#{parsed_location_header.query}"
+    if parsed_location_header.host == host
+      "#{parsed_location_header.path}?#{parsed_location_header.query}"
+    else
+      response.headers['location']
+    end
   end
 
   def original_body
