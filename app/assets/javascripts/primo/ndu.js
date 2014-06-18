@@ -34,14 +34,6 @@ $(document).ready(function(){
           }
 
         }});
-        if (!fd) {
-          var eud = 'pnxId='+ dn;
-          var eui = '/primo_library/libweb/tiles/local/export.jsp';
-          $.ajax({type: "get", url: eui, dataType: "html", data: eud,  success: function(data){
-            var summaryContainer = rt.parents('.EXLSummary').children('.EXLSummaryContainer');
-            summaryContainer.append(data);
-          }});
-        }
 
 
       }
