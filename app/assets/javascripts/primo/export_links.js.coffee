@@ -8,7 +8,6 @@ jQuery ($) ->
 
     buildLinks = (record, index) ->
       recordID = record.find('.EXLResultRecordId').attr('id')
-      console.log(recordID)
 
       linksHTML = """
         <div class="EXLTabHeaderButtons NDExportList">
@@ -86,10 +85,10 @@ jQuery ($) ->
       container = $(linksHTML)
       container.find('.EXLButtonSendToMyShelfAdd a').click (event) ->
         event.preventDefault()
-        eshelfCreate(this,recordID,'false',scopes,'1')
+        eshelfCreate(this,recordID,'false',scopes,"#{index}")
       container.find('.EXLButtonSendToMyShelfRemove a').click (event) ->
         event.preventDefault()
-        eshelfRemove(this,recordID,'false',scopes,'1')
+        eshelfRemove(this,recordID,'false',scopes,"#{index}")
       container.find('.EXLButtonSendToMail a').click (event) ->
         event.preventDefault()
         sendPrintPopOut(this)
@@ -98,24 +97,31 @@ jQuery ($) ->
         sendPrintPopOut(this)
       container.find('.EXLButtonSendToPermalink a').click (event) ->
         event.preventDefault()
-        openPermaLinkLbox('permalink',"docId=#{recordID}&amp;vid=#{vid}&amp;fn=permalink",'0',recordID)
+        openPermaLinkLbox('permalink',"docId=#{recordID}&amp;vid=#{vid}&amp;fn=permalink","#{index - 1}",recordID)
       container.find('.EXLButtonSendToCitation a').click (event) ->
         event.preventDefault()
-        openCitationLbox('0',recordID)
+        openCitationLbox("#{index - 1}",recordID)
       container.find('.EXLButtonSendToEndNote a').click (event) ->
         event.preventDefault()
-        pushto('EndNote','1','false',recordID)
+        pushto('EndNote',"#{index}",'false',recordID)
       container.find('.EXLButtonSendToRefWorks a').click (event) ->
         event.preventDefault()
-        pushto('RefWorks','1','false',recordID)
+        pushto('RefWorks',"#{index}",'false',recordID)
       container.find('.EXLButtonSendToDelicious a').click (event) ->
         event.preventDefault()
-        pushto('Delicious','1','false',recordID)
+        pushto('Delicious',"#{index}",'false',recordID)
       container.find('.EXLButtonSendToRIS a').click (event) ->
         event.preventDefault()
-        pushto('RISPushTo','1','false',recordID)
+        pushto('RISPushTo',"#{index}",'false',recordID)
 
       record.find('.EXLSummaryFields').after(container)
+
+      basketIcon = record.find('.EXLMyShelfStar img')
+      basketIn = 'off'
+      if /on[.]png/.test(basketIcon.attr('src'))
+        basketIn = 'on'
+      ineshelfInit(recordID, basketIn)
+
 
     ready = ->
       scopes = $('#scopesListContainer').find('input:checked').val()

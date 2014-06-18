@@ -77,3 +77,9 @@ jQuery ($) ->
         return
 
     return
+
+  # Push document bookemark to a remote systm e.g. connotea
+  window.pushto = (value, index, fromEshelf, recordId) ->
+    labelID = "label_eshelf" + index
+    openWindow "#{addSessionId('PushToAction.do')}?indx=" + index + "&doc=" + recordId + "&recId=" + recordId + "&docs=" + recordId + "&pushToType=" + value + "&fromEshelf=" + fromEshelf, value, "width = 600, height = 500, resizable=1,scrollbars=1"  if value isnt "create" and value isnt "remove"
+    return
