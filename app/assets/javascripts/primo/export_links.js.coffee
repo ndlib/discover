@@ -34,13 +34,13 @@ jQuery ($) ->
                   </a>
                 </li>
                 <li class="EXLButtonSendToPrint">
-                  <a href="#{addSessionId('display.do')}?fn=print&amp;tab=#{tab}&amp;indx=1&amp;display=print&amp;docs=#{recordID}&amp;indx=1&amp;" onclick="boomCallToRum('sendTo_print_0',false);javascript:sendPrintPopOut(this);return false;" title="Print record (opens in a new window)" target="blank">
+                  <a href="#{addSessionId('display.do')}?fn=print&amp;tab=#{tab}&amp;indx=1&amp;display=print&amp;docs=#{recordID}&amp;indx=1&amp;" title="Print record (opens in a new window)" target="blank">
                   <span class="EXLButtonSendToLabel">Print</span>
                   <span class="EXLButtonSendToIcon EXLButtonSendToIconPrint"></span>
                   </a>
                 </li>
                 <li class="EXLButtonSendToPermalink">
-                  <a href="#{addSessionId('permalink.do')}?docId=#{recordID}&amp;vid=#{vid}&amp;fn=permalink" onclick="boomCallToRum('sendTo_Permalink_0',false);javascript:openPermaLinkLbox('permalink','docId=#{recordID}&amp;vid=#{vid}&amp;fn=permalink','0','#{recordID}');return false;" title="Permanent URL for this record" target="blank">
+                  <a href="#{addSessionId('permalink.do')}?docId=#{recordID}&amp;vid=#{vid}&amp;fn=permalink" title="Permanent URL for this record" target="blank">
                   <span class="EXLButtonSendToLabel">Permalink</span>
                   <span class="EXLButtonSendToIcon EXLButtonSendToIconPermalink"></span></a>
                 </li>
@@ -93,6 +93,12 @@ jQuery ($) ->
       container.find('.EXLButtonSendToMail a').click (event) ->
         event.preventDefault()
         sendPrintPopOut(this)
+      container.find('.EXLButtonSendToPrint a').click (event) ->
+        event.preventDefault()
+        sendPrintPopOut(this)
+      container.find('.EXLButtonSendToPermalink a').click (event) ->
+        event.preventDefault()
+        openPermaLinkLbox('permalink',"docId=#{recordID}&vid=#{vid}&fn=permalink",'0',recordID)
 
       record.find('.EXLSummaryFields').after(container)
 
