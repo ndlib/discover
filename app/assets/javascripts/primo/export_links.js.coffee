@@ -116,10 +116,14 @@ jQuery ($) ->
 
       record.find('.EXLSummaryFields').after(container)
 
-      basketIcon = record.find('.EXLMyShelfStar img')
       basketIn = 'off'
-      if /on[.]png/.test(basketIcon.attr('src'))
-        basketIn = 'on'
+      basketIcon = record.find('.EXLMyShelfStar img')
+      if basketIcon.length > 0
+        if /on[.]png/.test(basketIcon.attr('src'))
+          basketIn = 'on'
+      else
+        if record.find('.EXLButtonSendToMyShelfRemove').is(':visible')
+          basketIn = 'on'
       ineshelfInit(recordID, basketIn)
 
 
