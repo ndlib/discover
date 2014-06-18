@@ -34,45 +34,45 @@ jQuery ($) ->
                   </a>
                 </li>
                 <li class="EXLButtonSendToPrint">
-                  <a href="#{addSessionId('display.do')}?fn=print&amp;tab=#{tab}&amp;indx=1&amp;display=print&amp;docs=#{recordID}&amp;indx=1&amp;" title="Print record (opens in a new window)" target="blank">
+                  <a href="#{addSessionId('display.do')}?fn=print&amp;tab=#{tab}&amp;indx=1&amp;display=print&amp;docs=#{recordID}&amp;indx=1&amp;" title="Print record (opens in a new window)" target="_blank">
                   <span class="EXLButtonSendToLabel">Print</span>
                   <span class="EXLButtonSendToIcon EXLButtonSendToIconPrint"></span>
                   </a>
                 </li>
                 <li class="EXLButtonSendToPermalink">
-                  <a href="#{addSessionId('permalink.do')}?docId=#{recordID}&amp;vid=#{vid}&amp;fn=permalink" title="Permanent URL for this record" target="blank">
+                  <a href="#{addSessionId('permalink.do')}?docId=#{recordID}&amp;vid=#{vid}&amp;fn=permalink" title="Permanent URL for this record" target="_blank">
                   <span class="EXLButtonSendToLabel">Permalink</span>
                   <span class="EXLButtonSendToIcon EXLButtonSendToIconPermalink"></span></a>
                 </li>
                 <li class="EXLButtonSendToCitation">
-                  <a href="#" onclick="boomCallToRum('sendTo_citation_0',false);openCitationLbox('0','#{recordID}');return false;" title="Bibliographic citation for this title" target="blank">
+                  <a href="#" title="Bibliographic citation for this title" target="_blank">
                   <span class="EXLButtonSendToLabel">Citation</span>
                   <span class="EXLButtonSendToIcon EXLButtonSendToIconCitation"></span>
                   </a>
                 </li>
-                <li class="EXLButtonSendToDelicious">
-                  <a href="#{addSessionId('PushToAction.do')}?recId=#{recordID}&amp;pushToType=EndNote&amp;fromEshelf=false" title="Add toEndNote" onclick="boomCallToRum('sendTo_pushto_0_0',false);pushto('EndNote','1','false','#{recordID}');return false;" target="blank">
+                <li class="EXLButtonSendToEndNote">
+                  <a href="#{addSessionId('PushToAction.do')}?recId=#{recordID}&amp;pushToType=EndNote&amp;fromEshelf=false" title="Add toEndNote" target="_blank">
                     <span class="EXLButtonSendToLabel">
                       EndNote</span>
                     <span class="EXLButtonSendToIcon EXLButtonSendToIconEndNote"></span>
                   </a>
                 </li>
-                <li class="EXLButtonSendToDelicious">
-                  <a href="#{addSessionId('PushToAction.do')}?recId=#{recordID}&amp;pushToType=RefWorks&amp;fromEshelf=false" title="Add toRefWorks" onclick="boomCallToRum('sendTo_pushto_0_1',false);pushto('RefWorks','1','false','#{recordID}');return false;" target="blank">
+                <li class="EXLButtonSendToRefWorks">
+                  <a href="#{addSessionId('PushToAction.do')}?recId=#{recordID}&amp;pushToType=RefWorks&amp;fromEshelf=false" title="Add toRefWorks" target="_blank">
                     <span class="EXLButtonSendToLabel">
                       RefWorks</span>
                     <span class="EXLButtonSendToIcon EXLButtonSendToIconRefWorks"></span>
                   </a>
                 </li>
                 <li class="EXLButtonSendToDelicious">
-                  <a href="#{addSessionId('PushToAction.do')}?recId=#{recordID}&amp;pushToType=Delicious&amp;fromEshelf=false" title="Add toDelicious" onclick="boomCallToRum('sendTo_pushto_0_2',false);pushto('Delicious','1','false','#{recordID}');return false;" target="blank">
+                  <a href="#{addSessionId('PushToAction.do')}?recId=#{recordID}&amp;pushToType=Delicious&amp;fromEshelf=false" title="Add toDelicious" target="_blank">
                     <span class="EXLButtonSendToLabel">
                       del.icio.us</span>
                     <span class="EXLButtonSendToIcon EXLButtonSendToIconDelicious"></span>
                   </a>
                 </li>
-                <li class="EXLButtonSendToDelicious">
-                  <a href="#{addSessionId('PushToAction.do')}?recId=#{recordID}&amp;pushToType=RISPushTo&amp;fromEshelf=false" title="Add toRISPushTo" onclick="boomCallToRum('sendTo_pushto_0_3',false);pushto('RISPushTo','1','false','#{recordID}');return false;" target="blank">
+                <li class="EXLButtonSendToRIS">
+                  <a href="#{addSessionId('PushToAction.do')}?recId=#{recordID}&amp;pushToType=RISPushTo&amp;fromEshelf=false" title="Add toRISPushTo" target="_blank">
                     <span class="EXLButtonSendToLabel">
                       Export RIS</span>
                     <span class="EXLButtonSendToIcon EXLButtonSendToIconRISPushTo"></span>
@@ -98,7 +98,22 @@ jQuery ($) ->
         sendPrintPopOut(this)
       container.find('.EXLButtonSendToPermalink a').click (event) ->
         event.preventDefault()
-        openPermaLinkLbox('permalink',"docId=#{recordID}&vid=#{vid}&fn=permalink",'0',recordID)
+        openPermaLinkLbox('permalink',"docId=#{recordID}&amp;vid=#{vid}&amp;fn=permalink",'0',recordID)
+      container.find('.EXLButtonSendToCitation a').click (event) ->
+        event.preventDefault()
+        openCitationLbox('0',recordID)
+      container.find('.EXLButtonSendToEndNote a').click (event) ->
+        event.preventDefault()
+        pushto('EndNote','1','false',recordID)
+      container.find('.EXLButtonSendToRefWorks a').click (event) ->
+        event.preventDefault()
+        pushto('RefWorks','1','false',recordID)
+      container.find('.EXLButtonSendToDelicious a').click (event) ->
+        event.preventDefault()
+        pushto('Delicious','1','false',recordID)
+      container.find('.EXLButtonSendToRIS a').click (event) ->
+        event.preventDefault()
+        pushto('RISPushTo','1','false',recordID)
 
       record.find('.EXLSummaryFields').after(container)
 
