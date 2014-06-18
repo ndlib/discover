@@ -872,4 +872,14 @@ display: none;
     font-weight: bold;
 }
 
+.EXLHighlightError {
+  display: block;
+  padding: 1em;
+  clear: both;
+  margin: auto auto;
+  background: #fff;
+  color: red;
+  text-align: center;
+}
+
 
