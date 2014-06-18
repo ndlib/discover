@@ -69,7 +69,7 @@ describe ExampleRecordDecorator do
 
     describe '#online_access_link' do
       it 'links to the online_access locally' do
-        expect(subject.online_access_link).to eq("<a href=\"/online_access?id=ndu_aleph001890313\" target=\"blank\">Online Access</a>")
+        expect(subject.online_access_link).to eq("<a href=\"/online_access?id=ndu_aleph001890313\" target=\"_blank\">Online Access</a>")
       end
     end
 
