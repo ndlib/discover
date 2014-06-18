@@ -1,5 +1,11 @@
 jQuery ($) ->
 
+  window.addSessionId = (urlPrefix) ->
+    sessionMatch = location.href.match(/;jsessionid=[^?]+/)
+    if sessionMatch
+      urlPrefix = urlPrefix + sessionMatch[0]
+    urlPrefix
+
   window.openPrimoLightBox = (action, fn, elementReturned, additionalParameters, urlParameters, additionalSucessHandler, alignLightBox, clickedElement) ->
     $("#exliWhiteContent").css "z-index", "1002"
     addLoadingLBox()
@@ -8,14 +14,10 @@ jQuery ($) ->
     timestamp = new Date().getTime()
     url = ""
     mode = $("#mode").val()
-    sessionKey = ''
-    sessionMatch = location.href.match(/;jsessionid=[^?]+/)
-    if sessionMatch
-      sessionKey = sessionMatch[0]
     unless action is "searchDB"
-      url = action + ".do" + sessionKey + "?fn=" + fn + "&ts=" + timestamp + additionalParameters
+      url = addSessionId(action + ".do") + "?fn=" + fn + "&ts=" + timestamp + additionalParameters
     else
-      url = action + ".do" + sessionKey + "?fn=" + fn + "&ts=" + timestamp
+      url = addSessionId(action + ".do") + "?fn=" + fn + "&ts=" + timestamp
       if additionalParameters is "IamDeepLink"
         document.getElementById("flagForFindDbDeepLink").title = "DeepLink"
       else
