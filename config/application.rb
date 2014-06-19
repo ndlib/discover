@@ -46,6 +46,9 @@ module Discover
       primo/ndu/index.js
       primo/malc/index.js
       primo/ndu/index.css
+      primo/bci/index.css
+      primo/hcc/index.css
+      primo/smc/index.css
     )
 
     config.assets.initialize_on_precompile = false
