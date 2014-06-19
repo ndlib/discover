@@ -57,7 +57,7 @@ class ExampleRecordDecorator < Draper::Decorator
   end
 
   def primo_url
-    "http://primo-fe1.library.nd.edu:1701#{primo_path}"
+    "http://primo-fe2.library.nd.edu:1701#{primo_path}"
   end
 
   def primo_link

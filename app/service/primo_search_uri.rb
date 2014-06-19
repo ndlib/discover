@@ -1,7 +1,7 @@
 class PrimoSearchUri
   include ActiveModel::Validations
 
-  BASE_URI = 'http://primo-fe1.library.nd.edu:1701/primo_library/libweb/action/search.do'
+  BASE_URI = 'http://primo-fe2.library.nd.edu:1701/primo_library/libweb/action/search.do'
 
   attr_accessor :type, :search
 
