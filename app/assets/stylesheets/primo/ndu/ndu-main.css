@@ -913,3 +913,23 @@ a[title="Add to Folder"] {
 #exlidSaveCitationtile {
   float:none;
 }
+
+.ndl-details-list dd, .ndl-details-list dt {
+  font-size:12px;
+  line-height: 1.8em;
+}
+
+.EXLBriefResultsPagination, .EXLDisplayedCount {
+  margin-right:4px;
+}
+
+.EXLFacetsDisplayMore {
+  padding:3px 3px 3px 7px !important;
+  background:#d1d1d1;
+  border-radius: 4px;
+}
+
+.EXLFacetsDisplayMore img {
+  display: none;
+}
+
