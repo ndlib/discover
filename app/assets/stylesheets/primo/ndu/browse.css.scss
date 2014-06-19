@@ -1,5 +1,5 @@
 
-.EXLBrowseList .EXLSearchFieldRibbonFormFields {
+.EXLBrowseSearch .EXLSearchFieldRibbonFormFields {
   width: auto;
 }
 
@@ -7,16 +7,16 @@
   // width: 98%;
 }
 
-.EXLBrowseList #exlidResultsContainer {
+.EXLBrowseSearch #exlidBrowseResultsEnteries {
   width:760px !important;
   margin:0 auto;
 }
 
-.EXLBrowseList #resultsTileNoId {
+.EXLBrowseSearch #resultsTileNoId {
   border:none;
 }
 
-.EXLBrowseList .EXLSearchFieldRibbonFormFields {
+.EXLBrowseSearch .EXLSearchFieldRibbonFormFields {
   width: 100% !important;
 }
 
@@ -24,7 +24,7 @@
   width:740px !important;
 }
 
-.EXLBrowseList #help-box {
+.EXLBrowseSearch #help-box {
   display: none;
 }
 
@@ -41,11 +41,11 @@
   height: 36px;
 }
 
-.EXLBrowseList  #exlidAdvancedSearchRibbon fieldset div.EXLSearchFieldRibbonFormSubmitSearch {
+.EXLBrowseSearch  #exlidAdvancedSearchRibbon fieldset div.EXLSearchFieldRibbonFormSubmitSearch {
   margin-top:-46px !important;
 }
 
-.EXLBrowseList #exlidAdvancedSearchTile, .EXLBrowseSearch #exlidAdvancedSearchTile {
+.EXLBrowseSearch #exlidAdvancedSearchTile, .EXLBrowseSearch #exlidAdvancedSearchTile {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   background-color: #F8F7E9;
 }
