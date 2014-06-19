@@ -1,3 +1,4 @@
+# Adds a "Clear" button on the advanced search form that will refresh the page and blank out the advanced search form
 jQuery ($) ->
   form = $('#searchForm')
   mode = $('#mode')

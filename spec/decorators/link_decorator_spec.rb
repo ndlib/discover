@@ -22,7 +22,7 @@ describe LinkDecorator do
 
   describe :link do
     it "returns a link" do
-      expect(subject.link).to eq("<a href=\"url\" target=\"blank\">title</a>")
+      expect(subject.link).to eq("<a href=\"url\" target=\"_blank\">title</a>")
     end
   end
 

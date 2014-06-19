@@ -1,5 +1,11 @@
 jQuery ($) ->
 
+  window.addSessionId = (urlPrefix) ->
+    sessionMatch = location.href.match(/;jsessionid=[^?]+/)
+    if sessionMatch
+      urlPrefix = urlPrefix + sessionMatch[0]
+    urlPrefix
+
   window.openPrimoLightBox = (action, fn, elementReturned, additionalParameters, urlParameters, additionalSucessHandler, alignLightBox, clickedElement) ->
     $("#exliWhiteContent").css "z-index", "1002"
     addLoadingLBox()
@@ -8,14 +14,10 @@ jQuery ($) ->
     timestamp = new Date().getTime()
     url = ""
     mode = $("#mode").val()
-    sessionKey = ''
-    sessionMatch = location.href.match(/;jsessionid=[^?]+/)
-    if sessionMatch
-      sessionKey = sessionMatch[0]
     unless action is "searchDB"
-      url = action + ".do" + sessionKey + "?fn=" + fn + "&ts=" + timestamp + additionalParameters
+      url = addSessionId(action + ".do") + "?fn=" + fn + "&ts=" + timestamp + additionalParameters
     else
-      url = action + ".do" + sessionKey + "?fn=" + fn + "&ts=" + timestamp
+      url = addSessionId(action + ".do") + "?fn=" + fn + "&ts=" + timestamp
       if additionalParameters is "IamDeepLink"
         document.getElementById("flagForFindDbDeepLink").title = "DeepLink"
       else
@@ -74,4 +76,10 @@ jQuery ($) ->
         additionalSucessHandler additionalParameters  if additionalSucessHandler?
         return
 
+    return
+
+  # Push document bookemark to a remote systm e.g. connotea
+  window.pushto = (value, index, fromEshelf, recordId) ->
+    labelID = "label_eshelf" + index
+    openWindow "#{addSessionId('PushToAction.do')}?indx=" + index + "&doc=" + recordId + "&recId=" + recordId + "&docs=" + recordId + "&pushToType=" + value + "&fromEshelf=" + fromEshelf, value, "width = 600, height = 500, resizable=1,scrollbars=1"  if value isnt "create" and value isnt "remove"
     return

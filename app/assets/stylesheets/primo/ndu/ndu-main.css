@@ -886,6 +886,18 @@ a[title="Add to Folder"] {
   width: 0;
 }
 
+.EXLHighlightError {
+  display: block;
+  padding: 1em;
+  clear: both;
+  margin: auto auto;
+  background: #fff;
+  color: red;
+  text-align: center;
+}
+
+
+
 .ndl-online-access a {
   text-decoration: none !important;
 }

@@ -17,3 +17,4 @@
 //= require ../fix-dateslider.js
 //= require ../fix-facets.js
 //= require ../fix-browse-search.js
+//= require ../export_links.js
