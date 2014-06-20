@@ -11,7 +11,7 @@
 //= require ../search-partner-libraries.js
 //= require ../wc.js
 //= require ../wc_proxy.js
-//= require ../tab-details.js
+//= require ../discover-tabs.js
 //= require ../jquery.cookie.js
 //= require ../pagination.js
 //= require ../fix-dateslider.js
