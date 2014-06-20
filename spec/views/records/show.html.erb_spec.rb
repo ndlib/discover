@@ -5,7 +5,7 @@ describe "records/show.html.erb" do
 
   let(:record) do
     VCR.use_cassette 'discovery_query/find_by_id/ndu_aleph000188916' do
-      RecordDecorator.find(search_id)
+      RecordDecorator.find(search_id, 'ndu')
     end
   end
 
