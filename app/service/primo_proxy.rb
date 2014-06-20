@@ -34,11 +34,11 @@ class PrimoProxy < Draper::Decorator
   end
 
   def vid
-    "NDU"
+    params[:vid] || "NDU"
   end
 
   def tab
-    "nd_campus"
+    params[:tab] || "nd_campus"
   end
 
   def host
