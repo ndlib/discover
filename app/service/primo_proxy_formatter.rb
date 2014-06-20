@@ -8,6 +8,7 @@ class PrimoProxyFormatter < Draper::Decorator
       @body = set_local_css(@body)
       @body = set_local_js(@body)
       @body = rename_reviews_tab(@body)
+      @body = disable_prefetch(@body)
       # @body = disable_sso(@body)
     end
     @body
@@ -53,6 +54,10 @@ class PrimoProxyFormatter < Draper::Decorator
 
   def disable_sso(text)
     text.gsub('exlIdssologinRequest','')
+  end
+
+  def disable_prefetch(text)
+    text.gsub("enabled : 'true',", "enabled : 'false',")
   end
 
   def original_body

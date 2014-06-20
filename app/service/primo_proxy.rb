@@ -13,6 +13,10 @@ class PrimoProxy < Draper::Decorator
     object
   end
 
+  def session
+    request.session
+  end
+
   def original_params
     request.params
   end
@@ -77,6 +81,14 @@ class PrimoProxy < Draper::Decorator
     libweb_path(page)
   end
 
+  def page_path_with_session
+    if session[:jsessionid].present? && page_path =~ /[.]do$/
+      "#{page_path};jsessionid=#{session[:jsessionid]}"
+    else
+      page_path
+    end
+  end
+
   def connection
     if @connection.nil?
       @connection = Faraday.new(url: base_url) do |faraday|
@@ -90,7 +102,7 @@ class PrimoProxy < Draper::Decorator
 
   def response
     if @response.nil?
-      url = page_path+'?'+ query_string
+      url = page_path_with_session+'?'+ query_string
       if request.post?
         @response ||= connection.post do |req|
           req.url url
@@ -99,20 +111,20 @@ class PrimoProxy < Draper::Decorator
       else
         @response ||= connection.get(url)
       end
+      new_session_id = header_session_id(@response)
+      if new_session_id
+        session[:jsessionid] = new_session_id
+      end
     end
     @response
   end
 
   def redirect?
-    redirect_header? || redirect_session?
-  end
-
-  def redirect_header?
     response.status == 302
   end
 
-  def header_session_id
-    match = response.headers['set-cookie'].to_s.match(/JSESSIONID=([^;]+)/)
+  def header_session_id(response_object)
+    match = response_object.headers['set-cookie'].to_s.match(/JSESSIONID=([^;]+)/)
     if match
       match[1]
     else
@@ -120,8 +132,8 @@ class PrimoProxy < Draper::Decorator
     end
   end
 
-  def redirect_session?
-    page =~ /search[.]do$/ && header_session_id
+  def page_includes_session?
+    (page_path =~ /jsessionid/).present?
   end
 
   def parsed_location_header
@@ -129,23 +141,11 @@ class PrimoProxy < Draper::Decorator
   end
 
   def redirect_path
-    if redirect_header?
-      redirect_header_path
-    elsif redirect_session?
-      redirect_session_path
-    end
-  end
-
-  def redirect_header_path
     if parsed_location_header.host == host
       "#{parsed_location_header.path}?#{parsed_location_header.query}"
     else
       response.headers['location']
     end
-  end
-
-  def redirect_session_path
-    "#{page_path};jsessionid=#{header_session_id}?#{query_string}"
   end
 
   def original_body
