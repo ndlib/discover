@@ -1,0 +1,27 @@
+#thirdbanner {
+  BORDER-RIGHT: 0px;
+  BORDER-TOP: 0px;
+  BACKGROUND: url(http://www.bethelcollege.edu/academics/library/images/banner.gif) no-repeat;
+  BORDER-LEFT: 0px;
+  WIDTH: 960px;
+  BORDER-BOTTOM: 0px;
+  HEIGHT: 54px;
+}
+
+#bowen_banner {
+  BORDER-RIGHT: 0px;
+  BORDER-TOP: 0px;
+  TEXT-ALIGN: left;
+  BORDER-LEFT: 0px;
+  WIDTH: 960px;
+  BORDER-BOTTOM: 0px;
+  HEIGHT: 25px;
+}
+
+.main {
+  width: 990px;
+}
+
+.EXLResult .EXLRequestTab {
+  display: none;
+}

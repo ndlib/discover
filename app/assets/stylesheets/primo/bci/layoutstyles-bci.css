@@ -1,0 +1,403 @@
+* {
+  PADDING-RIGHT: 0px;
+  PADDING-LEFT: 0px;
+  PADDING-BOTTOM: 0px;
+  MARGIN: 0px;
+  PADDING-TOP: 0px;
+}
+
+#bethelHeader {
+  MARGIN-TOP: 0px;
+  COLOR: #000;
+  FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+  TEXT-ALIGN: center;
+}
+
+DIV#wrapper {
+  BORDER-RIGHT: #000 1px solid;
+  BORDER-TOP: #000 1px solid;
+  BACKGROUND: #fff;
+  MARGIN: 0px auto;
+  BORDER-LEFT: #000 1px solid;
+  WIDTH: 800px;
+  BORDER-BOTTOM: #000 1px solid;
+  POSITION: relative;
+  TEXT-ALIGN: left;
+}
+
+DIV#header {
+  WIDTH: 800px;
+  HEIGHT: 139px;
+}
+
+#maincontentwrapper {
+  BORDER-RIGHT: 0px;
+  BORDER-TOP: 0px;
+  BORDER-LEFT: 0px;
+  WIDTH: auto;
+  BORDER-BOTTOM: 0px;
+  BACKGROUND-COLOR: #fff;
+}
+
+#maincontent {
+  PADDING-RIGHT: 0px;
+  PADDING-LEFT: 12px;
+  FONT-SIZE: 0.85em;
+  FLOAT: left;
+  PADDING-BOTTOM: 10px;
+  WIDTH: 532px;
+  PADDING-TOP: 0px;
+  voice-family: inherit;
+}
+
+#maincontent P {
+  MARGIN-BOTTOM: 12px;
+  LINE-HEIGHT: 1.6em;
+}
+
+#footer {
+  CLEAR: both;
+  BORDER-TOP: #e03a3e 1px solid;
+  FONT-SIZE: 10px;
+  COLOR: #fff;
+  LINE-HEIGHT: 20px;
+  HEIGHT: 20px;
+  BACKGROUND-COLOR: #1869bb;
+  TEXT-ALIGN: center;
+}
+
+#banner {
+  BORDER-RIGHT: 0px;
+  BORDER-TOP: 0px;
+  BACKGROUND: url(http://www.bethelcollege.edu/images/banner_800_10_06.jpg) no-repeat;
+  BORDER-LEFT: 0px;
+  WIDTH: 800px;
+  BORDER-BOTTOM: 0px;
+  HEIGHT: 114px;
+}
+
+#banner IMG {
+  BORDER-RIGHT: 0px;
+  BORDER-TOP: 0px;
+  FLOAT: left;
+  BORDER-LEFT: 0px;
+  BORDER-BOTTOM: 0px;
+}
+
+#bannerlinks {
+  BACKGROUND: url(http://www.bethelcollege.edu/images/banner_links.png) no-repeat right top;
+  FLOAT: right;
+  WIDTH: 240px;
+  LINE-HEIGHT: 15px;
+  HEIGHT: 22px;
+}
+
+#bannerlinks UL {
+  MARGIN-LEFT: 28px;
+}
+
+#bannerlinks LI {
+  DISPLAY: inline;
+  LIST-STYLE-TYPE: none;
+}
+
+#bannerlinks LI A {
+  PADDING-LEFT: 15px;
+  FONT-SIZE: 10px;
+  FLOAT: left;
+  COLOR: #fff;
+  TEXT-DECORATION: none;
+}
+
+#bannerlinks A:hover {
+  COLOR: #fff;
+  TEXT-DECORATION: underline;
+}
+
+#maincontent A:hover {
+  TEXT-DECORATION: none;
+}
+
+IMG.left {
+  FLOAT: left;
+  MARGIN: 7px;
+}
+
+IMG.leftNoBorder {
+  FLOAT: left;
+  MARGIN: 7px;
+}
+
+IMG.right {
+  FLOAT: right;
+  MARGIN: 7px;
+}
+
+IMG.rightBorder {
+  FLOAT: right;
+  MARGIN: 7px;
+}
+
+IMG.left {
+  BORDER-RIGHT: #000 1px solid;
+  BORDER-TOP: #000 1px solid;
+  BORDER-LEFT: #000 1px solid;
+  BORDER-BOTTOM: #000 1px solid;
+}
+
+IMG.rightBorder {
+  BORDER-RIGHT: #000 1px solid;
+  BORDER-TOP: #000 1px solid;
+  BORDER-LEFT: #000 1px solid;
+  BORDER-BOTTOM: #000 1px solid;
+}
+
+DIV#header IMG {
+  BORDER-RIGHT: medium none;
+  BORDER-TOP: medium none;
+  BORDER-LEFT: medium none;
+  BORDER-BOTTOM: medium none;
+}
+
+HR {
+  BORDER-RIGHT: medium none;
+  PADDING-RIGHT: 0px;
+  BORDER-TOP: medium none;
+  PADDING-LEFT: 0px;
+  BACKGROUND: #1869bb;
+  PADDING-BOTTOM: 0px;
+  MARGIN: 5px 0px;
+  BORDER-LEFT: medium none;
+  PADDING-TOP: 0px;
+  BORDER-BOTTOM: medium none;
+  HEIGHT: 1px;
+}
+
+#maincontent H1 {
+  DISPLAY: block;
+  MARGIN-BOTTOM: 7px;
+  MARGIN-LEFT: -12px;
+  WIDTH: 417px;
+  TEXT-INDENT: -9999px;
+  HEIGHT: 34px;
+  TEXT-DECORATION: none;
+}
+
+#maincontent H2 {
+  PADDING-RIGHT: 0px;
+  PADDING-LEFT: 10px;
+  FONT-WEIGHT: bold;
+  FONT-SIZE: 14px;
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/headercurve.gif) no-repeat 0px 0px;
+  MARGIN-BOTTOM: 5px;
+  PADDING-BOTTOM: 5px;
+  PADDING-TOP: 5px;
+  HEIGHT: 20px;
+}
+
+#maincontent UL {
+  PADDING-LEFT: 30px;
+}
+
+OL {
+  PADDING-LEFT: 30px;
+}
+
+#maincontent LI {
+  PADDING-RIGHT: 0px;
+  PADDING-LEFT: 0px;
+  PADDING-BOTTOM: 5px;
+  PADDING-TOP: 5px;
+}
+
+#maincontent .contactlist {
+  PADDING-LEFT: 15px;
+  LIST-STYLE-TYPE: none;
+}
+
+#maincontent .contactlist LI {
+  PADDING-RIGHT: 0px;
+  PADDING-LEFT: 0px;
+  PADDING-BOTTOM: 4px;
+  PADDING-TOP: 0px;
+  LIST-STYLE-TYPE: none;
+}
+
+#aboutheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/about/images/aboutheader.gif) no-repeat;
+}
+
+#academicsheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/academics/images/academicsheader.gif) no-repeat;
+}
+
+#admissionheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/academics/images/academicsheader.gif/admission/images/admissionheader.gif) no-repeat;
+}
+
+#alumniheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/academics/images/academicsheader.gif/alumni/images/alumniheader.gif) no-repeat;
+}
+
+#academicsupportheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/header/ASCheader.gif) no-repeat;
+}
+
+#blogheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/header/blogheader.gif) no-repeat;
+}
+
+#bulletinheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/header/bulletinheader.gif) no-repeat;
+}
+
+#campheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/academics/images/academicsheader.gif/secondary/images/header/summercampheader.gif) no-repeat;
+}
+
+#campusImproveheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/academics/images/academicsheader.gif/secondary/images/header/campusImproveheader.gif) no-repeat;
+}
+
+#campusServicesHeader {
+  BACKGROUND: url(http://www.bethelcollege.edu/academics/images/academicsheader.gif/secondary/images/header/campusServicesheader.gif) no-repeat;
+}
+
+#campusSafetyheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/academics/images/academicsheader.gif/secondary/images/header/campusSafetyheader.gif) no-repeat;
+}
+
+#careerheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/header/careerheader.gif) no-repeat;
+}
+
+#chapelheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/header/chapelheader.gif) no-repeat;
+}
+
+#chapelbandheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/header/chapelbandheader.gif) no-repeat;
+}
+
+#computerheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/header/computerheader.gif) no-repeat;
+}
+
+#contactheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/contact/images/contactheader.gif) no-repeat;
+}
+
+#eventsheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/events/images/eventsheader.gif) no-repeat;
+}
+
+#financialaidheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/header/studentfinancialheader.gif) no-repeat;
+}
+
+#foodheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/header/foodheader.gif) no-repeat;
+}
+
+#givingheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/advancement/images/givingheader.gif) no-repeat;
+}
+
+#gradheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/academics/graduate/images/gradheader.gif) no-repeat;
+}
+
+#graduationheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/header/graduationheader.gif) no-repeat;
+}
+
+#intramuralsHeader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/header/intramuralsHeader.gif) no-repeat;
+}
+
+#musicministryheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/header/musicministryheader.gif) no-repeat;
+}
+
+#newsheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/news/images/newsheader.gif) no-repeat;
+}
+
+#officesheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/offices/images/officesheader.gif) no-repeat;
+}
+
+#overseasheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/header/overseasheader.gif) no-repeat;
+}
+
+#pagenotfoundheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/images/pagenotfoundheader.gif) no-repeat;
+}
+
+#prheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/offices/pr/images/prheader.gif) no-repeat;
+}
+
+#physicalplantheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/offices/physicalplant/images/physicalplantheader.gif) no-repeat;
+}
+
+#refguideheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/visitors/images/refguide.gif) no-repeat;
+}
+
+#registrarheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/academics/images/registrarheader.gif) no-repeat;
+}
+
+#residenceheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/studentlife/residence/images/residenceheader.gif) no-repeat;
+}
+
+#searchheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/search/images/searchheader.gif) no-repeat;
+}
+
+#sitemapheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/images/sitemapheader.gif) no-repeat;
+}
+
+#spirituallifeheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/studentlife/spiritual/images/spirituallifeheader.gif) no-repeat;
+}
+
+#specialeventheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/specialeventheader.gif) no-repeat;
+}
+
+#studyabroadheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/header/studyAbroadheader.gif) no-repeat;
+}
+
+#studentlifeheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/studentlife/images/studentlifeheader.gif) no-repeat;
+}
+
+#undergradheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/admission/images/undergradheader.gif) no-repeat;
+}
+
+#visitorsheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/visitors/images/visitorsheader.gif) no-repeat;
+}
+
+#writingcenterheader {
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/header/writingcenterheader.gif) no-repeat;
+}
+
+P#breadcrumbs {
+  MARGIN-TOP: 0px;
+  PADDING-LEFT: 5px;
+  FONT-SIZE: 0.8em;
+}
+
+P.redarrow {
+  PADDING-LEFT: 15px;
+  BACKGROUND: url(http://www.bethelcollege.edu/secondary/images/arrowlarge.gif) no-repeat 0px 4px;
+}

@@ -1,0 +1,201 @@
+DIV#navborder {
+  BORDER-RIGHT: #fff 1px solid;
+  BORDER-TOP: #fff 1px solid;
+  BORDER-LEFT: #fff 1px solid;
+  BORDER-BOTTOM: #fff 1px solid;
+}
+
+UL#nav {
+  BORDER-RIGHT: #a89047 1px solid;
+  PADDING-RIGHT: 0px;
+  BORDER-TOP: #a89047 1px solid;
+  PADDING-LEFT: 0px;
+  Z-INDEX: 1;
+  BACKGROUND: url(http://www.bethelcollege.edu/images/menushadow.gif) #ceb058 repeat-x;
+  FLOAT: left;
+  MARGIN-BOTTOM: 1px;
+  PADDING-BOTTOM: 0px;
+  BORDER-LEFT: #a89047 1px solid;
+  WIDTH: 960px;
+  LINE-HEIGHT: 1;
+  PADDING-TOP: 0px;
+  BORDER-BOTTOM: #a89047 1px solid;
+  LIST-STYLE-TYPE: none;
+}
+
+#nav UL {
+  BORDER-RIGHT: #a89047 1px solid;
+  PADDING-RIGHT: 0px;
+  BORDER-TOP: #a89047 1px solid;
+  PADDING-LEFT: 0px;
+  Z-INDEX: 1;
+  BACKGROUND: url(http://www.bethelcollege.edu/images/menushadow.gif) #ceb058 repeat-x;
+  FLOAT: left;
+  MARGIN-BOTTOM: 1px;
+  PADDING-BOTTOM: 0px;
+  BORDER-LEFT: #a89047 1px solid;
+  WIDTH: 960px;
+  LINE-HEIGHT: 1;
+  PADDING-TOP: 0px;
+  BORDER-BOTTOM: #a89047 1px solid;
+  LIST-STYLE-TYPE: none;
+}
+
+#nav A {
+  PADDING-RIGHT: 0px;
+  DISPLAY: block;
+  PADDING-LEFT: 0px;
+  FONT-SIZE: 11px;
+  PADDING-BOTTOM: 6px;
+  TEXT-TRANSFORM: uppercase;
+  WIDTH: 100%;
+  COLOR: #fff;
+  PADDING-TOP: 6px;
+  FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+  TEXT-ALIGN: center;
+  TEXT-DECORATION: none;
+}
+
+UL#nav LI {
+  BORDER-RIGHT: #a89047 1px solid;
+  PADDING-RIGHT: 0px;
+  PADDING-LEFT: 0px;
+  FLOAT: left;
+  PADDING-BOTTOM: 0px;
+  WIDTH: 960px;
+  PADDING-TOP: 0px;
+}
+
+#nav LI UL {
+  FONT-WEIGHT: normal;
+  BACKGROUND: #ceb058;
+  LEFT: -999em;
+  MARGIN-LEFT: -1px;
+  WIDTH: 10em;
+  POSITION: absolute;
+  HEIGHT: auto;
+}
+
+#nav LI LI {
+  WIDTH: 10em;
+}
+
+#nav LI UL A {
+  PADDING-RIGHT: 0px;
+  PADDING-LEFT: 10px;
+  FONT-SIZE: 10px;
+  PADDING-BOTTOM: 5px;
+  WIDTH: 16em;
+  PADDING-TOP: 5px;
+  TEXT-ALIGN: left;
+}
+
+#nav LI UL UL {
+  MARGIN: -1.75em 0px 0px 14em;
+}
+
+#nav LI:hover UL UL {
+  LEFT: -999em;
+}
+
+#nav LI:hover UL UL UL {
+  LEFT: -999em;
+}
+
+#nav LI.sfhover UL UL {
+  LEFT: -999em;
+}
+
+#nav LI.sfhover UL UL UL {
+  LEFT: -999em;
+}
+
+#nav LI:hover UL {
+  LEFT: auto;
+}
+
+#nav LI LI:hover UL {
+  LEFT: auto;
+}
+
+#nav LI LI LI:hover UL {
+  LEFT: auto;
+}
+
+#nav LI.sfhover UL {
+  LEFT: auto;
+}
+
+#nav LI LI.sfhover UL {
+  LEFT: auto;
+}
+
+#nav LI LI LI.sfhover UL {
+  LEFT: auto;
+}
+
+#nav LI:hover {
+  BACKGROUND: #b59a4d;
+}
+
+#nav LI.sfhover {
+  BACKGROUND: #b59a4d;
+}
+
+UL#nav LI#aboutbethel {
+  WIDTH: 119px;
+  //120px;
+}
+
+UL#nav LI#academics {
+  WIDTH: 111px;
+  //112px;
+}
+
+UL#nav LI#admission {
+  WIDTH: 109px;
+  // 110px;
+}
+
+UL#nav LI#alumni {
+  WIDTH: 86px;
+  //87px;
+}
+
+UL#nav LI#athletics {
+  WIDTH: 102px;
+  //103px;
+}
+
+UL#nav LI#events {
+  WIDTH: 80px;
+  // 81px;
+}
+
+UL#nav LI#studentlife {
+  WIDTH: 118px;
+  //119px;
+}
+
+UL#nav LI#servicesNav {
+  WIDTH: 138px;
+  //139px;
+}
+
+UL#nav LI#giving {
+  BORDER-RIGHT: 0px;
+  WIDTH: 86px;
+  //87px;
+}
+
+INPUT:focus {
+  BACKGROUND: #ffffcc;
+}
+
+SELECT:focus {
+  BACKGROUND: #ffffcc;
+}
+
+TEXTAREA:focus {
+  BACKGROUND: #ffffcc;
+}

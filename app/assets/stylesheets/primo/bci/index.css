@@ -1,4 +1,8 @@
 /*
  *= require_self
  *= require ../malc/index.css
+ *= require ./layoutstyles-bci.css
+ *= require ./mainmenu-bci.css
+ *= require ./thirdlevel-bci.css
+ *= require ./bci.css
  */
