@@ -1,7 +1,7 @@
 class RecordDecorator < Draper::Decorator
 
-  def self.find(id)
-    record = DiscoveryQuery.find_by_id(id)
+  def self.find(id, vid)
+    record = DiscoveryQuery.find_by_id(id, vid)
     self.new(record)
   end
 
