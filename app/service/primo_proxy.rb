@@ -104,7 +104,24 @@ class PrimoProxy < Draper::Decorator
   end
 
   def redirect?
+    redirect_header? || redirect_session?
+  end
+
+  def redirect_header?
     response.status == 302
+  end
+
+  def header_session_id
+    match = response.headers['set-cookie'].to_s.match(/JSESSIONID=([^;]+)/)
+    if match
+      match[1]
+    else
+      nil
+    end
+  end
+
+  def redirect_session?
+    page =~ /search[.]do$/ && header_session_id
   end
 
   def parsed_location_header
@@ -112,11 +129,23 @@ class PrimoProxy < Draper::Decorator
   end
 
   def redirect_path
+    if redirect_header?
+      redirect_header_path
+    elsif redirect_session?
+      redirect_session_path
+    end
+  end
+
+  def redirect_header_path
     if parsed_location_header.host == host
       "#{parsed_location_header.path}?#{parsed_location_header.query}"
     else
       response.headers['location']
     end
+  end
+
+  def redirect_session_path
+    "#{page_path};jsessionid=#{header_session_id}?#{query_string}"
   end
 
   def original_body
