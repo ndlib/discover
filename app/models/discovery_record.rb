@@ -23,6 +23,10 @@ class DiscoveryRecord
     data['type']
   end
 
+  def institution_code
+    data['institution_code']
+  end
+
   # identifier methods
   [:isbn, :issn, :eissn, :doi, :pmid, :lccn, :oclc, :record_ids].each do |field|
     define_method(field) do
@@ -84,6 +88,10 @@ class DiscoveryRecord
     links('findtext') || {}
   end
 
+  def links(key)
+    (data['links'] || data['online_access'])[key.to_s]
+  end
+
   private
 
 
@@ -93,11 +101,6 @@ class DiscoveryRecord
 
     def primo(key)
       data['primo'][key.to_s]
-    end
-
-
-    def links(key)
-      (data['links'] || data['online_access'])[key.to_s]
     end
 
     def display(key)
