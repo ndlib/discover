@@ -1,4 +1,6 @@
 jQuery ($) ->
+  currentVID = ''
+  currentTab = ''
   originalDetailsTabClass = "EXLDetailsTab"
   originalOnlineAccessTabClass = "EXLViewOnlineTab"
   detailsPath = "/primo_library/libweb/tiles/local/discover-details.jsp"
@@ -51,7 +53,7 @@ jQuery ($) ->
         link.data('loaded', true)
         attachEvents(container)
         return
-      $.get detailsPath, {id: recordID, primary: 'ndu_aleph'}, success, "html"
+      $.get detailsPath, {id: recordID, vid: currentVID, tab: currentTab}, success, "html"
     return
 
   getOnlineAccess = (element, tabType) ->
@@ -64,7 +66,7 @@ jQuery ($) ->
         container.html data
         link.data('loaded', true)
         return
-      $.get onlineAccessPath, {id: recordID, primary: 'ndu_aleph'}, success, "html"
+      $.get onlineAccessPath, {id: recordID, vid: currentVID, tab: currentTab}, success, "html"
     return
 
   addTab = (originalTabClass, newTabClass, newTabName, loadTabFunction) ->
@@ -89,6 +91,8 @@ jQuery ($) ->
 
 
   ready = ->
+    currentVID = $('#vid').val()
+    currentTab = $('#tab').val()
     addTab(originalDetailsTabClass, detailsTabClass, "Details", getOtherDetails)
     addTab(originalOnlineAccessTabClass, onlineAccessTabClass, "Access Online", getOnlineAccess)
 
