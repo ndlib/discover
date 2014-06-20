@@ -1,0 +1,41 @@
+#smc-header {
+  height: 98px;
+  width: 650px;
+  background-image: url(banner.jpg);
+}
+
+#smc-link {
+  display: block;
+  height: 98px;
+  width: 285px;
+  margin-left: 42px;
+  text-decoration: none;
+  color: transparent;
+  text-indent: -1000px;
+}
+
+#smc-link a:hover {
+  text-decoration: none;
+}
+
+#exlidSearchTabs li.EXLSearchTab {
+  background-color: #F6F6F6;
+  border-left: 3px solid #8FB9D0;
+  border-right: 3px solid #8FB9D0;
+  border-top: 3px solid #8FB9D0;
+  border-bottom: 3px solid #8FB9D0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  padding-top: -5px;
+}
+
+#exlidSearchTabs li.EXLSearchTabSelected {
+  background-color: #FFFFFF;
+  border-bottom: 3px solid #FFFFFF;
+  margin-top: -5px;
+  height: 28px;
+}
+
+#exlidSearchTabs li {
+  height: 23px;
+}
