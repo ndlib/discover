@@ -1,0 +1,36 @@
+#hcc_head p {
+  font-family: Verdana,Arial,sans-serif;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.top1 {
+  color: #000000;
+  font-size: 14px;
+  font-style: italic;
+  vertical-align: bottom;
+}
+
+.top2 {
+  color: #770000;
+  font-size: 16px;
+  text-align: right;
+  vertical-align: bottom;
+}
+
+.bar {
+  background-color: #770000;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#hcc_head a {
+  padding-right: 45px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+#hcc_head a:hover {
+  color: #cccccc;
+}
