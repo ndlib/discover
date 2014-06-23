@@ -77,6 +77,9 @@ ndu:
   - id: ndu_aleph001638307
     title: Journal of Education
     description: Currently has a bug that prevents the Bethel and SMC link from showing up.
+  - id: nduspec_eadRBSC-MSNEA0506
+    title: Graves family shipping papers
+    description: Special collections archival record. Biographical note (lds04). Search RBSC for more records
 bci:
   - id: ndu_aleph001576619
     title: Science
