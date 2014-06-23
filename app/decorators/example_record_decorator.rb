@@ -5,7 +5,9 @@ class ExampleRecordDecorator < Draper::Decorator
   end
 
   def self.records(institution)
-    load_yaml[institution.to_s.downcase]
+    institution = institution.to_s.downcase
+    records = load_yaml[institution]
+    records.collect{|r| r['institution'] = institution}
   end
 
   def self.load_yaml
@@ -22,6 +24,14 @@ class ExampleRecordDecorator < Draper::Decorator
 
   def title
     get 'title'
+  end
+
+  def institution
+    (get 'institution') || 'ndu'
+  end
+
+  def vid
+    institution.upcase
   end
 
   def record_path(format = nil)
@@ -49,7 +59,7 @@ class ExampleRecordDecorator < Draper::Decorator
   end
 
   def primo_path
-    "/primo_library/libweb/action/search.do?vid=NDU&vl(freeText0)=#{primo_search_id}&fn=search&tab=onesearch"
+    "/primo_library/libweb/action/search.do?vid=#{vid}&vl(freeText0)=#{primo_search_id}&fn=search"
   end
 
   def primo_proxy_link
