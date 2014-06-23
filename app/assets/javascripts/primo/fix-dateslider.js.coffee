@@ -26,9 +26,11 @@ jQuery ($) ->
 
     hideLink = ->
       $dateSubmit.hide()
+      return
 
     showLink = ->
       $dateSubmit.show()
+      return
 
     getURL = ->
       showLink()
@@ -45,9 +47,11 @@ jQuery ($) ->
 
     updateURL = ->
       $dateSubmit.attr('href', getURL())
+      return
 
     gotoURL = ->
       window.location.href = getURL()
+      return
 
     restrictKeyPress = (event) ->
       keyValue = String.fromCharCode(event.which)
