@@ -1,4 +1,4 @@
-records:
+ndu:
   - id: ndu_aleph001890313
     title: The catcher in the rye
     description: Book with multiple identifiers, hierarchical subjects, and 5 frbr results.
@@ -77,7 +77,21 @@ records:
   - id: ndu_aleph001638307
     title: Journal of Education
     description: Currently has a bug that prevents the Bethel and SMC link from showing up.
-
+bci:
+  - id: ndu_aleph001576619
+    title: Science
+    description: Very complicated linking on the hathi end.  Plus many institutions have it.  Complicated titling.
+  - id: bci_aleph000133859
+    title: "Pacifica review peace, security & global change."
+    description: Bethel College record
+hcc:
+  - id: ndu_aleph001890313
+    title: The catcher in the rye
+    description: Book with multiple identifiers, hierarchical subjects, and 5 frbr results.
+smc:
+  - id: ndu_aleph001576619
+    title: Science
+    description: Very complicated linking on the hathi end.  Plus many institutions have it.  Complicated titling.
 
 
 

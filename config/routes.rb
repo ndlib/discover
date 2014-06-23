@@ -13,7 +13,9 @@ Discover::Application.routes.draw do
   get 'online_access' => 'online_access#show', as: 'online_access', constraints: {id: /.+/}
 
   resources :primo_missing_fields, only: [ :index, :show ]
-  resources :examples, only: [ :index ]
+
+  get 'examples', to: redirect('/examples/ndu'), as: :examples_root
+  get 'examples/:institution' => 'examples#index', as: :examples
 
   get 'utilities/sfx_compare' => 'utilities#sfx_compare'
   post 'utilities/sfx_compare' => 'utilities#sfx_compare'

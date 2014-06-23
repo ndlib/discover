@@ -1,11 +1,11 @@
 class ExampleRecordDecorator < Draper::Decorator
   delegate :id, :description, to: :object
-  def self.all
-    self.decorate_collection(self.records)
+  def self.by_institution(institution)
+    self.decorate_collection(self.records(institution))
   end
 
-  def self.records
-    load_yaml['records']
+  def self.records(institution)
+    load_yaml[institution.to_s.downcase]
   end
 
   def self.load_yaml

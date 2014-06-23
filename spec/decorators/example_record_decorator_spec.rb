@@ -13,23 +13,23 @@ describe ExampleRecordDecorator do
     describe '#all' do
       it 'decorates a collection' do
         expect(subject).to receive(:decorate_collection)
-        subject.all
+        subject.by_institution('ndu')
       end
     end
 
     describe '#records' do
       it 'calls load_yaml' do
-        expect(subject).to receive(:load_yaml).and_return({'records' => records})
-        subject.records
+        expect(subject).to receive(:load_yaml).and_return({'ndu' => records})
+        subject.records('ndu')
       end
     end
 
     describe '#load_yaml' do
       it 'loads the example records yaml file' do
         yaml = subject.load_yaml
-        expect(yaml).to have_key('records')
-        expect(yaml['records']).to be_a_kind_of(Array)
-        expect(yaml['records'].first).to eq(record)
+        expect(yaml).to have_key('ndu')
+        expect(yaml['ndu']).to be_a_kind_of(Array)
+        expect(yaml['ndu'].first).to eq(record)
       end
     end
   end
