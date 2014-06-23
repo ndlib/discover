@@ -7,7 +7,10 @@ class ExampleRecordDecorator < Draper::Decorator
   def self.records(institution)
     institution = institution.to_s.downcase
     records = load_yaml[institution]
-    records.collect{|r| r['institution'] = institution}
+    records.each do |r|
+      r['institution'] = institution
+    end
+    records
   end
 
   def self.load_yaml
