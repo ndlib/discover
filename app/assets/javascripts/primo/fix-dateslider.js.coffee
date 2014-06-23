@@ -71,7 +71,7 @@ jQuery ($) ->
       if string == ''
         minYear
       else
-        parseInt(string)
+        parseInt(string, 10)
 
     submitStart = (event) ->
       if event.which == 13
@@ -104,7 +104,7 @@ jQuery ($) ->
       updateSlider()
 
     yearIndex = (year) ->
-      year = parseInt(year)
+      year = parseInt(year, 10)
       index = years.indexOf(year)
       if index == -1
         addYear(year)
@@ -115,7 +115,7 @@ jQuery ($) ->
       a - b
 
     addYear = (year) ->
-      years.push(parseInt(year))
+      years.push(parseInt(year, 10))
       years.sort(sortNumber)
       $slider.slider("option", "max", years.length - 1)
 
