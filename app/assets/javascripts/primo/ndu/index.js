@@ -18,3 +18,4 @@
 //= require ../fix-facets.js
 //= require ../fix-browse-search.js
 //= require ../export_links.js
+//= require ../hide-onesearch-browse.js
