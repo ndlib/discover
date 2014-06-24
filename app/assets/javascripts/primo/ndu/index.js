@@ -20,3 +20,4 @@
 //= require ../export_links.js
 //= require ../hide-onesearch-browse.js
 //= require ../hide-long-authors.js
+//= require ../fix-advanced-search-year.js
