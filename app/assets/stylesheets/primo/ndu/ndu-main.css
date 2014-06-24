@@ -896,7 +896,7 @@ display: none;
   text-align: center;
 }
 
-.EXLResultsList h3.EXLResultAuthor {
+.EXLResultsList h3.EXLResultAuthor, .EXLResultAuthor {
   max-height: none;
   line-height: 1.4em;
 }
