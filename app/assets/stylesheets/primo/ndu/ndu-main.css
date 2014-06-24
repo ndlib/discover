@@ -872,13 +872,13 @@ display: none;
     font-weight: bold;
 }
 
-.EXLResult {
+.EXLMyShelfStar {
   position: relative;
 }
 
 .EXLMyShelfStar a[title="Add to Folder"] {
   position: absolute;
-  left: 0;
+  left: -97px;
   top:4em;
 }
 
@@ -896,7 +896,10 @@ display: none;
   text-align: center;
 }
 
-
+.EXLResultsList h3.EXLResultAuthor {
+  max-height: none;
+  line-height: 1.4em;
+}
 
 .ndl-online-access a {
   text-decoration: none !important;
