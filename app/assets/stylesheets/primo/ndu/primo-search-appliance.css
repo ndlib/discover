@@ -278,6 +278,7 @@ p.about-tab {
 
 #exlidAdvancedSearchRibbon fieldset div.EXLSearchFieldRibbon {
   height: auto;
+  overflow: visible;
 }
 
 #exlidAdvancedSearchRibbon fieldset div.EXLSearchFieldRibbonFormSubmitSearch {
