@@ -26,6 +26,10 @@ class DetailsTab < Draper::Decorator
     record.id
   end
 
+  def primo_uri
+    @primo_uri ||= PrimoURI.new(vid, tab)
+  end
+
   def detail_content(fields)
     detail_content = []
     fields.each do |method|
