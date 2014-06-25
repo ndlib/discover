@@ -87,6 +87,14 @@ describe DiscoveryRecord do
   end
 
 
+  describe :holdings do
+
+    it "has holding infromation  " do
+      expect(subject.holdings).to eq([{"record_id"=>"ndu_aleph000555617", "institution_code"=>"NDU", "collection_name"=>"General Collection", "collection_code"=>"GEN", "call_number"=>"(BR 1 .A4 )", "number_of_items"=>"0", "multi_volume"=>"Y"}])
+    end
+
+  end
+
   describe :ndu_links do
 
     it "has ndu_links" do
