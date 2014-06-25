@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
   def show
-    @record = RecordDecorator.find(params[:id], params[:vid])
+    @tab = DetailsTab.new(self)
     respond_to do |format|
       format.html do
         if request.xhr? || params[:xhr].present?
@@ -9,7 +9,7 @@ class RecordsController < ApplicationController
           render
         end
       end
-      format.json { render json: @record.object.to_json }
+      format.json { render json: @tab.record.to_json }
     end
   end
 end

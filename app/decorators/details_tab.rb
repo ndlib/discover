@@ -22,6 +22,10 @@ class DetailsTab < Draper::Decorator
     @record ||= DiscoveryQuery.find_by_id(id, vid)
   end
 
+  def record_id
+    record.id
+  end
+
   def detail_content(fields)
     detail_content = []
     fields.each do |method|
