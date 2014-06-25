@@ -26,7 +26,7 @@ class PrimoURI
   end
 
   def base_search_params
-    @base_params.merge({fn: 'search', mode: 'basic'})
+    base_params.merge({fn: 'search', mode: 'Basic'})
   end
 
   def search_path
