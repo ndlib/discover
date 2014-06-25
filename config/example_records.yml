@@ -80,6 +80,12 @@ ndu:
   - id: nduspec_eadRBSC-MSNEA0506
     title: Graves family shipping papers
     description: Special collections archival record. Biographical note (lds04). Link to finding aid in <linktofa> field. Search RBSC for more records.
+  - id: TN_crlocn813836786
+    title: "Transcripts of ""Africa, lectures on African music, 1966,"""
+    description: Should have a backlink that displays on either the online access or details tab
+  - id: TN_gale_ofa256259501
+    title: "Sainsbury's ""still learning"" with Fresh Kitchen.(Brief article)(Blog entry)"
+    description: blog entry
 bci:
   - id: ndu_aleph001576619
     title: Science
