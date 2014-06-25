@@ -149,26 +149,26 @@ describe DetailsTab do
       end
     end
 
-    describe '#subjects' do
+    describe '#subject_links' do
       before(:each) do
         record.stub(:subjects).and_return( { 'fulltext' => ['subject1 -- subsubject', 'subject2_no_subsubject'], 'hierarchical' => [ [ 'subject1', 'subsubject'], ['subject2_no_subsubject'] ]} )
       end
 
       it 'is the record#subjects' do
         expect(record).to receive(:subjects)
-        subject.subjects
+        subject.subject_links
       end
 
       it "creates heirarctical links out of the subjects" do
         expect(HierarchicalSearchLinks).to receive(:render).twice
-        subject.subjects
+        subject.subject_links
       end
 
       it "returns a ul with lis" do
         HierarchicalSearchLinks.stub(:render).with(["subject1", "subsubject"], :subject).and_return("sub1_link")
         HierarchicalSearchLinks.stub(:render).with(["subject2_no_subsubject"], :subject).and_return("sub2_link")
 
-        expect(subject.subjects).to eq("<ul><li>sub1_link</li><li>sub2_link</li></ul>")
+        expect(subject.subject_links).to eq("<ul><li>sub1_link</li><li>sub2_link</li></ul>")
       end
     end
 

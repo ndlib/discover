@@ -49,7 +49,7 @@ class DetailsTab < Draper::Decorator
       :contents,
       :author,
       :contributor,
-      :subjects,
+      :subject_links,
       :series,
       #:is_part_of,
       :published,
@@ -120,6 +120,10 @@ class DetailsTab < Draper::Decorator
   end
 
   def subjects
+    @subjects ||= hierarchical_field(record.subjects)
+  end
+
+  def subject_links
     subs = create_heirarchical_links(record.subjects, :subject)
     ulize_array(subs)
   end
@@ -262,6 +266,9 @@ class DetailsTab < Draper::Decorator
   end
 
   private
+    def hierarchical_field(field)
+      HierarchicalField.new(field)
+    end
 
     def ulize_array(arr)
       if arr.present?
