@@ -1,0 +1,15 @@
+host: 'primo-fe1.library.nd.edu:1701'
+vids:
+  ndu:
+    tabs:
+      - onesearch
+      - nd_campus
+    advanced_search:
+      scope_name: 16833817UI0
+  bci:
+    tabs:
+      - onesearch
+      - bci
+      - malc
+    advanced_search:
+      scope_name: 16833526UI0
