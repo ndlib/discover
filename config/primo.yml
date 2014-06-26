@@ -14,6 +14,19 @@ default: &default
         - malc
       advanced_search:
         scope_name: 16833526UI0
+    HCC:
+      tabs:
+        - hcc
+        - malc
+      advanced_search:
+        scope_name: 16833755UI0
+    SMC:
+      tabs:
+        - onesearch
+        - smc
+        - malc
+      advanced_search:
+        scope_name: 16833813UI0
 
 development:
   <<: *default
