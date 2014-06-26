@@ -5,8 +5,16 @@ class PrimoConfiguration
     @vid = vid.to_s.upcase
   end
 
+  def host
+    configuration['host']
+  end
+
+  def default_tab
+    tabs.first
+  end
+
   def tabs
-    vid_configuration['tabs']
+    vid_configuration['tabs'] || []
   end
 
   private
@@ -23,6 +31,7 @@ class PrimoConfiguration
     end
 
     def self.load_configuration
-      YAML.load_file(Rails.root.join('config', 'primo.yml'))
+      configuration = YAML.load_file(Rails.root.join('config', 'primo.yml'))
+      configuration[Rails.env] || configuration['default']
     end
 end
