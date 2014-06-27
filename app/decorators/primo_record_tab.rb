@@ -27,11 +27,11 @@ class PrimoRecordTab < Draper::Decorator
   end
 
   def primo_configuration
-    @primo_configuration = PrimoConfiguration.new(vid)
+    @primo_configuration ||= PrimoConfiguration.new(vid)
   end
 
   def primo_uri
-    @primo_uri ||= PrimoURI.new(vid, tab)
+    @primo_uri ||= PrimoURI.new(primo_configuration, tab)
   end
 
   private

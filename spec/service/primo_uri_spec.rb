@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe PrimoURI do
-  subject { described_class.new('NDU', 'onesearch')}
+  let(:vid) { 'NDU' }
+  let(:primo_configuration) { PrimoConfiguration.new(vid) }
+  subject { described_class.new(primo_configuration, 'onesearch')}
 
   describe '#search_path' do
     it 'links to the search path' do

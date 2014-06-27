@@ -1,13 +1,17 @@
 class PrimoURI
-  attr_reader :vid, :tab
+  attr_reader :primo_configuration, :current_tab
 
-  def initialize(vid, tab)
-    @vid = vid
-    if tab.present?
-      @tab = tab
+  def initialize(primo_configuration, current_tab)
+    @primo_configuration = primo_configuration
+    if current_tab.present?
+      @current_tab = current_tab
     else
-      @tab = nil
+      @current_tab = primo_configuration.default_tab
     end
+  end
+
+  def vid
+    primo_configuration.vid
   end
 
   def base_path(action = nil)
@@ -18,8 +22,8 @@ class PrimoURI
     if @base_params.nil?
       @base_params = HashWithIndifferentAccess.new
       @base_params[:vid] = vid
-      if tab.present?
-        @base_params[:tab] = tab
+      if current_tab.present?
+        @base_params[:tab] = current_tab
       end
     end
     @base_params

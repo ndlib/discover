@@ -76,7 +76,7 @@ describe DetailsTab do
     end
 
     it 'calls PrimoURI.new' do
-      expect(PrimoURI).to receive(:new).with(subject.vid, subject.tab)
+      expect(PrimoURI).to receive(:new).with(subject.primo_configuration, subject.tab)
       subject.primo_uri
     end
   end
