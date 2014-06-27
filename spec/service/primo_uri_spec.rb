@@ -109,6 +109,15 @@ describe PrimoURI do
     end
   end
 
+  describe '#advanced_search_params' do
+    it 'adds vl(freeText0) to #base_advanced_search_params and adds scope params' do
+      expect(subject).to receive(:base_advanced_search_params).and_return({'test' => 'test'})
+      expect(subject).to receive(:advanced_search_scope_name).and_return('scope_name')
+      expect(subject).to receive(:advanced_search_scope_value).and_return('scope_value')
+      expect(subject.advanced_search_params('scope', 'advanced')).to eq({'test' => 'test', 'vl(freeText0)' => 'advanced', 'scope_name' => 'scope_value', "vl(1UIStartWith0)"=>"exact"})
+    end
+  end
+
   describe 'self' do
     subject { described_class }
 
