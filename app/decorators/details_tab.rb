@@ -32,7 +32,7 @@ class DetailsTab < PrimoRecordTab
 
   def identifiers_methods
     [
-      :isbn, :issn, :eissn, :doi, :pmid, :lccn, :oclc, :record_ids
+      :isbn, :issn, :eissn, :doi, :pmid, :lccn, :oclc
     ]
   end
 
@@ -51,7 +51,8 @@ class DetailsTab < PrimoRecordTab
 
   def links_methods
     [
-      :worldcat_link
+      :worldcat_link,
+      :record_ids
     ]
   end
 
