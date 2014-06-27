@@ -35,7 +35,7 @@ describe DetailsTab do
     let(:record) { double(DiscoveryRecord) }
 
     subject do
-      described_class.new(record)
+      described_class.new(nil)
     end
 
     before do

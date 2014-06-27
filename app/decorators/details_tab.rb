@@ -1,34 +1,4 @@
-class DetailsTab < Draper::Decorator
-
-  delegate :params, to: :controller
-
-  def controller
-    object
-  end
-
-  def id
-    params[:id]
-  end
-
-  def vid
-    params[:vid] || 'NDU'
-  end
-
-  def tab
-    params[:tab]
-  end
-
-  def record
-    @record ||= DiscoveryQuery.find_by_id(id, vid)
-  end
-
-  def record_id
-    record.id
-  end
-
-  def primo_uri
-    @primo_uri ||= PrimoURI.new(vid, tab)
-  end
+class DetailsTab < PrimoRecordTab
 
   def detail_content(fields)
     detail_content = []
