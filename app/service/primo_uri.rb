@@ -33,21 +33,39 @@ class PrimoURI
     @base_params
   end
 
-  def basic_search_params
-    @basic_search_params ||= base_params.merge({fn: 'search', mode: 'Basic'})
+  def base_basic_search_params
+    @base_basic_search_params ||= base_params.merge({fn: 'search', mode: 'Basic'})
   end
 
-  def advanced_search_params
-    @advanced_search_params ||= base_params.merge({fn: 'search', mode: 'Advanced'})
+  def base_advanced_search_params
+    @base_advanced_search_params ||= base_params.merge({fn: 'search', mode: 'Advanced'})
+  end
+
+  def basic_search_params(value)
+    base_basic_search_params.merge({ 'vl(freeText0)' => value})
+  end
+
+  def advanced_search_params(scope, value)
+    base_advanced_search_params.merge({
+      advanced_search_scope_name => advanced_search_scope_value(scope),
+      "vl(1UIStartWith0)"=>"exact",
+      'vl(freeText0)' => value
+    })
+  end
+
+  def advanced_search_scope_name
+    "vl(#{primo_configuration.advanced_search_scope_name})"
+  end
+
+  def advanced_search_scope_value(scope)
+    scope
   end
 
   def basic_search(value)
-    params = basic_search_params.merge({ 'vl(freeText0)' => value})
-    "#{base_path('search.do')}?#{params.to_query}"
+    "#{base_path('search.do')}?#{basic_search_params(value).to_query}"
   end
 
   def advanced_search(scope, value)
-    params = advanced_search_params.merge({ 'vl(freeText0)' => value})
-    "#{base_path('search.do')}?#{params.to_query}"
+    "#{base_path('search.do')}?#{advanced_search_params(scope, value).to_query}"
   end
 end

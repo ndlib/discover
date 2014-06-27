@@ -50,20 +50,44 @@ describe PrimoURI do
     end
   end
 
-  describe '#basic_search_params' do
+  describe '#base_basic_search_params' do
     it 'extends #base_params' do
       expect(subject).to receive(:base_params).and_return(HashWithIndifferentAccess.new(vid: 'vid', tab: 'tab'))
-      search_params = subject.basic_search_params
+      search_params = subject.base_basic_search_params
       expect(search_params[:vid]).to eq('vid')
       expect(search_params[:tab]).to eq('tab')
     end
 
     it 'defaults to basic search' do
-      expect(subject.basic_search_params[:mode]).to eq('Basic')
+      expect(subject.base_basic_search_params[:mode]).to eq('Basic')
     end
 
     it 'sets the fn to search' do
-      expect(subject.basic_search_params[:fn]).to eq('search')
+      expect(subject.base_basic_search_params[:fn]).to eq('search')
+    end
+  end
+
+  describe '#base_advanced_search_params' do
+    it 'extends #base_params' do
+      expect(subject).to receive(:base_params).and_return(HashWithIndifferentAccess.new(vid: 'vid', tab: 'tab'))
+      search_params = subject.base_advanced_search_params
+      expect(search_params[:vid]).to eq('vid')
+      expect(search_params[:tab]).to eq('tab')
+    end
+
+    it 'defaults to advanced search' do
+      expect(subject.base_advanced_search_params[:mode]).to eq('Advanced')
+    end
+
+    it 'sets the fn to search' do
+      expect(subject.base_advanced_search_params[:fn]).to eq('search')
+    end
+  end
+
+  describe '#basic_search_params' do
+    it 'adds vl(freeText0) to #base_basic_search_params' do
+      expect(subject).to receive(:base_basic_search_params).and_return({'test' => 'test'})
+      expect(subject.basic_search_params('basic')).to eq({'test' => 'test', 'vl(freeText0)' => 'basic'})
     end
   end
 
