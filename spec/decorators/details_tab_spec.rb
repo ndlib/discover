@@ -146,39 +146,13 @@ describe DetailsTab do
       end
     end
 
-    describe 'subjects' do
-      before(:each) do
-        record.stub(:subjects).and_return( { 'fulltext' => ['subject1 -- subsubject', 'subject2_no_subsubject'], 'hierarchical' => [ [ 'subject1', 'subsubject'], ['subject2_no_subsubject'] ]} )
+    describe '#subjects' do
+
+      it "returns a ul with lis from #subject_links" do
+        record.stub(:subjects).and_return( 'subjects' )
+        expect(subject).to receive(:hierarchical_links_ul).with(:subject, record.subjects).and_return('subjects_ul')
+        expect(subject.subjects).to eq("subjects_ul")
       end
-
-      describe '#subjects_field' do
-        it 'is a HierarchicalField' do
-          expect(subject.subjects_field).to be_a_kind_of(HierarchicalField)
-          expect(subject.subjects_field.values).to eq(record.subjects)
-        end
-      end
-
-      describe '#subject_links' do
-
-        it 'is the record#subjects' do
-          expect(record).to receive(:subjects)
-          subject.subject_links
-        end
-
-        it "calls #hierarchical_links" do
-          expect(subject).to receive(:hierarchical_links).and_return('links')
-          expect(subject.subject_links).to eq('links')
-        end
-      end
-
-      describe '#subjects' do
-
-        it "returns a ul with lis from #subject_links" do
-          expect(subject).to receive(:subject_links).and_return(['sub1_link', 'sub2_link'])
-          expect(subject.subjects).to eq("<ul><li>sub1_link</li><li>sub2_link</li></ul>")
-        end
-      end
-
     end
 
 
@@ -393,13 +367,34 @@ describe DetailsTab do
       end
     end
 
+    describe '#hierarchical_field' do
+      it 'calls HierarchicalField#new' do
+        expect(HierarchicalField).to receive(:new).with('scope', 'values').and_return('field')
+        expect(subject.send(:hierarchical_field, 'scope', 'values')).to eq('field')
+      end
+
+      it 'creates a HierarchicalField' do
+        expect(subject.send(:hierarchical_field, 'scope', 'values')).to be_a_kind_of(HierarchicalField)
+      end
+    end
+
     describe '#hierarchical_links' do
       let(:hierarchical_field) { double(HierarchicalField) }
       let(:primo_uri) { double(PrimoURI) }
       it 'calls HierarchicalLinks#render' do
         subject.stub(:primo_uri).and_return(primo_uri)
+        expect(subject).to receive(:hierarchical_field).with('scope','values').and_return(hierarchical_field)
         expect(HierarchicalLinks).to receive(:render).with(hierarchical_field, primo_uri).and_return(['link'])
-        expect(subject.send(:hierarchical_links, hierarchical_field)).to eq(['link'])
+        expect(subject.send(:hierarchical_links, 'scope', 'values')).to eq(['link'])
+      end
+    end
+
+    describe '#hierarchical_links_ul' do
+
+      it 'calls #ulize_array with #hierarchical_links' do
+        expect(subject).to receive(:hierarchical_links).with('scope', 'values').and_return(['link'])
+        expect(subject).to receive(:ulize_array).with(['link']).and_return('ul')
+        expect(subject.send(:hierarchical_links_ul, 'scope','values')).to eq('ul')
       end
     end
   end
