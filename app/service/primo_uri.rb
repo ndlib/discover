@@ -1,7 +1,7 @@
 class PrimoURI
   attr_reader :primo_configuration, :current_tab
 
-  def initialize(primo_configuration, current_tab)
+  def initialize(primo_configuration, current_tab = nil)
     @primo_configuration = primo_configuration
     if current_tab.present?
       @current_tab = current_tab
@@ -15,7 +15,11 @@ class PrimoURI
   end
 
   def base_path(action = nil)
-    "/primo_library/libweb/action/#{action}"
+    path = "/primo_library/libweb/action"
+    if action.present?
+      path += "/#{action}"
+    end
+    path
   end
 
   def base_params
