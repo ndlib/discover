@@ -98,6 +98,17 @@ describe PrimoURI do
     end
   end
 
+  describe '#advanced_search_scope_value' do
+    it 'calls TranslateAdvancedSearchScope.call' do
+      expect(TranslateAdvancedSearchScope).to receive(:call).and_return('translated')
+      expect(subject.advanced_search_scope_value('scope')).to eq('translated')
+    end
+
+    it 'translates series' do
+      expect(subject.advanced_search_scope_value('series')).to eq('lsr30')
+    end
+  end
+
   describe 'self' do
     subject { described_class }
 

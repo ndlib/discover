@@ -58,7 +58,7 @@ class PrimoURI
   end
 
   def advanced_search_scope_value(scope)
-    scope
+    TranslateAdvancedSearchScope.call(scope)
   end
 
   def basic_search(value)
