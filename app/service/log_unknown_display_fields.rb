@@ -19,7 +19,6 @@ class LogUnknownDisplayFields
     :lds31,
     :relation,
     :publisher,
-    :relation,
     :subject,
     :title,
     :type,

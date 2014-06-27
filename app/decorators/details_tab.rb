@@ -12,17 +12,15 @@ class DetailsTab < PrimoRecordTab
     detail_content
   end
 
-
   def detail_methods
     [
-      :description,
-      :contents,
       :author,
       :contributor,
+      :published,
+      :description,
+      :contents,
       :subjects,
       :series,
-      #:is_part_of,
-      :published,
       :source,
       :language,
       :general_notes,
