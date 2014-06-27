@@ -68,20 +68,20 @@
 
   dt {
     font-weight: bold;
-    display: inline-block;
-    text-align:right;
-    width:15%;
-    vertical-align: top;
-    margin-right:1em;
+    text-align: right;
+    width: 10em;
+    float: left;
+    clear: left;
   }
+
   dt:after {
     content:":";
   }
 
   dd {
     margin-bottom: 0.66667rem;
-    display: inline-block;
-    width:80%;
+    margin-left: 11em;
+
     li {
       list-style: none;
     }
@@ -133,6 +133,23 @@
   li:first-child:before {
     content: '';
     padding: 0;
+  }
+}
+
+.ndl-link-box {
+  float: right;
+  width: 25%;
+  border: 1px solid #e1e1e1;
+  margin: 1em;
+  background-image: url(bg_strip_details_links.png);
+  background-repeat: repeat-x;
+  background-position: bottom;
+  height: auto;
+  padding: 0.5em;
+  padding-bottom: 1em;
+
+  li {
+    list-style: none;
   }
 }
 

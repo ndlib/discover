@@ -216,7 +216,7 @@ class DetailsTab < PrimoRecordTab
   def worldcat_link
     url = worldcat_url
     if url.present?
-      h.link_to(h.t('details.record.link_labels.worldcat'), url)
+      h.link_to(h.raw(h.t('details.record.link_labels.worldcat')), url)
     else
       nil
     end
