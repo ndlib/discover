@@ -124,7 +124,7 @@ describe DetailsTab do
 
     describe '#subjects' do
 
-      it "calls #hierarchical_links_ul" do
+      it "returns a ul with lis from #subject_links" do
         record.stub(:subjects).and_return( 'subjects' )
         expect(subject).to receive(:hierarchical_links_ul).with(:subject, record.subjects).and_return('subjects_ul')
         expect(subject.subjects).to eq("subjects_ul")
@@ -208,25 +208,10 @@ describe DetailsTab do
     end
 
     describe '#uniform_titles' do
-      before(:each) do
-        record.stub(:uniform_titles).and_return({ 'fulltext' => ['uniform_titles1', 'uniform_titles2'], 'hierarchical' => [['uniform_titles1'], ['uniform_titles2']] })
-      end
-
-      it 'is the record publisher_provider' do
-        expect(record).to receive(:uniform_titles)
-        subject.uniform_titles
-      end
-
-      it "creates hierarchical links out of the series" do
-        expect(HierarchicalSearchLinks).to receive(:render).twice
-        subject.uniform_titles
-      end
-
-      it "returns an array" do
-        HierarchicalSearchLinks.stub(:render).with(['uniform_titles1'], :uniform_title).and_return("title1_link")
-        HierarchicalSearchLinks.stub(:render).with(['uniform_titles2'], :uniform_title).and_return("title2_link")
-
-        expect(subject.uniform_titles).to eq("<ul><li>title1_link</li><li>title2_link</li></ul>")
+      it "calls #hierarchical_links_ul" do
+        record.stub(:uniform_titles).and_return( 'uniform_titles' )
+        expect(subject).to receive(:hierarchical_links_ul).with(:uniform_title, record.uniform_titles).and_return('uniform_titles_ul')
+        expect(subject.uniform_titles).to eq("uniform_titles_ul")
       end
     end
 

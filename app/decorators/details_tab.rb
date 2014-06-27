@@ -117,8 +117,7 @@ class DetailsTab < PrimoRecordTab
   end
 
   def uniform_titles
-    titles = create_heirarchical_links(record.uniform_titles, :uniform_title)
-    ulize_array(titles)
+    hierarchical_links_ul(:uniform_title, record.uniform_titles)
   end
 
   def record_ids
