@@ -49,6 +49,12 @@ class DetailsTab < PrimoRecordTab
     ]
   end
 
+  def links_methods
+    [
+      :worldcat_link
+    ]
+  end
+
 
   def display_fields
     record.display_fields
@@ -182,7 +188,7 @@ class DetailsTab < PrimoRecordTab
   end
 
   def links
-    links_array = [:worldcat_link].collect{ |method| send(method) }
+    links_array = links_methods.collect{ |method| send(method) }
     links_array.compact!
     ulize_array(links_array)
   end

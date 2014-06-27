@@ -307,7 +307,7 @@ describe DetailsTab do
     describe '#worldcat_link' do
       it 'return a link to worldcat for the url' do
         expect(subject).to receive(:worldcat_url).and_return("http://www.worldcat.org/oclc/12345")
-        expect(subject.worldcat_link).to eq("<a href=\"http://www.worldcat.org/oclc/12345\">This item in WorldCat&amp;reg;</a>")
+        expect(subject.worldcat_link).to eq("<a href=\"http://www.worldcat.org/oclc/12345\">This item in WorldCat&reg;</a>")
       end
 
       it 'is nil if there is no url' do
