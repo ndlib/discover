@@ -1,7 +1,7 @@
 ndu:
   - id: ndu_aleph001890313
     title: The catcher in the rye
-    description: Book with multiple identifiers, hierarchical subjects, and 5 frbr results.
+    description: "Book with multiple identifiers, hierarchical subjects, and 5 frbr results."
   - id: ndu_aleph003261780
     title: Salinger's The catcher in the rye
     description: Book with online access and print available. Online access to just a table of contents.
@@ -9,7 +9,7 @@ ndu:
     title: Beethoven
     description: Audio with a lot of uniform/related titles. Series links with a volume number. Contents.  Multiple contributors.
   - id: ndu_aleph001672841
-    title: Symphonies nos. 1-4 Egmont overture, op. 84 / Ludwig van Beethoven.
+    title: "Symphonies nos. 1-4 Egmont overture, op. 84 / Ludwig van Beethoven."
     description: Audio with related titles. Series links with a volume number. Contents.  Multiple contributors.
   - id: ndu_aleph003119742
     title: Harry Potter and the Deathly Hallows. Part 2
@@ -86,6 +86,9 @@ ndu:
   - id: TN_gale_ofa256259501
     title: "Sainsbury's ""still learning"" with Fresh Kitchen.(Brief article)(Blog entry)"
     description: blog entry
+  - id: nduspec_eadRBSC-MSSP0014
+    title: All-American Girls Baseball League Collection
+    description: Has a very long contents entry that needs to be dealt with
 bci:
   - id: ndu_aleph001576619
     title: Science
@@ -96,7 +99,7 @@ bci:
 hcc:
   - id: ndu_aleph001890313
     title: The catcher in the rye
-    description: Book with multiple identifiers, hierarchical subjects, and 5 frbr results.
+    description: "Book with multiple identifiers, hierarchical subjects, and 5 frbr results."
 smc:
   - id: ndu_aleph001576619
     title: Science
