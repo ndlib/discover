@@ -91,6 +91,13 @@ describe PrimoURI do
     end
   end
 
+  describe '#advanced_search_scope_name' do
+    it 'calls the primo_configuration' do
+      expect(primo_configuration).to receive(:advanced_search_scope_name).and_return('scope_name')
+      expect(subject.advanced_search_scope_name).to eq('vl(scope_name)')
+    end
+  end
+
   describe 'self' do
     subject { described_class }
 
