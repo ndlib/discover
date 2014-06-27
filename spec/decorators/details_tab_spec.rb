@@ -163,7 +163,7 @@ describe DetailsTab do
       end
 
       it "returns an array" do
-        SeriesSearchLinks.stub(:render).with([{ 'series_title' => 'series1', 'series_volume' => 'series2' }], :series).and_return("<ul><li>series1_link</li></ul>")
+        SeriesSearchLinks.stub(:render).with([{ 'series_title' => 'series1', 'series_volume' => 'series2' }], subject.primo_uri).and_return("<ul><li>series1_link</li></ul>")
 
         expect(subject.series).to eq("<ul><li>series1_link</li></ul>")
       end

@@ -83,7 +83,7 @@ class DetailsTab < PrimoRecordTab
   end
 
   def series
-    SeriesSearchLinks.render(record.series, :series)
+    SeriesSearchLinks.render(record.series, primo_uri)
   end
 
   def subjects
