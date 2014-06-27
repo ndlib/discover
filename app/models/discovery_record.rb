@@ -62,7 +62,9 @@ class DiscoveryRecord
     ret
   end
 
-
+  def holdings
+    data['holdings'] || {}
+  end
 
   def display_fields
     primo('display') || {}
