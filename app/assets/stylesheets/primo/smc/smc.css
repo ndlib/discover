@@ -39,3 +39,32 @@
 #exlidSearchTabs li {
   height: 23px;
 }
+
+.EXLSearchFieldRibbonAdvancedSearchLink {
+  margin:0 1em 0 0;
+  float: left;
+  width: auto;
+}
+
+.EXLSearchFieldRibbonBrowseSearchLink {
+  float: left;
+  width: auto;
+}
+
+.EXLSearchFieldRibbonAdvancedSearchLink a.EXLSearchFieldRibbonAdvancedTwoLinks {
+  padding-top:1em;
+}
+
+.EXLSearchFieldRibbonBrowseSearchLink a {
+  padding-top: 1em;
+  font-size: 12.3px;
+}
+
+
+#exlidMainMenuTile {
+  width:20em;
+}
+
+#exlidMainMenuTile div.EXLMainMenuContainer {
+  width: 100%;
+}

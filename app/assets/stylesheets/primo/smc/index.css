@@ -2,4 +2,5 @@
  *= require_self
  *= require ../malc/index.css
  *= require ./smc.css
+ *= require ./browse.css
  */
