@@ -107,6 +107,21 @@ describe DetailsTab do
       end
     end
 
+    describe '#biographical_note' do
+      before(:each) do
+        record.stub(:biographical_note).and_return(['biographical_note1', 'biographical_note2'])
+      end
+
+      it 'is the subject#biographical_note' do
+        expect(record).to receive(:biographical_note)
+        subject.biographical_note
+      end
+
+      it "returns a ul with lis" do
+        expect(subject.biographical_note).to eq("<ul><li>biographical_note1</li><li>biographical_note2</li></ul>")
+      end
+    end
+
     describe '#general_notes' do
       before(:each) do
         record.stub(:general_notes).and_return(['general_notes', 'general_notes2'])
