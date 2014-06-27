@@ -14,6 +14,10 @@ class PrimoURI
     primo_configuration.vid
   end
 
+  def host
+    primo_configuration.host
+  end
+
   def base_path(action = nil)
     path = "/primo_library/libweb/action"
     if action.present?
