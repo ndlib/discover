@@ -149,6 +149,14 @@ describe DetailsTab do
       end
     end
 
+    describe '#subjects' do
+      it 'is a HierarchicalField' do
+        record.stub(:subjects).and_return( { 'fulltext' => ['subject1 -- subsubject', 'subject2_no_subsubject'], 'hierarchical' => [ [ 'subject1', 'subsubject'], ['subject2_no_subsubject'] ]} )
+        expect(subject.subjects).to be_a_kind_of(HierarchicalField)
+        expect(subject.subjects.values).to eq(record.subjects)
+      end
+    end
+
     describe '#subject_links' do
       before(:each) do
         record.stub(:subjects).and_return( { 'fulltext' => ['subject1 -- subsubject', 'subject2_no_subsubject'], 'hierarchical' => [ [ 'subject1', 'subsubject'], ['subject2_no_subsubject'] ]} )

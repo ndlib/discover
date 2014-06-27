@@ -1,16 +1,17 @@
 class HierarchicalField
-  attr_reader :field
+  attr_reader :values, :scope
 
-  def initialize(field)
-    @field = field
+  def initialize(scope, values)
+    @values = values
+    @scope = scope
   end
 
   def text_values
-    field['fulltext']
+    values['fulltext']
   end
 
   def hierarchical_values
-    field['hierarchical']
+    values['hierarchical']
   end
 
   def search_values

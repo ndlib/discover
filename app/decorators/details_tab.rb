@@ -90,7 +90,7 @@ class DetailsTab < PrimoRecordTab
   end
 
   def subjects
-    @subjects ||= hierarchical_field(record.subjects)
+    @subjects ||= hierarchical_field(:subject, record.subjects)
   end
 
   def subject_links
@@ -236,12 +236,8 @@ class DetailsTab < PrimoRecordTab
   end
 
   private
-    def hierarchical_field(field)
-      HierarchicalField.new(field)
-    end
-
-    def hierarchical_links(field, type)
-
+    def hierarchical_field(scope, values)
+      HierarchicalField.new(scope, values)
     end
 
     def ulize_array(arr)
