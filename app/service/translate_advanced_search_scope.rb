@@ -8,7 +8,7 @@ class TranslateAdvancedSearchScope
   end
 
   def translate
-    translated = scope.downcase
+    translated = scope.to_s.downcase
 
     TRANSLATIONS[translated] || translated
   end

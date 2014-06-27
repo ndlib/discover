@@ -23,6 +23,10 @@ class HierarchicalField
 
   private
     def hierarchical_to_search_values(array)
-      array.map.with_index{|value, index| array[0, index + 1].join(' ') }
+      array.map.with_index{|value, index| [value, hierarchical_to_search_value(array, index)] }
+    end
+
+    def hierarchical_to_search_value(array, index)
+      array[0, index + 1].join(' ')
     end
 end

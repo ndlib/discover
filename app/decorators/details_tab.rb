@@ -19,7 +19,7 @@ class DetailsTab < PrimoRecordTab
       :contents,
       :author,
       :contributor,
-      :subject_links,
+      :subjects,
       :series,
       #:is_part_of,
       :published,
@@ -90,12 +90,15 @@ class DetailsTab < PrimoRecordTab
   end
 
   def subjects
+    ulize_array(subject_links)
+  end
+
+  def subjects_field
     @subjects ||= hierarchical_field(:subject, record.subjects)
   end
 
   def subject_links
-    subs = create_heirarchical_links(record.subjects, :subject)
-    ulize_array(subs)
+    hierarchical_links(subjects_field)
   end
 
   def contents
@@ -238,6 +241,10 @@ class DetailsTab < PrimoRecordTab
   private
     def hierarchical_field(scope, values)
       HierarchicalField.new(scope, values)
+    end
+
+    def hierarchical_links(hierarchical_field)
+      HierarchicalLinks.render(hierarchical_field, primo_uri)
     end
 
     def ulize_array(arr)

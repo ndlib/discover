@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe DetailsTab do
-  subject { described_class.new(nil) }
+  let(:test_controller) { double(RecordsController, params: {})}
+  subject { described_class.new(test_controller) }
 
   describe '#detail_content' do
     before do
@@ -33,10 +34,6 @@ describe DetailsTab do
 
   describe 'found record' do
     let(:record) { double(DiscoveryRecord) }
-
-    subject do
-      described_class.new(nil)
-    end
 
     before do
       subject.stub(:record).and_return(record)
@@ -149,35 +146,39 @@ describe DetailsTab do
       end
     end
 
-    describe '#subjects' do
-      it 'is a HierarchicalField' do
-        record.stub(:subjects).and_return( { 'fulltext' => ['subject1 -- subsubject', 'subject2_no_subsubject'], 'hierarchical' => [ [ 'subject1', 'subsubject'], ['subject2_no_subsubject'] ]} )
-        expect(subject.subjects).to be_a_kind_of(HierarchicalField)
-        expect(subject.subjects.values).to eq(record.subjects)
-      end
-    end
-
-    describe '#subject_links' do
+    describe 'subjects' do
       before(:each) do
         record.stub(:subjects).and_return( { 'fulltext' => ['subject1 -- subsubject', 'subject2_no_subsubject'], 'hierarchical' => [ [ 'subject1', 'subsubject'], ['subject2_no_subsubject'] ]} )
       end
 
-      it 'is the record#subjects' do
-        expect(record).to receive(:subjects)
-        subject.subject_links
+      describe '#subjects_field' do
+        it 'is a HierarchicalField' do
+          expect(subject.subjects_field).to be_a_kind_of(HierarchicalField)
+          expect(subject.subjects_field.values).to eq(record.subjects)
+        end
       end
 
-      it "creates heirarctical links out of the subjects" do
-        expect(HierarchicalSearchLinks).to receive(:render).twice
-        subject.subject_links
+      describe '#subject_links' do
+
+        it 'is the record#subjects' do
+          expect(record).to receive(:subjects)
+          subject.subject_links
+        end
+
+        it "calls #hierarchical_links" do
+          expect(subject).to receive(:hierarchical_links).and_return('links')
+          expect(subject.subject_links).to eq('links')
+        end
       end
 
-      it "returns a ul with lis" do
-        HierarchicalSearchLinks.stub(:render).with(["subject1", "subsubject"], :subject).and_return("sub1_link")
-        HierarchicalSearchLinks.stub(:render).with(["subject2_no_subsubject"], :subject).and_return("sub2_link")
+      describe '#subjects' do
 
-        expect(subject.subject_links).to eq("<ul><li>sub1_link</li><li>sub2_link</li></ul>")
+        it "returns a ul with lis from #subject_links" do
+          expect(subject).to receive(:subject_links).and_return(['sub1_link', 'sub2_link'])
+          expect(subject.subjects).to eq("<ul><li>sub1_link</li><li>sub2_link</li></ul>")
+        end
       end
+
     end
 
 
@@ -389,6 +390,16 @@ describe DetailsTab do
       it 'returns nil if there is no link' do
         expect(subject).to receive(:worldcat_link).and_return(nil)
         expect(subject.links).to be_nil
+      end
+    end
+
+    describe '#hierarchical_links' do
+      let(:hierarchical_field) { double(HierarchicalField) }
+      let(:primo_uri) { double(PrimoURI) }
+      it 'calls HierarchicalLinks#render' do
+        subject.stub(:primo_uri).and_return(primo_uri)
+        expect(HierarchicalLinks).to receive(:render).with(hierarchical_field, primo_uri).and_return(['link'])
+        expect(subject.send(:hierarchical_links, hierarchical_field)).to eq(['link'])
       end
     end
   end
