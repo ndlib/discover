@@ -257,10 +257,4 @@ class DetailsTab < PrimoRecordTab
         end
       end
     end
-
-
-    def create_heirarchical_links(field, search_type)
-      field['hierarchical'].collect { | row | HierarchicalSearchLinks.render(row, search_type) }
-    end
-
 end
