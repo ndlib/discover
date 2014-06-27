@@ -240,6 +240,10 @@ class DetailsTab < PrimoRecordTab
       HierarchicalField.new(field)
     end
 
+    def hierarchical_links(field, type)
+
+    end
+
     def ulize_array(arr)
       if arr.present?
         h.content_tag(:ul) do

@@ -33,11 +33,21 @@ class PrimoURI
     @base_params
   end
 
-  def base_search_params
-    base_params.merge({fn: 'search', mode: 'Basic'})
+  def basic_search_params
+    @basic_search_params ||= base_params.merge({fn: 'search', mode: 'Basic'})
   end
 
-  def search_path
-    "#{base_path('search.do')}?#{base_search_params.to_query}"
+  def advanced_search_params
+    @advanced_search_params ||= base_params.merge({fn: 'search', mode: 'Advanced'})
+  end
+
+  def basic_search(value)
+    params = basic_search_params.merge({ 'vl(freeText0)' => value})
+    "#{base_path('search.do')}?#{params.to_query}"
+  end
+
+  def advanced_search(scope, value)
+    params = advanced_search_params.merge({ 'vl(freeText0)' => value})
+    "#{base_path('search.do')}?#{params.to_query}"
   end
 end

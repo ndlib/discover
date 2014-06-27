@@ -6,9 +6,9 @@ describe PrimoURI do
   let(:tab) { 'onesearch' }
   subject { described_class.new(primo_configuration, tab)}
 
-  describe '#search_path' do
+  describe '#basic_search' do
     it 'links to the search path' do
-      expect(subject.search_path).to eq("/primo_library/libweb/action/search.do?fn=search&mode=Basic&tab=onesearch&vid=NDU")
+      expect(subject.basic_search('value')).to eq("/primo_library/libweb/action/search.do?fn=search&mode=Basic&tab=onesearch&vid=NDU&vl%28freeText0%29=value")
     end
   end
 
@@ -50,20 +50,20 @@ describe PrimoURI do
     end
   end
 
-  describe '#base_search_params' do
+  describe '#basic_search_params' do
     it 'extends #base_params' do
       expect(subject).to receive(:base_params).and_return(HashWithIndifferentAccess.new(vid: 'vid', tab: 'tab'))
-      search_params = subject.base_search_params
+      search_params = subject.basic_search_params
       expect(search_params[:vid]).to eq('vid')
       expect(search_params[:tab]).to eq('tab')
     end
 
     it 'defaults to basic search' do
-      expect(subject.base_search_params[:mode]).to eq('Basic')
+      expect(subject.basic_search_params[:mode]).to eq('Basic')
     end
 
     it 'sets the fn to search' do
-      expect(subject.base_search_params[:fn]).to eq('search')
+      expect(subject.basic_search_params[:fn]).to eq('search')
     end
   end
 
