@@ -63,24 +63,11 @@ describe DetailsTab do
     end
 
     describe '#author' do
-      before(:each) do
-        record.stub(:creator).and_return( { 'fulltext' => ['creator'], 'hierarchical' => [ ['creator'] ] })
-      end
 
-      it 'is the record author' do
-        expect(record).to receive(:creator)
-        subject.author
-      end
-
-      it "creates heirarctical links out of the author" do
-        expect(HierarchicalSearchLinks).to receive(:render)
-        subject.author
-      end
-
-      it "returns a ul with lis" do
-        HierarchicalSearchLinks.stub(:render).with(["creator"], :creator).and_return("creator1_link")
-
-        expect(subject.author).to eq("<ul><li>creator1_link</li></ul>")
+      it "calls #hierarchical_links_ul" do
+        record.stub(:creator).and_return( 'creator' )
+        expect(subject).to receive(:hierarchical_links_ul).with(:creator, record.creator).and_return('creator_ul')
+        expect(subject.author).to eq("creator_ul")
       end
     end
 
@@ -90,21 +77,10 @@ describe DetailsTab do
         record.stub(:contributor).and_return({ 'fulltext' => ['contributors1', 'contributors2'], 'hierarchical' => [ ['contributors1'], ['contributors2'] ] } )
       end
 
-      it 'is the record author' do
-        expect(record).to receive(:contributor)
-        subject.contributor
-      end
-
-      it "creates heirarctical links out of the contributors" do
-        expect(HierarchicalSearchLinks).to receive(:render).twice
-        subject.contributor
-      end
-
-      it "returns a ul with lis" do
-        HierarchicalSearchLinks.stub(:render).with(["contributors1"], :creator).and_return("contributors1_link")
-        HierarchicalSearchLinks.stub(:render).with(["contributors2"], :creator).and_return("contributors2_link")
-
-        expect(subject.contributor).to eq("<ul><li>contributors1_link</li><li>contributors2_link</li></ul>")
+      it "calls #hierarchical_links_ul" do
+        record.stub(:contributor).and_return( 'contributor' )
+        expect(subject).to receive(:hierarchical_links_ul).with(:creator, record.contributor).and_return('contributor_ul')
+        expect(subject.contributor).to eq("contributor_ul")
       end
 
     end
@@ -148,7 +124,7 @@ describe DetailsTab do
 
     describe '#subjects' do
 
-      it "returns a ul with lis from #subject_links" do
+      it "calls #hierarchical_links_ul" do
         record.stub(:subjects).and_return( 'subjects' )
         expect(subject).to receive(:hierarchical_links_ul).with(:subject, record.subjects).and_return('subjects_ul')
         expect(subject.subjects).to eq("subjects_ul")
@@ -181,7 +157,7 @@ describe DetailsTab do
         subject.series
       end
 
-      it "creates heirarctical links out of the series" do
+      it "creates hierarchical links out of the series" do
         expect(SeriesSearchLinks).to receive(:render)
         subject.series
       end
@@ -241,7 +217,7 @@ describe DetailsTab do
         subject.uniform_titles
       end
 
-      it "creates heirarctical links out of the series" do
+      it "creates hierarchical links out of the series" do
         expect(HierarchicalSearchLinks).to receive(:render).twice
         subject.uniform_titles
       end

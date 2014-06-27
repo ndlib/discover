@@ -63,14 +63,11 @@ class DetailsTab < PrimoRecordTab
   end
 
   def author
-    author = create_heirarchical_links(record.creator, :creator)
-    ulize_array(author)
+    hierarchical_links_ul(:creator, record.creator)
   end
 
   def contributor
-    contrib = create_heirarchical_links(record.contributor, :creator)
-
-    ulize_array(contrib)
+    hierarchical_links_ul(:creator, record.contributor)
   end
 
   def published
