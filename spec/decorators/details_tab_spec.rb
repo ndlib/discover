@@ -241,7 +241,7 @@ describe DetailsTab do
       end
 
       it "returns an array with linked record ids" do
-        expect(subject.linked_record_ids).to eq(["<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=12345&amp;local_base=ndu01pub\">Notre Dame: 12345</a>", "<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=23456&amp;local_base=hcc01pub\">Holy Cross College: 23456</a>"])
+        expect(subject.linked_record_ids).to eq(["<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=12345&amp;local_base=ndu01pub\" target=\"_blank\">Notre Dame: 12345</a>", "<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=23456&amp;local_base=hcc01pub\" target=\"_blank\">Holy Cross College: 23456</a>"])
       end
     end
 
@@ -307,7 +307,7 @@ describe DetailsTab do
     describe '#worldcat_link' do
       it 'return a link to worldcat for the url' do
         expect(subject).to receive(:worldcat_url).and_return("http://www.worldcat.org/oclc/12345")
-        expect(subject.worldcat_link).to eq("<a href=\"http://www.worldcat.org/oclc/12345\">This item in WorldCat&reg;</a>")
+        expect(subject.worldcat_link).to eq("<a href=\"http://www.worldcat.org/oclc/12345\" target=\"_blank\">This item in WorldCat&reg;</a>")
       end
 
       it 'is nil if there is no url' do
@@ -316,7 +316,19 @@ describe DetailsTab do
       end
     end
 
+    describe '#links_methods' do
+      it 'responds to each method' do
+        subject.links_methods.each do |method|
+          expect(subject).to respond_to(method)
+        end
+      end
+    end
+
     describe '#links' do
+      before do
+        subject.stub(:links_methods).and_return([:worldcat_link])
+      end
+
       it 'returns the links in a ul' do
         expect(subject).to receive(:worldcat_link).and_return("<a href=\"http://www.worldcat.org/oclc/12345\">This item in WorldCat&reg;</a>")
         expect(subject.links).to eq("<ul><li><a href=\"http://www.worldcat.org/oclc/12345\">This item in WorldCat&reg;</a></li></ul>")

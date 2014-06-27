@@ -3,6 +3,8 @@
   <h3 class="ndl-debug">Debug ID: <%= @tab.record_id %></h3>
 
   <div class="ndl-link-box">
+    <em>Links</em>
+
     <%= @tab.links %>
   </div>
   <%= render(partial: 'detail_section', locals: { title_key: false, content: @tab.detail_content(@tab.detail_methods) } ) %>
