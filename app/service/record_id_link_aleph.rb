@@ -52,6 +52,6 @@ class RecordIdLinkAleph < Draper::Decorator
   end
 
   def render
-    h.link_to(direct_link_title, direct_url)
+    h.link_to(direct_link_title, direct_url, target: '_blank')
   end
 end

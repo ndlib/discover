@@ -63,24 +63,11 @@ describe DetailsTab do
     end
 
     describe '#author' do
-      before(:each) do
-        record.stub(:creator).and_return( { 'fulltext' => ['creator'], 'hierarchical' => [ ['creator'] ] })
-      end
 
-      it 'is the record author' do
-        expect(record).to receive(:creator)
-        subject.author
-      end
-
-      it "creates heirarctical links out of the author" do
-        expect(HierarchicalSearchLinks).to receive(:render)
-        subject.author
-      end
-
-      it "returns a ul with lis" do
-        HierarchicalSearchLinks.stub(:render).with(["creator"], :creator).and_return("creator1_link")
-
-        expect(subject.author).to eq("<ul><li>creator1_link</li></ul>")
+      it "calls #hierarchical_links_ul" do
+        record.stub(:creator).and_return( 'creator' )
+        expect(subject).to receive(:hierarchical_links_ul).with(:creator, record.creator).and_return('creator_ul')
+        expect(subject.author).to eq("creator_ul")
       end
     end
 
@@ -90,21 +77,10 @@ describe DetailsTab do
         record.stub(:contributor).and_return({ 'fulltext' => ['contributors1', 'contributors2'], 'hierarchical' => [ ['contributors1'], ['contributors2'] ] } )
       end
 
-      it 'is the record author' do
-        expect(record).to receive(:contributor)
-        subject.contributor
-      end
-
-      it "creates heirarctical links out of the contributors" do
-        expect(HierarchicalSearchLinks).to receive(:render).twice
-        subject.contributor
-      end
-
-      it "returns a ul with lis" do
-        HierarchicalSearchLinks.stub(:render).with(["contributors1"], :creator).and_return("contributors1_link")
-        HierarchicalSearchLinks.stub(:render).with(["contributors2"], :creator).and_return("contributors2_link")
-
-        expect(subject.contributor).to eq("<ul><li>contributors1_link</li><li>contributors2_link</li></ul>")
+      it "calls #hierarchical_links_ul" do
+        record.stub(:contributor).and_return( 'contributor' )
+        expect(subject).to receive(:hierarchical_links_ul).with(:creator, record.contributor).and_return('contributor_ul')
+        expect(subject.contributor).to eq("contributor_ul")
       end
 
     end
@@ -131,6 +107,21 @@ describe DetailsTab do
       end
     end
 
+    describe '#biographical_note' do
+      before(:each) do
+        record.stub(:biographical_note).and_return(['biographical_note1', 'biographical_note2'])
+      end
+
+      it 'is the subject#biographical_note' do
+        expect(record).to receive(:biographical_note)
+        subject.biographical_note
+      end
+
+      it "returns a ul with lis" do
+        expect(subject.biographical_note).to eq("<ul><li>biographical_note1</li><li>biographical_note2</li></ul>")
+      end
+    end
+
     describe '#general_notes' do
       before(:each) do
         record.stub(:general_notes).and_return(['general_notes', 'general_notes2'])
@@ -146,39 +137,13 @@ describe DetailsTab do
       end
     end
 
-    describe 'subjects' do
-      before(:each) do
-        record.stub(:subjects).and_return( { 'fulltext' => ['subject1 -- subsubject', 'subject2_no_subsubject'], 'hierarchical' => [ [ 'subject1', 'subsubject'], ['subject2_no_subsubject'] ]} )
+    describe '#subjects' do
+
+      it "returns a ul with lis from #subject_links" do
+        record.stub(:subjects).and_return( 'subjects' )
+        expect(subject).to receive(:hierarchical_links_ul).with(:subject, record.subjects).and_return('subjects_ul')
+        expect(subject.subjects).to eq("subjects_ul")
       end
-
-      describe '#subjects_field' do
-        it 'is a HierarchicalField' do
-          expect(subject.subjects_field).to be_a_kind_of(HierarchicalField)
-          expect(subject.subjects_field.values).to eq(record.subjects)
-        end
-      end
-
-      describe '#subject_links' do
-
-        it 'is the record#subjects' do
-          expect(record).to receive(:subjects)
-          subject.subject_links
-        end
-
-        it "calls #hierarchical_links" do
-          expect(subject).to receive(:hierarchical_links).and_return('links')
-          expect(subject.subject_links).to eq('links')
-        end
-      end
-
-      describe '#subjects' do
-
-        it "returns a ul with lis from #subject_links" do
-          expect(subject).to receive(:subject_links).and_return(['sub1_link', 'sub2_link'])
-          expect(subject.subjects).to eq("<ul><li>sub1_link</li><li>sub2_link</li></ul>")
-        end
-      end
-
     end
 
 
@@ -207,13 +172,13 @@ describe DetailsTab do
         subject.series
       end
 
-      it "creates heirarctical links out of the series" do
+      it "creates hierarchical links out of the series" do
         expect(SeriesSearchLinks).to receive(:render)
         subject.series
       end
 
       it "returns an array" do
-        SeriesSearchLinks.stub(:render).with([{ 'series_title' => 'series1', 'series_volume' => 'series2' }], :series).and_return("<ul><li>series1_link</li></ul>")
+        SeriesSearchLinks.stub(:render).with([{ 'series_title' => 'series1', 'series_volume' => 'series2' }], subject.primo_uri).and_return("<ul><li>series1_link</li></ul>")
 
         expect(subject.series).to eq("<ul><li>series1_link</li></ul>")
       end
@@ -258,25 +223,10 @@ describe DetailsTab do
     end
 
     describe '#uniform_titles' do
-      before(:each) do
-        record.stub(:uniform_titles).and_return({ 'fulltext' => ['uniform_titles1', 'uniform_titles2'], 'hierarchical' => [['uniform_titles1'], ['uniform_titles2']] })
-      end
-
-      it 'is the record publisher_provider' do
-        expect(record).to receive(:uniform_titles)
-        subject.uniform_titles
-      end
-
-      it "creates heirarctical links out of the series" do
-        expect(HierarchicalSearchLinks).to receive(:render).twice
-        subject.uniform_titles
-      end
-
-      it "returns an array" do
-        HierarchicalSearchLinks.stub(:render).with(['uniform_titles1'], :uniform_title).and_return("title1_link")
-        HierarchicalSearchLinks.stub(:render).with(['uniform_titles2'], :uniform_title).and_return("title2_link")
-
-        expect(subject.uniform_titles).to eq("<ul><li>title1_link</li><li>title2_link</li></ul>")
+      it "calls #hierarchical_links_ul" do
+        record.stub(:uniform_titles).and_return( 'uniform_titles' )
+        expect(subject).to receive(:hierarchical_links_ul).with(:uniform_title, record.uniform_titles).and_return('uniform_titles_ul')
+        expect(subject.uniform_titles).to eq("uniform_titles_ul")
       end
     end
 
@@ -306,7 +256,7 @@ describe DetailsTab do
       end
 
       it "returns an array with linked record ids" do
-        expect(subject.linked_record_ids).to eq(["<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=12345&amp;local_base=ndu01pub\">Notre Dame: 12345</a>", "<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=23456&amp;local_base=hcc01pub\">Holy Cross College: 23456</a>"])
+        expect(subject.linked_record_ids).to eq(["<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=12345&amp;local_base=ndu01pub\" target=\"_blank\">Notre Dame: 12345</a>", "<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=23456&amp;local_base=hcc01pub\" target=\"_blank\">Holy Cross College: 23456</a>"])
       end
     end
 
@@ -372,7 +322,7 @@ describe DetailsTab do
     describe '#worldcat_link' do
       it 'return a link to worldcat for the url' do
         expect(subject).to receive(:worldcat_url).and_return("http://www.worldcat.org/oclc/12345")
-        expect(subject.worldcat_link).to eq("<a href=\"http://www.worldcat.org/oclc/12345\">This item in WorldCat&amp;reg;</a>")
+        expect(subject.worldcat_link).to eq("<a href=\"http://www.worldcat.org/oclc/12345\" target=\"_blank\">This item in WorldCat&reg;</a>")
       end
 
       it 'is nil if there is no url' do
@@ -381,7 +331,19 @@ describe DetailsTab do
       end
     end
 
+    describe '#links_methods' do
+      it 'responds to each method' do
+        subject.links_methods.each do |method|
+          expect(subject).to respond_to(method)
+        end
+      end
+    end
+
     describe '#links' do
+      before do
+        subject.stub(:links_methods).and_return([:worldcat_link])
+      end
+
       it 'returns the links in a ul' do
         expect(subject).to receive(:worldcat_link).and_return("<a href=\"http://www.worldcat.org/oclc/12345\">This item in WorldCat&reg;</a>")
         expect(subject.links).to eq("<ul><li><a href=\"http://www.worldcat.org/oclc/12345\">This item in WorldCat&reg;</a></li></ul>")
@@ -393,13 +355,34 @@ describe DetailsTab do
       end
     end
 
+    describe '#hierarchical_field' do
+      it 'calls HierarchicalField#new' do
+        expect(HierarchicalField).to receive(:new).with('scope', 'values').and_return('field')
+        expect(subject.send(:hierarchical_field, 'scope', 'values')).to eq('field')
+      end
+
+      it 'creates a HierarchicalField' do
+        expect(subject.send(:hierarchical_field, 'scope', 'values')).to be_a_kind_of(HierarchicalField)
+      end
+    end
+
     describe '#hierarchical_links' do
       let(:hierarchical_field) { double(HierarchicalField) }
       let(:primo_uri) { double(PrimoURI) }
       it 'calls HierarchicalLinks#render' do
         subject.stub(:primo_uri).and_return(primo_uri)
+        expect(subject).to receive(:hierarchical_field).with('scope','values').and_return(hierarchical_field)
         expect(HierarchicalLinks).to receive(:render).with(hierarchical_field, primo_uri).and_return(['link'])
-        expect(subject.send(:hierarchical_links, hierarchical_field)).to eq(['link'])
+        expect(subject.send(:hierarchical_links, 'scope', 'values')).to eq(['link'])
+      end
+    end
+
+    describe '#hierarchical_links_ul' do
+
+      it 'calls #ulize_array with #hierarchical_links' do
+        expect(subject).to receive(:hierarchical_links).with('scope', 'values').and_return(['link'])
+        expect(subject).to receive(:ulize_array).with(['link']).and_return('ul')
+        expect(subject.send(:hierarchical_links_ul, 'scope','values')).to eq('ul')
       end
     end
   end

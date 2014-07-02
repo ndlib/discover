@@ -2,6 +2,12 @@
 <div class="ndl-details">
   <h3 class="ndl-debug">Debug ID: <%= @tab.record_id %></h3>
 
+  <div class="ndl-link-box">
+    <em>Links</em>
+
+    <%= @tab.links %>
+  </div>
+  <h2><%= @tab.page_title %></h2>
   <%= render(partial: 'detail_section', locals: { title_key: false, content: @tab.detail_content(@tab.detail_methods) } ) %>
 
   <%= render(partial: 'detail_section', locals: { title_key: 'other_titles', content: @tab.detail_content(@tab.other_titles_methods) } ) %>
@@ -9,4 +15,6 @@
   <%= render(partial: 'detail_section', locals: { title_key: 'related_works', content: @tab.detail_content(@tab.related_works_methods) } ) %>
 
   <%= render(partial: 'detail_section', locals: { title_key: 'identifiers', content: @tab.detail_content(@tab.identifiers_methods) } ) %>
+
+
 </div>

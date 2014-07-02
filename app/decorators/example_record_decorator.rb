@@ -37,6 +37,14 @@ class ExampleRecordDecorator < Draper::Decorator
     institution.upcase
   end
 
+  def primo_configuration
+    @primo_configuration ||= PrimoConfiguration.new(vid)
+  end
+
+  def primo_uri
+    @primo_uri ||= PrimoURI.new(primo_configuration)
+  end
+
   def record_path(format = nil)
     h.record_path(id: id, format: format)
   end
@@ -62,7 +70,7 @@ class ExampleRecordDecorator < Draper::Decorator
   end
 
   def primo_path
-    "/primo_library/libweb/action/search.do?vid=#{vid}&vl(freeText0)=#{primo_search_id}&fn=search"
+    primo_uri.basic_search(primo_search_id)
   end
 
   def primo_proxy_link
@@ -70,7 +78,11 @@ class ExampleRecordDecorator < Draper::Decorator
   end
 
   def primo_url
-    "http://primo-fe1.library.nd.edu:1701#{primo_path}"
+    "http://#{primo_host}#{primo_path}"
+  end
+
+  def primo_host
+    primo_uri.host
   end
 
   def primo_link

@@ -12,19 +12,18 @@ class DetailsTab < PrimoRecordTab
     detail_content
   end
 
-
   def detail_methods
     [
-      :description,
-      :contents,
       :author,
       :contributor,
+      :published,
+      :description,
+      :contents,
       :subjects,
       :series,
-      #:is_part_of,
-      :published,
       :source,
       :language,
+      :biographical_note,
       :general_notes,
       :type,
     ]
@@ -32,7 +31,7 @@ class DetailsTab < PrimoRecordTab
 
   def identifiers_methods
     [
-      :isbn, :issn, :eissn, :doi, :pmid, :lccn, :oclc, :record_ids
+      :isbn, :issn, :eissn, :doi, :pmid, :lccn, :oclc
     ]
   end
 
@@ -46,6 +45,13 @@ class DetailsTab < PrimoRecordTab
   def related_works_methods
     [
       :earlier_title, :later_title, :supplement, :supplement_to, :issued_with
+    ]
+  end
+
+  def links_methods
+    [
+      :worldcat_link,
+      :record_ids
     ]
   end
 
@@ -63,14 +69,11 @@ class DetailsTab < PrimoRecordTab
   end
 
   def author
-    author = create_heirarchical_links(record.creator, :creator)
-    ulize_array(author)
+    hierarchical_links_ul(:creator, record.creator)
   end
 
   def contributor
-    contrib = create_heirarchical_links(record.contributor, :creator)
-
-    ulize_array(contrib)
+    hierarchical_links_ul(:creator, record.contributor)
   end
 
   def published
@@ -81,24 +84,20 @@ class DetailsTab < PrimoRecordTab
     ulize_array(record.description)
   end
 
+  def biographical_note
+    ulize_array(record.biographical_note)
+  end
+
   def general_notes
     ulize_array(record.general_notes)
   end
 
   def series
-    SeriesSearchLinks.render(record.series, :series)
+    SeriesSearchLinks.render(record.series, primo_uri)
   end
 
   def subjects
-    ulize_array(subject_links)
-  end
-
-  def subjects_field
-    @subjects ||= hierarchical_field(:subject, record.subjects)
-  end
-
-  def subject_links
-    hierarchical_links(subjects_field)
+    hierarchical_links_ul(:subject, record.subjects)
   end
 
   def contents
@@ -128,8 +127,7 @@ class DetailsTab < PrimoRecordTab
   end
 
   def uniform_titles
-    titles = create_heirarchical_links(record.uniform_titles, :uniform_title)
-    ulize_array(titles)
+    hierarchical_links_ul(:uniform_title, record.uniform_titles)
   end
 
   def record_ids
@@ -194,7 +192,7 @@ class DetailsTab < PrimoRecordTab
   end
 
   def links
-    links_array = [:worldcat_link].collect{ |method| send(method) }
+    links_array = links_methods.collect{ |method| send(method) }
     links_array.compact!
     ulize_array(links_array)
   end
@@ -228,7 +226,7 @@ class DetailsTab < PrimoRecordTab
   def worldcat_link
     url = worldcat_url
     if url.present?
-      h.link_to(h.t('details.record.link_labels.worldcat'), url)
+      h.link_to(h.raw(h.t('details.record.link_labels.worldcat')), url, target: '_blank')
     else
       nil
     end
@@ -243,8 +241,14 @@ class DetailsTab < PrimoRecordTab
       HierarchicalField.new(scope, values)
     end
 
-    def hierarchical_links(hierarchical_field)
-      HierarchicalLinks.render(hierarchical_field, primo_uri)
+    def hierarchical_links(scope, values)
+      field = hierarchical_field(scope, values)
+      HierarchicalLinks.render(field, primo_uri)
+    end
+
+    def hierarchical_links_ul(scope, values)
+      links = hierarchical_links(scope, values)
+      ulize_array(links)
     end
 
     def ulize_array(arr)
@@ -263,10 +267,4 @@ class DetailsTab < PrimoRecordTab
         end
       end
     end
-
-
-    def create_heirarchical_links(field, search_type)
-      field['hierarchical'].collect { | row | HierarchicalSearchLinks.render(row, search_type) }
-    end
-
 end

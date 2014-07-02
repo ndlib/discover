@@ -936,3 +936,10 @@ display: none;
   display: none;
 }
 
+.EXLTabHeaderButtons ol.EXLTabHeaderButtonSendToList li span.EXLButtonSendToIconMyShelf {
+  background-image:url("../ndu/folder.empty.gif");
+}
+
+.EXLTabHeaderButtons ol.EXLTabHeaderButtonSendToList li.EXLButtonSendToMyShelfRemove span.EXLButtonSendToIconMyShelf {
+  background-image:url("../ndu/folder.full.gif");
+}

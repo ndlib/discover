@@ -1,16 +1,17 @@
 class SeriesSearchLinks < Draper::Decorator
 
 
-  def self.render(search, type)
-    self.new(search).render(type)
+  def self.render(search, primo_uri)
+    self.new(search).render(primo_uri)
   end
 
 
-  def render(type)
-    if series_links_array(type).present?
+  def render(primo_uri)
+    links = series_links_array(primo_uri)
+    if links.present?
       h.content_tag(:ul, class: 'ndl-series-search') do
         iteration = 1
-        series_links_array(type).collect do | item |
+        links.collect do | item |
           h.concat(h.content_tag(:li, item, class: "ndl-series-search-#{iteration}"))
           iteration += 1
         end
@@ -22,13 +23,13 @@ class SeriesSearchLinks < Draper::Decorator
 
   private
 
-    def series_links_array(type)
+    def series_links_array(primo_uri)
       if @series_links_array.nil?
 
         @series_links_array = []
 
         object.each do | search |
-          @series_links_array << series_link(search, type) + series_volume(search)
+          @series_links_array << series_link(search, primo_uri) + series_volume(search)
         end
       end
 
@@ -36,8 +37,8 @@ class SeriesSearchLinks < Draper::Decorator
     end
 
 
-    def series_link(search, type)
-      h.link_to(search['series_title'], PrimoSearchUri.call(search['series_title'], type), title: h.raw("Search for &quot;#{search['series_title']}&quot;"))
+    def series_link(search, primo_uri)
+      h.link_to(search['series_title'], primo_uri.advanced_search(:series, search['series_title']), title: "Search for \"#{search['series_title']}\"")
     end
 
 
