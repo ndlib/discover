@@ -3,8 +3,9 @@ default: &default
   vids:
     NDU:
       tabs:
-        - onesearch
         - nd_campus
+        - onesearch
+        - ebooks
       advanced_search:
         scope_name: 16833817UI0
     BCI:
