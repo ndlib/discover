@@ -902,7 +902,7 @@ display: none;
 }
 
 .ndl-online-access a {
-  text-decoration: none !important;
+
 }
 
 #exlidUserAreaRibbon li span.EXLMyShelfStarSelected {
@@ -917,7 +917,9 @@ display: none;
   float:none;
 }
 
-.ndl-details-list dd, .ndl-details-list dt {
+
+
+.ndl-details-list dd, .ndl-details-list dt, .ndl-online-access li {
   font-size:12px;
   line-height: 1.8em;
 }
@@ -942,4 +944,21 @@ display: none;
 
 .EXLTabHeaderButtons ol.EXLTabHeaderButtonSendToList li.EXLButtonSendToMyShelfRemove span.EXLButtonSendToIconMyShelf {
   background-image:url("../ndu/folder.full.gif");
+}
+
+.buttonGo a {
+  background-color: #304962;
+  color:#fff;
+}
+
+.EXLFacetContainer {
+  position: static;
+}
+
+.EXLFacetContainer div.EXLFacetActionsV2 li.EXLFacetSaveToEShelfActionOff {
+  position:absolute;
+  left:50%;
+  top:360px;
+ background-image:url("../ndu/folder.empty.gif");
+  z-index: 3000;
 }

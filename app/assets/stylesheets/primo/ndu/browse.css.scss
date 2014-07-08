@@ -8,7 +8,7 @@
 }
 
 .EXLBrowseSearch .EXLSearchFieldRibbonFormSearchFor {
-  width: 377px;
+  width: 361px;
 }
 
 .EXLBrowseSearch #exlidBrowseResultsEnteries {
@@ -46,10 +46,64 @@
 }
 
 .EXLBrowseSearch  #exlidAdvancedSearchRibbon fieldset div.EXLSearchFieldRibbonFormSubmitSearch {
-  margin-top:-46px !important;
+  margin-top:-53px !important;
+  margin-right:14px;
 }
 
-.EXLBrowseSearch #exlidAdvancedSearchTile, .EXLBrowseSearch #exlidAdvancedSearchTile {
+.EXLBrowseSearch .EXLSearchForm  {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   background-color: #F8F7E9;
 }
+
+
+#exlidAdvancedSearchRibbon {
+    list-style: none outside none !important;
+    margin-bottom: 1.12em;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+
+    .EXLBrowseFieldRibbon  {
+
+      //position: relative;
+      border-radius: 0;
+      box-shadow: none;
+      z-index: auto;
+      padding:16px !important;
+      margin-bottom: 40px;
+      list-style: none outside none !important;
+      box-sizing:border-box;
+      height: 70px;
+    }
+
+   .EXLBrowseFieldRibbon:before,
+   .EXLBrowseFieldRibbon:after {
+      z-index: -1;
+      position: absolute;
+      content: "";
+      bottom: 15px;
+      left: 10px;
+      width: 50%;
+      top: 80%;
+      max-width:300px;
+      background: rgba(0, 0, 0, 0.7);
+      -webkit-box-shadow: 0 15px 10px rgba(0,0,0, 0.7);
+      -moz-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+      -webkit-transform: rotate(-3deg);
+      -moz-transform: rotate(-3deg);
+      -o-transform: rotate(-3deg);
+      -ms-transform: rotate(-3deg);
+      transform: rotate(-3deg);
+    }
+
+    .EXLBrowseFieldRibbon:after {
+      -webkit-transform: rotate(3deg);
+      -moz-transform: rotate(3deg);
+      -o-transform: rotate(3deg);
+      -ms-transform: rotate(3deg);
+      transform: rotate(3deg);
+      right: 10px;
+      left: auto;
+    }
+  }
