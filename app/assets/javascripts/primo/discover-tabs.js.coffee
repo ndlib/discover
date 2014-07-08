@@ -91,7 +91,11 @@ jQuery ($) ->
 
 
   ready = ->
-    currentVID = $('#vid').val()
+    $vid = $('#vid')
+    if $vid.length == 0
+      # On the browse pages, the vid field has a different id
+      $vid = $('#vid_browse_input')
+    currentVID = $vid.val()
     currentTab = $('#tab').val()
     addTab(originalDetailsTabClass, detailsTabClass, "Details", getOtherDetails)
     addTab(originalOnlineAccessTabClass, onlineAccessTabClass, "Access Online", getOnlineAccess)
