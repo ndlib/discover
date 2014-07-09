@@ -876,7 +876,7 @@ display: none;
   position: relative;
 }
 
-.EXLMyShelfStar a[title="Add to Folder"] {
+.EXLMyShelfStar a {
   position: absolute;
   left: -97px;
   top:4em;
