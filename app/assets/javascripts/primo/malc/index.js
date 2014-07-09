@@ -10,3 +10,4 @@
 //= require ../fix-facets.js
 //= require ../fix-browse-search.js
 //= require ../discover-tabs.js
+//= require ../fix-eshelf-class.js
