@@ -6,7 +6,7 @@ jQuery ($) ->
   window.eshelfUpdate = (element, inBasket) ->
     originalEshelfUpdate(element, inBasket)
     $objResult = $(element).parents('.EXLResult')
-    $starContainer = $(objResult).find('.EXLMyShelfStar')
+    $starContainer = $($objResult).find('.EXLMyShelfStar')
     $link = $starContainer.find('a')
     if inBasket
       $link.addClass('ndl-folder-remove')
