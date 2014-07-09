@@ -878,8 +878,22 @@ display: none;
 
 .EXLMyShelfStar a {
   position: absolute;
-  left: -97px;
+  left: -104px;
   top:4em;
+  height:0;
+  width: 20px;
+  display: block;
+  padding-top: 20px;
+  background:url("../ndu/folder.add.gif");
+  overflow: hidden;
+}
+
+.EXLMyShelfStar a.ndl-folder-add {
+  background:url("../ndu/folder.add.gif");
+}
+
+.EXLMyShelfStar a.ndl-folder-remove {
+  background:url("../ndu/folder.full.2.gif");
 }
 
 .EXLResultsList td.EXLMyShelfStar {
