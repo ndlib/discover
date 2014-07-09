@@ -958,7 +958,15 @@ display: none;
 .EXLFacetContainer div.EXLFacetActionsV2 li.EXLFacetSaveToEShelfActionOff {
   position:absolute;
   left:50%;
-  top:360px;
+  top:363px;
  background-image:url("../ndu/folder.empty.gif");
   z-index: 3000;
+}
+
+.EXLMyAccountMainMenuContainer ol li span.EXLMyAccountMainMenuBulletSelected {
+  background-image: url("../ndu/bullet_myAccount_menu.png");
+}
+
+.folder_details .itemsListTable td {
+  padding:3px;
 }
