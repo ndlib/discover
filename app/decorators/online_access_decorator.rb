@@ -1,5 +1,3 @@
-require 'uri/http'
-
 class OnlineAccessDecorator < Draper::Decorator
 
   def self.find(id, vid)
@@ -12,11 +10,8 @@ class OnlineAccessDecorator < Draper::Decorator
   def insitution_links
     if @insitution_links.nil?
       @insitution_links = {}
-      institution_codes = ["ndu", "smc", "hcc", "bci"]
-      institution_codes.delete(institution_code)
-      # Make the current insitution first in the links
-      institution_codes.unshift(institution_code)
-      institution_codes.each do |code|
+
+      ordered_institution_codes.each do |code|
         tmp_links = object.links(code)
         if tmp_links.present?
           @insitution_links[code] = InstitutionLinksDecorator.new(tmp_links)
@@ -49,14 +44,14 @@ class OnlineAccessDecorator < Draper::Decorator
 
   private
 
-    def get_domain_name(url)
-      return if url.nil?
 
-      uri = URI.parse(url)
-      if uri.present?
-        uri.host.gsub('www.', '')
-      else
-        nil
-      end
+    def ordered_institution_codes
+      codes = ["ndu", "smc", "hcc", "bci"]
+      codes.delete(institution_code)
+      # Make the current insitution first in the links
+      codes.unshift(institution_code)
+
+      codes
     end
+
 end

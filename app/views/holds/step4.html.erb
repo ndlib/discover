@@ -1,0 +1,29 @@
+<% content_for(:title, @record.page_title) %>
+<h1>Finalize Request</h1>
+
+
+<ul>
+  <li>Get: Title Volume 1</li>
+  <li>From: Note Dame</li>
+  <li>Deliverd to: My Office</li>
+</ul>
+
+<p> Expect this request to take up to 2 days.</p>
+
+<%= form_tag submit_path, method: :get do %>
+<p>
+  <label><input type="checkbox" name="use_end_date" id="use_end_date"> Set Cancel request date</label>
+  <span class="ndl-cancel_date_input"><input type="date" id="cancel_date_input" name="cancel_date"><span class="ndl-cancel_date_input_help"> Add this date to specify a date after which you no longer wish to recieve the item.</span></span>
+</p>
+
+<button type="submit">Submit</button> - <%= link_to 'Cancel', holds_path %>
+
+<% end %>
+
+<script type="text/javascript">
+  $('#cancel_date_input').click(function (){
+    $('#ndl-cancel_date_input').toggle();
+  });
+</script>
+
+
