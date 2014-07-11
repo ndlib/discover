@@ -38,8 +38,8 @@ describe PrimoConfiguration do
     it_behaves_like "a primo configuration"
 
     describe '#default_tab' do
-      it 'is onesearch' do
-        expect(subject.default_tab).to eq('onesearch')
+      it 'is nd_campus' do
+        expect(subject.default_tab).to eq('nd_campus')
       end
     end
 

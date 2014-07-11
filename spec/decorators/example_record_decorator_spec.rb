@@ -95,7 +95,7 @@ describe ExampleRecordDecorator do
     describe '#primo_link' do
       it 'links to primo' do
         expect(subject).to receive(:primo_search_id).and_return(subject.id)
-        expect(subject.primo_link).to eq("<a href=\"http://primo-fe1.library.nd.edu:1701/primo_library/libweb/action/search.do?fn=search&amp;mode=Basic&amp;tab=onesearch&amp;vid=NDU&amp;vl%28freeText0%29=ndu_aleph001890313\" target=\"_blank\">Primo 4</a>")
+        expect(subject.primo_link).to eq("<a href=\"http://primo-fe1.library.nd.edu:1701/primo_library/libweb/action/search.do?fn=search&amp;mode=Basic&amp;tab=nd_campus&amp;vid=NDU&amp;vl%28freeText0%29=ndu_aleph001890313\" target=\"_blank\">Primo 4</a>")
       end
     end
   end

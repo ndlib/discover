@@ -1,13 +1,5 @@
-require 'uri/http'
-
-class OnlineAccessDecorator < Draper::Decorator
-
-  def self.find(id, vid)
-    record = DiscoveryQuery.fullview(id, vid)
-    self.new(record)
-  end
-
-  delegate :institution_code, to: :object
+class OnlineAccessTab < PrimoRecordTab
+  delegate :institution_code, to: :record
 
   def insitution_links
     if @insitution_links.nil?
@@ -17,7 +9,7 @@ class OnlineAccessDecorator < Draper::Decorator
       # Make the current insitution first in the links
       institution_codes.unshift(institution_code)
       institution_codes.each do |code|
-        tmp_links = object.links(code)
+        tmp_links = record.links(code)
         if tmp_links.present?
           @insitution_links[code] = InstitutionLinksDecorator.new(tmp_links)
         end
@@ -28,26 +20,29 @@ class OnlineAccessDecorator < Draper::Decorator
 
 
   def nd_links
-    InstitutionLinksDecorator.new(object.ndu_links)
+    InstitutionLinksDecorator.new(record.ndu_links)
   end
 
 
   def smc_links
-    InstitutionLinksDecorator.new( object.smc_links )
+    InstitutionLinksDecorator.new( record.smc_links )
   end
 
 
   def hcc_links
-    InstitutionLinksDecorator.new( object.hcc_links )
+    InstitutionLinksDecorator.new( record.hcc_links )
   end
 
 
   def bci_links
-    InstitutionLinksDecorator.new( object.bci_links )
+    InstitutionLinksDecorator.new( record.bci_links )
   end
 
 
   private
+    def load_record
+      DiscoveryQuery.fullview(id, vid)
+    end
 
     def get_domain_name(url)
       return if url.nil?

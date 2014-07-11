@@ -1,7 +1,7 @@
 <div class="ndl-online-access">
-  <h3 class="ndl-debug">Debug ID: <%= @record.object.id %></h3>
+  <h3 class="ndl-debug">Debug ID: <%= @tab.record_id %></h3>
 
-  <% @record.insitution_links.each do |institution_code, links| %>
+  <% @tab.insitution_links.each do |institution_code, links| %>
     <% if links.has_fulltext_links? %>
       <h2><%= t("institutions.#{institution_code}") %></h2>
       <%= render partial: 'institution', locals: { institution: links } %>
