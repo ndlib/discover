@@ -28,6 +28,10 @@ class LinkDecorator < Draper::Decorator
     get('source')
   end
 
+  def from_primo?
+    source == "Primo"
+  end
+
   def service_type
     get('service_type')
   end

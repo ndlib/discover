@@ -27,4 +27,28 @@ describe PrimaryInstitutionLinksDecorator do
     end
   end
 
+  describe '#display_sfx_link?' do
+    it 'is false when there is no sfx_link_decorator' do
+      expect(subject).to receive(:sfx_link_decorator).and_return(nil)
+      expect(subject.display_sfx_link?).to be_false
+    end
+
+    it 'is true when the targets are not loaded' do
+      expect(subject.sfx_link_decorator).to receive(:targets_loaded?).and_return(false)
+      expect(subject.display_sfx_link?).to be_true
+    end
+
+    it 'is true when the targets are not loaded and targets were found' do
+      expect(subject.sfx_link_decorator).to receive(:targets_loaded?).and_return(true)
+      expect(subject.sfx_link_decorator).to receive(:number_of_targets).and_return(1)
+      expect(subject.display_sfx_link?).to be_true
+    end
+
+    it 'is false when the targets are not loaded and no targets were found' do
+      expect(subject.sfx_link_decorator).to receive(:targets_loaded?).and_return(true)
+      expect(subject.sfx_link_decorator).to receive(:number_of_targets).and_return(0)
+      expect(subject.display_sfx_link?).to be_false
+    end
+  end
+
 end

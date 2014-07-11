@@ -27,4 +27,34 @@ describe InstitutionLinksDecorator do
     end
   end
 
+  describe '#display_sfx_link?' do
+    it 'is false when there is no sfx_link_decorator' do
+      expect(subject).to receive(:sfx_link_decorator).and_return(nil)
+      expect(subject.display_sfx_link?).to be_false
+    end
+
+    it 'is false when sfx_link_decorator is not from primo' do
+      expect(subject.sfx_link_decorator).to receive(:from_primo?).and_return(false)
+      expect(subject.display_sfx_link?).to be_false
+    end
+
+    it 'is true when sfx_link_decorator from primo' do
+      expect(subject.sfx_link_decorator).to receive(:from_primo?).and_return(true)
+      expect(subject.display_sfx_link?).to be_true
+    end
+  end
+
+  describe '#sfx_link' do
+    it 'is displayed when display_sfx_link? is true' do
+      expect(subject).to receive(:display_sfx_link?).and_return(true)
+      expect(subject.sfx_link_decorator).to receive(:link).and_return('link')
+      expect(subject.sfx_link).to eq('link')
+    end
+
+    it 'is not displayed when display_sfx_link? is false' do
+      expect(subject).to receive(:display_sfx_link?).and_return(false)
+      expect(subject.sfx_link).to be_nil
+    end
+  end
+
 end

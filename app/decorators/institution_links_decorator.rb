@@ -22,10 +22,26 @@ class InstitutionLinksDecorator < Draper::Decorator
     (fulltext.present? || sfx_link)
   end
 
+  def display_sfx_link?
+    if sfx_link_decorator.present?
+      sfx_link_decorator.from_primo?
+    else
+      false
+    end
+  end
+
+  def sfx_link_decorator
+    if object['findtext']
+      @sfx_link_decorator ||= SFXLinkDecorator.new(object['findtext'])
+    end
+    @sfx_link_decorator
+  end
 
   def sfx_link
-    if object['findtext']
-      SFXLinkDecorator.new(object['findtext']).link
+    if display_sfx_link?
+      sfx_link_decorator.link
+    else
+      nil
     end
   end
 

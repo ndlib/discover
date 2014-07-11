@@ -39,6 +39,18 @@ describe LinkDecorator do
     end
   end
 
+  describe '#from_primo?' do
+    it "is true when the source is Primo" do
+      expect(subject).to receive(:source).and_return('Primo')
+      expect(subject.from_primo?).to be_true
+    end
+
+    it "is false when the source is not Primo" do
+      expect(subject).to receive(:source).and_return('test')
+      expect(subject.from_primo?).to be_false
+    end
+  end
+
 
 
 end
