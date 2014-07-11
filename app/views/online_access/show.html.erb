@@ -1,12 +1,12 @@
 <div class="ndl-online-access">
   <h3 class="ndl-debug">Debug ID: <%= @tab.record_id %></h3>
 
-  <% if institution = @tab.primary_institution %>
+  <% if institution = @tab.primary_institution_links %>
     <%= render partial: 'institution', locals: { institution: institution } %>
   <% end %>
   <%
   other_institutions_content = []
-  @tab.other_institutions.each do |institution|
+  @tab.other_institutions_links.each do |institution|
     content = render partial: 'institution', locals: { institution: institution }
     if content.present?
       other_institutions_content << content

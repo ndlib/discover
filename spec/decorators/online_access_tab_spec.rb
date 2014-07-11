@@ -37,27 +37,27 @@ describe OnlineAccessTab do
       subject.stub(:record).and_return(record)
     end
 
-    describe '#institution_decorators' do
+    describe '#institution_links_decorators' do
       it 'is an hash containing link decorators' do
-        expect(subject.institution_decorators).to be_a_kind_of(Hash)
-        expect(subject.institution_decorators[:primary]).to be_a_kind_of(InstitutionLinksDecorator)
-        expect(subject.institution_decorators[:other]).to be_a_kind_of(Array)
-        expect(subject.institution_decorators[:other].count).to eq(3)
+        expect(subject.institution_links_decorators).to be_a_kind_of(Hash)
+        expect(subject.institution_links_decorators[:primary]).to be_a_kind_of(InstitutionLinksDecorator)
+        expect(subject.institution_links_decorators[:other]).to be_a_kind_of(Array)
+        expect(subject.institution_links_decorators[:other].count).to eq(3)
       end
     end
 
-    describe '#primary_institution' do
+    describe '#primary_institution_links' do
       it 'is the institution for the current vid' do
-        expect(subject.primary_institution).to be_a_kind_of(InstitutionLinksDecorator)
-        expect(subject.primary_institution.id).to eq('ndu')
+        expect(subject.primary_institution_links).to be_a_kind_of(InstitutionLinksDecorator)
+        expect(subject.primary_institution_links.id).to eq('ndu')
       end
     end
 
-    describe '#other_institutions' do
+    describe '#other_institutions_links' do
       it 'is the other institutions' do
-        expect(subject.other_institutions).to be_a_kind_of(Array)
-        expect(subject.other_institutions.count).to eq(3)
-        subject.other_institutions.each do |instituion|
+        expect(subject.other_institutions_links).to be_a_kind_of(Array)
+        expect(subject.other_institutions_links.count).to eq(3)
+        subject.other_institutions_links.each do |instituion|
           expect(instituion).to be_a_kind_of(InstitutionLinksDecorator)
           expect(instituion.id).to_not eq('ndu')
         end

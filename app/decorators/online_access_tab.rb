@@ -1,26 +1,26 @@
 class OnlineAccessTab < PrimoRecordTab
   delegate :institution_code, to: :record
 
-  def institution_decorators
-    if @institution_decorators.nil?
-      @institution_decorators = {primary: nil, other: []}
+  def institution_links_decorators
+    if @institution_links_decorators.nil?
+      @institution_links_decorators = {primary: nil, other: []}
       record.links.each do |id, data|
         if id == institution_code
-          @institution_decorators[:primary] = PrimaryInstitutionLinksDecorator.new(data)
+          @institution_links_decorators[:primary] = PrimaryInstitutionLinksDecorator.new(data)
         else
-          @institution_decorators[:other] << InstitutionLinksDecorator.new(data)
+          @institution_links_decorators[:other] << InstitutionLinksDecorator.new(data)
         end
       end
     end
-    @institution_decorators
+    @institution_links_decorators
   end
 
-  def primary_institution
-    institution_decorators[:primary]
+  def primary_institution_links
+    institution_links_decorators[:primary]
   end
 
-  def other_institutions
-    institution_decorators[:other]
+  def other_institutions_links
+    institution_links_decorators[:other]
   end
 
   private
