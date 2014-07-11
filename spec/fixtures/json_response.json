@@ -35,11 +35,11 @@
     "supplement_to":["supplement_to"],
     "issued_with":["issued_with"],
     "variant_title":["variant_title"]},
-  "links":{
-    "ndu": {"fulltext": [], "findtext": "", "ill": { }, "report_a_problem": {} },
-    "smc": {"fulltext": [], "findtext": "", "ill": { }, "report_a_problem": {} },
-    "hcc": {"fulltext": [], "findtext": "", "ill": { }, "report_a_problem": {} },
-    "bci": {"fulltext": [], "findtext": "", "ill": { }, "report_a_problem": {} }
+  "online_access":{
+    "ndu": {"id": "ndu", "fulltext": [], "findtext": "", "ill": { }, "report_a_problem": {} },
+    "smc": {"id": "smc", "fulltext": [], "findtext": "", "ill": { }, "report_a_problem": {} },
+    "hcc": {"id": "hcc", "fulltext": [], "findtext": "", "ill": { }, "report_a_problem": {} },
+    "bci": {"id": "bci", "fulltext": [], "findtext": "", "ill": { }, "report_a_problem": {} }
     },
   "holdings":[
     {"record_id":"ndu_aleph000555617","institution_code":"NDU","collection_name":"General Collection","collection_code":"GEN","call_number":"(BR 1 .A4 )","number_of_items":"0","multi_volume":"Y"}

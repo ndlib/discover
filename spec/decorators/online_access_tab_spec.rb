@@ -53,6 +53,18 @@ describe OnlineAccessTab do
       end
     end
 
+    describe '#other_institutions' do
+      it 'is the other institutions' do
+        subject.stub(:institution_code).and_return('ndu')
+        expect(subject.other_institutions).to be_a_kind_of(Array)
+        expect(subject.other_institutions.count).to eq(3)
+        subject.other_institutions.each do |instituion|
+          expect(instituion).to be_a_kind_of(InstitutionLinksDecorator)
+          expect(instituion.id).to_not eq('ndu')
+        end
+      end
+    end
+
   end
 
 end

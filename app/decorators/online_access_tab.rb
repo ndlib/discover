@@ -13,24 +13,7 @@ class OnlineAccessTab < PrimoRecordTab
   end
 
   def other_institutions
-    @other_institutions ||= institutions.reject{|institution| institution.id != institution_code}
-  end
-
-  def insitution_links
-    if @insitution_links.nil?
-      @insitution_links = {}
-      institution_codes = ["ndu", "smc", "hcc", "bci"]
-      institution_codes.delete(institution_code)
-      # Make the current insitution first in the links
-      institution_codes.unshift(institution_code)
-      institution_codes.each do |code|
-        tmp_links = record.links(code)
-        if tmp_links.present?
-          @insitution_links[code] = InstitutionLinksDecorator.new(tmp_links)
-        end
-      end
-    end
-    @insitution_links
+    @other_institutions ||= institutions.reject{|institution| institution.id == institution_code}
   end
 
   private
