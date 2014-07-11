@@ -1,14 +1,14 @@
-
-<ul>
-<% institution.fulltext.each do | link | %>
-  <li>
-    <%= link.link %>
-    <%= link.notes %>
-  </li>
+<% if institution.has_fulltext_links? %>
+  <h2><%= t("institutions.#{institution.id}") %></h2>
+  <ul>
+    <% institution.fulltext.each do | link | %>
+      <li>
+        <%= link.link %>
+        <%= link.notes %>
+      </li>
+    <% end %>
+    <% if institution.sfx_link %>
+      <li><%= institution.sfx_link %></li>
+    <% end %>
+  </ul>
 <% end %>
-<% if institution.sfx_link %>
-  <li><%= institution.sfx_link %></li>
-<% end %>
-
-</ul>
-
