@@ -25,11 +25,11 @@ describe OnlineAccessTab do
 
   describe 'found record' do
     let(:links) do
-      hash = {}
-      ['ndu','smc','bci','hcc'].each do |code|
-        hash[code] = link_data(code)
+      {}.tap do |hash|
+        ['ndu','smc','bci','hcc'].each do |code|
+          hash[code] = link_data(code)
+        end
       end
-      hash
     end
     let(:record) { double(DiscoveryRecord, links: links, institution_code: 'ndu') }
 
