@@ -1,0 +1,3 @@
+class PrimaryInstitutionLinksDecorator < InstitutionLinksDecorator
+
+end

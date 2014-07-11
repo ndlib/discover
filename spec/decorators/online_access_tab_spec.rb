@@ -31,23 +31,23 @@ describe OnlineAccessTab do
       end
       hash
     end
-    let(:record) { double(DiscoveryRecord, links: links) }
+    let(:record) { double(DiscoveryRecord, links: links, institution_code: 'ndu') }
 
     before do
       subject.stub(:record).and_return(record)
     end
 
-    describe '#institutions' do
-      it 'is an array of link decorators' do
-        expect(subject.institutions).to be_a_kind_of(Array)
-        expect(subject.institutions.count).to eq(4)
-        expect(subject.institutions.first).to be_a_kind_of(InstitutionLinksDecorator)
+    describe '#institution_decorators' do
+      it 'is an hash containing link decorators' do
+        expect(subject.institution_decorators).to be_a_kind_of(Hash)
+        expect(subject.institution_decorators[:primary]).to be_a_kind_of(InstitutionLinksDecorator)
+        expect(subject.institution_decorators[:other]).to be_a_kind_of(Array)
+        expect(subject.institution_decorators[:other].count).to eq(3)
       end
     end
 
     describe '#primary_institution' do
       it 'is the institution for the current vid' do
-        expect(subject).to receive(:institution_code).and_return('ndu')
         expect(subject.primary_institution).to be_a_kind_of(InstitutionLinksDecorator)
         expect(subject.primary_institution.id).to eq('ndu')
       end
@@ -55,7 +55,6 @@ describe OnlineAccessTab do
 
     describe '#other_institutions' do
       it 'is the other institutions' do
-        subject.stub(:institution_code).and_return('ndu')
         expect(subject.other_institutions).to be_a_kind_of(Array)
         expect(subject.other_institutions.count).to eq(3)
         subject.other_institutions.each do |instituion|
