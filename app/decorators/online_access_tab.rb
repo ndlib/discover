@@ -1,6 +1,21 @@
 class OnlineAccessTab < PrimoRecordTab
   delegate :institution_code, to: :record
 
+  def institutions
+    if @institutions.nil?
+      @institutions = record.links.collect{|id, institution| InstitutionLinksDecorator.new(institution)}
+    end
+    @institutions
+  end
+
+  def primary_institution
+    @primary_institution ||= institutions.detect{|institution| institution.id == institution_code}
+  end
+
+  def other_institutions
+    @other_institutions ||= institutions.reject{|institution| institution.id != institution_code}
+  end
+
   def insitution_links
     if @insitution_links.nil?
       @insitution_links = {}
@@ -18,40 +33,8 @@ class OnlineAccessTab < PrimoRecordTab
     @insitution_links
   end
 
-
-  def nd_links
-    InstitutionLinksDecorator.new(record.ndu_links)
-  end
-
-
-  def smc_links
-    InstitutionLinksDecorator.new( record.smc_links )
-  end
-
-
-  def hcc_links
-    InstitutionLinksDecorator.new( record.hcc_links )
-  end
-
-
-  def bci_links
-    InstitutionLinksDecorator.new( record.bci_links )
-  end
-
-
   private
     def load_record
       DiscoveryQuery.fullview(id, vid)
-    end
-
-    def get_domain_name(url)
-      return if url.nil?
-
-      uri = URI.parse(url)
-      if uri.present?
-        uri.host.gsub('www.', '')
-      else
-        nil
-      end
     end
 end
