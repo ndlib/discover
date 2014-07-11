@@ -6,9 +6,9 @@ class LinkDecorator < Draper::Decorator
 
 
   def notes
-    if object['notes'].present?
+    if get('notes').present?
       h.content_tag(:ul) do
-        object['notes'].collect { | item | h.concat(h.content_tag(:li, h.raw(item))) }
+        get('notes').collect { | item | h.concat(h.content_tag(:li, h.raw(item))) }
       end
     else
       ""
@@ -17,19 +17,25 @@ class LinkDecorator < Draper::Decorator
 
 
   def title
-    object['title']
+    get('title')
   end
 
   def url
-    object['url']
+    get('url')
   end
 
   def source
-    object['source']
+    get('source')
   end
 
   def service_type
-    object['service_type']
+    get('service_type')
   end
+
+  private
+
+    def get(key)
+      object[key]
+    end
 
 end

@@ -101,6 +101,10 @@ en:
     ndlaw: Notre Dame Law School
     primo_central: Primo Central
     hathi: HathiTrust
+  links:
+    sfx:
+      search: 'Search in FindText'
+      view: 'View in FindText'
   devise:
     failure:
       already_authenticated: ""

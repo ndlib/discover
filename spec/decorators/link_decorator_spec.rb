@@ -33,6 +33,12 @@ describe LinkDecorator do
     end
   end
 
+  describe '#get' do
+    it "returns a value from the object" do
+      expect(subject.send(:get, 'title')).to eq('title')
+    end
+  end
+
 
 
 end
