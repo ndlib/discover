@@ -4,7 +4,19 @@
   <% if institution = @tab.primary_institution %>
     <%= render partial: 'institution', locals: { institution: institution } %>
   <% end %>
-  <% @tab.other_institutions.each do |institution| %>
-    <%= render partial: 'institution', locals: { institution: institution } %>
+  <%
+  other_institutions_content = []
+  @tab.other_institutions.each do |institution|
+    content = render partial: 'institution', locals: { institution: institution }
+    if content.present?
+      other_institutions_content << content
+    end
+  end
+  %>
+  <% if other_institutions_content.present? %>
+    <p class="ndl-online-access-disclaimer"><%= t("online_access.partner_access_disclaimer") %></p>
+    <% other_institutions_content.each do |content| %>
+      <%= content %>
+    <% end %>
   <% end %>
 </div>

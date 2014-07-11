@@ -89,10 +89,7 @@ en:
       lccn: Library of Congress Control Number
       oclc: OCLC Control Number
   online_access:
-    fulltext_links: "Fulltext"
-    table_of_contents_links: "Table of Contents"
-    linktorsrc_hcc: 'Holy Cross ( %{url} ) '
-    linktorsrc_ndu: 'Notre Dame'
+    partner_access_disclaimer: The following partner library links may have restricted access
   institutions:
     ndu: Notre Dame
     smc: Saint Mary's College
