@@ -21,3 +21,4 @@
 //= require ../hide-onesearch-browse.js
 //= require ../hide-long-authors.js
 //= require ../fix-advanced-search-year.js
+//= require ../fix-eshelf-class.js

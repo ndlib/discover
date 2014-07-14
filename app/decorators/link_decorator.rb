@@ -1,61 +1,45 @@
 class LinkDecorator < Draper::Decorator
 
-  def self.factory(object)
-    determine_class(object).new(object)
-  end
-
-  def self.determine_class(object)
-    [ OpenURLDecorator, HathiTrustLinkDecorator ].each do | klass |
-      return klass if klass.use_this_class?(object)
-    end
-
-    return LinkDecorator
-  end
-
-
   def link
     h.link_to title, url, target: '_blank'
   end
 
 
   def notes
-    return "" if object['notes'].nil?
-
-    h.content_tag(:ul) do
-      object['notes'].collect { | item | h.concat(h.content_tag(:li, h.raw(item))) }
+    if get('notes').present?
+      h.content_tag(:ul) do
+        get('notes').collect { | item | h.concat(h.content_tag(:li, h.raw(item))) }
+      end
+    else
+      ""
     end
   end
 
 
   def title
-    object['title']
+    get('title')
   end
-
 
   def url
-    object['url']
+    get('url')
   end
 
-end
-
-
-class OpenURLDecorator < LinkDecorator
-
-  def self.use_this_class?(object)
-    object['source'].downcase == 'openurl'
+  def source
+    get('source')
   end
 
-end
-
-
-class PrimoKeyLinkDecorator < LinkDecorator
-
-end
-
-
-class HathiTrustLinkDecorator < LinkDecorator
-
-  def self.use_this_class?(object)
-    object['title'] == 'linktorsrc_pub' && object['url'].match(/^http:\/\/catalog[.]hathitrust/)
+  def from_primo?
+    source == "Primo"
   end
+
+  def service_type
+    get('service_type')
+  end
+
+  private
+
+    def get(key)
+      object[key]
+    end
+
 end

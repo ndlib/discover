@@ -70,28 +70,8 @@ class DiscoveryRecord
     primo('display') || {}
   end
 
-  def ndu_links
-    links("ndu") || {}
-  end
-
-  def smc_links
-    links("smc") || {}
-  end
-
-  def hcc_links
-    links("hcc") || {}
-  end
-
-  def bci_links
-    links("bci") || {}
-  end
-
-  def sfx_link
-    links('findtext') || {}
-  end
-
-  def links(key)
-    (data['links'] || data['online_access'])[key.to_s]
+  def links
+    data['online_access']
   end
 
   private

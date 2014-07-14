@@ -1,10 +1,22 @@
 <div class="ndl-online-access">
-  <h3 class="ndl-debug">Debug ID: <%= @record.object.id %></h3>
+  <h3 class="ndl-debug">Debug ID: <%= @tab.record_id %></h3>
 
-  <% @record.insitution_links.each do |institution_code, links| %>
-    <% if links.has_fulltext_links? %>
-      <h2><%= t("institutions.#{institution_code}") %></h2>
-      <%= render partial: 'institution', locals: { institution: links } %>
+  <% if institution = @tab.primary_institution_links %>
+    <%= render partial: 'institution', locals: { institution: institution } %>
+  <% end %>
+  <%
+  other_institutions_content = []
+  @tab.other_institutions_links.each do |institution|
+    content = render partial: 'institution', locals: { institution: institution }
+    if content.present?
+      other_institutions_content << content
+    end
+  end
+  %>
+  <% if other_institutions_content.present? %>
+    <p class="ndl-online-access-disclaimer"><%= t("online_access.partner_access_disclaimer") %></p>
+    <% other_institutions_content.each do |content| %>
+      <%= content %>
     <% end %>
   <% end %>
 </div>

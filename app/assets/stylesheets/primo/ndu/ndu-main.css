@@ -876,10 +876,24 @@ display: none;
   position: relative;
 }
 
-.EXLMyShelfStar a[title="Add to Folder"] {
+.EXLMyShelfStar a {
   position: absolute;
-  left: -97px;
+  left: -104px;
   top:4em;
+  height:0;
+  width: 20px;
+  display: block;
+  padding-top: 20px;
+  background:url("../ndu/folder.add.gif");
+  overflow: hidden;
+}
+
+.EXLMyShelfStar a.ndl-folder-add {
+  background:url("../ndu/folder.add.gif");
+}
+
+.EXLMyShelfStar a.ndl-folder-remove {
+  background:url("../ndu/folder.full.2.gif");
 }
 
 .EXLResultsList td.EXLMyShelfStar {
@@ -958,7 +972,15 @@ display: none;
 .EXLFacetContainer div.EXLFacetActionsV2 li.EXLFacetSaveToEShelfActionOff {
   position:absolute;
   left:50%;
-  top:360px;
+  top:363px;
  background-image:url("../ndu/folder.empty.gif");
   z-index: 3000;
+}
+
+.EXLMyAccountMainMenuContainer ol li span.EXLMyAccountMainMenuBulletSelected {
+  background-image: url("../ndu/bullet_myAccount_menu.png");
+}
+
+.folder_details .itemsListTable td, .folder_details .itemsListTH th {
+  padding:3px;
 }

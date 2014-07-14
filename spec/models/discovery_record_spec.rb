@@ -95,34 +95,9 @@ describe DiscoveryRecord do
 
   end
 
-  describe :ndu_links do
-
-    it "has ndu_links" do
-      expect(subject.ndu_links).to eq({"fulltext"=>[], "findtext"=>"", "ill"=>{}, "report_a_problem"=>{}})
-    end
-  end
-
-
-  describe :smc_links do
-
-    it "has smc_links" do
-      expect(subject.smc_links).to eq({"fulltext"=>[], "findtext"=>"", "ill"=>{}, "report_a_problem"=>{}})
-    end
-  end
-
-
-  describe :hcc_links do
-
-    it "has hcc_links" do
-      expect(subject.hcc_links).to eq({"fulltext"=>[], "findtext"=>"", "ill"=>{}, "report_a_problem"=>{}})
-    end
-  end
-
-
-  describe :bci_links do
-
-    it "has bci_links" do
-      expect(subject.bci_links).to eq({"fulltext"=>[], "findtext"=>"", "ill"=>{}, "report_a_problem"=>{}})
+  describe '#links' do
+    it 'is a hash of institutional links' do
+      expect(subject.links).to eq({"ndu"=>{"id"=>"ndu", "fulltext"=>[], "findtext"=>"", "ill"=>{}, "report_a_problem"=>{}}, "smc"=>{"id"=>"smc", "fulltext"=>[], "findtext"=>"", "ill"=>{}, "report_a_problem"=>{}}, "hcc"=>{"id"=>"hcc", "fulltext"=>[], "findtext"=>"", "ill"=>{}, "report_a_problem"=>{}}, "bci"=>{"id"=>"bci", "fulltext"=>[], "findtext"=>"", "ill"=>{}, "report_a_problem"=>{}}})
     end
   end
 end
