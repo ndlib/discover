@@ -33,6 +33,14 @@ class ExampleRecordDecorator < Draper::Decorator
     (get 'institution') || 'ndu'
   end
 
+  def tab
+    if institution == 'ndu'
+      'onesearch'
+    else
+      nil
+    end
+  end
+
   def vid
     institution.upcase
   end
@@ -42,7 +50,7 @@ class ExampleRecordDecorator < Draper::Decorator
   end
 
   def primo_uri
-    @primo_uri ||= PrimoURI.new(primo_configuration)
+    @primo_uri ||= PrimoURI.new(primo_configuration, tab)
   end
 
   def record_path(format = nil)
