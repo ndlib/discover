@@ -1,7 +1,6 @@
 <% content_for(:title, @record.page_title) %>
 <h1>Finalize Request</h1>
 
-
 <ul>
   <li>Get: Title Volume 1</li>
   <li>From: Note Dame</li>
@@ -21,8 +20,8 @@
 <% end %>
 
 <script type="text/javascript">
-  $('#cancel_date_input').click(function (){
-    $('#ndl-cancel_date_input').toggle();
+  $('#use_end_date').click(function (){
+    $('.ndl-cancel_date_input').toggle();
   });
 </script>
 
