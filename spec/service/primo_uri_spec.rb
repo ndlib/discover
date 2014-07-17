@@ -12,6 +12,16 @@ describe PrimoURI do
     end
   end
 
+  describe '#advanced_search' do
+    it "links to the advanced search" do
+      expect(subject.advanced_search('title', 'title')).to eq("/primo_library/libweb/action/search.do?fn=search&mode=Advanced&tab=onesearch&vid=NDU&vl%2816833817UI0%29=title&vl%281UIStartWith0%29=exact&vl%28freeText0%29=title&")
+    end
+
+    it "links to the advanced search with 2 sets of search params" do
+      expect(subject.advanced_search('title', 'title', 'author', 'author')).to eq("/primo_library/libweb/action/search.do?fn=search&mode=Advanced&tab=onesearch&vid=NDU&vl%2816833817UI0%29=title&vl%281UIStartWith0%29=exact&vl%28freeText0%29=title&fn=search&mode=Advanced&tab=onesearch&vid=NDU&vl%2816833818UI1%29=author&vl%281UIStartWith1%29=exact&vl%28freeText1%29=author")
+    end
+  end
+
   describe '#current_tab' do
     it 'is the tab that was passed in' do
       expect(subject.current_tab).to eq(tab)
@@ -94,7 +104,7 @@ describe PrimoURI do
   describe '#advanced_search_scope_name' do
     it 'calls the primo_configuration' do
       expect(primo_configuration).to receive(:advanced_search_scope_name).and_return('scope_name')
-      expect(subject.advanced_search_scope_name).to eq('vl(scope_name)')
+      expect(subject.advanced_search_scope_name('0')).to eq('vl(scope_name)')
     end
   end
 
@@ -116,7 +126,14 @@ describe PrimoURI do
       expect(subject).to receive(:advanced_search_scope_value).and_return('scope_value')
       expect(subject.advanced_search_params('scope', 'advanced')).to eq({'test' => 'test', 'vl(freeText0)' => 'advanced', 'scope_name' => 'scope_value', "vl(1UIStartWith0)"=>"exact"})
     end
+
+
+    it "can search on the second search parameter" do
+      #raise
+    end
+
   end
+
 
   describe 'self' do
     subject { described_class }
