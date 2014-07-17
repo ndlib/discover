@@ -253,7 +253,9 @@ class DetailsTab < PrimoRecordTab
 
 
     def author_title_search_links(values)
-      AuthorTitleSearchLinks.render(values, primo_uri)
+      if values.present?
+        AuthorTitleSearchLinks.render(values, primo_uri)
+      end
     end
 
     def ulize_array(arr)
