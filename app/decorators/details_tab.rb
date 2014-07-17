@@ -172,23 +172,23 @@ class DetailsTab < PrimoRecordTab
   end
 
   def earlier_title
-    ulize_array(record.earlier_title)
+    author_title_search_links(record.earlier_title)
   end
 
   def later_title
-    ulize_array(record.later_title)
+    author_title_search_links(record.later_title)
   end
 
   def supplement
-    ulize_array(record.supplement)
+    author_title_search_links(record.supplement)
   end
 
   def supplement_to
-    ulize_array(record.supplement_to)
+    author_title_search_links(record.supplement_to)
   end
 
   def issued_with
-    ulize_array(record.issued_with)
+    author_title_search_links(record.issued_with)
   end
 
   def links
@@ -249,6 +249,11 @@ class DetailsTab < PrimoRecordTab
     def hierarchical_links_ul(scope, values)
       links = hierarchical_links(scope, values)
       ulize_array(links)
+    end
+
+
+    def author_title_search_links(values)
+      AuthorTitleSearchLinks.render(values, primo_uri)
     end
 
     def ulize_array(arr)
