@@ -31,7 +31,7 @@ class DetailsTab < PrimoRecordTab
 
   def identifiers_methods
     [
-      :isbn, :issn, :eissn, :doi, :pmid, :lccn, :oclc
+      :isbn, :issn, :eissn, :doi, :pmid, :lccn, :oclc, :record_ids
     ]
   end
 
@@ -51,7 +51,7 @@ class DetailsTab < PrimoRecordTab
   def links_methods
     [
       :worldcat_link,
-      :record_ids
+      :sfx_link,
     ]
   end
 
@@ -227,6 +227,22 @@ class DetailsTab < PrimoRecordTab
     url = worldcat_url
     if url.present?
       h.link_to(h.raw(h.t('details.record.link_labels.worldcat')), url, target: '_blank')
+    else
+      nil
+    end
+  end
+
+  def institution_links
+    @institution_links ||= InstitutionLinks.new(record)
+  end
+
+  def primary_institution_links
+    institution_links.primary_institution_links
+  end
+
+  def sfx_link
+    if primary_institution_links.present?
+      primary_institution_links.sfx_link
     else
       nil
     end
