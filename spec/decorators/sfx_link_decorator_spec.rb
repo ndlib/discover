@@ -4,7 +4,17 @@ describe SFXLinkDecorator do
 
   subject { described_class.new(object) }
 
-  let(:object) {   { 'title' => 'title', 'url' => 'url', 'notes' => [ 'notes' ], 'targets_loaded' => false, 'number_of_targets' => 0 } }
+  let(:findtext_url) { 'http://findtext.library.nd.edu:8889/ndu_local?ctx_enc=info%3Aofi%2Fenc%3AUTF-8&ctx_tim=2014-07-18T14%3A23%3A04EDT&ctx_ver=Z39.88-2004&rft.au=Salinger%2C+J.+D&rft.aufirst=J.+D.&rft.aulast=Salinger&rft.btitle=The+catcher+in+the+rye&rft.date=2001&rft.genre=book&rft.isbn=9780316769174&rft.lccn=00108915&rft.oclcnum=45798952&rft.pub=Little%2C+Brown' }
+
+  let(:object) {
+    {
+      'title' => 'title',
+      'url' => findtext_url,
+      'notes' => [ 'notes' ],
+      'targets_loaded' => false,
+      'number_of_targets' => 0
+    }
+  }
 
 
   describe '#title' do
@@ -20,7 +30,7 @@ describe SFXLinkDecorator do
 
   describe :link do
     it "returns a link" do
-      expect(subject.link).to eq("<a href=\"url\" target=\"_blank\">Search in FindText</a>")
+      expect(subject.link).to eq("<a href=\"#{findtext_url.gsub('&','&amp;')}\" target=\"_blank\"><span>Search in FindText</span><img alt=\"Sfx\" src=\"http://findtext.library.nd.edu:8889/ndu_local/sfx.gif\" /></a>")
     end
   end
 
