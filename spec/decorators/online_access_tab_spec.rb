@@ -37,12 +37,10 @@ describe OnlineAccessTab do
       subject.stub(:record).and_return(record)
     end
 
-    describe '#institution_links_decorators' do
-      it 'is an hash containing link decorators' do
-        expect(subject.institution_links_decorators).to be_a_kind_of(Hash)
-        expect(subject.institution_links_decorators[:primary]).to be_a_kind_of(InstitutionLinksDecorator)
-        expect(subject.institution_links_decorators[:other]).to be_a_kind_of(Array)
-        expect(subject.institution_links_decorators[:other].count).to eq(3)
+    describe '#institution_links' do
+      it 'is an InstitutionLinks' do
+        expect(subject.institution_links).to be_a_kind_of(InstitutionLinks)
+        expect(subject.institution_links.record).to eq(record)
       end
     end
 
