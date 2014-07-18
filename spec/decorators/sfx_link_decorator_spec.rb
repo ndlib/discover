@@ -30,7 +30,7 @@ describe SFXLinkDecorator do
 
   describe :link do
     it "returns a link" do
-      expect(subject.link).to eq("<a href=\"#{findtext_url.gsub('&','&amp;')}\" target=\"_blank\"><span>Search in FindText</span><img alt=\"Sfx\" src=\"http://findtext.library.nd.edu:8889/ndu_local/sfx.gif\" /></a>")
+      expect(subject.link).to eq("<a class=\"ndl-sfx\" href=\"#{findtext_url.gsub('&','&amp;')}\" target=\"_blank\"><span>Search in FindText</span><img alt=\"Sfx\" src=\"http://findtext.library.nd.edu:8889/ndu_local/sfx.gif\" /></a>")
     end
   end
 

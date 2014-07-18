@@ -1,7 +1,7 @@
 class SFXLinkDecorator < LinkDecorator
 
   def link
-    h.link_to link_content, url, target: '_blank'
+    h.link_to link_content, url, target: '_blank', class: 'ndl-sfx'
   end
 
   def link_content
