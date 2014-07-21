@@ -191,9 +191,22 @@ class DetailsTab < PrimoRecordTab
     author_title_search_links(record.issued_with)
   end
 
+  def links_array
+    [].tap do |array|
+      links_methods.each do |method|
+        value = send(method)
+        if value.present?
+          if value.is_a?(Array)
+            array.concat(value)
+          else
+            array << value
+          end
+        end
+      end
+    end
+  end
+
   def links
-    links_array = links_methods.collect{ |method| send(method) }
-    links_array.compact!
     ulize_array(links_array)
   end
 
