@@ -3,6 +3,25 @@ class ExampleRecordCollection < Draper::Decorator
     object.to_s.downcase
   end
 
+  def title
+    h.t("institutions.#{institution}")
+  end
+
+  def primo_configuration
+    @primo_configuration ||= PrimoConfiguration.new(institution)
+  end
+
+  def tabs
+    primo_configuration.tabs
+  end
+
+  def tab_links
+    tabs.collect do |tab|
+      uri = PrimoURI.new(primo_configuration, tab)
+      h.link_to(tab, uri.basic_search('test'), target: '_blank')
+    end
+  end
+
   def records
     ExampleRecordDecorator.decorate_collection(yaml_records)
   end

@@ -1,7 +1,12 @@
 <% content_for(:title, "Example Records") %>
 
-<h1>Example Records</h1>
-
+<h1>Examples</h1>
+<h2><%= @example_collection.title %></h2>
+<h3>Tabs</h3>
+<% @example_collection.tab_links.each do |tab| %>
+  <%= tab %> &nbsp;
+<% end %>
+<h3>Records</h3>
 <table>
   <thead>
     <tr>
