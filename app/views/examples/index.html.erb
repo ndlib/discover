@@ -15,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @examples.each do |example| %>
+    <% @example_collection.records.each do |example| %>
       <tr>
         <td><%= truncate(example.title) %></td>
         <td><%= example.id %></td>

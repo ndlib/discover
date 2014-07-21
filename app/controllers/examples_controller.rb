@@ -4,6 +4,6 @@ class ExamplesController < ApplicationController
 
 
   def index
-    @examples = ExampleRecordDecorator.by_institution(params[:institution])
+    @example_collection = ExampleRecordCollection.new(params[:institution])
   end
 end
