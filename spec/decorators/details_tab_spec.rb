@@ -339,6 +339,22 @@ describe DetailsTab do
       end
     end
 
+    describe '#links_array' do
+      before do
+        subject.stub(:links_methods).and_return([:worldcat_link])
+      end
+
+      it 'returns the links in an array' do
+        expect(subject).to receive(:worldcat_link).and_return('link')
+        expect(subject.links_array).to eq(['link'])
+      end
+
+      it 'flattens the array' do
+        expect(subject).to receive(:worldcat_link).and_return(['link1', 'link2'])
+        expect(subject.links_array).to eq(['link1', 'link2'])
+      end
+    end
+
     describe '#links' do
       before do
         subject.stub(:links_methods).and_return([:worldcat_link])
