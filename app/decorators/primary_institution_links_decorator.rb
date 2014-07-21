@@ -12,4 +12,8 @@ class PrimaryInstitutionLinksDecorator < InstitutionLinksDecorator
     end
   end
 
+  def display_report_a_problem?
+    report_a_problem.present? && display_sfx_link?
+  end
+
 end

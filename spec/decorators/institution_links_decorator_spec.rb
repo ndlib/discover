@@ -72,4 +72,10 @@ describe InstitutionLinksDecorator do
     end
   end
 
+  describe '#display_report_a_problem?' do
+    it 'is false' do
+      expect(subject.display_report_a_problem?).to be_false
+    end
+  end
+
 end

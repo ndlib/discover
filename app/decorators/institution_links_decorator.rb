@@ -14,7 +14,23 @@ class InstitutionLinksDecorator < Draper::Decorator
 
 
   def report_a_problem
-    LinkDecorator.new(object['report_a_problem'])
+    if get(:report_a_problem)
+      @report_a_problem ||= LinkDecorator.new(get(:report_a_problem))
+    else
+      nil
+    end
+  end
+
+  def display_report_a_problem?
+    false
+  end
+
+  def report_a_problem_link
+    if report_a_problem.present?
+      report_a_problem.link
+    else
+      nil
+    end
   end
 
 
