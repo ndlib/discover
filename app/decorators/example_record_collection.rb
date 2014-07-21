@@ -38,7 +38,22 @@ class ExampleRecordCollection < Draper::Decorator
     load_yaml[institution]
   end
 
+  def institutions
+    load_yaml.keys
+  end
+
+  def institution_links
+    institutions.collect do |key|
+      institution_title = h.t("institutions.#{key}")
+      if key == institution
+        institution_title
+      else
+        h.link_to(institution_title, h.examples_path(key))
+      end
+    end
+  end
+
   def load_yaml
-    YAML::load_file(Rails.root.join('config', 'example_records.yml'))
+    @load_yaml ||= YAML::load_file(Rails.root.join('config', 'example_records.yml'))
   end
 end

@@ -1,7 +1,9 @@
 <% content_for(:title, "Example Records") %>
 
 <h1>Examples</h1>
-<h2><%= @example_collection.title %></h2>
+<% @example_collection.institution_links.each do |institution| %>
+  <%= institution %> &nbsp;
+<% end %>
 <h3>Tabs</h3>
 <% @example_collection.tab_links.each do |tab| %>
   <%= tab %> &nbsp;
