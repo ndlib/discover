@@ -26,6 +26,7 @@ class DetailsTab < PrimoRecordTab
       :biographical_note,
       :general_notes,
       :type,
+      :citation,
     ]
   end
 
@@ -87,6 +88,10 @@ class DetailsTab < PrimoRecordTab
 
   def biographical_note
     ulize_array(record.biographical_note)
+  end
+
+  def citation
+    ulize_array(record.citation)
   end
 
   def general_notes
