@@ -29,6 +29,8 @@ en:
       title: Title
       author: "Author"
       published: "Published"
+      edition: "Edition"
+      format: "Format"
       description: "Description"
       biographical_note: "Biographical Note"
       general_notes: "General Notes"
@@ -63,6 +65,8 @@ en:
       title: Title
       author: "Author"
       published: "Published"
+      edition: "Edition"
+      format: "Format"
       description: "Description"
       biographical_note: "Biographical Note"
       general_notes: "General Notes"

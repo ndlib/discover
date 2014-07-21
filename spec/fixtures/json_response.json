@@ -28,6 +28,8 @@
     "publisher":["publisher"],
     "creation_date":["creation_date"],
     "format":["format"],
+    "biographical_note":["biographical_note"],
+    "citation":["citation"],
     "is_part_of":["is_part_of"],
     "earlier_title":["earlier_title"],
     "later_title":["later_title"],

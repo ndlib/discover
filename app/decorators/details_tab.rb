@@ -17,6 +17,8 @@ class DetailsTab < PrimoRecordTab
       :author,
       :contributor,
       :published,
+      :edition,
+      :format,
       :description,
       :contents,
       :subjects,
@@ -80,6 +82,14 @@ class DetailsTab < PrimoRecordTab
 
   def published
     ulize_array(record.published)
+  end
+
+  def edition
+    ulize_array(record.edition)
+  end
+
+  def format
+    ulize_array(record.format)
   end
 
   def description

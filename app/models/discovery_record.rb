@@ -44,7 +44,7 @@ class DiscoveryRecord
 
   def published
     ret = []
-    [:edition, :publisher, :creation_date, :format].each do | field |
+    [:publisher, :creation_date].each do | field |
       ret += send(field) if send(field)
     end
 
