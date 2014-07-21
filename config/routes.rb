@@ -1,11 +1,12 @@
 Discover::Application.routes.draw do
   devise_for :users
   mount HesburghErrors::Engine => "/hesburgh_errors"
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  root 'records#show', id: "ndu_aleph000188916"
+  if Rails.env.development?
+    root to: redirect('/examples')
+  else
+    root to: redirect('http://library.nd.edu')
+  end
 
   get 'check' => 'health_check#check'
 
@@ -27,6 +28,10 @@ Discover::Application.routes.draw do
   get 'primo_library/libweb/*path' => 'primo_proxy#index', as: :proxy
   post 'primo_library/libweb/*path' => 'primo_proxy#index'
 
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
+
+  # You can have the root of your site routed with "root"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
