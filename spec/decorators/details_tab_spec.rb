@@ -32,6 +32,21 @@ describe DetailsTab do
     end
   end
 
+  shared_examples_for "a ulized field" do
+    before(:each) do
+      record.stub(field).and_return(["#{field}1", "#{field}2"])
+    end
+
+    it "is the record field" do
+      expect(record).to receive(field)
+      subject.send(field)
+    end
+
+    it "returns a ul with lis" do
+      expect(subject.send(field)).to eq("<ul><li>#{field}1</li><li>#{field}2</li></ul>")
+    end
+  end
+
   describe 'found record' do
     let(:record) { double(DiscoveryRecord) }
 
@@ -108,33 +123,21 @@ describe DetailsTab do
     end
 
     describe '#biographical_note' do
-      before(:each) do
-        record.stub(:biographical_note).and_return(['biographical_note1', 'biographical_note2'])
-      end
+      let(:field) {:biographical_note}
 
-      it 'is the subject#biographical_note' do
-        expect(record).to receive(:biographical_note)
-        subject.biographical_note
-      end
+      it_behaves_like "a ulized field"
+    end
 
-      it "returns a ul with lis" do
-        expect(subject.biographical_note).to eq("<ul><li>biographical_note1</li><li>biographical_note2</li></ul>")
-      end
+    describe '#citation' do
+      let(:field) {:citation}
+
+      it_behaves_like "a ulized field"
     end
 
     describe '#general_notes' do
-      before(:each) do
-        record.stub(:general_notes).and_return(['general_notes', 'general_notes2'])
-      end
+      let(:field) {:general_notes}
 
-      it 'is the subject#general_notes' do
-        expect(record).to receive(:general_notes)
-        subject.general_notes
-      end
-
-      it "returns a ul with lis" do
-        expect(subject.general_notes).to eq("<ul><li>general_notes</li><li>general_notes2</li></ul>")
-      end
+      it_behaves_like "a ulized field"
     end
 
     describe '#subjects' do
@@ -148,18 +151,9 @@ describe DetailsTab do
 
 
     describe "#contents" do
-      before(:each) do
-        record.stub(:contents).and_return(['contents1', 'contents2', 'contents3'])
-      end
+      let(:field) {:contents}
 
-      it "is the record#contents" do
-        expect(record).to receive(:contents)
-        subject.contents
-      end
-
-      it "returns an array" do
-        expect(subject.contents).to eq("<ul><li>contents1</li><li>contents2</li><li>contents3</li></ul>")
-      end
+      it_behaves_like "a ulized field"
     end
 
     describe "#series" do
