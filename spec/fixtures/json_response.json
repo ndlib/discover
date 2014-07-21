@@ -17,6 +17,7 @@
     "creator":{"fulltext":["creator"],"hierarchical":[ ["creator", "creator"] ]},
     "contributor":{"fulltext":["contributor"],"hierarchical":[["contributor","contributor"]]},
     "language":["language"],
+    "language_note":["language_note"],
     "general_notes":["general_notes"],
     "source":["source"],
     "subjects":{"fulltext":["subjects"],"hierarchical":[["subjects","subjects"]]},

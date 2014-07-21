@@ -191,6 +191,11 @@ describe DetailsTab do
       end
     end
 
+    describe '#language_note' do
+      let(:field) {:language_note}
+
+      it_behaves_like "a ulized field"
+    end
 
     describe '#type' do
       it 'is the record type' do

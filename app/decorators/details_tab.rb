@@ -25,6 +25,7 @@ class DetailsTab < PrimoRecordTab
       :series,
       :source,
       :language,
+      :language_note,
       :biographical_note,
       :general_notes,
       :type,
@@ -123,6 +124,10 @@ class DetailsTab < PrimoRecordTab
   def language
     languages = ConvertLanguageCodes.call(record.language)
     ulize_array(languages)
+  end
+
+  def language_note
+    ulize_array(record.language_note)
   end
 
   def identifiers
