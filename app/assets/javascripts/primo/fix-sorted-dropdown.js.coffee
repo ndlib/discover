@@ -4,7 +4,6 @@
 
 jQuery ($) ->
   ready = ->
-    # if Onesearch tab is acitve
-    if $('#tab').val("onsearch")
+    if $('#tab').val() == "onesearch"
       $('.EXLSortByLink a[href^="search.do?srt=lso"]').parent().remove()
   $(document).ready(ready)
