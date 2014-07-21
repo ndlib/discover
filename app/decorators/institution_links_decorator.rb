@@ -45,4 +45,18 @@ class InstitutionLinksDecorator < Draper::Decorator
     end
   end
 
+  def finding_aids
+    get(:finding_aids).collect { |link| LinkDecorator.new(link) }
+  end
+
+  def finding_aid_links
+    finding_aids.collect{ |decorator| decorator.link }
+  end
+
+  private
+
+    def get(key)
+      object[key.to_s]
+    end
+
 end
