@@ -5,6 +5,6 @@
 jQuery ($) ->
   ready = ->
     # if Onesearch tab is acitve
-    if $('a[tabindex=1]').hasClass("active")
+    if $('#exlidSearchTabs a[tabindex=1]').hasClass("active")
       $('a[href^="search.do?srt=lso"]').parent().remove()
   $(document).ready(ready)
