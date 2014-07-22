@@ -22,7 +22,7 @@ ndu:
     description: Primo Central Journal. ispartof key.
   - id: ndu_aleph003418217
     title: Beowulf
-    description: Multiple languages. lds05
+    description: Multiple languages. Language Note (lds05)
   - id: "TN_mla2008381166"
     title: "Chapter: Catcher in the Rye"
     description: "Book chapter with the findtext link."
