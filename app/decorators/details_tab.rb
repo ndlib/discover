@@ -41,7 +41,7 @@ class DetailsTab < PrimoRecordTab
 
   def other_titles_methods
     [
-      :uniform_titles, :variant_title
+      :uniform_titles, :parallel_title, :variant_title
     ]
   end
 
@@ -229,6 +229,10 @@ class DetailsTab < PrimoRecordTab
 
   def links
     ulize_array(links_array)
+  end
+
+  def parallel_title
+    ulize_array(record.parallel_title)
   end
 
   def variant_title
