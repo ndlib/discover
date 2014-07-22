@@ -89,6 +89,15 @@ ndu:
   - id: nduspec_eadRBSC-MSSP0014
     title: All-American Girls Baseball League Collection
     description: Has a very long contents entry that needs to be dealt with
+  - id: ndu_aleph002356684
+    title: Springer eBook collection in computer science
+    description: Has coverage field
+  - id: ndu_aleph002085220
+    title: Bibliografía haitiana en la República Dominicana
+    description: Has linktoreview link
+  - id: ndu_aleph003471795
+    title: Women and men at work
+    description: Has multiple addlink links
 bci:
   - id: ndu_aleph001576619
     title: Science
