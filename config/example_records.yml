@@ -19,7 +19,7 @@ ndu:
     description: Journal with a lot of online links and volumes.
   - id: TN_gale_ofa277204662
     title: Firing on all synapses.(feature articles that have been covered by New Scientist)
-    description: Primo Central Journal. ispartof key.
+    description: Primo Central Journal. ispartof/is_part_of key.
   - id: ndu_aleph003418217
     title: Beowulf
     description: Multiple languages. Language Note (lds05)
@@ -37,7 +37,7 @@ ndu:
     description: Record with FindText tab
   - id: ndu_aleph002808607
     title: "Government finance stats"
-    description: Gov doc with some extra fields and a link with descriptive text.
+    description: "Gov doc with some extra fields, rights field, and a link with descriptive text."
   - id: ndu_aleph003030037
     title: "The little data book. 2008"
     description: Findtext redirect weirdness
