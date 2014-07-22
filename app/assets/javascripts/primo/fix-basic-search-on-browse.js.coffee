@@ -11,5 +11,5 @@ jQuery ($) ->
       $('.EXLSearchFieldRibbonFormLinks a[title="Basic Search"]').attr("href", searchURL + "?tab=nd_campus&mode=Basic")
 
       # Add a link to advanced search
-      $(".EXLSearchFieldRibbonFormLinks").append('&nbsp;&nbsp;<a href="' + searchURL + '?tab=nd_campus&mode=Advanced">ADVANCED SEARCH</a>')
+      $(".EXLSearchFieldRibbonFormLinks").append('&nbsp;&nbsp;<a href="' + searchURL + '?tab=nd_campus&mode=Advanced" title="Advanced Search">Advanced Search</a>')
   $(document).ready(ready)
