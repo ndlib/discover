@@ -24,3 +24,4 @@
 //= require ../fix-eshelf-class.js
 //= require ../fix-sorted-dropdown.js
 //= require ../fix-basic-search-on-browse.js
+//= require ../fix-advanced-search-materials.js
