@@ -11,12 +11,12 @@
 <ul class="hold-pickup">
 
   <li>
-    <%= link_to "Hesburgh Library", step4_path %>
+    <%= link_to "Hesburgh Library", step4_path(@record.url_params( pickup_location: '1')) %>
   </li>
   <li>
-    <%= link_to "A Branch", step4_path %>
+    <%= link_to "A Branch", step4_path(@record.url_params( pickup_location: '2')) %>
   </li>
   <li>
-    <%= link_to "My Office", step4_path %>
+    <%= link_to "My Office", step4_path(@record.url_params( pickup_location: '3')) %>
   </li>
 </ul>
