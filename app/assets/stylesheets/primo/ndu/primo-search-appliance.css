@@ -535,4 +535,20 @@ span.EXLSearchFieldRibbonFormSelectedCollectionLabel {
     width:auto;
     padding:2em 5px .5em;
   }
+  .EXLSearchFieldRibbonFormSubmitSearch {
+    position: relative;
+  }
+
+  #exlidAdvancedSearchRibbon input {
+    width:100%;
+  }
+
+  #exlidAdvancedSearchRibbon select, #exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormFieldsGroup2 select {
+    border-color:#ccc;
+  }
+
+  #exlidAdvancedSearchRibbon input, #exlidSearchRibbon input.EXLSearchFieldMaximized {
+     -webkit-box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.3);
+     border:solid 1px #ccc !important;
+  }
 }

@@ -879,7 +879,7 @@ display: none;
 
 .EXLMyShelfStar a {
   position: absolute;
-  left: -99px;
+  left: -105px;
   top:4em;
   height:0;
   width: 20px;
@@ -1019,4 +1019,17 @@ display: none;
 
 .about-outer-box {
   z-index: 300;
+}
+
+.ndl-sfx img {
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.EXLBrowseList .EXLSearchTabsContainer {
+  background:url("https:asset.library.nd.edu/assets/hesburgh_assets/main/1.0/search_appliance/ndcatalog.png") no-repeat 5px 10px;
+}
+
+.EXLBrowseSearch .EXLFacetContainer div.EXLFacetActionsV2 li.EXLFacetSaveToEShelfActionOff {
+  display: none;
 }
