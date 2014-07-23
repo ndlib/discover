@@ -19,10 +19,10 @@ ndu:
     description: Journal with a lot of online links and volumes.
   - id: TN_gale_ofa277204662
     title: Firing on all synapses.(feature articles that have been covered by New Scientist)
-    description: Primo Central Journal. ispartof key.
+    description: Primo Central Journal. ispartof/is_part_of key.
   - id: ndu_aleph003418217
     title: Beowulf
-    description: Multiple languages. lds05
+    description: Multiple languages. Language Note (lds05)
   - id: "TN_mla2008381166"
     title: "Chapter: Catcher in the Rye"
     description: "Book chapter with the findtext link."
@@ -37,7 +37,7 @@ ndu:
     description: Record with FindText tab
   - id: ndu_aleph002808607
     title: "Government finance stats"
-    description: Gov doc with some extra fields and a link with descriptive text.
+    description: "Gov doc with some extra fields, rights field, and a link with descriptive text."
   - id: ndu_aleph003030037
     title: "The little data book. 2008"
     description: Findtext redirect weirdness
@@ -89,6 +89,18 @@ ndu:
   - id: nduspec_eadRBSC-MSSP0014
     title: All-American Girls Baseball League Collection
     description: Has a very long contents entry that needs to be dealt with
+  - id: ndu_aleph002356684
+    title: Springer eBook collection in computer science
+    description: Has coverage field
+  - id: ndu_aleph002085220
+    title: Bibliografía haitiana en la República Dominicana
+    description: Has linktoreview link
+  - id: ndu_aleph003471795
+    title: Women and men at work
+    description: Has multiple addlink links
+  - id: ndu_aleph000495163
+    title: Van Gogh
+    description: Has lds06 field (for now)
 bci:
   - id: ndu_aleph001576619
     title: Science

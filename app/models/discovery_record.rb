@@ -35,7 +35,7 @@ class DiscoveryRecord
   end
 
   # display methods
-  [:title, :vernacular_title, :language, :biographical_note, :general_notes, :source, :description, :contents, :edition, :publisher, :creation_date, :format, :is_part_of, :creator, :contributor, :subjects, :series, :uniform_titles, :earlier_title, :later_title, :supplement, :supplement_to, :issued_with, :variant_title].each do |field|
+  [:title, :vernacular_title, :language, :language_note, :biographical_note, :citation, :general_notes, :source, :description, :contents, :edition, :publisher, :creation_date, :format, :is_part_of, :creator, :contributor, :subjects, :series, :uniform_titles, :earlier_title, :later_title, :supplement, :supplement_to, :issued_with, :parallel_title, :variant_title].each do |field|
     define_method(field) do
       display(field)
     end
@@ -44,7 +44,7 @@ class DiscoveryRecord
 
   def published
     ret = []
-    [:edition, :publisher, :creation_date, :format].each do | field |
+    [:publisher, :creation_date].each do | field |
       ret += send(field) if send(field)
     end
 

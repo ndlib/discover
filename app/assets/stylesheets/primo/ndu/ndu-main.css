@@ -667,6 +667,7 @@ div.EXLBackToResults a, .EXLResultsNavigation .EXLDisplayedCountTitle, .EXLResul
 
 #exlidUserAreaRibbon li span.EXLMyShelfStarSelected {
   background: url("../icon_star_on.png");
+
 }
 
 .sign_in_alert {
@@ -878,7 +879,7 @@ display: none;
 
 .EXLMyShelfStar a {
   position: absolute;
-  left: -104px;
+  left: -99px;
   top:4em;
   height:0;
   width: 20px;
@@ -920,7 +921,8 @@ display: none;
 }
 
 #exlidUserAreaRibbon li span.EXLMyShelfStarSelected {
-  background:url("../ndu/folder.white.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+  background:url("../ndu/folder.white.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  background:url("../ndu/folder.y.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
   height:20px !important;
   width:20px !important;
   padding-right:3px !important;
@@ -973,8 +975,9 @@ display: none;
   position:absolute;
   left:50%;
   top:363px;
- background-image:url("../ndu/folder.empty.gif");
-  z-index: 3000;
+ background-image:url("../ndu/folder.add.gif");
+  z-index: 30;
+  padding-left:23px;
 }
 
 .EXLMyAccountMainMenuContainer ol li span.EXLMyAccountMainMenuBulletSelected {
@@ -983,4 +986,37 @@ display: none;
 
 .folder_details .itemsListTable td, .folder_details .itemsListTH th {
   padding:3px;
+}
+
+.EXLResultsList em.EXLResultStatusMaybeAvailable, .EXLResultsList em.EXLResultStatusAvailable {
+  padding-left:0;
+  background:none;
+}
+
+
+
+.ndl-hierarchical-search a {
+  padding:3px;
+  border-radius: 3px;
+}
+
+.ndl-hierarchical-search .ndl-hover a {
+  background:#cecebf;
+}
+
+.publication.date #exlidFacetSublist1 {
+  display: none;
+}
+
+.ndl-online-access-disclaimer {
+  background: none repeat scroll 0 0 #FFEDB8;
+  display: inline-block;
+  margin-left: 15px;
+  margin-top: 1em;
+  padding: 3px 5px;
+  border:solid  1px #E0CE99;
+}
+
+.about-outer-box {
+  z-index: 300;
 }

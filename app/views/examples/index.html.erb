@@ -1,7 +1,14 @@
 <% content_for(:title, "Example Records") %>
 
-<h1>Example Records</h1>
-
+<h1>Examples</h1>
+<% @example_collection.institution_links.each do |institution| %>
+  <%= institution %> &nbsp;
+<% end %>
+<h3>Tabs</h3>
+<% @example_collection.tab_links.each do |tab| %>
+  <%= tab %> &nbsp;
+<% end %>
+<h3>Records</h3>
 <table>
   <thead>
     <tr>
@@ -15,7 +22,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @examples.each do |example| %>
+    <% @example_collection.records.each do |example| %>
       <tr>
         <td><%= truncate(example.title) %></td>
         <td><%= example.id %></td>

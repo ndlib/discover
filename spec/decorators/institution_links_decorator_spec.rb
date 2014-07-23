@@ -15,6 +15,15 @@ describe InstitutionLinksDecorator do
         "targets_loaded" =>false,
         "number_of_targets" =>0
       },
+      "finding_aids" => [
+        {
+          "url" => "http://rbsc.library.nd.edu/finding_aid/RBSC-MSNEA0506:143",
+          "title" => "Full description / Finding Aid",
+          "notes" => [ ],
+          "service_type" => "Finding Aid",
+          "source" => "Primo"
+        },
+      ],
       "ill" =>nil,
       "report_a_problem" =>nil
     }
@@ -54,6 +63,18 @@ describe InstitutionLinksDecorator do
     it 'is not displayed when display_sfx_link? is false' do
       expect(subject).to receive(:display_sfx_link?).and_return(false)
       expect(subject.sfx_link).to be_nil
+    end
+  end
+
+  describe '#finding_aid_links' do
+    it 'is the finding aid links' do
+      expect(subject.finding_aid_links).to eq(["<a href=\"http://rbsc.library.nd.edu/finding_aid/RBSC-MSNEA0506:143\" target=\"_blank\">Full description / Finding Aid</a>"])
+    end
+  end
+
+  describe '#display_report_a_problem?' do
+    it 'is false' do
+      expect(subject.display_report_a_problem?).to be_false
     end
   end
 

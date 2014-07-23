@@ -9,8 +9,12 @@
   .EXLDetailsTab, .EXLViewOnlineTab, .EXLLocationsTab {
     display: inline;
 
+    a {
+      font-size: 8px !important;
+    }
+
     a:after {
-      content: " (original)";
+      content: " (orig)";
     }
   }
 }

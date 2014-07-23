@@ -48,7 +48,7 @@ describe DiscoveryRecord do
 
   describe :display_attributes do
     # standar attributes
-    [:title, :vernacular_title, :language, :general_notes, :source, :description, :contents, :edition, :publisher, :creation_date, :format, :is_part_of, :earlier_title, :later_title, :supplement, :supplement_to, :issued_with, :variant_title].each do | key |
+    [:title, :vernacular_title, :language, :language_note, :general_notes, :source, :description, :contents, :edition, :publisher, :creation_date, :format, :biographical_note, :citation, :is_part_of, :earlier_title, :later_title, :supplement, :supplement_to, :issued_with, :parallel_title, :variant_title].each do | key |
       it "returns the #{key}" do
         expect(subject.send(key)).to eq([key.to_s])
       end
@@ -77,12 +77,12 @@ describe DiscoveryRecord do
 
   describe :published do
     it "has published" do
-      expect(subject.published).to eq(["edition", "publisher", "creation_date", "format"])
+      expect(subject.published).to eq(["publisher", "creation_date"])
     end
 
     it "excludes fields that are not in use" do
-      subject.stub('edition').and_return(nil)
-      expect(subject.published).to eq(["publisher", "creation_date", "format"])
+      subject.stub('creation_date').and_return(nil)
+      expect(subject.published).to eq(["publisher"])
     end
   end
 

@@ -48,7 +48,7 @@ gem 'mysql2'
 gem 'newrelic_rpm'
 
 gem 'hipchat'
-gem 'rack-mini-profiler'
+# gem 'rack-mini-profiler'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

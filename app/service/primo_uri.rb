@@ -49,16 +49,16 @@ class PrimoURI
     base_basic_search_params.merge({ 'vl(freeText0)' => value})
   end
 
-  def advanced_search_params(scope, value)
+  def advanced_search_params(scope, value, placement = '0')
     base_advanced_search_params.merge({
-      advanced_search_scope_name => advanced_search_scope_value(scope),
-      "vl(1UIStartWith0)"=>"exact",
-      'vl(freeText0)' => value
+      advanced_search_scope_name(placement) => advanced_search_scope_value(scope),
+      "vl(1UIStartWith#{placement})"=>"exact",
+      "vl(freeText#{placement})" => value
     })
   end
 
-  def advanced_search_scope_name
-    "vl(#{primo_configuration.advanced_search_scope_name})"
+  def advanced_search_scope_name(placement)
+    "vl(#{primo_configuration.advanced_search_scope_name(placement)})"
   end
 
   def advanced_search_scope_value(scope)
@@ -69,7 +69,7 @@ class PrimoURI
     "#{base_path('search.do')}?#{basic_search_params(value).to_query}"
   end
 
-  def advanced_search(scope, value)
-    "#{base_path('search.do')}?#{advanced_search_params(scope, value).to_query}"
+  def advanced_search(scope1, value1, scope2 = false, value2 = false)
+    "#{base_path('search.do')}?#{advanced_search_params(scope1, value1, '0').to_query}&#{value2 ? advanced_search_params(scope2, value2, '1').to_query : ''}"
   end
 end

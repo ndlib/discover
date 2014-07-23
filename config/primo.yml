@@ -7,28 +7,35 @@ default: &default
         - onesearch
         - ebooks
       advanced_search:
-        scope_name: 16833817UI0
+        scope_name:
+          - 16833817UI0
+          - 16833818UI1
     BCI:
       tabs:
         - onesearch
         - bci
         - malc
       advanced_search:
-        scope_name: 16833526UI0
+        scope_name:
+          - 16833526UI0
+          - 16833527UI1
     HCC:
       tabs:
         - hcc
         - malc
       advanced_search:
-        scope_name: 16833755UI0
+        scope_name:
+          - 16833755UI0
+          - 16833756UI1
     SMC:
       tabs:
         - onesearch
         - smc
         - malc
       advanced_search:
-        scope_name: 16833813UI0
-
+        scope_name:
+          - 16833813UI0
+          - 16833814UI1
 development:
   <<: *default
 

@@ -17,8 +17,10 @@ class PrimoConfiguration
     vid_configuration['tabs'] || []
   end
 
-  def advanced_search_scope_name
-    advanced_search_configuration['scope_name']
+  def advanced_search_scope_name(placement = '0')
+    return nil if !advanced_search_configuration['scope_name']
+
+    advanced_search_configuration['scope_name'][placement.to_i]
   end
 
   private

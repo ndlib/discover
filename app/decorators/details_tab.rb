@@ -17,27 +17,31 @@ class DetailsTab < PrimoRecordTab
       :author,
       :contributor,
       :published,
+      :edition,
+      :format,
       :description,
       :contents,
       :subjects,
       :series,
       :source,
       :language,
+      :language_note,
       :biographical_note,
       :general_notes,
       :type,
+      :citation,
     ]
   end
 
   def identifiers_methods
     [
-      :isbn, :issn, :eissn, :doi, :pmid, :lccn, :oclc
+      :isbn, :issn, :eissn, :doi, :pmid, :lccn, :oclc, :record_ids
     ]
   end
 
   def other_titles_methods
     [
-      :uniform_titles, :variant_title
+      :uniform_titles, :parallel_title, :variant_title
     ]
   end
 
@@ -51,7 +55,8 @@ class DetailsTab < PrimoRecordTab
   def links_methods
     [
       :worldcat_link,
-      :record_ids
+      :sfx_link,
+      :finding_aid_links,
     ]
   end
 
@@ -80,12 +85,24 @@ class DetailsTab < PrimoRecordTab
     ulize_array(record.published)
   end
 
+  def edition
+    ulize_array(record.edition)
+  end
+
+  def format
+    ulize_array(record.format)
+  end
+
   def description
     ulize_array(record.description)
   end
 
   def biographical_note
     ulize_array(record.biographical_note)
+  end
+
+  def citation
+    ulize_array(record.citation)
   end
 
   def general_notes
@@ -107,6 +124,10 @@ class DetailsTab < PrimoRecordTab
   def language
     languages = ConvertLanguageCodes.call(record.language)
     ulize_array(languages)
+  end
+
+  def language_note
+    ulize_array(record.language_note)
   end
 
   def identifiers
@@ -172,29 +193,46 @@ class DetailsTab < PrimoRecordTab
   end
 
   def earlier_title
-    ulize_array(record.earlier_title)
+    author_title_search_links(record.earlier_title)
   end
 
   def later_title
-    ulize_array(record.later_title)
+    author_title_search_links(record.later_title)
   end
 
   def supplement
-    ulize_array(record.supplement)
+    author_title_search_links(record.supplement)
   end
 
   def supplement_to
-    ulize_array(record.supplement_to)
+    author_title_search_links(record.supplement_to)
   end
 
   def issued_with
-    ulize_array(record.issued_with)
+    author_title_search_links(record.issued_with)
+  end
+
+  def links_array
+    [].tap do |array|
+      links_methods.each do |method|
+        value = send(method)
+        if value.present?
+          if value.is_a?(Array)
+            array.concat(value)
+          else
+            array << value
+          end
+        end
+      end
+    end
   end
 
   def links
-    links_array = links_methods.collect{ |method| send(method) }
-    links_array.compact!
     ulize_array(links_array)
+  end
+
+  def parallel_title
+    ulize_array(record.parallel_title)
   end
 
   def variant_title
@@ -232,6 +270,30 @@ class DetailsTab < PrimoRecordTab
     end
   end
 
+  def institution_links
+    @institution_links ||= InstitutionLinks.new(record)
+  end
+
+  def primary_institution_links
+    institution_links.primary_institution_links
+  end
+
+  def sfx_link
+    if primary_institution_links.present?
+      primary_institution_links.sfx_link
+    else
+      nil
+    end
+  end
+
+  def finding_aid_links
+    if primary_institution_links.present?
+      primary_institution_links.finding_aid_links
+    else
+      nil
+    end
+  end
+
   def t(key)
     h.raw(h.t("record.#{key}"))
   end
@@ -249,6 +311,13 @@ class DetailsTab < PrimoRecordTab
     def hierarchical_links_ul(scope, values)
       links = hierarchical_links(scope, values)
       ulize_array(links)
+    end
+
+
+    def author_title_search_links(values)
+      if values.present?
+        AuthorTitleSearchLinks.render(values, primo_uri)
+      end
     end
 
     def ulize_array(arr)

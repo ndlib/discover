@@ -15,6 +15,15 @@ describe PrimaryInstitutionLinksDecorator do
         "targets_loaded" =>false,
         "number_of_targets" =>0
       },
+      "finding_aids" => [
+        {
+          "url" => "http://rbsc.library.nd.edu/finding_aid/RBSC-MSNEA0506:143",
+          "title" => "Full description / Finding Aid",
+          "notes" => [ ],
+          "service_type" => "Finding Aid",
+          "source" => "Primo"
+        },
+      ],
       "ill" =>nil,
       "report_a_problem" =>nil
     }
@@ -48,6 +57,26 @@ describe PrimaryInstitutionLinksDecorator do
       expect(subject.sfx_link_decorator).to receive(:targets_loaded?).and_return(true)
       expect(subject.sfx_link_decorator).to receive(:number_of_targets).and_return(0)
       expect(subject.display_sfx_link?).to be_false
+    end
+  end
+
+  describe '#display_report_a_problem?' do
+    it 'is false when there is no report_a_problem link' do
+      subject.stub(:report_a_problem).and_return(false)
+      subject.stub(:display_sfx_link?).and_return(true)
+      expect(subject.display_report_a_problem?).to be_false
+    end
+
+    it 'is false when display_sfx_link is false' do
+      subject.stub(:report_a_problem).and_return(true)
+      subject.stub(:display_sfx_link?).and_return(false)
+      expect(subject.display_report_a_problem?).to be_false
+    end
+
+    it 'is true when there is a report_a_problem link and display_sfx_link is true' do
+      subject.stub(:report_a_problem).and_return(true)
+      subject.stub(:display_sfx_link?).and_return(true)
+      expect(subject.display_report_a_problem?).to be_true
     end
   end
 

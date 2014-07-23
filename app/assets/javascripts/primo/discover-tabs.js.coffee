@@ -89,6 +89,17 @@ jQuery ($) ->
         if originalTab.hasClass('EXLResultSelectedTab')
           newTab.click()
 
+  addDetailsTab = ->
+    addTab(originalDetailsTabClass, detailsTabClass, "Details", getOtherDetails)
+
+  addOnlineAccessTab = ->
+    originalTab = $(".#{originalOnlineAccessTabClass}")
+    if originalTab.length > 0
+      findtextRegex = /findtext/i
+      tabText = originalTab.find('a').text()
+      if !findtextRegex.test(tabText)
+        addTab(originalOnlineAccessTabClass, onlineAccessTabClass, "Access Online", getOnlineAccess)
+
 
   ready = ->
     $vid = $('#vid')
@@ -97,8 +108,8 @@ jQuery ($) ->
       $vid = $('#vid_browse_input')
     currentVID = $vid.val()
     currentTab = $('#tab').val()
-    addTab(originalDetailsTabClass, detailsTabClass, "Details", getOtherDetails)
-    addTab(originalOnlineAccessTabClass, onlineAccessTabClass, "Access Online", getOnlineAccess)
+    addDetailsTab()
+    addOnlineAccessTab()
 
     $('.ndl-details').each ->
       attachEvents($(this))
