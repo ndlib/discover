@@ -19,6 +19,8 @@ class DetailsTab < PrimoRecordTab
       :published,
       :edition,
       :format,
+      :coverage,
+      :is_part_of,
       :description,
       :contents,
       :subjects,
@@ -28,6 +30,7 @@ class DetailsTab < PrimoRecordTab
       :language_note,
       :biographical_note,
       :general_notes,
+      :rights,
       :type,
       :citation,
     ]
@@ -93,6 +96,14 @@ class DetailsTab < PrimoRecordTab
     ulize_array(record.format)
   end
 
+  def coverage
+    ulize_array(record.coverage)
+  end
+
+  def is_part_of
+    ulize_array(record.is_part_of)
+  end
+
   def description
     ulize_array(record.description)
   end
@@ -107,6 +118,10 @@ class DetailsTab < PrimoRecordTab
 
   def general_notes
     ulize_array(record.general_notes)
+  end
+
+  def rights
+    ulize_array(record.rights)
   end
 
   def series
