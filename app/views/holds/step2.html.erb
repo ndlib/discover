@@ -9,10 +9,10 @@
 <ul class="hold-copy">
 
   <li>
-    <%= link_to "Notre Dame", step3_path %>
+    <%= link_to "Notre Dame", step3_path(@record.url_params( library: '1')) %>
   </li>
   <li>
-    <%= link_to "Saint Mary's", step3_path %>
+    <%= link_to "Saint Mary's", step3_path(@record.url_params( library: '2')) %>
   </li>
 
 </ul>

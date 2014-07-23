@@ -1,95 +1,55 @@
 class HoldsController < ApplicationController
 
+
   def volumns
-    action = HoldsAction.initialize(self)
+    @record = HoldsTab.new(self)
 
-    @record = action.record
-
-    respond_to do |format|
-      format.html do
-        if request.xhr? || params[:xhr].present?
-          render 'step1', layout: false
-        else
-          render 'step1'
-        end
-      end
-      format.json { render json: @record.object.to_json }
-    end
+    respond_with('step1')
   end
 
 
   def institutions
+    @record = HoldsTab.new(self)
+    @record.save_input(params)
 
-    action = HoldsAction.initialize(self)
-
-    @record = action.record
-
-    respond_to do |format|
-      format.html do
-        if request.xhr? || params[:xhr].present?
-          render 'step2', layout: false
-        else
-          render 'step2'
-        end
-      end
-      format.json { render json: @record.object.to_json }
-    end
+    respond_with('step2')
   end
 
 
   def pickup
+    @record = HoldsTab.new(self)
+    @record.save_input(params)
 
-    action = HoldsAction.initialize(self)
-
-    @record = action.record
-
-    respond_to do |format|
-      format.html do
-        if request.xhr? || params[:xhr].present?
-          render 'step3', layout: false
-        else
-          render 'step3'
-        end
-      end
-      format.json { render json: @record.object.to_json }
-    end
+    respond_with('step3')
   end
 
 
   def finalize
+    @record = HoldsTab.new(self)
+    @record.save_input(params)
 
-    action = HoldsAction.initialize(self)
-
-    @record = action.record
-
-    respond_to do |format|
-      format.html do
-        if request.xhr? || params[:xhr].present?
-          render 'step4', layout: false
-        else
-          render 'step4'
-        end
-      end
-      format.json { render json: @record.object.to_json }
-    end
+    respond_with('step4')
   end
 
 
   def submit
-    action = HoldsAction.initialize(self)
+    @record = HoldsTab.new(self)
+    @record.save_input(params)
 
-    @record = action.record
+    respond_with('submit_complete')
+  end
 
+
+  def respond_with(template)
     respond_to do |format|
       format.html do
         if request.xhr? || params[:xhr].present?
-          render 'submit_complete', layout: false
+          render template, layout: false
         else
-          render 'submit_complete'
+          render template
         end
       end
       format.json { render json: @record.object.to_json }
     end
-
   end
 end
