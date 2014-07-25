@@ -59,7 +59,7 @@ class DetailsTab < PrimoRecordTab
     [
       :worldcat_link,
       :sfx_link,
-      :finding_aid_links,
+      :additional_links,
     ]
   end
 
@@ -301,12 +301,8 @@ class DetailsTab < PrimoRecordTab
     end
   end
 
-  def finding_aid_links
-    if primary_institution_links.present?
-      primary_institution_links.finding_aid_links
-    else
-      nil
-    end
+  def additional_links
+    record_links.all_additional_links
   end
 
   def t(key)

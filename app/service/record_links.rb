@@ -8,7 +8,7 @@ class RecordLinks < Draper::Decorator
   end
 
   def institution_links
-    links['institutions']
+    get(:institutions)
   end
 
   def institution_code
@@ -36,4 +36,25 @@ class RecordLinks < Draper::Decorator
   def other_institutions_links
     institution_links_decorators[:other]
   end
+
+  def all_additional_links
+    @all_additional_links ||= [].tap do |array|
+      [:table_of_contents, :finding_aids, :reviews, :add_links].each do |key|
+        array.concat(additional_links(key))
+      end
+    end
+  end
+
+  def additional_links(key)
+    additional_links_decorators(key).collect { |decorator| decorator.link }
+  end
+
+  def additional_links_decorators(key)
+    get(key).collect { |link| LinkDecorator.new(link) }
+  end
+
+  private
+    def get(key)
+      links[key.to_s]
+    end
 end

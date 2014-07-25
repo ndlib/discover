@@ -24,6 +24,10 @@ describe RecordLinks do
   let(:links) do
     {}.tap do |hash|
       hash['institutions'] = institution_links
+      hash['table_of_contents'] = []
+      hash['finding_aids'] = []
+      hash['reviews'] = []
+      hash['add_links'] = []
     end
   end
   let(:institution_links) do
@@ -60,6 +64,33 @@ describe RecordLinks do
         expect(instituion).to be_a_kind_of(InstitutionLinksDecorator)
         expect(instituion.id).to_not eq('ndu')
       end
+    end
+  end
+
+  describe '#all_additional_links' do
+    it 'calls additional_links' do
+      [:table_of_contents, :finding_aids, :reviews, :add_links].each do |key|
+        expect(subject).to receive(:additional_links).with(key).and_return(["#{key}"])
+      end
+      expect(subject.all_additional_links).to eq(["table_of_contents", "finding_aids", "reviews", "add_links"])
+    end
+  end
+
+  describe '#additional_links' do
+    let(:decorator) { double(LinkDecorator) }
+    it 'collects the decorator links' do
+      expect(subject).to receive(:additional_links_decorators).with('add_links').and_return([decorator])
+      expect(decorator).to receive(:link).and_return('link')
+      expect(subject.additional_links('add_links')).to eq(['link'])
+    end
+  end
+
+  describe '#additional_links_decorators' do
+    let(:decorator) { double(LinkDecorator) }
+    it 'creates a decorator for each link hash' do
+      expect(subject).to receive(:get).with('add_links').and_return(['link_hash'])
+      expect(LinkDecorator).to receive(:new).with('link_hash').and_return(decorator)
+      expect(subject.additional_links_decorators('add_links')).to eq([decorator])
     end
   end
 
