@@ -20,27 +20,33 @@ describe OnlineAccessTab do
     }
   end
 
+  let(:links) do
+    {}.tap do |hash|
+      hash['institutions'] = institution_links
+    end
+  end
+  let(:institution_links) do
+    {}.tap do |hash|
+      ['ndu','smc','bci','hcc'].each do |code|
+        hash[code] = link_data(code)
+      end
+    end
+  end
+
   let(:test_controller) { double(RecordsController, params: {})}
   subject { described_class.new(test_controller) }
 
   describe 'found record' do
-    let(:links) do
-      {}.tap do |hash|
-        ['ndu','smc','bci','hcc'].each do |code|
-          hash[code] = link_data(code)
-        end
-      end
-    end
     let(:record) { double(DiscoveryRecord, links: links, institution_code: 'ndu') }
 
     before do
       subject.stub(:record).and_return(record)
     end
 
-    describe '#institution_links' do
-      it 'is an InstitutionLinks' do
-        expect(subject.institution_links).to be_a_kind_of(InstitutionLinks)
-        expect(subject.institution_links.record).to eq(record)
+    describe '#record_links' do
+      it 'is a RecordLinks' do
+        expect(subject.record_links).to be_a_kind_of(RecordLinks)
+        expect(subject.record_links.record).to eq(record)
       end
     end
 

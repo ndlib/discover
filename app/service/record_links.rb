@@ -1,10 +1,14 @@
-class InstitutionLinks < Draper::Decorator
+class RecordLinks < Draper::Decorator
   def record
     object
   end
 
   def links
     record.links
+  end
+
+  def institution_links
+    links['institutions']
   end
 
   def institution_code
@@ -14,7 +18,7 @@ class InstitutionLinks < Draper::Decorator
   def institution_links_decorators
     if @institution_links_decorators.nil?
       @institution_links_decorators = {primary: nil, other: []}
-      links.each do |id, data|
+      institution_links.each do |id, data|
         if id == institution_code
           @institution_links_decorators[:primary] = PrimaryInstitutionLinksDecorator.new(data)
         else

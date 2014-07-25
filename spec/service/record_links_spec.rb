@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe InstitutionLinks do
+describe RecordLinks do
   def link_data(institution_code)
     {
       "id" => institution_code,
@@ -22,6 +22,11 @@ describe InstitutionLinks do
 
   let(:record) { double(DiscoveryRecord, links: links, institution_code: 'ndu') }
   let(:links) do
+    {}.tap do |hash|
+      hash['institutions'] = institution_links
+    end
+  end
+  let(:institution_links) do
     {}.tap do |hash|
       ['ndu','smc','bci','hcc'].each do |code|
         hash[code] = link_data(code)

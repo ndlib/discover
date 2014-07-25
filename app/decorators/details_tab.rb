@@ -285,12 +285,12 @@ class DetailsTab < PrimoRecordTab
     end
   end
 
-  def institution_links
-    @institution_links ||= InstitutionLinks.new(record)
+  def record_links
+    @record_links ||= RecordLinks.new(record)
   end
 
   def primary_institution_links
-    institution_links.primary_institution_links
+    record_links.primary_institution_links
   end
 
   def sfx_link
