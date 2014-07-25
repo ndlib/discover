@@ -95,10 +95,14 @@ jQuery ($) ->
   addOnlineAccessTab = ->
     originalTab = $(".#{originalOnlineAccessTabClass}")
     if originalTab.length > 0
+      addTab(originalOnlineAccessTabClass, onlineAccessTabClass, "Access Online", getOnlineAccess)
       findtextRegex = /findtext/i
-      tabText = originalTab.find('a').text()
-      if !findtextRegex.test(tabText)
-        addTab(originalOnlineAccessTabClass, onlineAccessTabClass, "Access Online", getOnlineAccess)
+      originalTab.each ->
+        $tab = $(this)
+        tabText = $tab.find('a').text()
+        if findtextRegex.test(tabText)
+          $tab.siblings(".#{onlineAccessTabClass}").hide()
+
 
 
   ready = ->
