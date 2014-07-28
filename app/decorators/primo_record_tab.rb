@@ -7,15 +7,22 @@ class PrimoRecordTab < Draper::Decorator
   end
 
   def id
-    params[:id]
+    param(:id)
   end
 
   def vid
-    params[:vid] || 'NDU'
+    param(:vid) || 'NDU'
   end
 
   def tab
-    params[:tab]
+    if @tab.nil?
+      if param(:tab) == 'null'
+        nil
+      else
+        @tab = param(:tab)
+      end
+    end
+    @tab
   end
 
   def record
@@ -38,6 +45,10 @@ class PrimoRecordTab < Draper::Decorator
 
     def load_record
       DiscoveryQuery.find_by_id(id, vid)
+    end
+
+    def param(key)
+      params[key]
     end
 
 end

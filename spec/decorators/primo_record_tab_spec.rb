@@ -29,6 +29,11 @@ describe DetailsTab do
     it 'is the params tab' do
       expect(subject.tab).to eq('onesearch')
     end
+
+    it 'returns nil if the tab is "null"' do
+      expect(subject).to receive(:param).with(:tab).and_return('null')
+      expect(subject.tab).to be_nil
+    end
   end
 
   describe '#record' do
