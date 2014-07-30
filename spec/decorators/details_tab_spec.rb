@@ -199,8 +199,8 @@ describe DetailsTab do
 
     describe '#type' do
       it 'is the record type' do
-        expect(record).to receive(:type)
-        subject.type
+        expect(record).to receive(:type).and_return('reference_entry')
+        expect(subject.type).to eq 'Reference entry'
       end
     end
 
