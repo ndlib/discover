@@ -24,6 +24,18 @@ class HoldsTab < PrimoRecordTab
     record.title.first
   end
 
+  def holds_data
+    @holds_data ||= HoldData.test
+  end
+
+  def volumes
+    holds_data.volumes
+  end
+
+  def volume_option_tags
+    h.options_from_collection_for_select(volumes, "enumeration", "description")
+  end
+
 
   private
 

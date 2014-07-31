@@ -2,12 +2,15 @@
 <h1>Select Volume/Issue</h1>
 <p>This work has multiple volumes/issues.  Please select the volume issue want to receive. </p>
 
-<ul class="hold-volumn">
-  <li>
-    <%= link_to "Volume 1", step2_path(@record.url_params( volume: '1')) %>
-  </li>
-  <li>
-    <%= link_to "Volume 2", step2_path(volume: '2') %>
-  </li>
+<p>
+  <%= select_tag(:volume, @record.volume_option_tags, prompt: "Select Volume") %>
+</p>
+
+<ul class="hold-volume">
+  <% @record.volumes.each do |volume| %>
+    <li>
+      <%= link_to volume.description, step2_path(@record.url_params( volume: volume.enumeration)) %>
+    </li>
+  <% end %>
 </ul>
 

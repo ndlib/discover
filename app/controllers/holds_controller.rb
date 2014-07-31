@@ -1,7 +1,7 @@
 class HoldsController < ApplicationController
 
 
-  def volumns
+  def volumes
     @record = HoldsTab.new(self)
 
     respond_with('step1')
