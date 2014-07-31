@@ -1,14 +1,25 @@
 class HoldVolume
 
-  attr_reader :name, :bib_id, :order, :status
+  attr_reader :data
 
-
-  def initailize(volume)
-
-    volume.each do | key, value |
-
-    end
+  def initialize(data)
+    @data = data
   end
 
+  def description
+    get(:description)
+  end
 
+  def enumeration
+    get(:enumeration)
+  end
+
+  def sort_order
+    get(:sort_order)
+  end
+
+  private
+    def get(key)
+      data[key.to_s]
+    end
 end
