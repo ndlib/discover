@@ -9,7 +9,7 @@
       <%= select_tag(:volume, @record.volume_option_tags, prompt: "Select Volume", class: "ndl-request-form-volume") %>
     <% elsif @record.volumes.count == 1 %>
       <%= @record.volumes.first.title %>
-      <%= hidden_field_tag(:volume, @record.volumes.first.id, id: "ndl-request-form-volume") %>
+      <%= hidden_field_tag(:volume, @record.volumes.first.id, class: "ndl-request-form-volume") %>
     <% end %>
   </div>
 
