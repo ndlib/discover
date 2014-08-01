@@ -15,6 +15,11 @@ jQuery ($) ->
       $('.ndl-request-form-location').change ->
         location_id = $(this).val()
         selectPickupLocation(location_id)
+      $('#use_end_date').change ->
+        if $(this).prop('checked')
+          $('.ndl-cancel_date_input').show()
+        else
+          $('.ndl-cancel_date_input').hide()
 
       selectVolume($('#ndl-request-form-volume').val())
 

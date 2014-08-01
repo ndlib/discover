@@ -31,13 +31,21 @@
           <%
           pickup_options = options_from_collection_for_select(item.pickup_locations, 'id', 'title')
           %>
-          <%= select_tag(:pickup_location, pickup_options, prompt: "Select Pickup Location for #{item.title} #{item.id}", class: "ndl-request-form-location") %>
+          <%= select_tag(:pickup_location, pickup_options, class: "ndl-request-form-location") %>
         </div>
       <% end %>
     </div>
   <% end %>
 
   <div id="ndl-request-form-submit-container">
+    <p>
+      <label><input type="checkbox" name="use_end_date" id="use_end_date"> Set Cancel Request date</label>
+      <span class="ndl-cancel_date_input">
+        <input type="date" id="cancel_date_input" name="cancel_date">
+        <span class="ndl-cancel_date_input_help">Your request will be canceled if you have not received the item by this date.</span>
+      </span>
+    </p>
+
     <%= submit_tag('Submit', id: 'ndl-request-form-submit') %>
   </div>
 
