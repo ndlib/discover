@@ -22,7 +22,7 @@
   width: 990px;
 }
 
-.EXLResult .EXLRequestTab {
+.EXLResult .EXLRequestTab, .EXLResult .ndl-request-tab {
   display: none;
 }
 .EXLSearchFieldRibbonAdvancedSearchLink {

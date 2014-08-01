@@ -41,13 +41,13 @@ $(document).ready(function() {
             success: function(data) {
               var dre = /<div id="requestable">yes<\/div>/;
               if (data.match(dre)) {
-                rt.siblings('.EXLRequestTab').show();
+                rt.siblings('.ndl-request-tab').show();
               }
 
             }
           });
         } else {
-          rt.siblings('.EXLRequestTab').show();
+          rt.siblings('.ndl-request-tab').show();
         }
 
 
