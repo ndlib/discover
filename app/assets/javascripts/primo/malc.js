@@ -1,10 +1,10 @@
-$('.EXLSummary').live('mouseover', function () {
+$('.EXLSummary').live('mouseover', function() {
 
   var resultNum = $(this).parents('.EXLResult').attr("id");
   $('#' + resultNum + ' .EXLTabsRibbon li').css('background-color', '#eeeeee');
 });
 
-$('.EXLSummary').live('mouseout', function () {
+$('.EXLSummary').live('mouseout', function() {
 
   var resultNum = $(this).parents('.EXLResult').attr("id");
   $('#' + resultNum + ' .EXLTabsRibbon li').css('background-color', '');
@@ -24,16 +24,16 @@ $('#exlidReviewFormSubmit').live('mousedown',function(){
 /* added 20110126 A. Bales */
 /* on clicking submit on advanced search, if filter is selected but input is blank, will supply 'alldocuments' as input */
 
-$('#exlidAdvancedSearchRibbon .submit').live('click', function () {
+$('#exlidAdvancedSearchRibbon .submit').live('click', function() {
   var input = false;
-  $('.EXLSearchFieldRibbonFormFieldsGroup1 input').each(function () {
+  $('.EXLSearchFieldRibbonFormFieldsGroup1 input').each(function() {
     if ($(this).val()) {
       input = true;
     }
   });
 
   var filters = false;
-  $('.EXLSearchFieldRibbonFormFieldsGroup2 select').each(function () {
+  $('.EXLSearchFieldRibbonFormFieldsGroup2 select').each(function() {
     if ($(this).children('option:eq(0)').val() != $(this).children('option:selected').val()) {
       filters = true;
     }
@@ -45,7 +45,7 @@ $('#exlidAdvancedSearchRibbon .submit').live('click', function () {
 
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
 
   // Check browser for worldcat tab
 
@@ -64,7 +64,7 @@ $(document).ready(function () {
   //Login alerts for primo central
   var tab = $(location).attr('href').match(/tab=(\w*)/);
   if (vid == "vid=NDU") {
-    jQuery.getJSON('/primo_library/libweb/current_session.jsp', function (data) {
+    jQuery.getJSON('/primo_library/libweb/current_session.jsp', function(data) {
       var on_campus = data.on_campus;
       var logged_in = data.logged_in;
       var logURL = $('.EXLSignOut a').attr('href');
@@ -89,7 +89,7 @@ $(document).ready(function () {
 
 
 
-  $('.EXLSummary').each(function () {
+  $('.EXLSummary').each(function() {
     var t = $(this).children('.EXLSummaryContainer').children('.EXLSummaryFields').children('.EXLResultAvailability');
     var tt = t.html();
     var l = $(this).children('.EXLTabsRibbon').children('div').children('.EXLResultTabs').children('.EXLLocationsTab').html();
@@ -112,7 +112,7 @@ $(document).ready(function () {
 
   // get sigin url and place it in the request tab content box
   $('.EXLRequestTab a').click(
-    function () {
+    function() {
       setTimeout("getRSI()", 300);
     });
 
@@ -127,19 +127,19 @@ $(document).ready(function () {
   EXLTA_addTab('Locations', 'NewLocationTab', location.href, 'EXLDetailsTab', 'detailsTab', 'newLocationsTab', true, checkTabPresence, '.EXLLocationsTab');
 
   $('.NewLocationTab a').click(
-    function (e) {
+    function(e) {
       msTabHandler(e, this, 'NewLocationTab', '<div id="ndLocation" class="EXLTabLoading"></div>', getLocations, location.href, $(this).parents('.EXLResultTab').hasClass('EXLResultSelectedTab'));
     });
 
 
-  $('.EXLResultAvailability').hover(function () {
+  $('.EXLResultAvailability').hover(function() {
       $(this).addClass('underline');
     },
-    function () {
+    function() {
       $(this).removeClass('underline');
     });
 
-  $('.EXLResultAvailability').live('click', function (event) {
+  $('.EXLResultAvailability').live('click', function(event) {
     if (event.type == 'click') {
       var thisERA = $(this);
       var resultNum = $(this).parents('.EXLResult').attr("id");
@@ -176,7 +176,7 @@ $(document).ready(function () {
     }
   });
 
-  $('.inprint').live('click', function (event) {
+  $('.inprint').live('click', function(event) {
     if (event.type == 'click') {
       var thisERA = $(this).parents().parents();
       var resultNum = $(this).parents('.EXLResult').attr("id");
@@ -187,7 +187,7 @@ $(document).ready(function () {
     }
   });
 
-  $('.mrecall').live("click", function (event) {
+  $('.mrecall').live("click", function(event) {
     event.preventDefault();
     if (event.type == 'click') {
       var thisERA = $(this).parents().parents();
@@ -203,7 +203,7 @@ $(document).ready(function () {
 
   // Facet Open
 
-  $(".EXLFacetContainer h4").each(function () {
+  $(".EXLFacetContainer h4").each(function() {
     var facet = $(this).text();
     var word = facet.substr(0, facet.indexOf(" "));
     $(this).parent().addClass(facet.toLowerCase());
@@ -286,7 +286,7 @@ $(document).ready(function () {
 /*----------END OF DOCUMENT READY----------*/
 
 
-$(window).ajaxComplete(function () {
+$(window).ajaxComplete(function() {
 
   $("span.EXLButtonSendToLabel:contains('del.icio.us')").parent().parent().hide();
   $("span.EXLButtonSendToLabel:contains('Delicious')").parent().parent().hide();
@@ -327,7 +327,7 @@ function checkTabPresence(rts, tabName) {
 
 
 function EXLTA_addTab(tabName, tabType, url, tabSelectorCopy, tabUrlReplace, tabUrlReplaceValue, firstTab, evaluator, evaluatorVar) {
-  $('.EXLResultTabs').each(function () {
+  $('.EXLResultTabs').each(function() {
     var customTab = $('<li class="EXLResultTab ' + tabType + '"><a href="' + url + '">' + tabName + '</a></li>');
     var customTabContainer = $('<div class="EXLResultTabContainer ' + tabType + '-Container"></div>');
     if (!evaluator || (evaluator && evaluator($(this), evaluatorVar) == true)) {
@@ -380,7 +380,7 @@ function EXLTA_wrapResultsInNativeTab(element, content, url, headerContent, po) 
   }
   var header = '<div class="EXLTabHeader">' + popOut + '</div>';
   var htmlcontent = '';
-  if (typeof (content) == 'function') {
+  if (typeof(content) == 'function') {
     log('trying function');
     htmlcontent = content(element);
   } else {
@@ -425,7 +425,7 @@ function getLocations(element, tabType) {
     url: ddui,
     dataType: "html",
     data: ddud,
-    success: function (data) {
+    success: function(data) {
       var p = $(element).parents('.EXLResult').find('.' + tabType + '-Container').children('.EXLTabContent').children('#ndLocation');
       $(p).removeClass();
       $(p).html(data);
@@ -444,7 +444,7 @@ function EXLTA_recordId(element) {
 
 
 function fixReviews() {
-  $('a[title="Post Your Review"]').each(function () {
+  $('a[title="Post Your Review"]').each(function() {
     var reviewHtml = $(this).parent().html();
     reviewHtml = reviewHtml.replace(/new_review/, 'new_malc_review');
     $(this).parent().html(reviewHtml);
@@ -472,7 +472,7 @@ function new_malc_review(id) {
   $('#tagsReviews' + id).find('#agree04' + id).attr('checked', false);
 
   $('#tagsReviews' + id).find('#exlidReviewFormSubmit').removeAttr('onclick');
-  $('#tagsReviews' + id).find('#exlidReviewFormSubmit').click(function () {
+  $('#tagsReviews' + id).find('#exlidReviewFormSubmit').click(function() {
     if ($(this).parent().parent().parent().find('select option:selected').val() == 0) {
       alert('Please select a rating.');
       return false;
@@ -529,13 +529,13 @@ function showHideDetails() {
     }
 
     //Bind Contributor toggles
-    $('#showAuth').live("click", function () {
+    $('#showAuth').live("click", function() {
       contrib.children('a:gt(2)').show();
       contrib.children('br:gt(2)').show();
       $('.toggleAuth').toggle();
       return false;
     });
-    $('#hideAuth').live("click", function () {
+    $('#hideAuth').live("click", function() {
       contrib.children('a:gt(2)').hide();
       contrib.children('br:gt(2)').hide();
       $('.toggleAuth').toggle();
@@ -564,13 +564,13 @@ function showHideDetails() {
     }
 
     // Bind Subject Toggles
-    $('#showSub').live("click", function () {
+    $('#showSub').live("click", function() {
       subjects.children('a:gt(2)').show();
       subjects.children('br:gt(2)').show();
       $('.toggleSubj').toggle();
       return false;
     });
-    $('#hideSub').live("click", function () {
+    $('#hideSub').live("click", function() {
       subjects.children('a:gt(2)').hide();
       subjects.children('br:gt(2)').hide();
       $('.toggleSubj').toggle();
@@ -601,12 +601,12 @@ function showHideDetails() {
     }
 
     // Bind description toggles
-    $('.showDesc').live("click", function () {
+    $('.showDesc').live("click", function() {
       $('#descMore').show();
       $('.toggleDesc').toggle();
       return false;
     });
-    $('.hideDesc').live("click", function () {
+    $('.hideDesc').live("click", function() {
       $('#descMore').hide();
       $('.toggleDesc').toggle();
       return false;
