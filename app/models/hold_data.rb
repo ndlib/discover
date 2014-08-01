@@ -14,7 +14,9 @@ class HoldData
   end
 
   def build_volume(volume_data)
-    HoldVolume.new(volume_data)
+    HoldVolume.new(volume_data).tap do |volume|
+      volume.add_items(items(volume.id))
+    end
   end
 
   def items_hash

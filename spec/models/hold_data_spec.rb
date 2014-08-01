@@ -9,6 +9,8 @@ describe HoldData do
       expect(subject.volumes).to be_a_kind_of(Array)
       expect(subject.volumes.first).to be_a_kind_of(HoldVolume)
       expect(subject.volumes.count).to eq(9)
+      expect(subject.volumes.first.items).to be_a_kind_of(Array)
+      expect(subject.volumes.first.items.first).to be_a_kind_of(HoldItem)
     end
   end
 

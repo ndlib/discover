@@ -1,9 +1,10 @@
 class HoldVolume
 
-  attr_reader :data
+  attr_reader :data, :items
 
   def initialize(data)
     @data = data
+    @items = []
   end
 
   def title
@@ -16,6 +17,10 @@ class HoldVolume
 
   def sort_order
     get(:sort_order)
+  end
+
+  def add_items(new_items)
+    @items += new_items
   end
 
   private

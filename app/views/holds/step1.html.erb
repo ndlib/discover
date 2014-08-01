@@ -9,11 +9,10 @@
 <% @record.volumes.each do |volume| %>
   <div id="volume-<%= volume.id%>">
     <%
-    items = @record.items(volume.id)
-    options = options_from_collection_for_select(items, 'id', 'institution_code')
+    options = options_from_collection_for_select(volume.items, 'id', 'institution_code')
     %>
     <%= select_tag(:item, options, prompt: "Select Institution for #{volume.title}") %>
-    <% @record.items(volume.id).each do |item| %>
+    <% volume.items.each do |item| %>
       <p><%= volume.title %>: <%= item.id %></p>
     <% end %>
   </div>
