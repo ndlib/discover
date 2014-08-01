@@ -31,8 +31,8 @@ describe HoldItem do
   end
   subject { described_class.new(data) }
 
-  it 'has a description' do
-    expect(subject.description).to eq('v.2')
+  it 'has a title' do
+    expect(subject.title).to eq('v.2')
   end
 
   it 'has a institution_code' do
@@ -43,7 +43,7 @@ describe HoldItem do
     expect(subject.bib_id).to eq('000136357')
   end
 
-  it 'has a item_id' do
+  it 'has an item_id' do
     expect(subject.item_id).to eq('MLC200046090$$$BCI01000136357$$$BCI50000136357000020')
   end
 

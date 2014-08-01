@@ -25,8 +25,8 @@ class HoldData
     end
   end
 
-  def items(enumeration)
-    items_hash[enumeration.to_s]
+  def items(volume_id)
+    items_hash[volume_id.to_s]
   end
 
   def build_items(items_array)

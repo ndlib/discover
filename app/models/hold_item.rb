@@ -6,6 +6,10 @@ class HoldItem
     @data = data
   end
 
+  def id
+    item_id
+  end
+
   def institution_code
     get(:institution_code)
   end
@@ -14,7 +18,7 @@ class HoldItem
     get(:pickup_locations)
   end
 
-  def description
+  def title
     get(:description)
   end
 

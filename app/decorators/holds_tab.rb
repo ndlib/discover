@@ -33,7 +33,11 @@ class HoldsTab < PrimoRecordTab
   end
 
   def volume_option_tags
-    h.options_from_collection_for_select(volumes, "enumeration", "description")
+    h.options_from_collection_for_select(volumes, "id", "title")
+  end
+
+  def items(volume_id)
+    holds_data.items(volume_id)
   end
 
 

@@ -6,11 +6,11 @@ class HoldVolume
     @data = data
   end
 
-  def description
+  def title
     get(:description)
   end
 
-  def enumeration
+  def id
     get(:enumeration)
   end
 

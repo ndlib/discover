@@ -6,11 +6,16 @@
   <%= select_tag(:volume, @record.volume_option_tags, prompt: "Select Volume") %>
 </p>
 
-<ul class="hold-volume">
-  <% @record.volumes.each do |volume| %>
-    <li>
-      <%= link_to volume.description, step2_path(@record.url_params( volume: volume.enumeration)) %>
-    </li>
-  <% end %>
-</ul>
+<% @record.volumes.each do |volume| %>
+  <div id="volume-<%= volume.id%>">
+    <%
+    items = @record.items(volume.id)
+    options = options_from_collection_for_select(items, 'id', 'institution_code')
+    %>
+    <%= select_tag(:item, options, prompt: "Select Institution for #{volume.title}") %>
+    <% @record.items(volume.id).each do |item| %>
+      <p><%= volume.title %>: <%= item.id %></p>
+    <% end %>
+  </div>
+<% end %>
 
