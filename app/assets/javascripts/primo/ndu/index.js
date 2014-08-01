@@ -12,6 +12,7 @@
 //= require ../wc.js
 //= require ../wc_proxy.js
 //= require ../discover-tabs.js
+//= require ../discover-request-tab.js
 //= require ../jquery.cookie.js
 //= require ../pagination.js
 //= require ../fix-dateslider.js

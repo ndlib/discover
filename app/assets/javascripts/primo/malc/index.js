@@ -10,4 +10,5 @@
 //= require ../fix-facets.js
 //= require ../fix-browse-search.js
 //= require ../discover-tabs.js
+//= require ../discover-request-tab.js
 //= require ../fix-eshelf-class.js

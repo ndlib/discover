@@ -69,7 +69,7 @@ jQuery ($) ->
       $.get onlineAccessPath, {id: recordID, vid: currentVID, tab: currentTab}, success, "html"
     return
 
-  addTab = (originalTabClass, newTabClass, newTabName, loadTabFunction) ->
+  window.addDiscoverTab = (originalTabClass, newTabClass, newTabName, loadTabFunction) ->
     originalTabs = $(".#{originalTabClass}")
     if originalTabs.length > 0
       EXLTA_addTab newTabName, newTabClass, location.href, originalTabClass, newTabClass, newTabClass, false, checkTabPresence, ".#{originalTabClass}"
@@ -90,12 +90,12 @@ jQuery ($) ->
           newTab.click()
 
   addDetailsTab = ->
-    addTab(originalDetailsTabClass, detailsTabClass, "Details", getOtherDetails)
+    addDiscoverTab(originalDetailsTabClass, detailsTabClass, "Details", getOtherDetails)
 
   addOnlineAccessTab = ->
     originalTab = $(".#{originalOnlineAccessTabClass}")
     if originalTab.length > 0
-      addTab(originalOnlineAccessTabClass, onlineAccessTabClass, "Access Online", getOnlineAccess)
+      addDiscoverTab(originalOnlineAccessTabClass, onlineAccessTabClass, "Access Online", getOnlineAccess)
       findtextRegex = /findtext/i
       originalTab.each ->
         $tab = $(this)

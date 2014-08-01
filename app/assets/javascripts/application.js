@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require primo/discover-tabs
+//= require primo/discover-request-tab
