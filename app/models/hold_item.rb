@@ -14,8 +14,20 @@ class HoldItem
     get(:institution_code)
   end
 
+  def institution_title
+    if primary_location.present?
+      primary_location.title
+    else
+      institution_code
+    end
+  end
+
   def pickup_locations
-    get(:pickup_locations)
+    @pickup_locations ||= build_pickup_locations
+  end
+
+  def primary_location
+    pickup_locations.detect { |location| location.id == institution_code }
   end
 
   def title
@@ -42,4 +54,9 @@ class HoldItem
     data[key.to_s]
   end
   private :get
+
+  def build_pickup_locations
+    get(:pickup_locations).collect { |location_data| HoldPickupLocation.new(location_data) }
+  end
+  private :build_pickup_locations
 end

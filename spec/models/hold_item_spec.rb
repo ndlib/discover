@@ -39,6 +39,10 @@ describe HoldItem do
     expect(subject.institution_code).to eq('BCI')
   end
 
+  it 'has an institution_title' do
+    expect(subject.institution_title).to eq('Bethel College')
+  end
+
   it 'has a bib_id' do
     expect(subject.bib_id).to eq('000136357')
   end
@@ -53,5 +57,10 @@ describe HoldItem do
 
   it 'has a location' do
     expect(subject.location).to eq('B 72 .C62 1993')
+  end
+
+  it 'has pickup_locations' do
+    expect(subject.pickup_locations).to be_a_kind_of(Array)
+    expect(subject.pickup_locations.first).to be_a_kind_of(HoldPickupLocation)
   end
 end
