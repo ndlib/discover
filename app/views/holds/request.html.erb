@@ -20,7 +20,7 @@
         <%
         item_options = options_from_collection_for_select(volume.items, 'id', 'institution_title')
         %>
-        <%= select_tag(:item, item_options, prompt: "Select Institution for #{volume.title}", class: "ndl-request-form-item") %>
+        <%= select_tag(:item, item_options, class: "ndl-request-form-item") %>
       <% elsif volume.items.count == 1 %>
         <%= volume.items.first.institution_title %>
         <%= hidden_field_tag(:item, volume.items.first.id, class: "ndl-request-form-item") %>
@@ -38,6 +38,7 @@
   <% end %>
 
   <div id="ndl-request-form-submit-container">
+    <!--
     <p>
       <label><input type="checkbox" name="use_end_date" id="use_end_date"> Set Cancel Request date</label>
       <span class="ndl-cancel_date_input">
@@ -45,6 +46,7 @@
         <span class="ndl-cancel_date_input_help">Your request will be canceled if you have not received the item by this date.</span>
       </span>
     </p>
+    -->
 
     <%= submit_tag('Submit', id: 'ndl-request-form-submit') %>
   </div>
