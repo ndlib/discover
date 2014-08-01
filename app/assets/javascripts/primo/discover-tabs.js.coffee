@@ -1,6 +1,6 @@
 jQuery ($) ->
-  currentVID = ''
-  currentTab = ''
+  window.currentVID = ''
+  window.currentTab = ''
   originalDetailsTabClass = "EXLDetailsTab"
   originalOnlineAccessTabClass = "EXLViewOnlineTab"
   detailsPath = "/primo_library/libweb/tiles/local/discover-details.jsp"
@@ -110,8 +110,8 @@ jQuery ($) ->
     if $vid.length == 0
       # On the browse pages, the vid field has a different id
       $vid = $('#vid_browse_input')
-    currentVID = $vid.val()
-    currentTab = $('#tab').val()
+    window.currentVID = $vid.val()
+    window.currentTab = $('#tab').val()
     addDetailsTab()
     addOnlineAccessTab()
 

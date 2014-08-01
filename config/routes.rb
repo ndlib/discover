@@ -27,6 +27,7 @@ Discover::Application.routes.draw do
 
   get 'primo_library/libweb/tiles/local/discover-details.jsp' => 'records#show', xhr: true
   get 'primo_library/libweb/tiles/local/discover-online-access.jsp' => 'online_access#show', xhr: true
+  get 'primo_library/libweb/tiles/local/discover-request.jsp' => 'holds#hold_request', xhr: true
   get 'primo_library/libweb/*path' => 'primo_proxy#index', as: :proxy
   post 'primo_library/libweb/*path' => 'primo_proxy#index'
 

@@ -22,7 +22,7 @@ class HoldsController < ApplicationController
           render template
         end
       end
-      format.json { render json: @record.object.to_json }
+      format.json { render json: @record.record.to_json }
     end
   end
 end

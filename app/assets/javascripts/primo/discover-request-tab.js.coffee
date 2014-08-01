@@ -73,7 +73,25 @@ class RequestForm
 
 
 jQuery ($) ->
+  addRequestTab = ->
+    window.addDiscoverTab('EXLRequestTab', 'ndl-request-tab', "Request", getRequestTab)
+
+  getRequestTab = (element, tabType) ->
+    link = $(element)
+    recordID = EXLTA_recordId(element)
+    if !link.data('loaded')
+      success = (data) ->
+        container = link.parents(".EXLResult").find("." + tabType + "-Container").children(".EXLTabContent").children(".#{tabType}-content")
+        container.removeClass('EXLTabLoading')
+        container.html data
+        link.data('loaded', true)
+        new RequestForm(container.find('.ndl-request'))
+        return
+      $.get "/primo_library/libweb/tiles/local/discover-request.jsp", {id: recordID, vid: window.currentVID, tab: window.currentTab}, success, "html"
+    return
+
   ready = ->
+    addRequestTab()
     $('.ndl-request').each ->
       new RequestForm($(this))
 
