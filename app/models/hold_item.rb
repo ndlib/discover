@@ -7,7 +7,7 @@ class HoldItem
   end
 
   def id
-    item_id
+    item_id_array.last
   end
 
   def institution_code
@@ -40,6 +40,10 @@ class HoldItem
 
   def item_id
     get(:item_id)
+  end
+
+  def item_id_array
+    @item_id_array ||= item_id.split('$$$')
   end
 
   def status_message

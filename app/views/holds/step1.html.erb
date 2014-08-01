@@ -13,7 +13,7 @@
       <%
       item_options = options_from_collection_for_select(volume.items, 'id', 'institution_code')
       %>
-      <%= select_tag(:item, item_options, prompt: "Select Institution for #{volume.title}") %>
+      <%= select_tag(:item, item_options, prompt: "Select Institution for #{volume.title}", class: "ndl-request-form-item") %>
       <% volume.items.each do |item| %>
         <div id="ndl-request-item-<%= item.id %>" class="ndl-request-item">
           <%

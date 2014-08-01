@@ -31,6 +31,12 @@ describe HoldItem do
   end
   subject { described_class.new(data) }
 
+  describe '#id' do
+    it 'is the last value of the item_id' do
+      expect(subject.id).to eq('BCI50000136357000020')
+    end
+  end
+
   it 'has a title' do
     expect(subject.title).to eq('v.2')
   end
