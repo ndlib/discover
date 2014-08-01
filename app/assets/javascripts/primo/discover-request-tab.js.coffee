@@ -1,70 +1,80 @@
-jQuery ($) ->
-  $form = $('#ndl-request-form')
-  currentVolume = null
-  currentItem = null
-  currentLocation = null
+class RequestForm
+  constructor: (@container) ->
+    @form = @container.find('form')
+    @volume_id = null
+    @item_id = null
+    @location_id = null
+    @attachEvents()
+    @selectVolume(@find('.ndl-request-form-volume').val())
 
-  setupForm = ->
-    if $form.length > 0
-      $('#ndl-request-form-volume').change ->
-        volume_id = $(this).val()
-        selectVolume(volume_id)
-      $('.ndl-request-form-item').change ->
-        item_id = $(this).val()
-        selectItem(item_id)
-      $('.ndl-request-form-location').change ->
-        location_id = $(this).val()
-        selectPickupLocation(location_id)
-      $('#use_end_date').change ->
-        if $(this).prop('checked')
-          $('.ndl-cancel_date_input').show()
-        else
-          $('.ndl-cancel_date_input').hide()
-      $form.submit(submitForm)
+  find: (selector) ->
+    @container.find(selector)
 
-      selectVolume($('#ndl-request-form-volume').val())
 
-  selectVolume = (volume_id) ->
-    currentVolume = volume_id
-    $('.ndl-request-volume').hide()
+  attachEvents: ->
+    object = @
+    @find('.ndl-request-form-volume').change ->
+      volume_id = $(this).val()
+      object.selectVolume(volume_id)
+    @find('.ndl-request-form-item').change ->
+      item_id = $(this).val()
+      object.selectItem(item_id)
+    @find('.ndl-request-form-location').change ->
+      location_id = $(this).val()
+      object.selectPickupLocation(location_id)
+    @find('#use_end_date').change ->
+      if $(this).prop('checked')
+        @find('.ndl-cancel_date_input').show()
+      else
+        @find('.ndl-cancel_date_input').hide()
+    @form.submit (event) ->
+      event.preventDefault()
+      @submitForm()
+
+
+  selectVolume: (volume_id) ->
+    @volume_id = volume_id
+    @find('.ndl-request-volume').hide()
     if volume_id
-      $volumeContainer = $("#ndl-request-volume-#{volume_id}")
+      $volumeContainer = @find("#ndl-request-volume-#{volume_id}")
       $volumeContainer.show()
       $itemSelect = $volumeContainer.find('.ndl-request-form-item')
-      selectItem($itemSelect.val())
+      @selectItem($itemSelect.val())
     else
-      disableSubmit()
+      @disableSubmit()
 
-  selectItem = (item_id) ->
-    currentItem = item_id
-    $('.ndl-request-item').hide()
+  selectItem: (item_id) ->
+    @item_id = item_id
+    @find('.ndl-request-item').hide()
     if item_id
-      $itemContainer = $("#ndl-request-item-#{item_id}")
+      $itemContainer = @find("#ndl-request-item-#{item_id}")
       $itemContainer.show()
       $locationSelect = $itemContainer.find('.ndl-request-form-location')
-      selectPickupLocation($locationSelect.val())
+      @selectPickupLocation($locationSelect.val())
     else
-      disableSubmit()
+      @disableSubmit()
 
-  selectPickupLocation = (location_id) ->
-    currentLocation = location_id
+  selectPickupLocation: (location_id) ->
+    @location_id = location_id
     if location_id
-      enableSubmit()
+      @enableSubmit()
     else
-      disableSubmit()
+      @disableSubmit()
 
-  enableSubmit = ->
-    $('#ndl-request-form-submit-container').show()
+  enableSubmit: ->
+    @find('#ndl-request-form-submit-container').show()
 
-  disableSubmit = ->
-    $('#ndl-request-form-submit-container').hide()
+  disableSubmit: ->
+    @find('#ndl-request-form-submit-container').hide()
 
-  submitForm = (event) ->
-    event.preventDefault()
+  submitForm: ->
     alert('submitted!')
 
 
+
+jQuery ($) ->
   ready = ->
-    setupForm()
+    $('.ndl-request').each ->
+      new RequestForm($(this))
 
   $(document).ready(ready)
