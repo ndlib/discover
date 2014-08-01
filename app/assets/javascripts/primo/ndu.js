@@ -32,19 +32,24 @@ $(document).ready(function() {
         });
         var rud = 'pnxId=' + dn + '&institution=NDU';
         var rui = '/primo_library/libweb/tiles/local/request.jsp';
-        $.ajax({
-          type: "get",
-          url: rui,
-          dataType: "html",
-          data: rud,
-          success: function(data) {
-            var dre = /<div id="requestable">yes<\/div>/;
-            if (data.match(dre)) {
-              rt.siblings('.EXLRequestTab').show().css('list-style-type', 'none');
-            }
+        if (/aleph/.test(dn)) {
+          $.ajax({
+            type: "get",
+            url: rui,
+            dataType: "html",
+            data: rud,
+            success: function(data) {
+              var dre = /<div id="requestable">yes<\/div>/;
+              if (data.match(dre)) {
+                rt.siblings('.EXLRequestTab').show();
+              }
 
-          }
-        });
+            }
+          });
+        } else if (/dedup/.test(dn)) {
+          rt.siblings('.EXLRequestTab').show();
+        }
+
 
 
       }
