@@ -1,6 +1,12 @@
 class HoldsController < ApplicationController
 
 
+  def hold_request
+    @record = HoldsTab.new(self)
+
+    respond_with('request')
+  end
+
   def volumes
     @record = HoldsTab.new(self)
 

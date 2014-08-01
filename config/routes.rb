@@ -12,6 +12,7 @@ Discover::Application.routes.draw do
 
   get 'record' => 'records#show', as: :record, constraints: {id: /.+/}
   get 'online_access' => 'online_access#show', as: 'online_access', constraints: {id: /.+/}
+  get 'request' => 'holds#hold_request', constraints: {id: /.+/}
 
   get 'holds' => 'holds#volumes', constraints: {id: /.+/}
   get 'step1' => 'holds#volumes', constraints: {id: /.+/}
