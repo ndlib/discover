@@ -8,6 +8,10 @@ class HoldsTab < PrimoRecordTab
     }.merge(merge_params)
   end
 
+  def patron_id
+    'MLC200046090'
+  end
+
 
   def save_input(new_params)
     holds_request.save_params(new_params)
@@ -25,7 +29,7 @@ class HoldsTab < PrimoRecordTab
   end
 
   def holds_data
-    @holds_data ||= HoldData.test
+    @holds_data ||= HoldData.new(record.holds_list)
   end
 
   def volumes
@@ -46,6 +50,10 @@ class HoldsTab < PrimoRecordTab
     def holds_request
       # create a new object passing the previous data
       @holds_request ||= HoldsRequest.new(persisted_params)
+    end
+
+    def load_record
+      DiscoveryQuery.holds_list(id, patron_id)
     end
 
 

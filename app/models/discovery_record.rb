@@ -74,6 +74,10 @@ class DiscoveryRecord
     data['online_access']
   end
 
+  def holds_list
+    data['holds_list']
+  end
+
   private
 
 

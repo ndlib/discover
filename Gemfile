@@ -34,6 +34,8 @@ gem "language_list"
 gem "draper"
 gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'
 gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
+# gem "hesburgh_api", path: '../hesburgh_api'
+
 gem "hesburgh_errors", git: 'git@git.library.nd.edu:hesburgh_errors'
 
 gem "rb-readline"
