@@ -155,7 +155,7 @@ class DetailsTab < PrimoRecordTab
   end
 
   def type
-    record.type.capitalize!.sub!('_', ' ')
+    record.type.capitalize.gsub('_', ' ')
   end
 
   def source
