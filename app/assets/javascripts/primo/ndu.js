@@ -46,7 +46,7 @@ $(document).ready(function() {
 
             }
           });
-        } else if (/dedup/.test(dn)) {
+        } else {
           rt.siblings('.EXLRequestTab').show();
         }
 
