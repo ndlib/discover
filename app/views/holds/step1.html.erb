@@ -9,11 +9,16 @@
 <% @record.volumes.each do |volume| %>
   <div id="volume-<%= volume.id%>">
     <%
-    options = options_from_collection_for_select(volume.items, 'id', 'institution_code')
+    item_options = options_from_collection_for_select(volume.items, 'id', 'institution_code')
     %>
-    <%= select_tag(:item, options, prompt: "Select Institution for #{volume.title}") %>
+    <%= select_tag(:item, item_options, prompt: "Select Institution for #{volume.title}") %>
     <% volume.items.each do |item| %>
-      <p><%= volume.title %>: <%= item.id %></p>
+      <div id="item-<%= item.id %>">
+        <%
+        pickup_options = options_from_collection_for_select(item.pickup_locations, 'id', 'title')
+        %>
+        <%= select_tag(:pickup_location, pickup_options, prompt: "Select Pickup Location for #{item.title} #{item.id}") %>
+      </div>
     <% end %>
   </div>
 <% end %>
