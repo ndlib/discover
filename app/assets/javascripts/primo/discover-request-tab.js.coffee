@@ -1,11 +1,11 @@
 jQuery ($) ->
-  $container = $('#ndl-request-form')
+  $form = $('#ndl-request-form')
   currentVolume = null
   currentItem = null
   currentLocation = null
 
   setupForm = ->
-    if $container.length > 0
+    if $form.length > 0
       $('#ndl-request-form-volume').change ->
         volume_id = $(this).val()
         selectVolume(volume_id)
@@ -20,6 +20,7 @@ jQuery ($) ->
           $('.ndl-cancel_date_input').show()
         else
           $('.ndl-cancel_date_input').hide()
+      $form.submit(submitForm)
 
       selectVolume($('#ndl-request-form-volume').val())
 
@@ -57,6 +58,11 @@ jQuery ($) ->
 
   disableSubmit = ->
     $('#ndl-request-form-submit-container').hide()
+
+  submitForm = (event) ->
+    event.preventDefault()
+    alert('submitted!')
+
 
   ready = ->
     setupForm()

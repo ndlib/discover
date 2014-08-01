@@ -7,42 +7,9 @@ class HoldsController < ApplicationController
     respond_with('request')
   end
 
-  def volumes
+  def place_request
     @record = HoldsTab.new(self)
-
-    respond_with('step1')
-  end
-
-
-  def institutions
-    @record = HoldsTab.new(self)
-    @record.save_input(params)
-
-    respond_with('step2')
-  end
-
-
-  def pickup
-    @record = HoldsTab.new(self)
-    @record.save_input(params)
-
-    respond_with('step3')
-  end
-
-
-  def finalize
-    @record = HoldsTab.new(self)
-    @record.save_input(params)
-
-    respond_with('step4')
-  end
-
-
-  def submit
-    @record = HoldsTab.new(self)
-    @record.save_input(params)
-
-    respond_with('submit_complete')
+    render text: ''
   end
 
 

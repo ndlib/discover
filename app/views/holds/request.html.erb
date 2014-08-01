@@ -1,6 +1,6 @@
 <% content_for(:title, @record.page_title) %>
 
-<div id="ndl-request-form">
+<div class="ndl-request">
   <h1>Request <%= @record.page_title %></h1>
 
   <div>
@@ -47,8 +47,9 @@
       </span>
     </p>
     -->
-
-    <%= submit_tag('Submit', id: 'ndl-request-form-submit') %>
+    <%= form_tag(place_request_path, method: "post", id: 'ndl-request-form') do %>
+      <%= submit_tag('Submit', id: 'ndl-request-form-submit') %>
+    <% end %>
   </div>
 
 </div>

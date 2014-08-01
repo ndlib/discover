@@ -13,13 +13,7 @@ Discover::Application.routes.draw do
   get 'record' => 'records#show', as: :record, constraints: {id: /.+/}
   get 'online_access' => 'online_access#show', as: 'online_access', constraints: {id: /.+/}
   get 'request' => 'holds#hold_request', constraints: {id: /.+/}
-
-  get 'holds' => 'holds#volumes', constraints: {id: /.+/}
-  get 'step1' => 'holds#volumes', constraints: {id: /.+/}
-  get 'step2' => 'holds#institutions', constraints: {id: /.+/}
-  get 'step3' => 'holds#pickup', constraints:  {id: /.+/}
-  get 'step4' => 'holds#finalize', constraints:  {id: /.+/}
-  get 'submit' => 'holds#submit', constraints:  {id: /.+/}
+  post 'place_request' => 'holds#place_request'
 
   resources :primo_missing_fields, only: [ :index, :show ]
 
