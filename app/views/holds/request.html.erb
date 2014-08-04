@@ -3,11 +3,15 @@
   <h1>Request
     <%= @record.page_title %></h1>
   <div>
-    Volume:
-    <% if @record.volumes.count > 1 %>
-      <%= select_tag(:volume, @record.volume_option_tags, prompt: "Select Volume", class: "ndl-request-form-volume") %>
-    <% elsif @record.volumes.count == 1 %>
-      <%= @record.volumes.first.title %>
+    <% if !@record.single_volume? %>
+      Volume:
+      <% if @record.volumes.count > 1 %>
+        <%= select_tag(:volume, @record.volume_option_tags, prompt: "Select Volume", class: "ndl-request-form-volume") %>
+      <% elsif @record.volumes.count == 1 %>
+        <%= @record.volumes.first.title %>
+        <%= hidden_field_tag(:volume, @record.volumes.first.id, class: "ndl-request-form-volume") %>
+      <% end %>
+    <% else %>
       <%= hidden_field_tag(:volume, @record.volumes.first.id, class: "ndl-request-form-volume") %>
     <% end %>
   </div>

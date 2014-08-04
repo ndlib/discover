@@ -22,14 +22,16 @@ class HoldsTab < PrimoRecordTab
     params[:persisted_params] || {}
   end
 
-
-
   def page_title
     record.title.first
   end
 
   def holds_data
     @holds_data ||= HoldData.new(record.holds_list)
+  end
+
+  def single_volume?
+    holds_data.single_volume?
   end
 
   def volumes
