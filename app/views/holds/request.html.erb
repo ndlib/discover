@@ -1,8 +1,7 @@
 <% content_for(:title, @record.page_title) %>
-
 <div class="ndl-request">
-  <h1>Request <%= @record.page_title %></h1>
-
+  <h1>Request
+    <%= @record.page_title %></h1>
   <div>
     Volume:
     <% if @record.volumes.count > 1 %>
@@ -12,7 +11,6 @@
       <%= hidden_field_tag(:volume, @record.volumes.first.id, class: "ndl-request-form-volume") %>
     <% end %>
   </div>
-
   <% @record.volumes.each do |volume| %>
     <div id="ndl-request-volume-<%= volume.id%>" class="ndl-request-volume">
       From Institution:
@@ -36,7 +34,6 @@
       <% end %>
     </div>
   <% end %>
-
   <div id="ndl-request-form-submit-container">
     <!--
     <p>
@@ -51,5 +48,4 @@
       <%= submit_tag('Submit', id: 'ndl-request-form-submit') %>
     <% end %>
   </div>
-
 </div>
