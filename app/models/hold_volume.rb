@@ -19,6 +19,10 @@ class HoldVolume
     get(:sort_order)
   end
 
+  def single_volume?
+    title == 'single_volume'
+  end
+
   def add_items(new_items)
     @items += new_items
   end

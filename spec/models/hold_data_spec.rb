@@ -1,32 +1,96 @@
 require 'spec_helper'
 
 describe HoldData do
-  let(:data) { hold_data() }
   subject { described_class.new(data) }
 
-  describe '#volumes' do
-    it 'is a collection of volumes' do
-      expect(subject.volumes).to be_a_kind_of(Array)
-      expect(subject.volumes.first).to be_a_kind_of(HoldVolume)
-      expect(subject.volumes.count).to eq(9)
-      expect(subject.volumes.first.items).to be_a_kind_of(Array)
-      expect(subject.volumes.first.items.first).to be_a_kind_of(HoldItem)
+  describe 'multi volume' do
+    let(:data) { hold_data() }
+
+    describe '#volumes' do
+      it 'is a collection of volumes' do
+        expect(subject.volumes).to be_a_kind_of(Array)
+        expect(subject.volumes.first).to be_a_kind_of(HoldVolume)
+        expect(subject.volumes.count).to eq(9)
+        expect(subject.volumes.first.items).to be_a_kind_of(Array)
+        expect(subject.volumes.first.items.first).to be_a_kind_of(HoldItem)
+      end
+    end
+
+    describe '#items_hash' do
+      it 'is a collection of items by enumeration' do
+        expect(subject.items_hash).to be_a_kind_of(Hash)
+        expect(subject.items_hash.count).to eq(9)
+      end
+    end
+
+    describe '#items' do
+      it 'returns an array of items for an enumeration' do
+        expect(subject.items('4')).to be_a_kind_of(Array)
+        expect(subject.items('4').first).to be_a_kind_of(HoldItem)
+        expect(subject.items('4').count).to eq(2)
+      end
+    end
+
+    describe '#single_volume?' do
+      it 'is false' do
+        expect(subject.single_volume?).to be_false
+      end
     end
   end
 
-  describe '#items_hash' do
-    it 'is a collection of items by enumeration' do
-      expect(subject.items_hash).to be_a_kind_of(Hash)
-      expect(subject.items_hash.count).to eq(9)
+  describe 'single volume' do
+    let(:data) { single_volume_data() }
+
+    describe '#single_volume?' do
+      it 'is true' do
+        expect(subject.single_volume?).to be_true
+      end
     end
   end
 
-  describe '#items' do
-    it 'returns an array of items for an enumeration' do
-      expect(subject.items('4')).to be_a_kind_of(Array)
-      expect(subject.items('4').first).to be_a_kind_of(HoldItem)
-      expect(subject.items('4').count).to eq(2)
-    end
+  def single_volume_data
+    {
+      "volumes" =>  [
+        {
+          "description" =>  "single_volume",
+          "enumeration" =>  "1",
+          "sort_order" =>  "1"
+        }
+      ],
+      "items_by_enumeration" =>  [
+        {
+          "enumeration" =>  "1",
+          "items" =>  [
+            {
+              "institution_code" =>  "HCC",
+              "pickup_locations" =>  [
+                {
+                  "code" =>  "HCC",
+                  "content" =>  "Holy Cross College"
+                },
+                {
+                  "code" =>  "BCI_H",
+                  "content" =>  "Bethel (allow extra time)"
+                },
+                {
+                  "code" =>  "NDU_H",
+                  "content" =>  "Hesburgh (allow extra time)"
+                },
+                {
+                  "code" =>  "SMC_H",
+                  "content" =>  "Saint Mary's(allow extra time)"
+                }
+              ],
+              "description" =>  nil,
+              "bib_id" =>  "000022674",
+              "item_id" =>  "MLC200046090$$$HCC01000021761$$$HCC50000022674000010",
+              "status_message" =>  "",
+              "location" =>  "813.54 S26 2001"
+            }
+          ]
+        }
+      ]
+    }
   end
 
   def hold_data

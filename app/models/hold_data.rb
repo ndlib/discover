@@ -5,6 +5,10 @@ class HoldData
     @data = data
   end
 
+  def single_volume?
+    volumes.count == 1 && volumes.first.single_volume?
+  end
+
   def volumes
     @volumes ||= [].tap do |array|
       get(:volumes).each do |volume_data|
