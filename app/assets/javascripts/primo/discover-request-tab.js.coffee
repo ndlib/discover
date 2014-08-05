@@ -4,6 +4,7 @@ class RequestForm
     @volume_id = null
     @item_id = null
     @location_id = null
+    @request_id = null
     @loading = false
     @attachEvents()
     @selectVolume(@find('.ndl-request-form-volume').val())
@@ -49,10 +50,12 @@ class RequestForm
     @find('.ndl-request-item').hide()
     if item_id
       $itemContainer = @find("#ndl-request-item-#{item_id}")
+      @request_id = $itemContainer.find('.ndl-request-form-request-id').val()
       $itemContainer.show()
       $locationSelect = $itemContainer.find('.ndl-request-form-location')
       @selectPickupLocation($locationSelect.val())
     else
+      @request_id = null
       @disableSubmit()
 
   selectPickupLocation: (location_id) ->
@@ -68,11 +71,17 @@ class RequestForm
   disableSubmit: ->
     @find('#ndl-request-form-submit-container').hide()
 
+  formValues: ->
+    {
+      request_id: @request_id,
+      pickup_location: @location_id,
+    }
+
   submitForm: ->
     if !@loading
       object = @
       object.showLoadingIcon()
-      jQuery.post(@form.attr('action'))
+      jQuery.post(@form.attr('action'), @formValues())
       .done ->
         object.formSuccess()
       .fail ->

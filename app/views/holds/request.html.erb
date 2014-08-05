@@ -30,6 +30,7 @@
         <% end %>
         <% volume.items.each do |item| %>
           <div id="ndl-request-item-<%= item.id %>" class="ndl-request-item">
+            <%= hidden_field_tag(:request_id, item.encrypted_item_id, class: "ndl-request-form-request-id") %>
             Pickup Location:
             <%
             pickup_options = options_from_collection_for_select(item.pickup_locations, 'id', 'title')
