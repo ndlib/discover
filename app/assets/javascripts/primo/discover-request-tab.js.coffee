@@ -66,10 +66,10 @@ class RequestForm
       @disableSubmit()
 
   enableSubmit: ->
-    @find('#ndl-request-form-submit-container').show()
+    @find('.ndl-request-form-submit-container').show()
 
   disableSubmit: ->
-    @find('#ndl-request-form-submit-container').hide()
+    @find('.ndl-request-form-submit-container').hide()
 
   formValues: ->
     {

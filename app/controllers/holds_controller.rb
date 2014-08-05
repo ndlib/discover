@@ -1,5 +1,5 @@
 class HoldsController < ApplicationController
-
+  skip_before_filter :verify_authenticity_token, only: [:place_request]
 
   def hold_request
     @record = HoldsTab.new(self)

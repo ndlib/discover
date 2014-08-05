@@ -1,48 +1,51 @@
 <% content_for(:title, @record.page_title) %>
-<div class="ndl-request-container">
-  <h1>Request
-    <%= @record.page_title %></h1>
+<div class="ndl-request-container EXLRequestTabContent">
+  <h2>Request
+    <%= @record.page_title %></h2>
   <div class="ndl-request">
     <% if @record.volumes.count > 0 %>
-      <div>
+      <%= form_tag(place_request_path, method: "post", id: 'ndl-request-form') do %>
         <% if !@record.single_volume? %>
-          Volume:
-          <% if @record.volumes.count > 1 %>
-            <%= select_tag(:volume, @record.volume_option_tags, prompt: "Select Volume", class: "ndl-request-form-volume") %>
-          <% elsif @record.volumes.count == 1 %>
-            <%= @record.volumes.first.title %>
-            <%= hidden_field_tag(:volume, @record.volumes.first.id, class: "ndl-request-form-volume") %>
-          <% end %>
+          <div class="ndl-request-row">
+            <span class="ndl-request-label">Volume:</span>
+            <% if @record.volumes.count > 1 %>
+              <%= select_tag(:volume, @record.volume_option_tags, prompt: "Select Volume", class: "ndl-request-form-volume") %>
+            <% elsif @record.volumes.count == 1 %>
+              <%= @record.volumes.first.title %>
+              <%= hidden_field_tag(:volume, @record.volumes.first.id, class: "ndl-request-form-volume") %>
+            <% end %>
+          </div>
         <% else %>
           <%= hidden_field_tag(:volume, @record.volumes.first.id, class: "ndl-request-form-volume") %>
         <% end %>
-      </div>
-      <% @record.volumes.each do |volume| %>
-        <div id="ndl-request-volume-<%= volume.id%>" class="ndl-request-volume">
-          From Institution:
-          <% if volume.items.count > 1 %>
-            <%
-          item_options = options_from_collection_for_select(volume.items, 'id', 'institution_title')
-          %>
-            <%= select_tag(:item, item_options, class: "ndl-request-form-item") %>
-          <% elsif volume.items.count == 1 %>
-            <%= volume.items.first.institution_title %>
-            <%= hidden_field_tag(:item, volume.items.first.id, class: "ndl-request-form-item") %>
-          <% end %>
-          <% volume.items.each do |item| %>
-            <div id="ndl-request-item-<%= item.id %>" class="ndl-request-item">
-              <%= hidden_field_tag(:request_id, item.encrypted_item_id, class: "ndl-request-form-request-id") %>
-              Pickup Location:
-              <%
+        <% @record.volumes.each do |volume| %>
+          <div id="ndl-request-volume-<%= volume.id%>" class="ndl-request-volume">
+            <div class="ndl-request-row">
+              <span class="ndl-request-label">From Institution:</span>
+              <% if volume.items.count > 1 %>
+                <%
+            item_options = options_from_collection_for_select(volume.items, 'id', 'institution_title')
+            %>
+                <%= select_tag(:item, item_options, class: "ndl-request-form-item") %>
+              <% elsif volume.items.count == 1 %>
+                <%= volume.items.first.institution_title %>
+                <%= hidden_field_tag(:item, volume.items.first.id, class: "ndl-request-form-item") %>
+              <% end %>
+            </div>
+            <% volume.items.each do |item| %>
+              <div id="ndl-request-item-<%= item.id %>" class="ndl-request-item ndl-request-row">
+                <%= hidden_field_tag(:request_id, item.encrypted_item_id, class: "ndl-request-form-request-id") %>
+                <span class="ndl-request-label">Pickup Location:</span>
+                <%
             pickup_options = options_from_collection_for_select(item.pickup_locations, 'id', 'title')
             %>
-              <%= select_tag(:pickup_location, pickup_options, class: "ndl-request-form-location") %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-      <div id="ndl-request-form-submit-container">
-        <!--
+                <%= select_tag(:pickup_location, pickup_options, class: "ndl-request-form-location") %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="ndl-request-form-submit-container">
+          <!--
       <p>
         <label><input type="checkbox" name="use_end_date" id="use_end_date"> Set Cancel Request date</label>
         <span class="ndl-cancel_date_input">
@@ -51,12 +54,14 @@
         </span>
       </p>
       -->
-        <%= form_tag(place_request_path, method: "post", id: 'ndl-request-form') do %>
-          <%= submit_tag('Submit', id: 'ndl-request-form-submit') %>
-          <span class="ndl-request-loading ndl-hidden"></span>
-        <% end %>
-      </div>
-      <div class="ndl-request-failure ndl-hidden"><p>There was a problem placing your request</p></div>
+          <div class="ndl-request-row">
+            <span class="ndl-request-label"></span>
+            <%= submit_tag('Request', class: 'ndl-request-form-submit submit') %>
+            <span class="ndl-request-loading ndl-hidden"></span>
+          </div>
+        </div>
+        <div class="ndl-request-failure ndl-hidden"><p>There was a problem placing your request</p></div>
+      <% end %>
     <% else %>
       Unable to request items. See location tab for availability information.
     <% end %>
