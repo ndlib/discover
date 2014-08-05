@@ -69,4 +69,13 @@ describe HoldItem do
     expect(subject.pickup_locations).to be_a_kind_of(Array)
     expect(subject.pickup_locations.first).to be_a_kind_of(HoldPickupLocation)
   end
+
+  it 'encrypts an item_id' do
+    expect(subject.encrypted_item_id).to_not eq(subject.item_id)
+  end
+
+  it 'can decrypt an item_id' do
+    encrypted_id = subject.encrypted_item_id
+    expect(described_class.decrypt_item_id(encrypted_id)).to eq(subject.item_id)
+  end
 end

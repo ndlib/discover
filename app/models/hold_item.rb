@@ -42,6 +42,10 @@ class HoldItem
     get(:item_id)
   end
 
+  def encrypted_item_id
+    self.class.encrypt_item_id(item_id)
+  end
+
   def item_id_array
     @item_id_array ||= item_id.split('$$$')
   end
@@ -63,4 +67,16 @@ class HoldItem
     get(:pickup_locations).collect { |location_data| HoldPickupLocation.new(location_data) }
   end
   private :build_pickup_locations
+
+  def self.encrypt_item_id(item_id)
+    crypt.encrypt_and_sign(item_id)
+  end
+
+  def self.decrypt_item_id(encrypted_item_id)
+    crypt.decrypt_and_verify(encrypted_item_id)
+  end
+
+  def self.crypt
+    ActiveSupport::MessageEncryptor.new(Rails.configuration.secret_key_base)
+  end
 end
