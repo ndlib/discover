@@ -1,5 +1,5 @@
 default: &default
-  host: 'primo-fe1.library.nd.edu:1701'
+  host: 'onesearchpprd.library.nd.edu'
   vids:
     NDU:
       tabs:
