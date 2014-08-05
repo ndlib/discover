@@ -9,7 +9,7 @@ class HoldsTab < PrimoRecordTab
   end
 
   def patron_id
-    'MLC200046090'
+    'PRIMO'
   end
 
 

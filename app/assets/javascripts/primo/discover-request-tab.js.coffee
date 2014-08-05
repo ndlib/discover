@@ -29,7 +29,7 @@ class RequestForm
         @find('.ndl-cancel_date_input').hide()
     @form.submit (event) ->
       event.preventDefault()
-      @submitForm()
+      object.submitForm()
 
 
   selectVolume: (volume_id) ->
@@ -68,9 +68,20 @@ class RequestForm
     @find('#ndl-request-form-submit-container').hide()
 
   submitForm: ->
-    alert('submitted!')
+    object = @
+    jQuery.post(@form.attr('action'))
+    .done ->
+      object.formSuccess()
+    .fail ->
+      object.formFailure()
 
+  formSuccess: ->
+    alert('Success!')
 
+  formFailure: ->
+    alert('Failed :(')
+
+# end RequestForm
 
 jQuery ($) ->
   addRequestTab = ->

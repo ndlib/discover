@@ -13,7 +13,7 @@ Discover::Application.routes.draw do
   get 'record' => 'records#show', as: :record, constraints: {id: /.+/}
   get 'online_access' => 'online_access#show', as: 'online_access', constraints: {id: /.+/}
   get 'request' => 'holds#hold_request', constraints: {id: /.+/}
-  post 'place_request' => 'holds#place_request'
+  post 'place_request' => 'holds#place_request', as: 'original_place_request'
 
   resources :primo_missing_fields, only: [ :index, :show ]
 
@@ -28,6 +28,7 @@ Discover::Application.routes.draw do
   get 'primo_library/libweb/tiles/local/discover-details.jsp' => 'records#show', xhr: true
   get 'primo_library/libweb/tiles/local/discover-online-access.jsp' => 'online_access#show', xhr: true
   get 'primo_library/libweb/tiles/local/discover-request.jsp' => 'holds#hold_request', xhr: true
+  post 'primo_library/libweb/tiles/local/discover-place-request.jsp' => 'holds#place_request', xhr: true, as: 'place_request'
   get 'primo_library/libweb/*path' => 'primo_proxy#index', as: :proxy
   post 'primo_library/libweb/*path' => 'primo_proxy#index'
 

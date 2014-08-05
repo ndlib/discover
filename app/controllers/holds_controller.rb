@@ -8,7 +8,7 @@ class HoldsController < ApplicationController
   end
 
   def place_request
-    @record = HoldsTab.new(self)
+    # @record = HoldsTab.new(self)
     render text: ''
   end
 
