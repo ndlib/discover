@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require proxy.css
+ *= require primo/discover-request-tab.css
  *= require primo/discover-tabs.css
  */

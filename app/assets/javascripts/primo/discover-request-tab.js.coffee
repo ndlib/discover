@@ -4,6 +4,7 @@ class RequestForm
     @volume_id = null
     @item_id = null
     @location_id = null
+    @loading = false
     @attachEvents()
     @selectVolume(@find('.ndl-request-form-volume').val())
 
@@ -68,18 +69,37 @@ class RequestForm
     @find('#ndl-request-form-submit-container').hide()
 
   submitForm: ->
-    object = @
-    jQuery.post(@form.attr('action'))
-    .done ->
-      object.formSuccess()
-    .fail ->
-      object.formFailure()
+    if !@loading
+      object = @
+      object.showLoadingIcon()
+      jQuery.post(@form.attr('action'))
+      .done ->
+        object.formSuccess()
+      .fail ->
+        object.formFailure()
+      .always ->
+        object.hideLoadingIcon()
+
+  showLoadingIcon: ->
+    @loading = true
+    @show('.ndl-request-loading')
+
+  hideLoadingIcon: ->
+    @loading = false
+    @hide('.ndl-request-loading')
 
   formSuccess: ->
-    alert('Success!')
+    @show('.ndl-request-success')
+    @hide('.ndl-request')
 
   formFailure: ->
-    alert('Failed :(')
+    @show('.ndl-request-failure')
+
+  show: (selector) ->
+    @find(selector).removeClass('ndl-hidden')
+
+  hide: (selector) ->
+    @find(selector).addClass('ndl-hidden')
 
 # end RequestForm
 
@@ -96,14 +116,14 @@ jQuery ($) ->
         container.removeClass('EXLTabLoading')
         container.html data
         link.data('loaded', true)
-        new RequestForm(container.find('.ndl-request'))
+        new RequestForm(container.find('.ndl-request-container'))
         return
       $.get "/primo_library/libweb/tiles/local/discover-request.jsp", {id: recordID, vid: window.currentVID, tab: window.currentTab}, success, "html"
     return
 
   ready = ->
     addRequestTab()
-    $('.ndl-request').each ->
+    $('.ndl-request-container').each ->
       new RequestForm($(this))
 
   $(document).ready(ready)
