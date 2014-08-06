@@ -17,6 +17,10 @@ class HoldsRequest
     self.attributes = params
   end
 
+  def decrypted_item_id
+    HoldItem.decrypt_item_id(request_id)
+  end
+
   def params
     self.attributes
   end

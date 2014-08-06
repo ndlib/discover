@@ -60,4 +60,23 @@ describe HoldsRequest do
       expect(subject.complete?).to be_false
     end
   end
+
+  describe '#decrypted_item_id' do
+    let(:item_id) { 'test' }
+    let(:encrypted_item_id) { HoldItem.encrypt_item_id(item_id) }
+
+    subject { described_class.new(request_id: encrypted_item_id)}
+
+    it 'decrypts the request_id' do
+      expect(subject.decrypted_item_id).to eq(item_id)
+    end
+
+    describe 'invalid request_id' do
+      subject { described_class.new(request_id: 'fake')}
+
+      it 'raises an error' do
+        expect{subject.decrypted_item_id}.to raise_error(ActiveSupport::MessageVerifier::InvalidSignature)
+      end
+    end
+  end
 end
