@@ -121,6 +121,7 @@ describe HoldsRequest do
         VCR.use_cassette 'holds_request/ndu_aleph001526576' do
           response = subject.place_hold
           expect(response.success?).to be_true
+          expect(response.status).to eq(200)
         end
       end
     end
@@ -132,6 +133,7 @@ describe HoldsRequest do
         VCR.use_cassette 'holds_request/fake' do
           response = subject.place_hold
           expect(response.success?).to be_false
+          expect(response.status).to eq(500)
         end
       end
     end

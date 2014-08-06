@@ -8,8 +8,11 @@ class HoldsController < ApplicationController
   end
 
   def place_request
-    # @record = HoldsTab.new(self)
-    render text: ''
+    request = HoldsRequest.new(params)
+    response = request.place_hold
+    respond_to do |format|
+      format.any { render json: response.body.to_json, status: response.status }
+    end
   end
 
 

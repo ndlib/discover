@@ -84,8 +84,8 @@ class RequestForm
       jQuery.post(@form.attr('action'), @formValues())
       .done ->
         object.formSuccess()
-      .fail ->
-        object.formFailure()
+      .fail (jqXHR) ->
+        object.formFailure(jqXHR)
       .always ->
         object.hideLoadingIcon()
 
@@ -101,8 +101,22 @@ class RequestForm
     @show('.ndl-request-success')
     @hide('.ndl-request')
 
-  formFailure: ->
+  formFailure: (jqXHR) ->
     @show('.ndl-request-failure')
+    messageContainer = @find('.ndl-request-failure-message')
+    body = jQuery.parseJSON(jqXHR.responseText)
+    message = body.server_response
+    messageContainer.text("Error message: #{message}")
+    messageContainer.show()
+    try
+      body = jQuery.parseJSON(jqXHR.responseText)
+      message = body.server_response
+      messageContainer.text("Error message: #{message}")
+      messageContainer.show()
+    catch
+      messageContainer.hide()
+
+
 
   show: (selector) ->
     @find(selector).removeClass('ndl-hidden')
