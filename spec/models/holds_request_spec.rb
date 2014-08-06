@@ -6,14 +6,9 @@ describe HoldsRequest do
   subject { described_class.new({}) }
 
   describe :save_params do
-    it "saves the volume params" do
-      subject.save_params({volume: '1'})
-      expect(subject.volume).to eq("1")
-    end
-
-    it "saves the library param" do
-      subject.save_params({library: '1'})
-      expect(subject.library).to eq("1")
+    it "saves the request_id param" do
+      subject.save_params({request_id: '1'})
+      expect(subject.request_id).to eq("1")
     end
 
     it "saves the pickup_location params" do
@@ -29,8 +24,8 @@ describe HoldsRequest do
 
 
     it "does not save extra keys" do
-      subject.save_params({volume: 1, other_key: '2'})
-      expect(subject.attributes).to eq({ :volume=>"1", :library=>nil, :pickup_location=>nil, :cancel_date=>nil })
+      subject.save_params({request_id: 1, other_key: '2'})
+      expect(subject.attributes).to eq({ :request_id=>"1", :pickup_location=>nil, :cancel_date=>nil })
     end
 
   end
@@ -38,9 +33,9 @@ describe HoldsRequest do
 
   describe :initialize do
 
-    it "allows you to passin attributes" do
-      o = described_class.new(volume: '1', pickup_location: '2')
-      expect(o.params).to eq({:volume=>"1", :library=>nil, :pickup_location=>"2", :cancel_date=>nil})
+    it "allows you to pass in attributes" do
+      o = described_class.new(request_id: '1', pickup_location: '2')
+      expect(o.params).to eq({:request_id=>"1", :pickup_location=>"2", :cancel_date=>nil})
     end
 
   end
@@ -48,8 +43,8 @@ describe HoldsRequest do
   describe :params do
 
     it "returns all the values when they are set" do
-      o = described_class.new(volume: '1', pickup_location: '2', cancel_date: '10-10-1010', library: '3')
-      expect(o.params).to eq({:volume=>"1", :library=>"3", :pickup_location=>"2", :cancel_date=>"10-10-1010"})
+      o = described_class.new(request_id: '1', pickup_location: '2', cancel_date: '10-10-1010')
+      expect(o.params).to eq({:request_id=>"1", :pickup_location=>"2", :cancel_date=>"10-10-1010"})
     end
   end
 
@@ -57,7 +52,7 @@ describe HoldsRequest do
   describe :complete? do
 
     it "returns true when they are all set" do
-      o = described_class.new(volume: '1', pickup_location: '2', library: '3')
+      o = described_class.new(request_id: '1', pickup_location: '2')
       expect(o.complete?).to be_true
     end
 

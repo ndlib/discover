@@ -3,12 +3,11 @@ class HoldsRequest
 
   include ActiveModel::Validations
 
-  attribute :volume, String
-  attribute :library, String
+  attribute :request_id, String
   attribute :pickup_location, String
   attribute :cancel_date, String
 
-  validates :volume, :library, :pickup_location, presence: true
+  validates :request_id, :pickup_location, presence: true
 
   def initialize(data)
     self.attributes = data
@@ -18,11 +17,9 @@ class HoldsRequest
     self.attributes = params
   end
 
-
   def params
     self.attributes
   end
-
 
   def complete?
     valid?
