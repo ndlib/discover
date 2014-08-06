@@ -101,4 +101,13 @@ describe HoldsRequest do
       expect(subject.formatted_cancel_date).to be_nil
     end
   end
+
+  describe '#hold_request_params' do
+    it 'returns a hash' do
+      subject.stub(:decrypted_item_id).and_return('decrypted_item_id')
+      subject.stub(:pickup_location).and_return('pickup_location')
+      subject.stub(:formatted_cancel_date).and_return('formatted_cancel_date')
+      expect(subject.hold_request_params).to eq({:item_number=>"decrypted_item_id", :pickup_location=>"pickup_location", :cancel_date=>"formatted_cancel_date"})
+    end
+  end
 end

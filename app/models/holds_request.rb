@@ -37,4 +37,11 @@ class HoldsRequest
     end
   end
 
+  def hold_request_params
+    {
+      item_number: decrypted_item_id,
+      pickup_location: pickup_location,
+      cancel_date: formatted_cancel_date
+    }
+  end
 end
