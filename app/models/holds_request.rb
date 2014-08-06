@@ -30,7 +30,7 @@ class HoldsRequest
   end
 
   def formatted_cancel_date
-    if cancel_date.present?
+    if cancel_date.present? && cancel_date != 'null'
       Date.parse(cancel_date).strftime('%Y%m%d')
     else
       nil

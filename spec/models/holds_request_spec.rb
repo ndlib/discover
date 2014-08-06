@@ -100,6 +100,11 @@ describe HoldsRequest do
       subject.cancel_date = nil
       expect(subject.formatted_cancel_date).to be_nil
     end
+
+    it 'returns nil for the null string' do
+      subject.cancel_date = 'null'
+      expect(subject.formatted_cancel_date).to be_nil
+    end
   end
 
   describe '#hold_request_params' do
