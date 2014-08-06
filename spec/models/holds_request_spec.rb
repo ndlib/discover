@@ -17,9 +17,9 @@ describe HoldsRequest do
     end
 
 
-    it "saves the cancel_data params" do
-      subject.save_params({pickup_location: '1'})
-      expect(subject.pickup_location).to eq("1")
+    it "saves the cancel_date params" do
+      subject.save_params({cancel_date: '1'})
+      expect(subject.cancel_date).to eq("1")
     end
 
 
@@ -77,6 +77,28 @@ describe HoldsRequest do
       it 'raises an error' do
         expect{subject.decrypted_item_id}.to raise_error(ActiveSupport::MessageVerifier::InvalidSignature)
       end
+    end
+  end
+
+  describe '#formatted_cancel_date' do
+    it 'formats an ISO date string' do
+      subject.cancel_date = '2014-01-01'
+      expect(subject.formatted_cancel_date).to eq('20140101')
+    end
+
+    it 'does not modify a valid date string' do
+      subject.cancel_date = '20140101'
+      expect(subject.formatted_cancel_date).to eq('20140101')
+    end
+
+    it 'formats a US date string' do
+      subject.cancel_date = '12/01/2014'
+      expect(subject.formatted_cancel_date).to eq('20141201')
+    end
+
+    it 'returns nil' do
+      subject.cancel_date = nil
+      expect(subject.formatted_cancel_date).to be_nil
     end
   end
 end

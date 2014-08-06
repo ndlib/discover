@@ -43,6 +43,7 @@ gem "rb-readline"
 gem 'devise'
 gem 'devise_cas_authenticatable'
 gem 'faraday'
+gem 'american_date'
 
 gem 'mysql2'
 
