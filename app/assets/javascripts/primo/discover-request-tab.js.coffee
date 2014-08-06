@@ -104,10 +104,6 @@ class RequestForm
   formFailure: (jqXHR) ->
     @show('.ndl-request-failure')
     messageContainer = @find('.ndl-request-failure-message')
-    body = jQuery.parseJSON(jqXHR.responseText)
-    message = body.server_response
-    messageContainer.text("Error message: #{message}")
-    messageContainer.show()
     try
       body = jQuery.parseJSON(jqXHR.responseText)
       message = body.server_response
