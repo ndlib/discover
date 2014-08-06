@@ -14,6 +14,8 @@ Discover::Application.routes.draw do
   get 'online_access' => 'online_access#show', as: 'online_access', constraints: {id: /.+/}
   get 'request' => 'holds#hold_request', constraints: {id: /.+/}
   post 'place_request' => 'holds#place_request', as: 'original_place_request'
+  # This route exists so we don't have to do a post request via the discover-place-request.jsp tile in Primo
+  get 'place_request_get' => 'holds#place_request', as: 'place_request_get'
 
   resources :primo_missing_fields, only: [ :index, :show ]
 
