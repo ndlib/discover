@@ -1,0 +1,88 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3005/2.0/discovery/detail.json?auth_token=qtyZ5f6GrM67WWteGFp1&q=ndu_aleph000188916&vid=NDU
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Cache-Control:
+      - must-revalidate, no-cache, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - PUT, GET, POST, DELETE, OPTIONS
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      X-Request-Id:
+      - 75b322bd25deb938fe57dbd2a0f8579b
+      X-Runtime:
+      - '0.394669'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2014-05-08)
+      Date:
+      - Wed, 06 Aug 2014 18:14:42 GMT
+      Content-Length:
+      - '9258'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"records":[{"id":"dedupmrg21374725","type":"book","institution_code":"ndu","display":{"title":["The
+        once and future king."],"creator":{"fulltext":["T. H. White [Terence Hanbury],
+        1906-1964."],"hierarchical":[["T. H. White [Terence Hanbury], 1906-1964."]]},"contributor":{"fulltext":[],"hierarchical":[]},"language":["eng"],"language_note":[],"biographical_note":[],"general_notes":[],"source":[],"subjects":{"fulltext":["Arthurian
+        romances"],"hierarchical":[["Arthurian romances"]]},"series":[],"uniform_titles":{"fulltext":[],"hierarchical":[]},"description":[],"contents":[],"edition":[],"publisher":["New
+        York, Putnam"],"creation_date":["1958"],"citation":[],"coverage":[],"format":["677
+        p. 22 cm.."],"rights":[],"is_part_of":[],"earlier_title":[],"later_title":[],"supplement":[],"supplement_to":[],"issued_with":[],"parallel_title":[],"variant_title":[]},"identifiers":{"isbn":[],"issn":[],"eissn":[],"doi":[],"pmid":[],"lccn":["58010760"],"oclc":["58010760","00276397"],"record_ids":["ndu_aleph000188916","smc_aleph000066721"]},"holdings":[{"record_id":"ndu_aleph000188916","institution_code":"NDU","collection_name":"General
+        Collection","collection_code":"GEN","call_number":"(PR 6045 .H676 O5 )","number_of_items":"0","multi_volume":"N"},{"record_id":"smc_aleph000066721","institution_code":"SMC","collection_name":"General
+        Collection","collection_code":"COLL","call_number":"(PR 6045 .H67 O5 )","number_of_items":"0","multi_volume":"N"}],"online_access":{"institutions":{"ndu":{"id":"ndu","fulltext":[],"table_of_contents":[],"finding_aids":[],"findtext":{"url":"http://findtext.library.nd.edu:8889/ndu_local?ctx_enc=info%3Aofi%2Fenc%3AUTF-8\u0026ctx_tim=2014-08-06T14%3A14%3A42EDT\u0026ctx_ver=Z39.88-2004\u0026rft.au=White%2C+T.+H\u0026rft.aufirst=T.+H.\u0026rft.aulast=White\u0026rft.btitle=The+once+and+future+king.\u0026rft.date=1958\u0026rft.genre=book\u0026rft.lccn=58010760\u0026rft.oclcnum=58010760\u0026rft.pub=Putnam","title":"FindText","notes":[],"service_type":"SFX","source":"findtext","targets_loaded":false,"number_of_targets":0},"ill":null,"report_a_problem":null},"bci":{"id":"bci","fulltext":[],"table_of_contents":[],"finding_aids":[],"findtext":{"url":"http://findtext.library.nd.edu:8889/bethel_local?ctx_enc=info%3Aofi%2Fenc%3AUTF-8\u0026ctx_tim=2014-08-06T14%3A14%3A42EDT\u0026ctx_ver=Z39.88-2004\u0026rft.au=White%2C+T.+H\u0026rft.aufirst=T.+H.\u0026rft.aulast=White\u0026rft.btitle=The+once+and+future+king.\u0026rft.date=1958\u0026rft.genre=book\u0026rft.lccn=58010760\u0026rft.oclcnum=58010760\u0026rft.pub=Putnam","title":"FindText","notes":[],"service_type":"SFX","source":"findtext","targets_loaded":false,"number_of_targets":0},"ill":null,"report_a_problem":null},"smc":{"id":"smc","fulltext":[],"table_of_contents":[],"finding_aids":[],"findtext":{"url":"http://findtext.library.nd.edu:8889/smc_local?ctx_enc=info%3Aofi%2Fenc%3AUTF-8\u0026ctx_tim=2014-08-06T14%3A14%3A42EDT\u0026ctx_ver=Z39.88-2004\u0026rft.au=White%2C+T.+H\u0026rft.aufirst=T.+H.\u0026rft.aulast=White\u0026rft.btitle=The+once+and+future+king.\u0026rft.date=1958\u0026rft.genre=book\u0026rft.lccn=58010760\u0026rft.oclcnum=58010760\u0026rft.pub=Putnam","title":"FindText","notes":[],"service_type":"SFX","source":"findtext","targets_loaded":false,"number_of_targets":0},"ill":null,"report_a_problem":null},"hcc":{"id":"hcc","fulltext":[],"table_of_contents":[],"finding_aids":[],"findtext":{"url":"http://findtext.library.nd.edu:8889/hcc_local?ctx_enc=info%3Aofi%2Fenc%3AUTF-8\u0026ctx_tim=2014-08-06T14%3A14%3A42EDT\u0026ctx_ver=Z39.88-2004\u0026rft.au=White%2C+T.+H\u0026rft.aufirst=T.+H.\u0026rft.aulast=White\u0026rft.btitle=The+once+and+future+king.\u0026rft.date=1958\u0026rft.genre=book\u0026rft.lccn=58010760\u0026rft.oclcnum=58010760\u0026rft.pub=Putnam","title":"FindText","notes":[],"service_type":"SFX","source":"findtext","targets_loaded":false,"number_of_targets":0},"ill":null,"report_a_problem":null}},"table_of_contents":[],"finding_aids":[],"reviews":[],"add_links":[]},"primo":{"control":{"sourcerecordid":["$$V000188916$$Ondu_aleph000188916","$$V000066721$$Osmc_aleph000066721"],"sourceid":["$$Vndu_aleph$$Ondu_aleph000188916","$$Vsmc_aleph$$Osmc_aleph000066721"],"recordid":"dedupmrg21374725","originalsourceid":["$$VNDU01$$Ondu_aleph000188916","$$VSMC01$$Osmc_aleph000066721"],"sourceformat":["$$VMARC21$$Ondu_aleph000188916","$$VMARC21$$Osmc_aleph000066721"],"sourcesystem":["$$VAleph$$Ondu_aleph000188916","$$VAleph$$Osmc_aleph000066721"],"ilsapiid":["$$VNDU01000188916$$Ondu_aleph000188916","$$VSMC01000066721$$Osmc_aleph000066721"]},"display":{"type":"book","title":"The
+        once and future king.","creator":"T. H. White [Terence Hanbury], 1906-1964.","publisher":"New
+        York, Putnam","creationdate":"1958","format":"677 p. 22 cm..","subject":"Arthurian
+        romances","language":"eng","availlibrary":["$$INDU$$LHESB$$1General Collection$$2(PR
+        6045 .H676 O5 )$$Savailable$$31$$40$$5N$$639$$XNDU50$$YHESB$$ZGEN$$Ondu_aleph000188916","$$ISMC$$LSMC$$1General
+        Collection$$2(PR 6045 .H67 O5 )$$Savailable$$31$$40$$5N$$610$$XSMC50$$YSMC$$ZCOLL$$Osmc_aleph000066721"],"availinstitution":["$$INDU$$Savailable","$$ISMC$$Savailable"],"availpnx":"available","lds02":["ndu_aleph000188916","smc_aleph000066721"]},"links":{"linktoholdings":["$$V$$Taleph_holdings$$INDU$$Ondu_aleph000188916","$$V$$Taleph_holdings$$Ondu_aleph000188916","$$V$$Taleph_holdings$$ISMC$$Osmc_aleph000066721","$$V$$Taleph_holdings$$Osmc_aleph000066721"],"linktoholdsnotexist":["$$V$$Taleph_holdings_not_in_user_institution$$Ondu_aleph000188916","$$V$$Taleph_holdings_not_in_user_institution$$Osmc_aleph000066721"],"backlink":["$$V$$Taleph_backlink$$DNotre
+        Dame Catalog$$Ondu_aleph000188916","$$V$$Taleph_backlink$$DSaint Mary''s Catalog$$Osmc_aleph000066721"],"openurl":["$$V$$Topenurl_journal$$Ondu_aleph000188916","$$V$$Topenurl_journal$$Osmc_aleph000066721"],"openurlfulltext":["$$V$$Topenurlfull_journal$$Ondu_aleph000188916","$$V$$Topenurlfull_journal$$Osmc_aleph000066721"],"linktouc":["$$Tworldcat_oclc$$Eworldcat","$$Tworldcat_oclc$$Eworldcat"],"thumbnail":"$$Tgoogle_thumb","lln01":["$$Tfindit_link$$Ondu_aleph000188916","$$Tfindit_link$$Osmc_aleph000066721"]},"search":{"creatorcontrib":["T.
+        H.  White  (Terence Hanbury), 1906-1964.","White, T","Aston, James, 1906-1964","White,
+        Terence Hanbury, 1906-1964."],"title":"The once and future king.","subject":"Arthurian
+        romances.","general":["Putnam","(OCoLC)58010760","OCoLC58010760","58010760","AAV3719","AllDocuments","(OCoLC)00276397","OCoLC00276397","00276397","0276397"],"sourceid":["ndu_aleph","smc_aleph"],"recordid":["ndu_aleph000188916","000188916","188916","smc_aleph000066721","000066721","66721"],"creationdate":"1958","startdate":"19580101","enddate":"19581231","searchscope":["ndu_aleph","NDU","smc_aleph","SMC"],"scope":["HESB","ndu_aleph","NDU","SMC","smc_aleph"],"lsr01":["HESB
+        GEN","HESB General Collection","SMC COLL","SMC General Collection"],"lsr02":["White
+        The once and future king","The once and future king White"],"lsr05":["PR 6045
+        .H676 O5","PR6045.H676O5","PR","PR6045 .H676 O5 :6045 .H676 O5 :","PR 6045
+        .H67 O5","PR6045.H67O5","PR6045 .H67 O5 :"],"lsr07":["White The once and future
+        king","The once and future king White"],"lsr06":"Putnam","lsr08":"New York,"},"sort":{"title":"once
+        and future king.","creationdate":"1958","author":"White, T. H. (Terence Hanbury),
+        1906-1964.","lso01":"1958","lso02":"PR0 006045 H00 676000 O00 500000 -- DLC"},"facets":{"language":"eng","creationdate":"1958","topic":"Arthurian
+        romances","toplevel":"available","prefilter":["books","print"],"rsrctype":["books","print"],"creatorcontrib":"White,
+        T","library":["HESB","SMC"],"classificationlcc":"P - Language and literature.\u2013English
+        literature","frbrgroupid":"73181443","frbrtype":"6"},"dedup":{"t":"1","c3":"onceandfutureking","c4":"1958","f5":"onceandfutureking","f6":"1958","f7":"once
+        and future king","f8":"nyu","f9":"677 p.","f10":"putnam","f11":"white t h
+        terence hanbury 1906 1964"},"frbr":{"t":"99","k1":"$$Kwhite t h terence hanbury
+        1906 1964$$AA","k3":"$$Konce and future king$$AT"},"delivery":{"institution":["$$VNDU$$Ondu_aleph000188916","$$VSMC$$Osmc_aleph000066721"],"delcategory":["$$VPhysical
+        Item$$Ondu_aleph000188916","$$VPhysical Item$$Osmc_aleph000066721"]},"enrichment":{"classificationlcc":"PR
+        6045 .H676"},"ranking":{"booster1":"1","booster2":"1"},"addata":{"aulast":"White","aufirst":"T.
+        H.","au":"White, T. H","btitle":"The once and future king.","date":"1958","risdate":"[1958]","format":"book","genre":"book","ristype":"BOOK","cop":"New
+        York","pub":"Putnam","oclcid":["58010760","00276397"],"lccn":"58010760"},"browse":{"title":["$$DThe
+        once and future king$$Eonce and future king$$UNDU","$$DThe once and future
+        king$$Eonce and future king$$USMC"],"subject":["$$DArthurian romances$$EArthurian
+        romances$$UNDU","$$DArthurian romances$$EArthurian romances$$USMC"],"author":["$$DWhite,
+        T. H. (Terence Hanbury), 1906-1964$$EWhite, T. H. (Terence Hanbury), 1906-1964$$UNDU","$$DWhite,
+        T. H. (Terence Hanbury), 1906-1964$$EWhite, T. H. (Terence Hanbury), 1906-1964$$USMC"],"callnumber":["$$INDU$$DPZ
+        3 .W5854 On$$EPZ 3 .W5854 On $$T0$$DPR 6045 .H676 O5$$E0pr   06045.h  67600  o5
+        $$T0","$$ISMC$$DPR 6045 .H67 O5$$E0pr   06045.h  67000  o5 $$T0"],"institution":["NDU","SMC"]}}}]}'
+    http_version: 
+  recorded_at: Wed, 06 Aug 2014 18:14:42 GMT
+recorded_with: VCR 2.4.0

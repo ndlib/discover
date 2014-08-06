@@ -110,4 +110,30 @@ describe HoldsRequest do
       expect(subject.hold_request_params).to eq({:item_number=>"decrypted_item_id", :pickup_location=>"pickup_location", :cancel_date=>"formatted_cancel_date"})
     end
   end
+
+  describe '#place_hold' do
+    let(:item_number) { 'PRIMO$$$BCI01000136357$$$BCI50000136357000090' }
+    let(:request_id) { HoldItem.encrypt_item_id(item_number) }
+    subject { described_class.new(request_id: request_id, pickup_location: 'BCI') }
+    describe 'valid request' do
+
+      it 'succeeds' do
+        VCR.use_cassette 'holds_request/ndu_aleph001526576' do
+          response = subject.place_hold
+          expect(response.success?).to be_true
+        end
+      end
+    end
+
+    describe 'invalid request' do
+      let(:item_number) { 'FAKE$$$FAKE$$$FAKE' }
+
+      it 'fails' do
+        VCR.use_cassette 'holds_request/fake' do
+          response = subject.place_hold
+          expect(response.success?).to be_false
+        end
+      end
+    end
+  end
 end

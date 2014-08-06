@@ -87,5 +87,9 @@ group :development, :test do
   gem "guard-spork"
   gem "spork", "1.0.0rc4"
   gem "growl"
+end
+
+group :test do
+  gem "webmock"
   gem "vcr"
 end

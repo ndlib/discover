@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: http://localhost:3005/2.0/discovery/holds/request?auth_token=qtyZ5f6GrM67WWteGFp1
+    body:
+      encoding: UTF-8
+      string: cancel_date=&item_number=FAKE%24%24%24FAKE%24%24%24FAKE&pickup_location=BCI
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 500
+      message: 'Internal Server Error '
+    headers:
+      Cache-Control:
+      - must-revalidate, no-cache, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - PUT, GET, POST, DELETE, OPTIONS
+      Content-Type:
+      - "*/*; charset=utf-8"
+      X-Ua-Compatible:
+      - IE=Edge
+      X-Request-Id:
+      - 4b362bf93d62e30a0a22b52d6288ed9b
+      X-Runtime:
+      - '0.034807'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2014-05-08)
+      Date:
+      - Wed, 06 Aug 2014 18:12:58 GMT
+      Content-Length:
+      - '60'
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _api_session=BAh7BkkiD3Nlc3Npb25faWQGOgZFVEkiJTRlNDczNGE4NTNlZGRiNjZmODAyNjY0NmJjNjEyMzBmBjsAVA%3D%3D--5e8024d56efb772838457e65f4ae42ca17897267;
+        path=/; HttpOnly
+    body:
+      encoding: UTF-8
+      string: '{"status":"Failure","server_response":"Item does not exist"}'
+    http_version: 
+  recorded_at: Wed, 06 Aug 2014 18:12:58 GMT
+recorded_with: VCR 2.4.0

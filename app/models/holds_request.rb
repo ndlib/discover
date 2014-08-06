@@ -44,4 +44,8 @@ class HoldsRequest
       cancel_date: formatted_cancel_date
     }
   end
+
+  def place_hold
+    HesburghAPI2::Discovery.place_hold(hold_request_params)
+  end
 end
