@@ -41,11 +41,11 @@ class PrimoProxyFormatter < Draper::Decorator
   end
 
   def set_local_css(text)
-    text.gsub(/<link[^>]+discover.library.nd.edu[^>]+>/, local_css)
+    text.gsub(/<link[^>]+discover(pprd-vm)?.library.nd.edu[^>]+>/, local_css)
   end
 
   def set_local_js(text)
-    text.gsub(/<script[^>]+discover.library.nd.edu[^>]+><\/script>/, local_js)
+    text.gsub(/<script[^>]+discover(pprd-vm)?.library.nd.edu[^>]+><\/script>/, local_js)
   end
 
   def rename_reviews_tab(text)
