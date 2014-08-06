@@ -48,7 +48,7 @@ ul#tl-style1{position:relative;right:1em}
 
 .hide {display:none;}
 
-.EXLResult .EXLRequestTab, .EXLResult .ndl-request-tab {
+.EXLResult .EXLRequestTab {
   display: none;
   list-style-type: none
 }

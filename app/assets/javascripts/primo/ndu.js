@@ -33,6 +33,7 @@ $(document).ready(function() {
         var rud = 'pnxId=' + dn + '&institution=NDU';
         var rui = '/primo_library/libweb/tiles/local/request.jsp';
         if (/aleph/.test(dn)) {
+          rt.siblings('.ndl-request-tab').hide();
           $.ajax({
             type: "get",
             url: rui,
@@ -42,6 +43,8 @@ $(document).ready(function() {
               var dre = /<div id="requestable">yes<\/div>/;
               if (data.match(dre)) {
                 rt.siblings('.ndl-request-tab').show();
+              } else {
+                rt.siblings('.ndl-request-tab').hide();
               }
 
             }

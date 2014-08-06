@@ -9,7 +9,11 @@ class HoldsTab < PrimoRecordTab
   end
 
   def patron_id
-    params[:patron_id]
+    if Rails.env.development?
+      params[:patron_id] || 'PRIMO'
+    else
+      params[:patron_id]
+    end
   end
 
 
