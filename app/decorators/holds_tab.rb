@@ -9,7 +9,7 @@ class HoldsTab < PrimoRecordTab
   end
 
   def patron_id
-    'PRIMO'
+    params[:patron_id]
   end
 
 
