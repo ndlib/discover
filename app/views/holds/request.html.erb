@@ -27,10 +27,7 @@
                 <span class="ndl-request-label">From Institution:</span>
                 <span class="ndl-request-field">
                   <% if volume.items.count > 1 %>
-                    <%
-                              item_options = options_from_collection_for_select(volume.items, 'id', 'institution_title')
-                              %>
-                    <%= select_tag(:item, item_options, class: "ndl-request-form-item") %>
+                    <%= select_tag(:item, @record.item_options(volume.items), class: "ndl-request-form-item") %>
                   <% elsif volume.items.count == 1 %>
                     <%= volume.items.first.institution_title %>
                     <%= hidden_field_tag(:item, volume.items.first.id, class: "ndl-request-form-item") %>

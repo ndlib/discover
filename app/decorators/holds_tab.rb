@@ -1,5 +1,6 @@
 class HoldsTab < PrimoRecordTab
 
+
   def url_params(merge_params = {})
     {
       id: id,
@@ -48,6 +49,27 @@ class HoldsTab < PrimoRecordTab
 
   def volumes
     holds_data.volumes
+  end
+
+  def item_options(items)
+    h.options_from_collection_for_select(sorted_items(items), 'id', 'institution_title')
+  end
+
+  def sorted_items(items)
+    items.sort_by{|item| same_institution?(item.institution_code) ? 0 : 1 }
+  end
+
+  def base_institution_code(aleph_institution_code)
+    base_code = aleph_institution_code.gsub(/_.*/,'')
+    if base_code == 'HESB'
+      'NDU'
+    else
+      base_code
+    end
+  end
+
+  def same_institution?(aleph_institution_code)
+    vid == base_institution_code(aleph_institution_code)
   end
 
   def volume_option_tags
