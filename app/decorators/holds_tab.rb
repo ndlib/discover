@@ -51,12 +51,28 @@ class HoldsTab < PrimoRecordTab
     holds_data.volumes
   end
 
+  def volume_option_tags
+    h.options_from_collection_for_select(volumes, "id", "title")
+  end
+
   def item_options(items)
     h.options_from_collection_for_select(sorted_items(items), 'id', 'institution_title')
   end
 
   def sorted_items(items)
     items.sort_by{|item| same_institution?(item.institution_code) ? 0 : 1 }
+  end
+
+  def pickup_options(item)
+    h.options_from_collection_for_select(sorted_pickup_locations(item), 'id', 'title')
+  end
+
+  def sorted_pickup_locations(item)
+    if same_institution?(item.institution_code)
+      item.pickup_locations
+    else
+      item.pickup_locations.sort_by{|location| same_institution?(location.id) ? 0 : 1 }
+    end
   end
 
   def base_institution_code(aleph_institution_code)
@@ -70,14 +86,6 @@ class HoldsTab < PrimoRecordTab
 
   def same_institution?(aleph_institution_code)
     vid == base_institution_code(aleph_institution_code)
-  end
-
-  def volume_option_tags
-    h.options_from_collection_for_select(volumes, "id", "title")
-  end
-
-  def items(volume_id)
-    holds_data.items(volume_id)
   end
 
   def default_cancel_date_string

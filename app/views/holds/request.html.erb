@@ -39,10 +39,7 @@
                   <%= hidden_field_tag(:request_id, item.encrypted_item_id, class: "ndl-request-form-request-id") %>
                   <span class="ndl-request-label">Pickup Location:</span>
                   <span class="ndl-request-field">
-                    <%
-                                pickup_options = options_from_collection_for_select(item.pickup_locations, 'id', 'title')
-                                %>
-                    <%= select_tag(:pickup_location, pickup_options, class: "ndl-request-form-location") %>
+                    <%= select_tag(:pickup_location, @record.pickup_options(item), class: "ndl-request-form-location") %>
                   </span>
                 </div>
               <% end %>
