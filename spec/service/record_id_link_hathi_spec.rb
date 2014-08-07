@@ -30,7 +30,7 @@ describe RecordIdLinkHathi do
 
   describe '#render' do
     it 'is a link to the hathi trust' do
-      expect(subject.render).to eq("<a href=\"http://catalog.hathitrust.org/Record/004528545\">HathiTrust: 004528545</a>")
+      expect(subject.render).to eq("<a href=\"http://catalog.hathitrust.org/Record/004528545\" target=\"_blank\">HathiTrust: 004528545</a>")
     end
   end
 end
