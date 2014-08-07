@@ -24,13 +24,13 @@ describe RecordIdLinkLaw do
 
   describe '#title' do
     it 'is the labeled record id' do
-      expect(subject.title).to eq("Notre Dame Law School: b18599291")
+      expect(subject.title).to eq("Notre Dame Law School: b1349952")
     end
   end
 
   describe '#render' do
     it 'is a link to the law catalog record' do
-      expect(subject.render).to eq("<a href=\"http://innopac.law.nd.edu/record=b1349952*eng\">Notre Dame Law School: b1349952</a>")
+      expect(subject.render).to eq("<a href=\"http://innopac.law.nd.edu/record=b1349952*eng\" target=\"_blank\">Notre Dame Law School: b1349952</a>")
     end
   end
 end

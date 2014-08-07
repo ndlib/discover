@@ -28,7 +28,7 @@ class RecordIdLinkLaw < Draper::Decorator
   end
 
   def render
-    h.link_to(title, url)
+    h.link_to(title, url, target: '_blank')
   end
 
 end
