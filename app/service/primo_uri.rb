@@ -82,7 +82,16 @@ class PrimoURI
     "display.do?#{display_params(record_id, selected_tab).to_query}"
   end
 
-  def request_tab_signin(record_id)
+  def signin_params(targetURL)
+    base_params.merge({targetURL: targetURL, loginFn: 'signin'})
+  end
 
+  def signin(targetURL)
+    "#{base_path('login.do')}?#{signin_params(targetURL).to_query}"
+  end
+
+  def request_tab_signin(record_id)
+    target = display_no_base_path(record_id, 'requestTab')
+    signin(target)
   end
 end

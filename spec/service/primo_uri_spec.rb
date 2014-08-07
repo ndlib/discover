@@ -154,6 +154,19 @@ describe PrimoURI do
     end
   end
 
+  describe '#signin' do
+    it 'creates a signin link to the target url' do
+      expect(subject.signin('test')).to eq("/primo_library/libweb/action/login.do?loginFn=signin&tab=onesearch&targetURL=test&vid=NDU")
+    end
+  end
+
+
+  describe '#request_tab_signin' do
+    it 'creates a signin link to the request tab' do
+      expect(subject.request_tab_signin('dedupmrg13765448')).to eq("/primo_library/libweb/action/login.do?loginFn=signin&tab=onesearch&targetURL=display.do%3Fct%3Ddisplay%26displayMode%3Dfull%26doc%3Ddedupmrg13765448%26fn%3Dsearch%26tab%3Donesearch%26tabs%3DrequestTab%26vid%3DNDU&vid=NDU")
+    end
+  end
+
 
   describe 'self' do
     subject { described_class }
