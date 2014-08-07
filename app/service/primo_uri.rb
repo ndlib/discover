@@ -72,4 +72,17 @@ class PrimoURI
   def advanced_search(scope1, value1, scope2 = false, value2 = false)
     "#{base_path('search.do')}?#{advanced_search_params(scope1, value1, '0').to_query}&#{value2 ? advanced_search_params(scope2, value2, '1').to_query : ''}"
   end
+
+  def display_params(record_id, selected_tab = nil)
+    selected_tab ||= 'detailsTab'
+    base_params.merge({ doc: record_id, fn: 'search', ct: 'display', displayMode: 'full', tabs: selected_tab})
+  end
+
+  def display_no_base_path(record_id, selected_tab = nil)
+    "display.do?#{display_params(record_id, selected_tab).to_query}"
+  end
+
+  def request_tab_signin(record_id)
+
+  end
 end

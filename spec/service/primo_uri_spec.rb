@@ -134,6 +134,26 @@ describe PrimoURI do
 
   end
 
+  describe '#display_params' do
+    it 'creates the params' do
+      expect(subject.display_params('dedupmrg13765448')).to eq({"vid"=>"NDU", "tab"=>"onesearch", "doc"=>"dedupmrg13765448", "fn"=>"search", "ct"=>"display", "displayMode"=>"full", "tabs"=>"detailsTab"})
+    end
+
+    it 'can set the tab' do
+      expect(subject.display_params('dedupmrg13765448', 'requestTab')).to eq({"vid"=>"NDU", "tab"=>"onesearch", "doc"=>"dedupmrg13765448", "fn"=>"search", "ct"=>"display", "displayMode"=>"full", "tabs"=>"requestTab"})
+    end
+  end
+
+  describe '#display_no_base_path' do
+    it 'creates the link' do
+      expect(subject.display_no_base_path('dedupmrg13765448')).to eq("display.do?ct=display&displayMode=full&doc=dedupmrg13765448&fn=search&tab=onesearch&tabs=detailsTab&vid=NDU")
+    end
+
+    it 'can set the tab' do
+      expect(subject.display_no_base_path('dedupmrg13765448', 'requestTab')).to eq("display.do?ct=display&displayMode=full&doc=dedupmrg13765448&fn=search&tab=onesearch&tabs=requestTab&vid=NDU")
+    end
+  end
+
 
   describe 'self' do
     subject { described_class }
