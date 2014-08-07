@@ -20,7 +20,7 @@ class RecordIdLinkLaw < Draper::Decorator
   end
 
   def url
-    "http://encore.law.nd.edu/iii/encore/record/C__R#{record_id}?lang=eng"
+    "http://innopac.law.nd.edu/record=#{record_id}*eng"
   end
 
   def title

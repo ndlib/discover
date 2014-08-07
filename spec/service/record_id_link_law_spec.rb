@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe RecordIdLinkLaw do
-  let(:record_id) { 'ndlaw_iii.b18599291' }
+  let(:record_id) { 'ndlaw_iii.b1349952' }
   subject { described_class.new(record_id) }
 
   describe '#record_id' do
     it 'is the pc record id' do
-      expect(subject.record_id).to eq("b18599291")
+      expect(subject.record_id).to eq("b1349952")
     end
   end
 
@@ -18,7 +18,7 @@ describe RecordIdLinkLaw do
 
   describe '#url' do
     it 'is a url to the law catalog record' do
-      expect(subject.url).to eq("http://encore.law.nd.edu/iii/encore/record/C__Rb18599291?lang=eng")
+      expect(subject.url).to eq("http://innopac.law.nd.edu/record=b1349952*eng")
     end
   end
 
@@ -30,7 +30,7 @@ describe RecordIdLinkLaw do
 
   describe '#render' do
     it 'is a link to the law catalog record' do
-      expect(subject.render).to eq("<a href=\"http://encore.law.nd.edu/iii/encore/record/C__Rb18599291?lang=eng\">Notre Dame Law School: b18599291</a>")
+      expect(subject.render).to eq("<a href=\"http://innopac.law.nd.edu/record=b1349952*eng\">Notre Dame Law School: b1349952</a>")
     end
   end
 end
