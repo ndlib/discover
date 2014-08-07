@@ -48,6 +48,20 @@ describe HoldData do
     end
   end
 
+  describe 'combination volume' do
+    let(:data) { combination_volume_data }
+
+    describe '#volumes' do
+      it 'is a collection of volumes' do
+        expect(subject.volumes).to be_a_kind_of(Array)
+        expect(subject.volumes.first).to be_a_kind_of(HoldVolume)
+        expect(subject.volumes.count).to eq(1)
+        expect(subject.volumes.first.items).to be_a_kind_of(Array)
+        expect(subject.volumes.first.items.first).to be_a_kind_of(HoldItem)
+      end
+    end
+  end
+
   def single_volume_data
     {
       "volumes" =>  [
@@ -86,6 +100,51 @@ describe HoldData do
               "item_id" =>  "MLC200046090$$$HCC01000021761$$$HCC50000022674000010",
               "status_message" =>  "",
               "location" =>  "813.54 S26 2001"
+            }
+          ]
+        }
+      ]
+    }
+  end
+
+  def combination_volume_data
+    {
+      "volumes" =>  [
+        {
+          "description" => "v.9/10 (June 1975/May 1976)",
+          "enumeration" => "9/10",
+          "sort_order" => "9/10"
+        }
+      ],
+      "items_by_enumeration" => [
+        {
+          "enumeration" => "9/10",
+          "items" => [
+            {
+              "institution_code" => "BCI",
+              "pickup_locations" => [
+                {
+                  "code" => "BCI",
+                  "content" => "Bethel College"
+                },
+                {
+                  "code" => "HCC_B",
+                  "content" => "Holy Cross (allow extra time)"
+                },
+                {
+                  "code" => "NDU_B",
+                  "content" => "Hesburgh (allow extra time)"
+                },
+                {
+                  "code" => "SMC_B",
+                  "content" => "Saint Mary's(allow extra time)"
+                }
+              ],
+              "description" => "v.9/10 (June 1975/May 1976)",
+              "bib_id" => "000038864",
+              "item_id" => "PRIMO$$$BCI01000038864$$$BCI50000038864000120",
+              "status_message" => "",
+              "location" => "Shelved by title"
             }
           ]
         }

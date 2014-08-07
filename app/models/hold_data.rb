@@ -19,7 +19,7 @@ class HoldData
 
   def build_volume(volume_data)
     HoldVolume.new(volume_data).tap do |volume|
-      volume.add_items(items(volume.id))
+      volume.add_items(items(volume.enumeration))
     end
   end
 
@@ -31,8 +31,8 @@ class HoldData
     end
   end
 
-  def items(volume_id)
-    items_hash[volume_id.to_s]
+  def items(volume_enumeration)
+    items_hash[volume_enumeration.to_s] || []
   end
 
   def build_items(items_array)

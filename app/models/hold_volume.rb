@@ -12,6 +12,10 @@ class HoldVolume
   end
 
   def id
+    @id ||= get(:enumeration).gsub(/[^0-9]/,'_')
+  end
+
+  def enumeration
     get(:enumeration)
   end
 

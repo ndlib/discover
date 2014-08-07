@@ -21,6 +21,10 @@ describe HoldVolume do
       expect(subject.id).to eq('1')
     end
 
+    it 'has an enumeration' do
+      expect(subject.enumeration).to eq('1')
+    end
+
     it 'has a sort_order' do
       expect(subject.sort_order).to eq('10')
     end
@@ -42,5 +46,24 @@ describe HoldVolume do
     it 'is a single volume' do
       expect(subject.single_volume?).to be_true
     end
+  end
+
+  describe 'combination volume' do
+    let(:data) do
+      {
+        "description" => "v.9/10 (June 1975/May 1976)",
+        "enumeration" => "9/10",
+        "sort_order" => "9/10"
+      }
+    end
+
+    it 'formats the id' do
+      expect(subject.id).to eq('9_10')
+    end
+
+    it 'has an enumeration' do
+      expect(subject.enumeration).to eq('9/10')
+    end
+
   end
 end
