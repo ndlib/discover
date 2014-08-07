@@ -46,6 +46,7 @@ class RequestForm
     @find('.ndl-request-volume').hide()
     if volume_id
       @hide('.ndl-request-success')
+      @hide('.ndl-request-failure')
       $volumeContainer = @find("#ndl-request-volume-#{volume_id}")
       $volumeContainer.show()
       @volume_title = $volumeContainer.data('title')
