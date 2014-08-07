@@ -1,4 +1,4 @@
-<div class="ndl-request-container EXLRequestTabContent">
+<div class="ndl-request-container EXLRequestTabContent" data-title="<%= @record.page_title %>">
   <% if @record.patron_id.present? %>
     <% content_for(:title, @record.page_title) %>
     <h2>Request
@@ -64,7 +64,8 @@
       <% end %>
     </div>
     <div class="ndl-request-success ndl-hidden">
-      <p>Your request was successfully placed.</p>
+      <p>Your request was successfully placed.
+        <span class="ndl-request-success-message"></span></p>
     </div>
   <% else %>
     <p><%= @record.signin_link %></p>

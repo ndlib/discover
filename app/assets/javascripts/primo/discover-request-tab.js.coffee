@@ -1,9 +1,13 @@
 class RequestForm
   constructor: (@container) ->
     @form = @container.find('form')
+    @record_title = @container.data('title')
     @volume_id = null
+    @volume_title = null
     @item_id = null
+    @institution_title = null
     @location_id = null
+    @location_title = null
     @request_id = null
     @loading = false
     @attachEvents()
@@ -12,6 +16,11 @@ class RequestForm
   find: (selector) ->
     @container.find(selector)
 
+  itemContainer: ->
+    @find("#ndl-request-item-#{@item_id}")
+
+  isSingleVolume: ->
+    @find('.ndl-request-single-volume').length > 0
 
   attachEvents: ->
     object = @
@@ -38,29 +47,35 @@ class RequestForm
     if volume_id
       $volumeContainer = @find("#ndl-request-volume-#{volume_id}")
       $volumeContainer.show()
+      @volume_title = $volumeContainer.data('title')
       $itemSelect = $volumeContainer.find('.ndl-request-form-item')
       @selectItem($itemSelect.val())
     else
+      @volume_title = null
       @disableSubmit()
 
   selectItem: (item_id) ->
     @item_id = item_id
     @find('.ndl-request-item').hide()
     if item_id
-      $itemContainer = @find("#ndl-request-item-#{item_id}")
+      $itemContainer = @itemContainer()
       @request_id = $itemContainer.find('.ndl-request-form-request-id').val()
       $itemContainer.show()
+      @institution_title = $itemContainer.data('institution_title')
       $locationSelect = $itemContainer.find('.ndl-request-form-location')
       @selectPickupLocation($locationSelect.val())
     else
       @request_id = null
+      @institution_title = null
       @disableSubmit()
 
   selectPickupLocation: (location_id) ->
     @location_id = location_id
     if location_id
+      @location_title = @itemContainer().find('.ndl-request-form-location option:selected').text()
       @enableSubmit()
     else
+      @location_title = null
       @disableSubmit()
 
   enableSubmit: ->
@@ -96,8 +111,16 @@ class RequestForm
     @loading = false
     @hide('.ndl-request-loading')
 
+  successMessage: ->
+    message = "You requested #{@record_title}"
+    if !@isSingleVolume()
+      message += " #{@volume_title}"
+    message += " from #{@institution_title} with the pickup location #{@location_title}"
+    message
+
   formSuccess: ->
     @show('.ndl-request-success')
+    @find('.ndl-request-success-message').text(@successMessage())
     @hide('.ndl-request')
 
   formFailure: (jqXHR) ->
