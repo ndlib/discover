@@ -45,6 +45,7 @@ class RequestForm
     @volume_id = volume_id
     @find('.ndl-request-volume').hide()
     if volume_id
+      @hide('.ndl-request-success')
       $volumeContainer = @find("#ndl-request-volume-#{volume_id}")
       $volumeContainer.show()
       @volume_title = $volumeContainer.data('title')
@@ -121,7 +122,14 @@ class RequestForm
   formSuccess: ->
     @show('.ndl-request-success')
     @find('.ndl-request-success-message').text(@successMessage())
-    @hide('.ndl-request')
+    @removeCurrentVolume()
+
+  removeCurrentVolume: ->
+    $volumeSelect = @find('.ndl-request-form-volume')
+    $volumeOption = $volumeSelect.find('option[value="' + @volume_id + '"]')
+    $volumeSelect.val('')
+    $volumeOption.remove()
+    @selectVolume(null)
 
   formFailure: (jqXHR) ->
     if jqXHR.status == 200
