@@ -120,6 +120,7 @@ class RequestForm
     message
 
   formSuccess: ->
+    @hide('.ndl-request-failure')
     @show('.ndl-request-success')
     @find('.ndl-request-success-message').text(@successMessage())
     @removeCurrentVolume()
