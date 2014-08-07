@@ -2,6 +2,15 @@
   form {
     width: auto;
   }
+
+  // Customizations for Primo's date picker
+  .dp-choose-date {
+    float: none;
+    display: inline-block;
+    overflow: initial;
+    margin: 0 3px;
+    padding-top: 2px;
+  }
 }
 
 .ndl-request-failure {

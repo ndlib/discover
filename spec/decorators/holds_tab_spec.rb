@@ -13,4 +13,12 @@ describe HoldsTab do
   it 'has a patron id' do
     expect(subject.patron_id).to eq('patron_id')
   end
+
+  it 'has a default cancel date' do
+    expect(subject.default_cancel_date).to eq(Date.today.since(6.months))
+  end
+
+  it 'has a default cancel date string' do
+    expect(subject.default_cancel_date_string).to eq(Date.today.since(6.months).strftime('%m/%d/%Y'))
+  end
 end

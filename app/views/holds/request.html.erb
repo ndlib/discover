@@ -55,7 +55,7 @@
             <span class="ndl-request-label">
               Cancel Request After:</span>
             <span class="ndl-request-field">
-              <%= text_field_tag(:cancel_date, Date.today.since(6.months), class: 'ndl-cancel-date date-pick') %>
+              <%= text_field_tag(:cancel_date, @record.default_cancel_date_string, class: 'ndl-cancel-date date-pick') %>
               <span class="ndl-request-help">Your request will be canceled if you have not received the item by this date.</span>
             </span>
           </div>

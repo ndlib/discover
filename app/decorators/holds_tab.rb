@@ -50,6 +50,14 @@ class HoldsTab < PrimoRecordTab
     holds_data.items(volume_id)
   end
 
+  def default_cancel_date_string
+    default_cancel_date.strftime('%m/%d/%Y')
+  end
+
+  def default_cancel_date
+    Date.today.since(6.months)
+  end
+
 
   private
 
