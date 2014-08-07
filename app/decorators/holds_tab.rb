@@ -10,9 +10,17 @@ class HoldsTab < PrimoRecordTab
 
   def patron_id
     if Rails.env.development?
-      params[:patron_id] || 'PRIMO'
+      patron_id_param || 'PRIMO'
     else
+      patron_id_param
+    end
+  end
+
+  def patron_id_param
+    if params[:patron_id].present? && params[:patron_id] != 'null'
       params[:patron_id]
+    else
+      nil
     end
   end
 
@@ -56,6 +64,10 @@ class HoldsTab < PrimoRecordTab
 
   def default_cancel_date
     Date.today.since(6.months)
+  end
+
+  def signin_link
+    h.link_to("You must sign-in in order to place requests", primo_uri.request_tab_signin(id))
   end
 
 
