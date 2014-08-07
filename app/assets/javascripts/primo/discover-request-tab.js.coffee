@@ -70,6 +70,7 @@ class RequestForm
     {
       request_id: @request_id,
       pickup_location: @location_id,
+      cancel_date: @find('.ndl-cancel-date').val(),
     }
 
   submitForm: ->
