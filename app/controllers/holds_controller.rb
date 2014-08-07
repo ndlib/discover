@@ -8,6 +8,7 @@ class HoldsController < ApplicationController
   end
 
   def place_request
+    params[:pickup_location] += '1'
     request = HoldsRequest.new(params)
     response = request.place_hold
     respond_to do |format|

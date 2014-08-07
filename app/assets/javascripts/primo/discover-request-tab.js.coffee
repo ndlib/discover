@@ -102,15 +102,20 @@ class RequestForm
     @hide('.ndl-request')
 
   formFailure: (jqXHR) ->
-    @show('.ndl-request-failure')
-    messageContainer = @find('.ndl-request-failure-message')
-    try
-      body = jQuery.parseJSON(jqXHR.responseText)
-      message = body.server_response
-      messageContainer.text("Error message: #{message}")
-      messageContainer.show()
-    catch
-      messageContainer.hide()
+    if jqXHR.status == 200
+      # When the response comes through the discover-place-request.jsp file on Primo, it triggers the fail() callback even on a success.
+      # Rather than debugging that problem, we capture the disparity at this point in the logic and show that it was a success.
+      @formSuccess()
+    else
+      @show('.ndl-request-failure')
+      messageContainer = @find('.ndl-request-failure-message')
+      try
+        body = jQuery.parseJSON(jqXHR.responseText)
+        message = body.server_response
+        messageContainer.text("Error message: #{message}")
+        messageContainer.show()
+      catch
+        messageContainer.hide()
 
 
 
