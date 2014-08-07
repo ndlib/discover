@@ -24,6 +24,9 @@ class RequestForm
     @find('.ndl-request-form-location').change ->
       location_id = $(this).val()
       object.selectPickupLocation(location_id)
+    date = @find('.date-pick')
+    if date.datePicker
+      date.datePicker()
     @form.submit (event) ->
       event.preventDefault()
       object.submitForm()
