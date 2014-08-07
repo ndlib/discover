@@ -6,23 +6,19 @@
     <div class="ndl-request">
       <% if @record.volumes.count > 0 %>
         <%= form_tag(place_request_path, method: "post", id: 'ndl-request-form') do %>
-          <% if !@record.single_volume? %>
-            <div class="ndl-request-row">
-              <span class="ndl-request-label">Volume:</span>
-              <span class="ndl-request-field">
-                <% if @record.volumes.count > 1 %>
-                  <%= select_tag(:volume, @record.volume_option_tags, prompt: "Select Volume", class: "ndl-request-form-volume") %>
-                <% elsif @record.volumes.count == 1 %>
-                  <%= @record.volumes.first.title %>
-                  <%= hidden_field_tag(:volume, @record.volumes.first.id, class: "ndl-request-form-volume") %>
-                <% end %>
-              </span>
-            </div>
-          <% else %>
-            <%= hidden_field_tag(:volume, @record.volumes.first.id, class: "ndl-request-form-volume") %>
-          <% end %>
+          <div class="ndl-request-row <%= @record.single_volume? ? 'ndl-request-single-volume' : '' %>">
+            <span class="ndl-request-label">Volume:</span>
+            <span class="ndl-request-field">
+              <% if @record.volumes.count > 1 %>
+                <%= select_tag(:volume, @record.volume_option_tags, prompt: "Select Volume", class: "ndl-request-form-volume") %>
+              <% elsif @record.volumes.count == 1 %>
+                <%= @record.volumes.first.title %>
+                <%= hidden_field_tag(:volume, @record.volumes.first.id, class: "ndl-request-form-volume") %>
+              <% end %>
+            </span>
+          </div>
           <% @record.volumes.each do |volume| %>
-            <div id="ndl-request-volume-<%= volume.id%>" class="ndl-request-volume">
+            <div id="ndl-request-volume-<%= volume.id%>" class="ndl-request-volume" data-title="<%= volume.title %>">
               <div class="ndl-request-row">
                 <span class="ndl-request-label">From Institution:</span>
                 <span class="ndl-request-field">
@@ -35,7 +31,7 @@
                 </span>
               </div>
               <% volume.items.each do |item| %>
-                <div id="ndl-request-item-<%= item.id %>" class="ndl-request-item ndl-request-row">
+                <div id="ndl-request-item-<%= item.id %>" class="ndl-request-item ndl-request-row" data-institution_title="<%= item.institution_title %>">
                   <%= hidden_field_tag(:request_id, item.encrypted_item_id, class: "ndl-request-form-request-id") %>
                   <span class="ndl-request-label">Pickup Location:</span>
                   <span class="ndl-request-field">
