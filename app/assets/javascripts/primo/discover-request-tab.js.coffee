@@ -24,11 +24,6 @@ class RequestForm
     @find('.ndl-request-form-location').change ->
       location_id = $(this).val()
       object.selectPickupLocation(location_id)
-    @find('#use_end_date').change ->
-      if $(this).prop('checked')
-        @find('.ndl-cancel_date_input').show()
-      else
-        @find('.ndl-cancel_date_input').hide()
     @form.submit (event) ->
       event.preventDefault()
       object.submitForm()

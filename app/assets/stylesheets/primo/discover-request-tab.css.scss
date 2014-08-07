@@ -20,5 +20,11 @@
 .ndl-request-label {
   display: inline-block;
   width: 150px;
+  padding-right: 25px;
   text-align: right;
+}
+
+.ndl-request-help {
+  font-style: italic;
+  font-size: .8em;
 }

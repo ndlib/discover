@@ -8,12 +8,14 @@
         <% if !@record.single_volume? %>
           <div class="ndl-request-row">
             <span class="ndl-request-label">Volume:</span>
-            <% if @record.volumes.count > 1 %>
-              <%= select_tag(:volume, @record.volume_option_tags, prompt: "Select Volume", class: "ndl-request-form-volume") %>
-            <% elsif @record.volumes.count == 1 %>
-              <%= @record.volumes.first.title %>
-              <%= hidden_field_tag(:volume, @record.volumes.first.id, class: "ndl-request-form-volume") %>
-            <% end %>
+            <span class="ndl-request-field">
+              <% if @record.volumes.count > 1 %>
+                <%= select_tag(:volume, @record.volume_option_tags, prompt: "Select Volume", class: "ndl-request-form-volume") %>
+              <% elsif @record.volumes.count == 1 %>
+                <%= @record.volumes.first.title %>
+                <%= hidden_field_tag(:volume, @record.volumes.first.id, class: "ndl-request-form-volume") %>
+              <% end %>
+            </span>
           </div>
         <% else %>
           <%= hidden_field_tag(:volume, @record.volumes.first.id, class: "ndl-request-form-volume") %>
@@ -22,45 +24,49 @@
           <div id="ndl-request-volume-<%= volume.id%>" class="ndl-request-volume">
             <div class="ndl-request-row">
               <span class="ndl-request-label">From Institution:</span>
-              <% if volume.items.count > 1 %>
-                <%
-            item_options = options_from_collection_for_select(volume.items, 'id', 'institution_title')
-            %>
-                <%= select_tag(:item, item_options, class: "ndl-request-form-item") %>
-              <% elsif volume.items.count == 1 %>
-                <%= volume.items.first.institution_title %>
-                <%= hidden_field_tag(:item, volume.items.first.id, class: "ndl-request-form-item") %>
-              <% end %>
+              <span class="ndl-request-field">
+                <% if volume.items.count > 1 %>
+                  <%
+                            item_options = options_from_collection_for_select(volume.items, 'id', 'institution_title')
+                            %>
+                  <%= select_tag(:item, item_options, class: "ndl-request-form-item") %>
+                <% elsif volume.items.count == 1 %>
+                  <%= volume.items.first.institution_title %>
+                  <%= hidden_field_tag(:item, volume.items.first.id, class: "ndl-request-form-item") %>
+                <% end %>
+              </span>
             </div>
             <% volume.items.each do |item| %>
               <div id="ndl-request-item-<%= item.id %>" class="ndl-request-item ndl-request-row">
                 <%= hidden_field_tag(:request_id, item.encrypted_item_id, class: "ndl-request-form-request-id") %>
                 <span class="ndl-request-label">Pickup Location:</span>
-                <%
-            pickup_options = options_from_collection_for_select(item.pickup_locations, 'id', 'title')
-            %>
-                <%= select_tag(:pickup_location, pickup_options, class: "ndl-request-form-location") %>
+                <span class="ndl-request-field">
+                  <%
+                              pickup_options = options_from_collection_for_select(item.pickup_locations, 'id', 'title')
+                              %>
+                  <%= select_tag(:pickup_location, pickup_options, class: "ndl-request-form-location") %>
+                </span>
               </div>
             <% end %>
           </div>
         <% end %>
         <div class="ndl-request-form-submit-container">
-          <!--
-      <p>
-        <label><input type="checkbox" name="use_end_date" id="use_end_date"> Set Cancel Request date</label>
-        <span class="ndl-cancel_date_input">
-          <input type="date" id="cancel_date_input" name="cancel_date">
-          <span class="ndl-cancel_date_input_help">Your request will be canceled if you have not received the item by this date.</span>
-        </span>
-      </p>
-      -->
+          <div class="ndl-request-row">
+            <span class="ndl-request-label">
+              Cancel Request After:</span>
+            <span class="ndl-request-field">
+              <%= date_field_tag(:cancel_date, nil, class: 'ndl-cancel-date') %>
+              <span class="ndl-request-help">Your request will be canceled if you have not received the item by this date.</span>
+            </span>
+          </div>
           <div class="ndl-request-row">
             <span class="ndl-request-label"></span>
             <%= submit_tag('Request', class: 'ndl-request-form-submit submit') %>
             <span class="ndl-request-loading ndl-hidden"></span>
           </div>
         </div>
-        <div class="ndl-request-failure ndl-hidden"><p>There was a problem placing your request. <span class="ndl-request-failure-message"></span></p></div>
+        <div class="ndl-request-failure ndl-hidden"><p>There was a problem placing your request.
+            <span class="ndl-request-failure-message"></span></p></div>
       <% end %>
     <% else %>
       Unable to request items. See location tab for availability information.
