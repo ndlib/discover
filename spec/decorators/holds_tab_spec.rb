@@ -3,6 +3,7 @@ require 'spec_helper'
 
 describe HoldsTab do
   let(:params) { {id: 'dedupmrg47445220', patron_id: 'patron_id', vid: 'NDU'} }
+  let(:record) { double(DiscoveryRecord) }
   let(:test_controller) { double(HoldsController, params: params)}
   subject { described_class.new(test_controller) }
 
@@ -20,6 +21,23 @@ describe HoldsTab do
 
   it 'has a default cancel date string' do
     expect(subject.default_cancel_date_string).to eq(Date.today.since(6.months).strftime('%m/%d/%Y'))
+  end
+
+  describe '#page_title' do
+    before do
+      subject.stub(:record).and_return(record)
+    end
+
+    it 'calls the record title' do
+      expect(record).to receive(:title).and_return(['title'])
+      expect(subject.page_title).to eq('title')
+    end
+
+    it 'calls does not call the record title if there is no patron_id' do
+      subject.stub(:patron_id).and_return(nil)
+      expect(record).to_not receive(:title)
+      expect(subject.page_title).to be_nil
+    end
   end
 
   describe '#base_institution_code' do
