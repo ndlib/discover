@@ -63,13 +63,6 @@ jQuery ($) ->
                     <span class="EXLButtonSendToIcon EXLButtonSendToIconRefWorks"></span>
                   </a>
                 </li>
-                <li class="EXLButtonSendToDelicious">
-                  <a href="#{addSessionId('PushToAction.do')}?recId=#{recordID}&amp;pushToType=Delicious&amp;fromEshelf=false" title="Add toDelicious" target="_blank">
-                    <span class="EXLButtonSendToLabel">
-                      del.icio.us</span>
-                    <span class="EXLButtonSendToIcon EXLButtonSendToIconDelicious"></span>
-                  </a>
-                </li>
                 <li class="EXLButtonSendToRIS">
                   <a href="#{addSessionId('PushToAction.do')}?recId=#{recordID}&amp;pushToType=RISPushTo&amp;fromEshelf=false" title="Add toRISPushTo" target="_blank">
                     <span class="EXLButtonSendToLabel">
@@ -107,9 +100,6 @@ jQuery ($) ->
       container.find('.EXLButtonSendToRefWorks a').click (event) ->
         event.preventDefault()
         pushto('RefWorks',"#{index}",'false',recordID)
-      container.find('.EXLButtonSendToDelicious a').click (event) ->
-        event.preventDefault()
-        pushto('Delicious',"#{index}",'false',recordID)
       container.find('.EXLButtonSendToRIS a').click (event) ->
         event.preventDefault()
         pushto('RISPushTo',"#{index}",'false',recordID)
