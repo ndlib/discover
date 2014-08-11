@@ -190,10 +190,9 @@ $(document).ready(function() {
   $('.mrecall').live("click", function(event) {
     event.preventDefault();
     if (event.type == 'click') {
-      var thisERA = $(this).parents().parents();
-      var resultNum = $(this).parents('.EXLResult').attr("id");
-      var taera = thisERA.parents().parents().parents().children('.EXLTabsRibbon').children('div').children('.EXLResultTabs').children('.EXLRequestTab').children('a');
-      taera.trigger('click');
+      var resultContainer = $(this).parents('.EXLResult');
+      var requestTab = resultContainer.find('.ndl-request-tab');
+      requestTab.trigger('click');
     }
 
   });
