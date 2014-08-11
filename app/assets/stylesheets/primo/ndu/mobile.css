@@ -213,4 +213,22 @@
   #exlidSearchTile .EXLSearchFieldRibbonFormFields {
     width:75%;
   }
+
+  body #colorbox {
+    width:96% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  #colorbox #cboxWrapper, #colorbox #cboxContent, #cboxLoadedContent, #maps, #maps table, #maps td, #maps td img {
+    width:100% !important;
+    padding:0 !important;
+  }
+    body.EXLFullView div.EXLTabsRibbon div li.EXLResultSelectedTab {
+      border:solid 2px #f0f0f0;
+    }
+  body.EXLFullView div.EXLTabsRibbon div li.EXLResultSelectedTab a {
+    color:#17375e;
+    
+  }
 }

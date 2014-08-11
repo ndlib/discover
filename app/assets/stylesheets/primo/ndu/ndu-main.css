@@ -576,7 +576,7 @@ div.EXLBackToResults a, .EXLResultsNavigation .EXLDisplayedCountTitle, .EXLResul
 .EXLSearchFieldRibbonAdvancedSearchLink a, #exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormLinks a {
   color:#fff !important;
   font-size:12px;
-  text-transform: uppercase;
+
 }
 
 #exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormLinks {
@@ -971,9 +971,7 @@ display: none;
 }
 
 .EXLFacetContainer div.EXLFacetActionsV2 li.EXLFacetSaveToEShelfActionOff {
-  position:absolute;
-  left:50%;
-  top:363px;
+
  background-image:url("../ndu/folder.add.gif");
   z-index: 30;
   padding-left:23px;
@@ -1032,3 +1030,22 @@ display: none;
 .EXLBrowseSearch .EXLFacetContainer div.EXLFacetActionsV2 li.EXLFacetSaveToEShelfActionOff {
   display: none;
 }
+
+.coverImageDiv {
+  z-index: 150 !important;
+}
+
+#exlidFacet0 .EXLFacetsDisplayMore {
+  background: none !important;
+}
+
+.EXLResultsContainer { 
+position: relative ! important; 
+} 
+
+.EXLFacetContainer div.EXLFacetActionsV2 li.EXLFacetSaveToEShelfActionOff { 
+position: absolute ! important; 
+left: 22.5% ! important; 
+top: 30px ! important; 
+z-index: 1 !important; 
+} 

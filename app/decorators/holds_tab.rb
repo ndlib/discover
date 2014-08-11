@@ -36,7 +36,11 @@ class HoldsTab < PrimoRecordTab
   end
 
   def page_title
-    record.title.first
+    if patron_id.present?
+      record.title.first
+    else
+      nil
+    end
   end
 
   def holds_data
