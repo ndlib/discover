@@ -1039,13 +1039,20 @@ display: none;
   background: none !important;
 }
 
+/*
 .EXLResultsContainer { 
-position: relative ! important; 
-} 
-
+position: relative !important; 
+}
 .EXLFacetContainer div.EXLFacetActionsV2 li.EXLFacetSaveToEShelfActionOff { 
-position: absolute ! important; 
-left: 22.5% ! important; 
-top: 30px ! important; 
-z-index: 1 !important; 
-} 
+position: absolute ; 
+left: 22.5% ; 
+top: 30px ; 
+z-index: 1000 ; 
+} */
+
+
+
+
+#exliWhiteContent {
+  z-index: 2000 !important;
+}
