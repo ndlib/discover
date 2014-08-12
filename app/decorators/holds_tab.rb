@@ -80,7 +80,7 @@ class HoldsTab < PrimoRecordTab
   end
 
   def base_institution_code(aleph_institution_code)
-    base_code = aleph_institution_code.gsub(/_.*/,'')
+    base_code = aleph_institution_code.gsub(/[^a-z]+.*$/i,'')
     if base_code == 'HESB'
       'NDU'
     else

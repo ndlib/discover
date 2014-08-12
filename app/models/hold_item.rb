@@ -27,7 +27,7 @@ class HoldItem
   end
 
   def primary_location
-    pickup_locations.detect { |location| location.id == institution_code }
+    pickup_locations.detect { |location| location.institution_code == institution_code }
   end
 
   def title

@@ -10,6 +10,10 @@ class HoldPickupLocation
     get(:code)
   end
 
+  def institution_code
+    @institution_code ||= get(:code).gsub(/[^a-z]+.*$/i,'')
+  end
+
   def title
     get(:content)
   end
