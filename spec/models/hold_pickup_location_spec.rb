@@ -19,8 +19,8 @@ describe HoldPickupLocation do
   end
 
   describe '#institution_code' do
-    it 'returns the code' do
-      expect(subject.institution_code).to eq('HESB')
+    it 'translates HESB to NDU' do
+      expect(subject.institution_code).to eq('NDU')
     end
 
     it 'strips any non-alpha characters' do

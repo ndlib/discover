@@ -11,7 +11,7 @@ class HoldPickupLocation
   end
 
   def institution_code
-    @institution_code ||= get(:code).gsub(/[^a-z]+.*$/i,'')
+    @institution_code ||= HoldData.base_institution_code(get(:code))
   end
 
   def title

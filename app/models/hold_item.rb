@@ -11,7 +11,7 @@ class HoldItem
   end
 
   def institution_code
-    get(:institution_code)
+    @insitution_code ||= HoldData.base_institution_code(get(:institution_code))
   end
 
   def institution_title
