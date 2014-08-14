@@ -6,7 +6,7 @@ describe HoldItem do
       "institution_code" => "BCI",
       "pickup_locations" => [
         {
-          "code" => "BCI",
+          "code" => "BCI50",
           "content" => "Bethel College"
         },
         {

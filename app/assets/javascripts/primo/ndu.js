@@ -19,21 +19,41 @@ $(document).ready(function(){
       if(dn){
         var ddud = 'pnxId=' + dn;
         var ddui = '/primo_library/libweb/tiles/local/docdel.jsp';
-        $.ajax({type: "get", url: ddui, dataType: "html", data: ddud,  success: function(data){
+        $.ajax({
+          type: "get",
+          url: ddui,
+          dataType: "html",
+          data: ddud,
+          success: function(data) {
           var dre = /http/;
           if(data.match(dre)){
             rt.after('<li id="docDelUrl" class="EXLResultTab">' + data + '</li>');
           }
-        }});
+          }
+        });
         var rud = 'pnxId=' + dn + '&institution=NDU';
         var rui = '/primo_library/libweb/tiles/local/request.jsp';
-        $.ajax({type: "get", url: rui, dataType: "html", data: rud,  success: function(data){
+        if (/aleph/.test(dn)) {
+          rt.siblings('.ndl-request-tab').hide();
+          $.ajax({
+            type: "get",
+            url: rui,
+            dataType: "html",
+            data: rud,
+            success: function(data) {
           var dre = /<div id="requestable">yes<\/div>/;
           if(data.match(dre)){
-            rt.siblings('.EXLRequestTab').show().css('list-style-type', 'none');
+                rt.siblings('.ndl-request-tab').show();
+              } else {
+                rt.siblings('.ndl-request-tab').hide();
+              }
+
+            }
+          });
+        } else {
+          rt.siblings('.ndl-request-tab').show();
           }
 
-        }});
 
 
       }

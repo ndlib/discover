@@ -9,4 +9,4 @@ pre_production:
   url: https://apipprd.library.nd.edu
 production:
   token: qtyZ5f6GrM67WWteGFp1
-  url: https://apipprd.library.nd.edu
+  url: https://api.library.nd.edu

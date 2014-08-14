@@ -30,6 +30,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem "language_list"
+gem "iso-639"
 
 gem "draper"
 gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'

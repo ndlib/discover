@@ -39,6 +39,15 @@ class HoldData
     items_array.collect{ |item_data| HoldItem.new(item_data) }
   end
 
+  def self.base_institution_code(aleph_institution_code)
+    base_code = aleph_institution_code.gsub(/[^a-z]+.*$/i,'')
+    if base_code == 'HESB'
+      'NDU'
+    else
+      base_code
+    end
+  end
+
   def get(key)
     data[key.to_s]
   end

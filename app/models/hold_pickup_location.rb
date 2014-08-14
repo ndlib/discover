@@ -10,6 +10,10 @@ class HoldPickupLocation
     get(:code)
   end
 
+  def institution_code
+    @institution_code ||= HoldData.base_institution_code(get(:code))
+  end
+
   def title
     get(:content)
   end

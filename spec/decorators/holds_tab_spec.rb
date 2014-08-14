@@ -41,6 +41,10 @@ describe HoldsTab do
   end
 
   describe '#base_institution_code' do
+    it 'strips non alpha characters' do
+      expect(subject.base_institution_code('BCI50')).to eq('BCI')
+    end
+
     it 'strips anything after an underscore' do
       expect(subject.base_institution_code('NDU_B')).to eq('NDU')
     end
