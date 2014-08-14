@@ -1039,6 +1039,13 @@ display: none;
   background: none !important;
 }
 
+#whats-new {
+  position: absolute;
+    right: 9%;
+    top: 4px;
+    z-index: 3000000;
+}
+
 /*
 .EXLResultsContainer { 
 position: relative !important; 
