@@ -63,3 +63,6 @@
 #exlidMainMenuTile div.EXLMainMenuContainer {
   width: 100%;
 }
+.EXLTabsRibbon div li.EXLRequestTab {
+  display:none;
+}
