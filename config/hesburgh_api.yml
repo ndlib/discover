@@ -1,5 +1,5 @@
 development:
-  token: whatever
+  token: discover
   url: http://localhost:3005
 test:
   token: qtyZ5f6GrM67WWteGFp1

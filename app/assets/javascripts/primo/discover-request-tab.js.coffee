@@ -174,7 +174,13 @@ jQuery ($) ->
         link.data('loaded', true)
         new RequestForm(container.find('.ndl-request-container'))
         return
-      $.get "/primo_library/libweb/tiles/local/discover-request.jsp", {id: recordID, vid: window.currentVID, tab: window.currentTab}, success, "html"
+      $.ajax(
+        url: "/primo_library/libweb/tiles/local/discover-request.jsp"
+        data: {id: recordID, vid: window.currentVID, tab: window.currentTab}
+        success: success
+        dataType: "html"
+        cache: false
+      )
     return
 
   ready = ->
