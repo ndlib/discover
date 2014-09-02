@@ -4,7 +4,7 @@ jQuery ($) ->
 
   queryParamsForPage = (page_number) ->
     if page_number == 0
-      "indx=0"
+      "&indx=0"
     else
       indx = ((page_number - 1) * pageSize) + 1
       "&pag=nxt&indx=" + indx
