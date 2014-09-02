@@ -66,6 +66,7 @@ Discover::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.default_url_options = { :host => 'discover.library.nd.edu', :protocol => 'https' }
+
   config.middleware.use ExceptionNotification::Rack,
   :email => {
     :email_prefix => "[ Prod ] ",
