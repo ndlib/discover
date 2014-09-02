@@ -38,6 +38,7 @@ gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
 # gem "hesburgh_api", path: '../hesburgh_api'
 
 gem "hesburgh_errors", git: 'git@git.library.nd.edu:hesburgh_errors'
+gem 'exception_notification', "~> 4.0.0"
 
 gem "rb-readline"
 

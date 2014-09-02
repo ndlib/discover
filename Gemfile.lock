@@ -110,6 +110,9 @@ GEM
       request_store (~> 1.0.3)
     equalizer (0.0.9)
     erubis (2.7.0)
+    exception_notification (4.0.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     execjs (2.0.2)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
@@ -300,6 +303,7 @@ DEPENDENCIES
   devise
   devise_cas_authenticatable
   draper
+  exception_notification (~> 4.0.0)
   factory_girl_rails
   faker
   faraday
