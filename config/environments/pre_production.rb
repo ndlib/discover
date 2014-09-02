@@ -69,7 +69,7 @@ Discover::Application.configure do
 
   config.middleware.use ExceptionNotification::Rack,
   :email => {
-    :email_prefix => "[ Pre-Prod ]",
+    :email_prefix => "[ Pre-Prod ] ",
     :sender_address => %{"discover notifier" <discover_notifier@nd.edu>},
     :exception_recipients => %w{ jhartzle@nd.edu rfox2@nd.edu jkennel@nd.edu dwolfe2@nd.edu }
   }
