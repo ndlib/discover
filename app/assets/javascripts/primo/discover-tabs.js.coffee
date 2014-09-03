@@ -54,7 +54,6 @@ jQuery ($) ->
         attachEvents(container)
         return
       $.get detailsPath, {id: recordID, vid: currentVID, tab: currentTab}, success, "html"
-    return
 
   getOnlineAccess = (element, tabType) ->
     link = $(element)
@@ -67,18 +66,26 @@ jQuery ($) ->
         link.data('loaded', true)
         return
       $.get onlineAccessPath, {id: recordID, vid: currentVID, tab: currentTab}, success, "html"
-    return
 
   window.addDiscoverTab = (originalTabClass, newTabClass, newTabName, loadTabFunction) ->
     originalTabs = $(".#{originalTabClass}")
     if originalTabs.length > 0
       EXLTA_addTab newTabName, newTabClass, location.href, originalTabClass, newTabClass, newTabClass, false, checkTabPresence, ".#{originalTabClass}"
       newTabs = $(".#{newTabClass}")
+      failCallback = () ->
+        # If the request to load the custom tab fails, we show the original Primo tab instead.
+        newTabs.hide()
+        originalTabs.show()
+        originalTabs.find('a').click()
+      callback = (element, tabType, url) ->
+        request = loadTabFunction(element, tabType, url)
+        if request && request.fail
+          request.fail(failCallback)
       # Click handler for loading the new tab content
       newTabs.click (e) ->
         tab = $(this)
         link = tab.find('a').get(0)
-        msTabHandler e, link, newTabClass, "<div id=\"#{newTabClass}-content\" class=\"EXLTabLoading #{newTabClass}-content\"></div>", loadTabFunction, location.href, tab.hasClass("EXLResultSelectedTab")
+        msTabHandler e, link, newTabClass, "<div id=\"#{newTabClass}-content\" class=\"EXLTabLoading #{newTabClass}-content\"></div>", callback, location.href, tab.hasClass("EXLResultSelectedTab")
         return
       # Insert the new tab before its original counterpart
       newTabs.each ->

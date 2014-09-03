@@ -181,7 +181,6 @@ jQuery ($) ->
         dataType: "html"
         cache: false
       )
-    return
 
   ready = ->
     addRequestTab()
