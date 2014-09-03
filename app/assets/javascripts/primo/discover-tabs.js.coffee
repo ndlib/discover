@@ -72,19 +72,20 @@ jQuery ($) ->
     if originalTabs.length > 0
       EXLTA_addTab newTabName, newTabClass, location.href, originalTabClass, newTabClass, newTabClass, false, checkTabPresence, ".#{originalTabClass}"
       newTabs = $(".#{newTabClass}")
-      failCallback = () ->
-        # If the request to load the custom tab fails, we show the original Primo tab instead.
-        newTabs.hide()
-        originalTabs.show()
-        originalTabs.find('a').click()
-      callback = (element, tabType, url) ->
-        request = loadTabFunction(element, tabType, url)
-        if request && request.fail
-          request.fail(failCallback)
       # Click handler for loading the new tab content
       newTabs.click (e) ->
         tab = $(this)
         link = tab.find('a').get(0)
+        failCallback = () ->
+        # If the request to load the custom tab fails, we show the original Primo tab instead.
+          tab.hide()
+          originalTab = tab.siblings(".#{originalTabClass}")
+          originalTab.show()
+          originalTab.find('a').click()
+        callback = (element, tabType, url) ->
+          request = loadTabFunction(element, tabType, url)
+          if request && request.fail
+            request.fail(failCallback)
         msTabHandler e, link, newTabClass, "<div id=\"#{newTabClass}-content\" class=\"EXLTabLoading #{newTabClass}-content\"></div>", callback, location.href, tab.hasClass("EXLResultSelectedTab")
         return
       # Insert the new tab before its original counterpart
