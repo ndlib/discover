@@ -1,5 +1,5 @@
 // Hide the original tabs
-.EXLTabsRibbon {
+.EXLTabsRibbon, body.EXLFullView div.EXLTabsRibbon div {
   .EXLDetailsTab, .EXLViewOnlineTab, .EXLLocationsTab {
     display: none;
   }
