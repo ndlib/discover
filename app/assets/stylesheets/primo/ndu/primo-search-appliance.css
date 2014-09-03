@@ -403,6 +403,10 @@ span.EXLSearchFieldRibbonFormSelectedCollectionLabel {
   padding: 2px 3px;
 }
 
+#exlidSearchRibbon input.srch-box {
+  border:solid 1px #ccc;
+}
+
 @media only screen and (max-width: 500px) {
   .search-appliance ul.contained.tabs-content > li {
     padding: 10px 5px !important;
