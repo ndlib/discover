@@ -171,7 +171,8 @@ class DetailsTab < PrimoRecordTab
   end
 
   def linked_record_ids
-    record.record_ids.collect { | record_id | RecordIdLink.render(record_id) }
+    record_ids = record.record_ids.sort
+    record_ids.collect { | record_id | RecordIdLink.render(record_id) }
   end
 
   def oclc
