@@ -101,6 +101,9 @@ ndu:
   - id: ndu_aleph000495163
     title: Van Gogh
     description: Has lds06 field (for now)
+  - id: TN_tao_j1258026
+    title: "書評：John Finnis: Aquinas: Moral, Political and Legal Theory"
+    description: Primo Central record that we can't find by record id
 bci:
   - id: ndu_aleph001576619
     title: Science

@@ -403,6 +403,13 @@ span.EXLSearchFieldRibbonFormSelectedCollectionLabel {
   padding: 2px 3px;
 }
 
+.search-appliance #exlidSearchRibbon input[type=text], .search-appliance #exlidAdvancedSearchRibbon input[type=text] {
+  border:solid 1px #ccc;
+}
+#search_box, .search-appliance ul.contained.tabs-content {
+  clear: both;
+}
+
 @media only screen and (max-width: 500px) {
   .search-appliance ul.contained.tabs-content > li {
     padding: 10px 5px !important;
