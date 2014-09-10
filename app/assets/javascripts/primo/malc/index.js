@@ -9,6 +9,7 @@
 //= require ../fix-dateslider.js
 //= require ../fix-facets.js
 //= require ../fix-browse-search.js
+//= require ../export_links.js
 //= require ../discover-tabs.js
 //= require ../discover-request-tab.js
 //= require ../fix-eshelf-class.js
