@@ -297,9 +297,11 @@ p.about-tab {
   display: inline-block;
 }
 
-#exlidAdvancedSearchRibbon input.clear-button {
+#exlidAdvancedSearchRibbon input.clear-button,
+#exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonFormClearSearch input {
   background-color: #CCC;
   margin-right: 0.5em;
+  background-image: none;
 }
 
 #exlidAdvancedSearchRibbon div.EXLSearchFieldRibbonPreFilters {
