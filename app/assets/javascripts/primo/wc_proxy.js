@@ -97,6 +97,14 @@ $(document).ready(function() {
                       }
                     }
 
+                    try {
+                      var vid = $('#vid').add('#vid_browse_input').val()
+                      var permalink = location.protocol + "//" + location.host + "/" + vid + ":" + dn;
+                      params_array.push("rfr_id=Primo:%20" + permalink);
+                    } catch (e) {
+                    }
+
+
                     var ill_url = "https://nd.illiad.oclc.org/illiad/IND/illiad.dll/OpenURL?" + params_array.join('&');
 
                     var link = $("<a></a>");
