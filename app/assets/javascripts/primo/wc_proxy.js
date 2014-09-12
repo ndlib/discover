@@ -58,7 +58,7 @@ $(document).ready(function() {
                                     if(data.match(dre)){
                                         $(summary).find('.EXLResultTabs').parents('.EXLResult').find('.EXLReviewsTab').after('<li id="docDelUrl" class="EXLResultTab">' + data + '</li>');
                                     }
-                                }}); 
+                                }});
 
                             }
 
@@ -80,14 +80,34 @@ $(document).ready(function() {
                 if ((ft) && (lt.length == "0") && (lookupPNX == "")){
                     var dd_href = $(summary).find('.EXLViewOnlineTab a').attr('href');
                     var dd_params = dd_href.substring( dd_href.indexOf('?') + 1 );
-                    var ddui = '/primo_library/libweb/tiles/local/ill_request.jsp';
+                    var params = getQueryParameters(dd_params);
 
-                    $.ajax({type: "get", url: ddui, dataType: "html", data: dd_params,  success: function(data){
-                        var dre = /http/;
-                        if(data.match(dre)){
-                            $(summary).find('.EXLResultTabs').parents('.EXLResult').find('.ndl-details-tab').before('<li id="docDelUrl" class="EXLResultTab">' + data + '</li>');
-                        }
-                    }}); 
+                    if (params["rft.genre"] == "bookitem") {
+                      // problem with bookitems book title not working with illiad forms
+                      params["rft.jtitle"] = params["rft.btitle"];
+                    } else if (!params["rft.genre"] && params["rft.atitle"]) {
+                      params["rft.genre"] = "docdelarticle";
+                    }
+
+                    var params_array = [];
+                    for (var key in params) {
+                      var value = params[key];
+                      if (!/_/.test(key) && value) {
+                        params_array.push(key + "=" + value);
+                      }
+                    }
+
+                    var ill_url = "https://nd.illiad.oclc.org/illiad/IND/illiad.dll/OpenURL?" + params_array.join('&');
+
+                    var link = $("<a></a>");
+                    link.text("Request via ILL ");
+                    link.attr('href', ill_url);
+                    link.attr('target', '_blank');
+                    var image = $('<img src="../images/icon_popout_tab.png">');
+                    link.append(image);
+                    var illTab = $('<li id="docDelUrl" class="EXLResultTab"></li>');
+                    illTab.append(link);
+                    $(summary).find('.EXLResultTabs').parents('.EXLResult').find('.ndl-details-tab').before(illTab);
                 }
             }});
         }
@@ -107,6 +127,9 @@ $(document).ready(function() {
     });
 });
 
+function getQueryParameters(str) {
+  return (str || document.location.search).replace(/(^\?)/,'').split("&").map(function(n){return n = n.split("="),this[n[0]] = n[1],this}.bind({}))[0];
+}
 
 function msTabHandler(e,element,tabType,content,contentHandler,url,isSelected, showHeader){
     e.preventDefault();
@@ -224,7 +247,7 @@ function EXLTA_recordId(element){
     var rid = $(element).parents('.EXLResult').find('.EXLResultRecordId').attr('id');
 
     if (rid){
-        return rid; 
+        return rid;
     }else{
         return $(element).parents('.EXLResultsList').find('.EXLResultRecordId').attr('id');
     }
