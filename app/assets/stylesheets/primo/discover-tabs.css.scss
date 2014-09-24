@@ -141,7 +141,7 @@
 
 .ndl-link-box {
   float: right;
-  width: 25%;
+  min-width: 25%;
   border: 1px solid #e1e1e1;
   margin: 1em;
   background-image: image_url('primo/bg_strip_details_links.png');
@@ -150,6 +150,7 @@
   height: auto;
   padding: 0.5em;
   padding-bottom: 1em;
+  line-height: 1.8em;
 
   li {
     list-style: none;
