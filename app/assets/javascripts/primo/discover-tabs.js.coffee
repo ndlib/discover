@@ -19,7 +19,18 @@ jQuery ($) ->
     li.prevAll().add(li).removeClass('ndl-hover')
 
   buildSearchTerms = (phrase) ->
-    phrase.split(' ')
+    phrase = phrase.trim()
+    terms = []
+    quoteRegex = /"([^"]+)"/
+    while match = quoteRegex.exec(phrase)
+      terms.push(match[1])
+      phrase = phrase.replace(match[0], '').trim()
+    phrase = phrase.replace(/AND|OR/g,"")
+    phrase = phrase.replace(/[()]/g,"")
+    phrase = phrase.replace(/\s+/g," ").trim()
+    if phrase
+      terms = terms.concat(phrase.split(' '))
+    terms
 
   highlightSearchTerms = (element) ->
     console.log(searchTerms)
