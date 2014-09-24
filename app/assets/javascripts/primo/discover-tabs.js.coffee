@@ -34,7 +34,6 @@ jQuery ($) ->
     terms
 
   highlightSearchTerms = (element) ->
-    console.log(searchTerms)
     element.highlight(searchTerms, {className: "searchword", wordsOnly: true})
     # Show any hidden items
     element.find('.ndl-collapsible-link .searchword').each ->
@@ -147,8 +146,10 @@ jQuery ($) ->
       $vid = $('#vid_browse_input')
     window.currentVID = $vid.val()
     window.currentTab = $('#tab').val()
-    searchPhrase = $('#search_field').val()
-    window.searchTerms = searchTerms = buildSearchTerms(searchPhrase)
+    searchPhrase = ""
+    $('#search_field, #input_freeText0, #input_freeText1, input_freeText2').each ->
+      searchPhrase += " " + $(this).val()
+    searchTerms = buildSearchTerms(searchPhrase)
     addDetailsTab()
     addOnlineAccessTab()
 
