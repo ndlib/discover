@@ -4,6 +4,7 @@
 //= require ../jquery.colorbox-min.js
 //= require ../jquery.simpledialog.0.1.min.js
 //= require ../jquery.tablesorter.js
+//= require ../jquery.highlight.js
 //= require ../advanced-clear-button.js
 //= require ../malc.js
 //= require ../modal-popups.js
