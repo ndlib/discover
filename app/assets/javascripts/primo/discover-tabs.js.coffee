@@ -35,6 +35,11 @@ jQuery ($) ->
   highlightSearchTerms = (element) ->
     console.log(searchTerms)
     element.highlight(searchTerms, {className: "searchword"})
+    # Show any hidden items
+    element.find('.ndl-collapsible-link .searchword').each ->
+      highlightedElement = $(this)
+      parent = highlightedElement.parents('.ndl-collapsible-link')
+      parent.addClass('ndl-has-searchword').show()
 
   attachEvents = (container) ->
     container.find('.ndl-hierarchical-search li').hover(hoverIn, hoverOut)
@@ -44,7 +49,7 @@ jQuery ($) ->
       if lis.length > 8
         fifth = $(lis[4])
         collapsibleLinks = fifth.nextAll()
-        collapsibleLinks.addClass('ndl-hidden')
+        collapsibleLinks.addClass('ndl-hidden').addClass('ndl-collapsible-link')
         expandLi = $('<li></li>').addClass('ndl-expand')
         expandA = $('<a></a>').attr('href','#').text('Show More')
         expandLi.append(expandA)
