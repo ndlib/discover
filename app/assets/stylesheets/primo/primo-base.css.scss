@@ -434,3 +434,16 @@ ul.EXLFullDetailsDetailsList li strong {
   top:10px;
   right:0;
 }
+
+/*--------------------------*/
+/*    HIDE LOAN HISTORY     */
+/*--------------------------*/
+
+.EXLMyAccountMainHeaderTitle div.EXLMyAccountMainHeaderContent span,
+.loan_history {
+  display: none;
+}
+
+.EXLMyAccountMainHeaderTitle div.EXLMyAccountMainHeaderContent span.EXLMyAccountMainHeaderContentSelected {
+  border: none;
+}
