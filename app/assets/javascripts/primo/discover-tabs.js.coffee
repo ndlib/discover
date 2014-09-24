@@ -34,7 +34,7 @@ jQuery ($) ->
 
   highlightSearchTerms = (element) ->
     console.log(searchTerms)
-    element.highlight(searchTerms, {className: "searchword"})
+    element.highlight(searchTerms, {className: "searchword", wordsOnly: true})
     # Show any hidden items
     element.find('.ndl-collapsible-link .searchword').each ->
       highlightedElement = $(this)
