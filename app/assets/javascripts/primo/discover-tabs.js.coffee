@@ -7,6 +7,8 @@ jQuery ($) ->
   onlineAccessPath = "/primo_library/libweb/tiles/local/discover-online-access.jsp"
   detailsTabClass = 'ndl-details-tab'
   onlineAccessTabClass = 'ndl-online-access-tab'
+  searchPhrase = ''
+  searchTerms = []
 
   hoverIn = ->
     li = $(this)
@@ -15,6 +17,13 @@ jQuery ($) ->
   hoverOut = ->
     li = $(this)
     li.prevAll().add(li).removeClass('ndl-hover')
+
+  buildSearchTerms = (phrase) ->
+    phrase.split(' ')
+
+  highlightSearchTerms = (element) ->
+    console.log(searchTerms)
+    element.highlight(searchTerms, {className: "searchword"})
 
   attachEvents = (container) ->
     container.find('.ndl-hierarchical-search li').hover(hoverIn, hoverOut)
@@ -52,6 +61,7 @@ jQuery ($) ->
         container.html data
         link.data('loaded', true)
         attachEvents(container)
+        highlightSearchTerms(container)
         return
       $.get detailsPath, {id: recordID, vid: currentVID, tab: currentTab}, success, "html"
 
@@ -120,6 +130,8 @@ jQuery ($) ->
       $vid = $('#vid_browse_input')
     window.currentVID = $vid.val()
     window.currentTab = $('#tab').val()
+    searchPhrase = $('#search_field').val()
+    window.searchTerms = searchTerms = buildSearchTerms(searchPhrase)
     addDetailsTab()
     addOnlineAccessTab()
 
