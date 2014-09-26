@@ -6,7 +6,9 @@
   <dl class="ndl-details-list">
     <% content.each do |method, content| %>
       <dt class="ndl-detail-label ndl-detail-label-<%= method %>" title="<%= t("details.record_title.#{method}", default: method) %>" ><%= t("details.record.#{method}") %></dt>
-      <dd class="ndl-detail-content ndl-detail-content-<%= method %>"><%= content %></dd>
+      <dd class="ndl-detail-content ndl-detail-content-<%= method %>">
+        <%= content %>
+      </dd>
     <% end %>
   </dl>
 

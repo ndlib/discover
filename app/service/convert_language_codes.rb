@@ -18,6 +18,10 @@ class ConvertLanguageCodes
   end
 
   def translate
+    raw_translation.force_encoding('UTF-8')
+  end
+
+  def raw_translation
     translate_language_list || translate_iso_639 || code
   end
 
