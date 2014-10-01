@@ -5,4 +5,6 @@ class StatsLinkClick < ActiveRecord::Base
     source = StatsSource.get_source(primo_id, source)
     self.create(fulltext_title: title, stats_source: source)
   end
+
+
 end

@@ -34,6 +34,8 @@ Discover::Application.routes.draw do
   get 'primo_library/libweb/*path' => 'primo_proxy#index', as: :proxy
   post 'primo_library/libweb/*path' => 'primo_proxy#index'
 
+  get 'link' => 'redirect_controller#redirect'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
