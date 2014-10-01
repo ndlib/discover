@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140422150554) do
+ActiveRecord::Schema.define(version: 20141001135613) do
 
   create_table "error_logs", force: true do |t|
     t.string   "netid"
@@ -43,6 +43,21 @@ ActiveRecord::Schema.define(version: 20140422150554) do
   end
 
   add_index "primo_display_fields", ["key"], name: "index_primo_display_fields_on_key", using: :btree
+
+  create_table "stats_link_clicks", force: true do |t|
+    t.string   "fulltext_title"
+    t.integer  "stats_source_id"
+    t.datetime "created_at"
+  end
+
+  add_index "stats_link_clicks", ["stats_source_id"], name: "index_stats_link_clicks_on_stats_source_id", using: :btree
+
+  create_table "stats_sources", force: true do |t|
+    t.string "primo_id"
+    t.string "source"
+  end
+
+  add_index "stats_sources", ["primo_id"], name: "index_stats_sources_on_primo_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",                       null: false
