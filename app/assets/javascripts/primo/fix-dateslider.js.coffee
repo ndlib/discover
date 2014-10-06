@@ -114,7 +114,7 @@ jQuery ($) ->
       if returnIndex == -1
         for value, arrayIndex in years
           if year < value
-            if rangeType == 'start'
+            if rangeType == 'start' && arrayIndex > 0
               # For the start year, return the previous year limit
               returnIndex = arrayIndex - 1
             else
