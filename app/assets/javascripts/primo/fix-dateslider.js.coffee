@@ -108,6 +108,7 @@ jQuery ($) ->
       $end.val(endValue)
       updateSlider()
 
+    # Return the nearest year from Primo's year limits.
     nearestYear = (year, rangeType) ->
       year = parseInt(year, 10)
       index = allowedYears.indexOf(year)
@@ -123,7 +124,6 @@ jQuery ($) ->
             break
       allowedYears[index]
 
-    # Return the nearest year from Primo's year limits.
     yearIndex = (year) ->
       year = parseInt(year, 10)
       index = years.indexOf(year)
