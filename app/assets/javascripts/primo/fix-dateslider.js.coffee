@@ -90,6 +90,8 @@ jQuery ($) ->
         startValue = minYear
       else if startValue > endValue
         startValue = endValue
+      index = yearIndex(startValue, 'start')
+      startValue = years[index]
       $start.val(startValue)
       updateSlider()
 
@@ -100,31 +102,36 @@ jQuery ($) ->
         endValue = maxYear
       else if endValue < startValue
         endValue = startValue
+      index = yearIndex(endValue, 'end')
+      endValue = years[index]
       $end.val(endValue)
       updateSlider()
 
-    yearIndex = (year) ->
+    # Return the nearest year from Primo's year limits.
+    yearIndex = (year, rangeType) ->
       year = parseInt(year, 10)
-      index = years.indexOf(year)
-      if index == -1
-        addYear(year)
-        index = years.indexOf(year)
-      index
+      returnIndex = years.indexOf(year)
+      if returnIndex == -1
+        for value, arrayIndex in years
+          if year < value
+            if rangeType == 'start'
+              # For the start year, return the previous year limit
+              returnIndex = arrayIndex - 1
+            else
+              # For the end year, return the following year limit
+              returnIndex = arrayIndex
+            break
+      returnIndex
 
     sortNumber = (a, b) ->
       a - b
-
-    addYear = (year) ->
-      years.push(parseInt(year, 10))
-      years.sort(sortNumber)
-      $slider.slider("option", "max", years.length - 1)
 
     updateSlider = ->
       updateURL()
       startValue = yearValue($start)
       endValue = yearValue($end)
-      $slider.slider("values",0,yearIndex(startValue))
-      $slider.slider("values",1,yearIndex(endValue))
+      $slider.slider("values",0,yearIndex(startValue, 'start'))
+      $slider.slider("values",1,yearIndex(endValue, 'end'))
       window.changeTooltipsHeadeValues($slider, startValue, endValue)
 
     addEventHandlers = ->
