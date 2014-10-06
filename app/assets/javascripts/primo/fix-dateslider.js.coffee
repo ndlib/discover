@@ -10,6 +10,9 @@ jQuery ($) ->
     # By default Primo creates an array of years to show in the slider
     # We are going to modify that array in order to allow years that fall outside of that range
     years = window.limits
+    # Allowed year values
+    recentYears = [1951..maxYear]
+    allowedYears = $.merge([1,500,1000,1500,1600,1700,1800,1900,1910,1920,1930,1940,1950], recentYears)
 
     removePreviousDates = ->
       originalURL = $sliderURL.val()
@@ -90,8 +93,7 @@ jQuery ($) ->
         startValue = minYear
       else if startValue > endValue
         startValue = endValue
-      index = yearIndex(startValue, 'start')
-      startValue = years[index]
+      startValue = nearestYear(startValue, 'start')
       $start.val(startValue)
       updateSlider()
 
@@ -102,36 +104,48 @@ jQuery ($) ->
         endValue = maxYear
       else if endValue < startValue
         endValue = startValue
-      index = yearIndex(endValue, 'end')
-      endValue = years[index]
+      endValue = nearestYear(endValue, 'end')
       $end.val(endValue)
       updateSlider()
 
-    # Return the nearest year from Primo's year limits.
-    yearIndex = (year, rangeType) ->
+    nearestYear = (year, rangeType) ->
       year = parseInt(year, 10)
-      returnIndex = years.indexOf(year)
-      if returnIndex == -1
-        for value, arrayIndex in years
+      index = allowedYears.indexOf(year)
+      if index == -1
+        for value, arrayIndex in allowedYears
           if year < value
             if rangeType == 'start' && arrayIndex > 0
               # For the start year, return the previous year limit
-              returnIndex = arrayIndex - 1
+              index = arrayIndex - 1
             else
               # For the end year, return the following year limit
-              returnIndex = arrayIndex
+              index = arrayIndex
             break
-      returnIndex
+      allowedYears[index]
+
+    # Return the nearest year from Primo's year limits.
+    yearIndex = (year) ->
+      year = parseInt(year, 10)
+      index = years.indexOf(year)
+      if index == -1
+        addYear(year)
+        index = years.indexOf(year)
+      index
 
     sortNumber = (a, b) ->
       a - b
+
+    addYear = (year) ->
+      years.push(parseInt(year, 10))
+      years.sort(sortNumber)
+      $slider.slider("option", "max", years.length - 1)
 
     updateSlider = ->
       updateURL()
       startValue = yearValue($start)
       endValue = yearValue($end)
-      $slider.slider("values",0,yearIndex(startValue, 'start'))
-      $slider.slider("values",1,yearIndex(endValue, 'end'))
+      $slider.slider("values",0,yearIndex(startValue))
+      $slider.slider("values",1,yearIndex(endValue))
       window.changeTooltipsHeadeValues($slider, startValue, endValue)
 
     addEventHandlers = ->
