@@ -35,6 +35,13 @@
 
 .EXLSearchFieldRibbonFormSearchFor {
   width:50%;
+  position: relative;
+}
+
+.EXLBrowseSearchFieldRibbonFormSearchClear {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 
 #exlidAdvancedSearchTile .EXLSearchFieldRibbonFormSubmitSearch {

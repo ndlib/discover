@@ -7,8 +7,16 @@
   // width: 98%;
 }
 
-.ndl-browse-search .EXLSearchFieldRibbonFormSearchFor {
+.EXLSearchFieldRibbonFormSearchFor {
   width: 361px;
+  position: relative;
+  border: none;
+}
+
+.EXLBrowseSearchFieldRibbonFormSearchClear {
+  position: absolute;
+  top: 5px;
+  right: 0;
 }
 
 .ndl-browse-search #exlidBrowseResultsEnteries {
