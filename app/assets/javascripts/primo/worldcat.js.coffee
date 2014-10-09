@@ -89,10 +89,11 @@ jQuery ($) ->
           searchString += wcIndex + operator + $input.val()
 
       #also language search
-      if $("#exlidInput_language_").val() != "all_items"
+      $language = $("#exlidInput_language_")
+      if $language.length && $language.val() && $language.val() != "all_items"
         if searchString
           searchString += " "
-        searchString += "ln:" + $("#exlidInput_language_").val()
+        searchString += "ln:" + $language.val()
 
       addWorldCatLink(searchString, "Advanced")
     else
