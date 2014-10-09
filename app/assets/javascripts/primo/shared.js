@@ -6,7 +6,7 @@
 //= require ./jquery.highlight.js
 //= require ./malc.js
 //= require ./modal-popups.js
-//= require ./wc.js
+//= require ./worldcat.js
 //= require ./fix-dateslider.js
 //= require ./fix-facets.js
 //= require ./fix-browse-search.js
