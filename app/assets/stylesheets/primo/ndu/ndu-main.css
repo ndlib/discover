@@ -1023,10 +1023,6 @@ display: none;
   margin-left: 5px;
 }
 
-.EXLBrowseList .EXLSearchTabsContainer {
-  background:url("https:asset.library.nd.edu/assets/hesburgh_assets/main/1.0/search_appliance/ndcatalog.png") no-repeat 5px 10px;
-}
-
 .ndl-browse-search .EXLFacetContainer div.EXLFacetActionsV2 li.EXLFacetSaveToEShelfActionOff {
   display: none;
 }

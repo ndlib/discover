@@ -3,17 +3,21 @@
   width: auto;
 }
 
+.ndl-browse-search .EXLSearchTabsContainer {
+  background:url("https:asset.library.nd.edu/assets/hesburgh_assets/main/1.0/search_appliance/ndcatalog.png") no-repeat 5px 10px;
+}
+
 #exlidAdvancedSearchRibbon.EXLAdvancedBrowseRibbon input#search_field {
   // width: 98%;
 }
 
-.EXLSearchFieldRibbonFormSearchFor {
+.ndl-browse-search .EXLSearchFieldRibbonFormSearchFor {
   width: 361px;
   position: relative;
   border: none;
 }
 
-.EXLBrowseSearchFieldRibbonFormSearchClear {
+.ndl-browse-search .EXLBrowseSearchFieldRibbonFormSearchClear {
   position: absolute;
   top: 5px;
   right: 0;
@@ -58,9 +62,10 @@
   margin-right:14px;
 }
 
-.ndl-browse-search .EXLSearchForm  {
+.ndl-browse-search #exlidAdvancedSearchTile  {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   background-color: #F8F7E9;
+  border-top: 1px solid #adb9c2;
 }
 
 
