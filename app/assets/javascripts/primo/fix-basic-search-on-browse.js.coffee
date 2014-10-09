@@ -5,7 +5,7 @@
 
 jQuery ($) ->
   ready = ->
-    if $('body').hasClass('EXLBrowseSearch')
+    if $('body').hasClass('ndl-browse-search')
       # Grab the current href value to retain things like sessionid then append nd_campus
       searchURL =  $('.EXLSearchFieldRibbonFormLinks a[title="Basic Search"]').attr("href")
       $('.EXLSearchFieldRibbonFormLinks a[title="Basic Search"]').attr("href", searchURL + "?tab=nd_campus&mode=Basic")

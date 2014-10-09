@@ -3,4 +3,4 @@
 jQuery ($) ->
   browseRibbon = $('.EXLAdvancedBrowseRibbon')
   if browseRibbon.length > 0
-    $('body').addClass('EXLBrowseSearch')
+    $('body').addClass('ndl-browse-search')

@@ -1027,7 +1027,7 @@ display: none;
   background:url("https:asset.library.nd.edu/assets/hesburgh_assets/main/1.0/search_appliance/ndcatalog.png") no-repeat 5px 10px;
 }
 
-.EXLBrowseSearch .EXLFacetContainer div.EXLFacetActionsV2 li.EXLFacetSaveToEShelfActionOff {
+.ndl-browse-search .EXLFacetContainer div.EXLFacetActionsV2 li.EXLFacetSaveToEShelfActionOff {
   display: none;
 }
 
@@ -1047,14 +1047,14 @@ display: none;
 }
 
 /*
-.EXLResultsContainer { 
-position: relative !important; 
+.EXLResultsContainer {
+position: relative !important;
 }
-.EXLFacetContainer div.EXLFacetActionsV2 li.EXLFacetSaveToEShelfActionOff { 
-position: absolute ; 
-left: 22.5% ; 
-top: 30px ; 
-z-index: 1000 ; 
+.EXLFacetContainer div.EXLFacetActionsV2 li.EXLFacetSaveToEShelfActionOff {
+position: absolute ;
+left: 22.5% ;
+top: 30px ;
+z-index: 1000 ;
 } */
 
 
