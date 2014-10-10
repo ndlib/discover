@@ -37,8 +37,6 @@ jQuery ($) ->
         url = "https://login.proxy.library.nd.edu/login?url=#{url}"
       else if vid == "BCI"
         url = "https://bcezproxy.bethelcollege.edu/login?url=#{url}"
-      else if vid == "SMC"
-        url = "https://smcproxy1.saintmarys.edu/login?qurl=#{escape(url)}"
       url
 
 
