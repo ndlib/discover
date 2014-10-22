@@ -137,15 +137,19 @@ jQuery ($) ->
         if findtextRegex.test(tabText)
           $tab.siblings(".#{onlineAccessTabClass}").hide()
 
-
-
-  ready = ->
+  getCurrentVID = ->
     $vid = $('#vid')
     if $vid.length == 0
       # On the browse pages, the vid field has a different id
       $vid = $('#vid_browse_input')
-    window.currentVID = $vid.val()
-    window.currentTab = $('#tab').val()
+    $vid.val()
+
+  getCurrentTab = ->
+    $('#tab').val()
+
+  ready = ->
+    window.currentVID = getCurrentVID()
+    window.currentTab = getCurrentTab()
     searchPhrase = ""
     $('#search_field, #input_freeText0, #input_freeText1, input_freeText2').each ->
       searchPhrase += " " + $(this).val()
