@@ -1032,6 +1032,7 @@ display: none;
     right: 9%;
     top: 4px;
     z-index: 3000000;
+    display: none;
 }
 
 /*
