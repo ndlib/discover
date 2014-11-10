@@ -46,7 +46,7 @@ class PrimoProxy < Draper::Decorator
   end
 
   def host
-    "onesearchpprd.library.nd.edu"
+    "onesearch.library.nd.edu"
   end
 
   def port
