@@ -28,7 +28,7 @@ jQuery ($) ->
 
   worldCatURL = (searchString) ->
     if searchString
-      url = "http://www.worldcat.org/search?q=#{escape(searchString)}"
+      url = "http://www.worldcat.org/search?q=#{encodeURIComponent(searchString)}"
 
 
   proxiedWorldCatURL = (searchString) ->

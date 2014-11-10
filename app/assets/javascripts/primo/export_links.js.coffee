@@ -41,7 +41,7 @@ jQuery ($) ->
                 </a>
               </li>
               <li class="EXLButtonSendToMail">
-                <a href="#{addSessionId('email.do')}?fn=email&amp;docs=#{recordID}&amp;vid=#{vid}&amp;fromCommand=true&amp;doc=#{recordID}&amp;scope=#{escape(scopes)}&amp;indx=#{index}&amp;" title="Send record by E-mail(opens in a new window)" target="_blank">
+                <a href="#{addSessionId('email.do')}?fn=email&amp;docs=#{recordID}&amp;vid=#{vid}&amp;fromCommand=true&amp;doc=#{recordID}&amp;scope=#{encodeURIComponent(scopes)}&amp;indx=#{index}&amp;" title="Send record by E-mail(opens in a new window)" target="_blank">
                 <span class="EXLButtonSendToLabel">E-mail</span>
                 <span class="EXLButtonSendToIcon EXLButtonSendToIconMail"></span>
                 </a>
