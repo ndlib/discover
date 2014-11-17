@@ -11,7 +11,7 @@ class HoldsController < ApplicationController
     request = HoldsRequest.new(params)
     response = request.place_hold
     respond_to do |format|
-      format.any { render json: response.body.to_json, status: response.status, content_type: "application/json" }
+      format.any { render json: response.to_json, status: request_status_code(response['status']), content_type: "application/json" }
     end
   end
 
@@ -26,6 +26,16 @@ class HoldsController < ApplicationController
         end
       end
       format.json { render json: @record.record.to_json }
+    end
+  end
+
+  private
+
+  def request_status_code(status)
+    if status == "Success"
+      200
+    else
+      500
     end
   end
 end
