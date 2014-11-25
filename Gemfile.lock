@@ -1,10 +1,15 @@
 GIT
   remote: git@git.library.nd.edu:hesburgh_api
-  revision: cd5b42e963f929529e71bb6260f469800f1c72a0
+  revision: cdb77faa8f098b8e984c9d4297d2d9638f89d6c2
+  branch: person_search
   specs:
-    hesburgh_api (0.0.1)
+    hesburgh_api (0.0.3)
+      excon
       faraday
-      rails (~> 4.0.3)
+      faraday_middleware
+      multi_xml
+      rails (~> 4.0)
+      typhoeus
 
 GIT
   remote: git@git.library.nd.edu:hesburgh_errors
@@ -110,9 +115,12 @@ GEM
       request_store (~> 1.0.3)
     equalizer (0.0.9)
     erubis (2.7.0)
+    ethon (0.7.1)
+      ffi (>= 1.3.0)
     exception_notification (4.0.1)
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
+    excon (0.41.0)
     execjs (2.0.2)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
@@ -123,6 +131,8 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.9.1)
+      faraday (>= 0.7.4, < 0.10)
     ffi (1.9.3)
     formatador (0.2.4)
     growl (1.0.3)
@@ -274,6 +284,8 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.2.2)
       coffee-rails
+    typhoeus (0.6.9)
+      ethon (>= 0.7.1)
     tzinfo (0.3.41)
     uglifier (2.5.0)
       execjs (>= 0.3.0)
