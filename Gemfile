@@ -34,7 +34,7 @@ gem "iso-639"
 
 gem "draper"
 gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'
-gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api', branch: "person_search"
+gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
 
 gem "hesburgh_errors", git: 'git@git.library.nd.edu:hesburgh_errors'
 gem 'exception_notification', "~> 4.0.0"
