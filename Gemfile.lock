@@ -1,7 +1,6 @@
 GIT
   remote: git@git.library.nd.edu:hesburgh_api
   revision: cdb77faa8f098b8e984c9d4297d2d9638f89d6c2
-  branch: person_search
   specs:
     hesburgh_api (0.0.3)
       excon
