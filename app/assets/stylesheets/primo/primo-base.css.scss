@@ -433,3 +433,8 @@ ul.EXLFullDetailsDetailsList li strong {
 .EXLMyAccountMainHeaderTitle div.EXLMyAccountMainHeaderContent span.EXLMyAccountMainHeaderContentSelected {
   border: none;
 }
+
+.EXLMyAccountEditLink {
+  // Hide "Edit Personal Details" link since the account can't be edited through Primo
+  display: none;
+}
