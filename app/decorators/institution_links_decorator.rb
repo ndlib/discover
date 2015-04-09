@@ -61,8 +61,16 @@ class InstitutionLinksDecorator < Draper::Decorator
     end
   end
 
+  def number_of_targets
+    if sfx_link_decorator.present? && sfx_link_decorator.targets_loaded?
+      sfx_link_decorator.number_of_targets
+    else
+      0
+    end
+  end
+
   def display_ill_link?
-    ill.present?
+    ill.present? && !fulltext.present?
   end
 
   def sfx_link_decorator

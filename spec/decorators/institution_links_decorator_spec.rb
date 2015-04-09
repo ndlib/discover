@@ -116,8 +116,14 @@ describe InstitutionLinksDecorator do
         allow(subject).to receive(:get).with(:ill).and_return(ill_content)
       end
 
-      it '#display_ill_link? is true' do
+      it '#display_ill_link? is true if fulltext links are not present' do
+        expect(subject).to receive(:fulltext).and_return([])
         expect(subject.display_ill_link?).to be_true
+      end
+
+      it '#display_ill_link? is false if fulltext links are present' do
+        expect(subject).to receive(:fulltext).and_return([1])
+        expect(subject.display_ill_link?).to be_false
       end
     end
   end
