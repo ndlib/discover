@@ -10,6 +10,9 @@
     <% if institution.sfx_link %>
       <li><%= institution.sfx_link %></li>
     <% end %>
+    <% if institution.display_ill_link? %>
+      <li><%= institution.ill_link %></li>
+    <% end %>
     <% if institution.display_report_a_problem? %>
       <li><%= institution.report_a_problem_link %></li>
     <% end %>

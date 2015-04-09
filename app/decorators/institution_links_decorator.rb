@@ -1,15 +1,27 @@
 class InstitutionLinksDecorator < Draper::Decorator
   def id
-    object['id']
+    get(:id)
   end
 
   def fulltext
-    object['fulltext'].collect { | link | LinkDecorator.new(link) }
+    get(:fulltext).collect { | link | LinkDecorator.new(link) }
   end
 
 
   def ill
-    LinkDecorator.new(object['ill'])
+    if get(:ill)
+      @ill ||= LinkDecorator.new(get(:ill))
+    else
+      nil
+    end
+  end
+
+  def ill_link
+    if ill.present?
+      ill.link
+    else
+      nil
+    end
   end
 
 
@@ -49,9 +61,13 @@ class InstitutionLinksDecorator < Draper::Decorator
     end
   end
 
+  def display_ill_link?
+    ill.present?
+  end
+
   def sfx_link_decorator
-    if object['findtext']
-      @sfx_link_decorator ||= SFXLinkDecorator.new(object['findtext'])
+    if get(:findtext)
+      @sfx_link_decorator ||= SFXLinkDecorator.new(get(:findtext))
     end
     @sfx_link_decorator
   end

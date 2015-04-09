@@ -90,4 +90,36 @@ describe InstitutionLinksDecorator do
     end
   end
 
+  describe 'ill' do
+    describe 'no content' do
+      before do
+        allow(subject).to receive(:get).with(:ill).and_return(nil)
+      end
+
+      it '#display_ill_link? is false' do
+        expect(subject.display_ill_link?).to be_false
+      end
+    end
+
+    describe 'with ill link' do
+      let(:ill_content) {
+        {
+          "url" => "https://nd.illiad.oclc.org/illiad/IND/illiad.dll/OpenURL?rft.issn=0300-8495&rft.volume=43&rft.month=5&rft.genre=article&rft.auinit=D&rft.pub=Australian+College+of+General+Practitioners.&rft.stitle=AUST+FAM+PHYSICIAN&rft.issue=5&rft.place=Sydney%2C&rft.title=Australian+family+physician&rft.aufirst=David&linktype=openurl&rft.atitle=Anticoagulation%3A+a+GP+primer+on+the+new+oral+anticoagulants&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3A&rft.auinit1=D&rft.date=2014&rft.aulast=Brieger&rft.epage=259&rft.spage=254",
+          "title" => "Interlibrary Loan",
+          "notes" => [ ],
+          "service_type" => "getDocumentDelivery",
+          "source" => "SFX"
+        }
+      }
+
+      before do
+        allow(subject).to receive(:get).with(:ill).and_return(ill_content)
+      end
+
+      it '#display_ill_link? is true' do
+        expect(subject.display_ill_link?).to be_true
+      end
+    end
+  end
+
 end
