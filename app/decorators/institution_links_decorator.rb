@@ -33,6 +33,9 @@ class InstitutionLinksDecorator < Draper::Decorator
     end
   end
 
+  def display_content?
+    has_fulltext_links?
+  end
 
   def has_fulltext_links?
     (fulltext.present? || sfx_link)

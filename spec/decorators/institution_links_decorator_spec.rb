@@ -36,6 +36,18 @@ describe InstitutionLinksDecorator do
     end
   end
 
+  describe '#display_content?' do
+    it 'is false when has_fulltext_links? is false' do
+      expect(subject).to receive(:has_fulltext_links?).and_return(false)
+      expect(subject.display_content?).to be_false
+    end
+
+    it 'is true when has_fulltext_links? is true' do
+      expect(subject).to receive(:has_fulltext_links?).and_return(true)
+      expect(subject.display_content?).to be_true
+    end
+  end
+
   describe '#display_sfx_link?' do
     it 'is false when there is no sfx_link_decorator' do
       expect(subject).to receive(:sfx_link_decorator).and_return(nil)

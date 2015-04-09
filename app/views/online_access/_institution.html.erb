@@ -1,4 +1,4 @@
-<% if institution.has_fulltext_links? %>
+<% if institution.display_content? %>
   <h2><%= t("institutions.#{institution.id}") %></h2>
   <ul>
     <% institution.fulltext.each do | link | %>
