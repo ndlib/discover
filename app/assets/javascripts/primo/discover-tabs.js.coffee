@@ -103,11 +103,21 @@ jQuery ($) ->
         tab = $(this)
         link = tab.find('a').get(0)
         failCallback = () ->
-        # If the request to load the custom tab fails, we show the original Primo tab instead.
+          # If the request to load the custom tab fails, we show the original Primo tab instead.
+          # Click to hide the tab content loading area
+          tab.click()
+          # Hide the original tab which didn't load correctly
           tab.hide()
           originalTab = tab.siblings(".#{originalTabClass}")
+          # Show the original tab
           originalTab.show()
-          originalTab.find('a').click()
+          originalLink = originalTab.find('a')
+          # If it's a popout we need to open the link in a new window
+          if originalTab.hasClass('EXLResultTabIconPopout')
+            # Open the new window
+            window.open(originalLink.attr('href'), '_blank')
+          else
+            originalLink.click()
         callback = (element, tabType, url) ->
           request = loadTabFunction(element, tabType, url)
           if request && request.fail
