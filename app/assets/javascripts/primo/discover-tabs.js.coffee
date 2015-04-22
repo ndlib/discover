@@ -146,7 +146,9 @@ jQuery ($) ->
         tabText = $tab.find('a').text()
         if findtextRegex.test(tabText)
           # $tab.siblings(".#{onlineAccessTabClass}").hide()
+          # Temporarily show the findtext tab and hide the ILL tab
           $tab.siblings(".#{onlineAccessTabClass}").find("a").text(tabText)
+
 
   getCurrentVID = ->
     $vid = $('#vid')

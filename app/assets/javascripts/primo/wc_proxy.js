@@ -113,9 +113,10 @@ $(document).ready(function() {
                     link.attr('target', '_blank');
                     var image = $('<img src="../images/icon_popout_tab.png">');
                     link.append(image);
-                    var illTab = $('<li id="docDelUrl" class="EXLResultTab"></li>');
-                    illTab.append(link);
-                    $(summary).find('.EXLResultTabs').parents('.EXLResult').find('.ndl-details-tab').before(illTab);
+                    // Temporarily show the findtext tab and hide the ILL tab
+                    // var illTab = $('<li id="docDelUrl" class="EXLResultTab"></li>');
+                    // illTab.append(link);
+                    // $(summary).find('.EXLResultTabs').parents('.EXLResult').find('.ndl-details-tab').before(illTab);
                 }
             }});
         }
