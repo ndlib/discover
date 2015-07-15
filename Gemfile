@@ -54,6 +54,8 @@ gem 'newrelic_rpm'
 gem 'hipchat'
 # gem 'rack-mini-profiler'
 
+gem 'nokogiri', '~> 1.6.6'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
