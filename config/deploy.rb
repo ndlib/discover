@@ -11,6 +11,7 @@ require 'hesburgh/prompt_branch'
 begin
   require 'hipchat/capistrano'
   require 'new_relic/recipes'
+  require 'airbrake/capistrano'
 
   after "deploy:update", "newrelic:notice_deployment"
 rescue LoadError
