@@ -1,58 +1,65 @@
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.0.4'
+group :application do
+  # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+  gem 'rails', '~> 4.0.4'
 
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3'
+  # Use sqlite3 as the database for Active Record
+  # gem 'sqlite3'
 
-gem 'virtus'
+  gem 'virtus'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.2'
+  # Use SCSS for stylesheets
+  gem 'sass-rails', '~> 4.0.2'
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+  # Use Uglifier as compressor for JavaScript assets
+  gem 'uglifier', '>= 1.3.0'
 
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+  # Use CoffeeScript for .js.coffee assets and views
+  gem 'coffee-rails', '~> 4.0.0'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer'
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  gem 'therubyracer'
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
+  # Use jquery as the JavaScript library
+  gem 'jquery-rails'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+  # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+  gem 'turbolinks'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+  # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+  gem 'jbuilder', '~> 1.2'
 
-gem "language_list"
-gem "iso-639"
+  gem "language_list"
+  gem "iso-639"
 
-gem "draper"
-gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'
-gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
+  gem "draper"
+  gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'
+  gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
 
-gem "hesburgh_errors", git: 'git@git.library.nd.edu:hesburgh_errors'
-gem 'exception_notification', "~> 4.0.0"
+  gem "hesburgh_errors", git: 'git@git.library.nd.edu:hesburgh_errors'
+  gem 'exception_notification', "~> 4.0.0"
 
-gem "rb-readline"
+  gem "rb-readline"
 
-gem 'devise'
-gem 'devise_cas_authenticatable'
-gem 'faraday'
-gem 'american_date'
+  gem 'devise'
+  gem 'devise_cas_authenticatable'
+  gem 'faraday'
+  gem 'american_date'
 
-gem 'mysql2'
+  gem 'mysql2'
+end
 
 # Server monitoring
 gem 'newrelic_rpm'
 
 gem 'hipchat'
 # gem 'rack-mini-profiler'
+
+# For Errbit
+gem "airbrake"
+
+gem "capistrano", "2.15.5"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
