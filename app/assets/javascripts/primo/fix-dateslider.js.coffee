@@ -1,6 +1,6 @@
 jQuery ($) ->
   $slider = $('#slider-range')
-  if $slider.length > 0
+  if $slider.length > 0 && window.limits
     $sliderURL = $("#sliderURL")
     $start = $('#startdate')
     $end = $('#enddate')
