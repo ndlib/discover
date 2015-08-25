@@ -3,18 +3,18 @@ jQuery ($) ->
   scopes = ''
   vid = ''
   tab = ''
-  containerCSS = 
+  containerCSS =
     position: 'absolute'
     top: '10px'
     right: '1em'
-  liCSS = 
+  liCSS =
     width: 'auto'
     backgroundColor: 'transparent'
-  linksContainerCSS = 
+  linksContainerCSS =
     borderTop: '1px solid #e1e1e1'
     position: 'absolute'
     left: 'auto'
-  iconCSS = 
+  iconCSS =
     height: '18px'
 
   buildLinks = (record, index) ->
@@ -152,11 +152,8 @@ jQuery ($) ->
     $('#tab').val()
 
   getStartIndex = ->
-    indexVal = $('#indx').val()
-    if indexVal
-      parseInt(indexVal)
-    else
-      1
+    # The indexes of the items are relative to the items displayed on the page, not the overall index in the search results.
+    1
 
   ready = ->
     scopes = $('#scopesListContainer').find('input:checked').val()
