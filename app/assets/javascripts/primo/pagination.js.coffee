@@ -2,11 +2,11 @@ jQuery ($) ->
   stringToInt = (value) ->
     parseInt value.replace(/[^\d]/g, "")
 
-  queryParamsForPage = (page_number) ->
-    if page_number == 0
-      "&indx=0"
+  queryParamsForPage = (pageNumber) ->
+    if pageNumber == 0
+      "&indx=1"
     else
-      indx = ((page_number - 1) * pageSize) + 1
+      indx = ((pageNumber - 1) * pageSize) + 1
       "&pag=nxt&indx=" + indx
 
   $pageElement = $(".EXLBriefResultsPaginationPageCount").first()
@@ -34,6 +34,7 @@ jQuery ($) ->
     $nextLink = $paginationLinks.last().children("img").parent()
     baseLink = $paginationLinks.first().attr("href")
     baseLink = baseLink.replace(/(ct|pag|indx)=[^&]+&?/g, "")
+    console.log(baseLink);
 
     if $nextLink.length > 0
       lastLink = $paginationLinks.last().clone()
