@@ -177,7 +177,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     language_list (1.0.0)
-    libv8 (3.16.14.3)
+    libv8 (3.16.14.11)
     listen (2.4.0)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -352,3 +352,6 @@ DEPENDENCIES
   vcr
   virtus
   webmock
+
+BUNDLED WITH
+   1.10.6
