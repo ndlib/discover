@@ -1,6 +1,6 @@
 class HoldingsController < ApplicationController
   def show
-    @tab = OnlineAccessTab.new(self)
+    @tab = HoldingsTab.new(self)
     respond_to do |format|
       format.html do
         if request.xhr? || params[:xhr].present?

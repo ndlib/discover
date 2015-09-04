@@ -7,11 +7,9 @@ class InstitutionLinksDecorator < Draper::Decorator
     object['fulltext'].collect { | link | LinkDecorator.new(link) }
   end
 
-
   def ill
     LinkDecorator.new(object['ill'])
   end
-
 
   def report_a_problem
     if get(:report_a_problem)

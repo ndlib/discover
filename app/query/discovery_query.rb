@@ -8,6 +8,10 @@ class DiscoveryQuery
     self.new.fullview(id, vid)
   end
 
+  def self.holdings(id, vid)
+    self.new.holdings(id, vid)
+  end
+
   def self.holds_list(id, patron_id)
     self.new.holds_list(id, patron_id)
   end
@@ -22,6 +26,10 @@ class DiscoveryQuery
 
   def holds_list(id, patron_id)
     DiscoveryRecord.new(HesburghAPI2::Discovery.holds_list(id, patron_id))
+  end
+
+  def holdings(id, vid)
+    DiscoveryRecord.new(HesburghAPI2::Discovery.holdings(id, vid))
   end
 
 end
