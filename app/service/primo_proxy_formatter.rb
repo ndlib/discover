@@ -48,6 +48,8 @@ class PrimoProxyFormatter < Draper::Decorator
     text.gsub(/<script[^>]+discover(pprd-vm)?.library.nd.edu[^>]+><\/script>/, local_js)
   end
 
+  # Renaming the reviews tab intentionally breaks the scripts that trigger ajax requests on page load,
+  #  since ~30 local requests in development mode will take forever to process
   def rename_reviews_tab(text)
     text.gsub("class=\"EXLReviewsTab", "class=\"EXLOldReviewsTab")
   end
