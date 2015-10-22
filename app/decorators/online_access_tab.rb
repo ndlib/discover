@@ -13,8 +13,19 @@ class OnlineAccessTab < PrimoRecordTab
     record_links.other_institutions_links
   end
 
-  private
-    def load_record
-      DiscoveryQuery.fullview(id, vid)
+  def held_by_institution?
+    if record.holdings.count >= 1
+      record.holdings.each do |holding|
+        return (holding["institution_code"] == vid ? true : false)
+      end
+    else
+      return false
     end
+  end
+
+  private
+
+  def load_record
+    DiscoveryQuery.fullview(id, vid)
+  end
 end
