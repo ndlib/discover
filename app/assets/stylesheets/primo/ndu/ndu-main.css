@@ -928,7 +928,7 @@ display: none;
 
 .ndl-details-list dd, .ndl-details-list dt, .ndl-online-access li {
   font-size:12px;
-  line-height: 1.8em;
+  line-height: 1.5em;
 }
 
 .EXLBriefResultsPagination, .EXLDisplayedCount {
@@ -1001,9 +1001,18 @@ display: none;
   background: none repeat scroll 0 0 #FFEDB8;
   display: inline-block;
   margin-left: 15px;
-  margin-top: 1em;
-  padding: 3px 5px;
-  border:solid  1px #E0CE99;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: solid 1px #E0CE99;
+}
+
+.ndl-online-external-links {
+  margin-top: 5px;
+  padding: 2px;
+}
+
+.ndl-online-access-disclaimer > .ndl-online-external-links {
+  list-style-type: disc !important;
 }
 
 .about-outer-box {
