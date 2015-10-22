@@ -6,6 +6,7 @@ group :application do
 
   # Use sqlite3 as the database for Active Record
   # gem 'sqlite3'
+  gem 'mysql2', '~> 0.3.10'
 
   gem 'virtus'
 
@@ -47,7 +48,6 @@ group :application do
   gem 'faraday'
   gem 'american_date'
 
-  gem 'mysql2'
 end
 
 # Server monitoring

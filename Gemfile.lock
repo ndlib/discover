@@ -177,7 +177,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     language_list (1.0.0)
-    libv8 (3.16.14.11)
+    libv8 (3.16.14.13)
     listen (2.4.0)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -193,7 +193,7 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    mysql2 (0.3.15)
+    mysql2 (0.3.20)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -338,7 +338,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   language_list
-  mysql2
+  mysql2 (~> 0.3.10)
   newrelic_rpm
   rails (~> 4.0.4)
   rb-readline
@@ -352,6 +352,3 @@ DEPENDENCIES
   vcr
   virtus
   webmock
-
-BUNDLED WITH
-   1.10.6
