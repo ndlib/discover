@@ -1,9 +1,5 @@
 <div class="ndl-online-access">
   <h3 class="ndl-debug">Debug ID: <%= @tab.record_id %></h3>
-
-  <% if institution = @tab.primary_institution_links %>
-    <%= render partial: 'institution', locals: { institution: institution, held_flag: @tab.held_by_institution? } %>
-  <% end %>
   <%
   other_institutions_content = []
   @tab.other_institutions_links.each do |institution|
@@ -13,6 +9,13 @@
     end
   end
   %>
+  <% if institution = @tab.primary_institution_links %>
+    <% other_content_flag = false %>
+    <% if other_institutions_content.present? %>
+      <% other_content_flag = true %>
+    <% end %>
+    <%= render partial: 'institution', locals: { institution: institution, held_flag: @tab.held_by_institution?, other_flag: other_content_flag } %>
+  <% end %>
   <% if other_institutions_content.present? %>
     <% other_institutions_content.each do |content| %>
       <%= content %>

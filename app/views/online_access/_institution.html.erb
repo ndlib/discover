@@ -10,7 +10,9 @@
         <li>A print copy is held at this library. Please check the locations tab.</li>
   <% end %>
   <% unless institution.fulltext.count >= 1 || institution.sfx_link_decorator.from_primo? %>
-        <li>Partner libraries may have online access</li>
+    <% if other_flag %>
+        <li>Partner libraries may have online access which may require additional credentials</li>
+    <% end %>
   <% end %>
   <% institution.fulltext.each do | link | %>
         <li>
@@ -24,11 +26,11 @@
   <% if institution.sfx_link %>
         <li><%= institution.sfx_link %></li>
   <% end %>
+  <% if institution.display_report_a_problem? %>
+        <li><%= institution.report_a_problem_link %></li>
+  <% end %>
     </ul>
   <% unless institution.fulltext.count >= 1 || institution.sfx_link_decorator.from_primo? %>
     </div>
-  <% end %>
-  <% if institution.display_report_a_problem? %>
-    <div><%= institution.report_a_problem_link %></div>
   <% end %>
 <% end %>
