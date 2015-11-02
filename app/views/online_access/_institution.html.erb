@@ -2,7 +2,7 @@
   <h2><%= t("institutions.#{institution.id}") %></h2>
   <% unless institution.fulltext.count >= 1  || institution.sfx_link_decorator.from_primo? %>
     <div class="ndl-online-access-disclaimer">
-      <%= image_tag('primo/icon_caution.png') %>
+      <img src="<%= image_url('primo/icon_caution.png') %>"/>
       <% if @tab.vid == 'NDU' %>
         <%= t("online_access.nd_no_access") %>
       <% else %>
