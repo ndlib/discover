@@ -3,7 +3,7 @@
   <%
   other_institutions_content = []
   @tab.other_institutions_links.each do |institution|
-    content = render partial: 'institution', locals: { institution: institution, held_flag: false }
+    content = render partial: 'other_institution', locals: { institution: institution, held_flag: false }
     if content.present?
       other_institutions_content << content
     end
@@ -17,6 +17,7 @@
     <%= render partial: 'institution', locals: { institution: institution, held_flag: @tab.held_by_institution?, other_flag: other_content_flag } %>
   <% end %>
   <% if other_institutions_content.present? %>
+    <h2>Partner Libraries</h2>
     <% other_institutions_content.each do |content| %>
       <%= content %>
     <% end %>

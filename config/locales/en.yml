@@ -107,6 +107,7 @@ en:
   online_access:
     partner_access_disclaimer: The following partner library links may have restricted access
     nd_no_access: Unable to find online access for Notre Dame
+    other_no_access: Unable to find online access for this library
   institutions:
     ndu: Notre Dame
     smc: Saint Mary's College

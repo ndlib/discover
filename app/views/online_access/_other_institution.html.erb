@@ -1,0 +1,5 @@
+<% if institution.display_content? %>
+    <ul class="ndl-online-external-links">
+      <li><a href="/primo_library/libweb/action/dlDisplay.do?vid=<%= institution.id.upcase %>&docId=<%= @tab.id %>&fn=permalink"><%= t("institutions.#{institution.id}") %></a>
+    </ul>
+<% end %>

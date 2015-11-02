@@ -3,7 +3,11 @@
   <% unless institution.fulltext.count >= 1  || institution.sfx_link_decorator.from_primo? %>
     <div class="ndl-online-access-disclaimer">
       <%= image_tag('primo/icon_caution.png') %>
-      <%= t("online_access.nd_no_access") %>
+      <% if @tab.vid == 'NDU' %>
+        <%= t("online_access.nd_no_access") %>
+      <% else %>
+        <%= t("online_access.other_no_access") %>
+      <% end %>
   <% end %>
     <ul class="ndl-online-external-links">
   <% if held_flag %>
@@ -11,7 +15,7 @@
   <% end %>
   <% unless institution.fulltext.count >= 1 || institution.sfx_link_decorator.from_primo? %>
     <% if other_flag %>
-        <li>Partner libraries may have online access which may require additional credentials</li>
+        <li>Partner libraries may have online access which may require you to log in using that institution's ID.</li>
     <% end %>
   <% end %>
   <% institution.fulltext.each do | link | %>
