@@ -64,10 +64,14 @@
   height:65px;
   width:220px;
   margin-left:400px;
-  margin-top:30px;
+/*  margin-top:30px; */
   text-decoration:none;
   color:transparent;
   text-indent:-1000px;
+}
+
+#bci-link a {
+  margin-top:30px;
 }
 
 #bci-link a:hover {
