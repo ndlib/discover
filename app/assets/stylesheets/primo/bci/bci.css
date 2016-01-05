@@ -53,3 +53,32 @@
 #exlidMainMenuTile div.EXLMainMenuContainer {
   width: 100%;
 }
+
+#bci-header {
+  height:95px;
+  background-image:url(banner.png);
+}
+
+#bci-link {
+  display:block;
+  height:65px;
+  width:220px;
+  margin-left:400px;
+  margin-top:30px;
+  text-decoration:none;
+  color:transparent;
+  text-indent:-1000px;
+}
+
+#bci-link a:hover {
+  text-decoration:none;
+}
+
+#exlidHeaderContainer {
+  background-color:#f8f8f8;
+}
+
+#exlidUserAreaRibbon li span.EXLUserAreaStart {
+  background-color:#f8f8f8;
+}
+
