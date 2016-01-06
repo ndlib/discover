@@ -1,4 +1,4 @@
-class RecordIdLinkHathi < Draper::Decorator
+class RecordIdLink::Hathi < Draper::Decorator
   def self.render(original_id)
     self.new(original_id).render
   end

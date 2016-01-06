@@ -1,4 +1,4 @@
-class RecordIdLinkPrimoCentral < Draper::Decorator
+class RecordIdLink::PrimoCentral < Draper::Decorator
   def self.render(original_id)
     self.new(original_id).render
   end

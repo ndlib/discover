@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RecordIdLinkPrimoCentral do
+describe RecordIdLink::PrimoCentral do
   let(:record_id) { "TN_medline22021833" }
   subject { described_class.new(record_id) }
 

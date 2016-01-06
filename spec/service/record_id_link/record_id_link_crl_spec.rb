@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RecordIdLinkCRL do
+describe RecordIdLink::CRL do
   let(:record_id) { "crlcat.b28583504" }
 
   subject { described_class.new(record_id) }

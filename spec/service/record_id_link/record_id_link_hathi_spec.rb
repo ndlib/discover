@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RecordIdLinkHathi do
+describe RecordIdLink::Hathi do
   let(:record_id) { 'hathi_pubMIU01-004528545' }
   subject { described_class.new(record_id) }
 

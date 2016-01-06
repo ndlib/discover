@@ -1,4 +1,4 @@
-class RecordIdLinkCRL < Draper::Decorator
+class RecordIdLink::CRL < Draper::Decorator
   def self.render(record_id)
     self.new(record_id).render
   end

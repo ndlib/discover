@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RecordIdLinkAleph do
+describe RecordIdLink::Aleph do
   let(:record_id) { "ndu_aleph001890313" }
   let(:system_number) { record_id.gsub(/[^\d]+/,'')}
   subject { described_class.new(record_id) }

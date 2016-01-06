@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RecordIdLinkLaw do
+describe RecordIdLink::Law do
   let(:record_id) { 'ndlaw_iii.b1349952' }
   subject { described_class.new(record_id) }
 

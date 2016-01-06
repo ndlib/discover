@@ -1,4 +1,4 @@
-class RecordIdLinkAleph < Draper::Decorator
+class RecordIdLink::Aleph < Draper::Decorator
   def self.render(record_id)
     self.new(record_id).render
   end
