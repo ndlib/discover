@@ -48,4 +48,11 @@ describe RecordIdLink do
       expect(subject.render_class).to eq(RecordIdLinkHathi)
     end
   end
+
+  describe 'CRL' do
+    let(:record_id) { 'crlcat.b28583504' }
+    it '#render_class returns RecordIdLinkCRL' do
+      expect(subject.render_class).to eq(RecordIdLinkCRL)
+    end
+  end
 end

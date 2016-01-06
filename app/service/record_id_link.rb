@@ -9,7 +9,8 @@ class RecordIdLink < Draper::Decorator
       RecordIdLinkAleph,
       RecordIdLinkPrimoCentral,
       RecordIdLinkLaw,
-      RecordIdLinkHathi
+      RecordIdLinkHathi,
+      RecordIdLinkCRL,      
     ]
   end
 
