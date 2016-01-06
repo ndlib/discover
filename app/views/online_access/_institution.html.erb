@@ -4,7 +4,7 @@
     <div class="ndl-online-access-disclaimer">
       <img src="<%= image_url('primo/icon_caution.png') %>"/>
       <% if @tab.vid == 'NDU' %>
-        <%= t("online_access.nd_no_access") %>
+        <span style="font-weight: 600"><%= t("online_access.nd_no_access") %></span>
       <% else %>
         <%= t("online_access.other_no_access") %>
       <% end %>

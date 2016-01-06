@@ -1006,6 +1006,10 @@ display: none;
   list-style-type: disc !important;
 }
 
+.ndl-online-access-disclaimer > img {
+  padding-right: 5px;
+}
+
 .about-outer-box {
   z-index: 300;
 }
