@@ -105,7 +105,7 @@ $(document).ready(function() {
                     }
 
 
-                    var ill_url = "https://nd.illiad.oclc.org/illiad/IND/illiad.dll/OpenURL?" + params_array.join('&');
+                    var ill_url = "https://login.proxy.library.nd.edu/login?url=https://nd.illiad.oclc.org/illiad/IND/illiad.dll/OpenURL?" + params_array.join('&');
 
                     var link = $("<a></a>");
                     link.text("Request via ILL ");
