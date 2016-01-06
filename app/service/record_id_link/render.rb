@@ -1,7 +1,13 @@
-class RecordIdLink::Render < Draper::Decorator
+class RecordIdLink::Render
+  attr_reader :record, :record_id
 
-  def self.render(record_id)
-    self.new(record_id).render
+  def self.render(record_id, record)
+    new(record_id, record).render
+  end
+
+  def initialize(record_id, record)
+    @record_id = record_id
+    @record = record
   end
 
   def self.render_classes
@@ -16,16 +22,16 @@ class RecordIdLink::Render < Draper::Decorator
 
   def render
     if render_class.present?
-      render_class.render(object)
+      render_class.render(record_id, record)
     else
-      object
+      record_id
     end
   end
 
   def render_class
     class_to_render = nil
     self.class.render_classes.each do |klass|
-      if klass.renders?(object)
+      if klass.renders?(record_id)
         class_to_render = klass
       end
     end

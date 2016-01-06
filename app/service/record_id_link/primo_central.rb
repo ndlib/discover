@@ -1,6 +1,6 @@
 class RecordIdLink::PrimoCentral < Draper::Decorator
-  def self.render(original_id)
-    self.new(original_id).render
+  def self.render(record_id, record)
+    self.new(record_id).render(record)
   end
 
   def self.renders?(original_id)
@@ -19,7 +19,7 @@ class RecordIdLink::PrimoCentral < Draper::Decorator
     h.t("institutions.primo_central")
   end
 
-  def render
+  def render(record)
     "#{institution_name}: #{record_id}"
   end
 

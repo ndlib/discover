@@ -48,7 +48,7 @@ describe DetailsTab do
   end
 
   describe 'found record' do
-    let(:record) { double(DiscoveryRecord) }
+    let(:record) { double(DiscoveryRecord, id: 'id') }
 
     before do
       subject.stub(:record).and_return(record)

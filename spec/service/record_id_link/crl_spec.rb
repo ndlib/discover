@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe RecordIdLink::CRL do
   let(:record_id) { "crlcat.b28583504" }
-
+  let(:record) { double }
   subject { described_class.new(record_id) }
 
   describe "#renders?" do
@@ -17,27 +17,27 @@ describe RecordIdLink::CRL do
 
   describe "#render" do
     it "returns a link to CRL libraries" do
-      expect(described_class.render(record_id)).to match(/^<a.*<\/a>/)
+      expect(described_class.render(record_id, record)).to match(/^<a.*<\/a>/)
     end
 
     it "has the correct link title" do
-      expect(described_class.render(record_id)).to match(/^<a.*>Center For Research Libraries: b2858350<\/a>/)
+      expect(described_class.render(record_id, record)).to match(/^<a.*>Center For Research Libraries: b2858350<\/a>/)
     end
 
     it "has the correct href " do
-      expect(described_class.render(record_id)).to include("href=\"http://catalog.crl.edu/record=b2858350\"")
+      expect(described_class.render(record_id, record)).to include("href=\"http://catalog.crl.edu/record=b2858350\"")
     end
 
     it "removes the crlcat from the record_id" do
-      expect(described_class.render(record_id)).to_not include("record=crlcat.b2858350")
+      expect(described_class.render(record_id, record)).to_not include("record=crlcat.b2858350")
     end
 
     it "removes the last character of the record id" do
-      expect(described_class.render(record_id)).to_not include("record=b28583504")
+      expect(described_class.render(record_id, record)).to_not include("record=b28583504")
     end
 
     it "correctly formats the CRL record id" do
-      expect(described_class.render(record_id)).to include("record=b2858350")
+      expect(described_class.render(record_id, record)).to include("record=b2858350")
     end
   end
 end

@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe RecordIdLink::Render do
+  let(:record) { double( id: record_id) }
   let(:record_id) { 'ndu_aleph12345' }
-  subject { described_class.new(record_id) }
+  subject { described_class.new(record_id, record) }
 
   describe '#render' do
     let(:render_class) { double() }

@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe RecordIdLink::Law do
   let(:record_id) { 'ndlaw_iii.b1349952' }
+  let(:record) { double }
   subject { described_class.new(record_id) }
 
   describe '#record_id' do
@@ -30,7 +31,7 @@ describe RecordIdLink::Law do
 
   describe '#render' do
     it 'is a link to the law catalog record' do
-      expect(subject.render).to eq("<a href=\"http://innopac.law.nd.edu/record=b1349952*eng\" target=\"_blank\">Notre Dame Law School: b1349952</a>")
+      expect(subject.render(record)).to eq("<a href=\"http://innopac.law.nd.edu/record=b1349952*eng\" target=\"_blank\">Notre Dame Law School: b1349952</a>")
     end
   end
 end

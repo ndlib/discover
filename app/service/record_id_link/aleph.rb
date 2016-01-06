@@ -1,6 +1,6 @@
 class RecordIdLink::Aleph < Draper::Decorator
-  def self.render(record_id)
-    self.new(record_id).render
+  def self.render(record_id, record)
+    self.new(record_id).render(record)
   end
 
   def self.renders?(record_id)
@@ -51,7 +51,7 @@ class RecordIdLink::Aleph < Draper::Decorator
     end
   end
 
-  def render
+  def render(record)
     h.link_to(direct_link_title, direct_url, target: '_blank')
   end
 end

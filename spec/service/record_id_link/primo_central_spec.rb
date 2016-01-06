@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe RecordIdLink::PrimoCentral do
   let(:record_id) { "TN_medline22021833" }
+  let(:record) { double }
   subject { described_class.new(record_id) }
 
   describe '#record_id' do
@@ -18,7 +19,7 @@ describe RecordIdLink::PrimoCentral do
 
   describe '#render' do
     it 'is the labeled record id' do
-      expect(subject.render).to eq("Primo Central: medline22021833")
+      expect(subject.render(record)).to eq("Primo Central: medline22021833")
     end
   end
 end

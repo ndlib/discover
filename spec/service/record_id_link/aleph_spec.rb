@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe RecordIdLink::Aleph do
   let(:record_id) { "ndu_aleph001890313" }
+  let(:record) { double }
   let(:system_number) { record_id.gsub(/[^\d]+/,'')}
   subject { described_class.new(record_id) }
 
@@ -60,7 +61,7 @@ describe RecordIdLink::Aleph do
 
   describe '#render' do
     it 'is the link' do
-      expect(subject.render).to eq("<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=001890313&amp;local_base=ndu01pub\" target=\"_blank\">Notre Dame: 001890313</a>")
+      expect(subject.render(record)).to eq("<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=001890313&amp;local_base=ndu01pub\" target=\"_blank\">Notre Dame: 001890313</a>")
     end
   end
 end

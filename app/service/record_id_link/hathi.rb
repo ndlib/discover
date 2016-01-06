@@ -1,18 +1,14 @@
 class RecordIdLink::Hathi < Draper::Decorator
-  def self.render(original_id)
-    self.new(original_id).render
+  def self.render(record_id, record)
+    self.new(record_id).render(record)
   end
 
   def self.renders?(original_id)
     (original_id =~ /^hathi_pub/).present?
   end
 
-  def id
-    object
-  end
-
   def record_id
-    id.gsub(/^[^-]+-/, '')
+    object.gsub(/^[^-]+-/, '')
   end
 
   def institution_name
@@ -27,7 +23,7 @@ class RecordIdLink::Hathi < Draper::Decorator
     "http://catalog.hathitrust.org/Record/#{record_id}"
   end
 
-  def render
+  def render(record)
     h.link_to(title, url, target: '_blank')
   end
 
