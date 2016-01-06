@@ -1,4 +1,4 @@
-class RecordIdLink < Draper::Decorator
+class RecordIdLink::Render < Draper::Decorator
 
   def self.render(record_id)
     self.new(record_id).render
@@ -6,11 +6,11 @@ class RecordIdLink < Draper::Decorator
 
   def self.render_classes
     [
-      Aleph,
-      PrimoCentral,
-      Law,
-      Hathi,
-      CRL,      
+      RecordIdLink::Aleph,
+      RecordIdLink::PrimoCentral,
+      RecordIdLink::Law,
+      RecordIdLink::Hathi,
+      RecordIdLink::CRL,
     ]
   end
 

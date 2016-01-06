@@ -21,7 +21,7 @@ describe RecordIdLink::CRL do
     end
 
     it "has the correct link title" do
-      expect(described_class.render(record_id)).to match(/^<a.*>Center For Research Libraries<\/a>/)
+      expect(described_class.render(record_id)).to match(/^<a.*>Center For Research Libraries: b2858350<\/a>/)
     end
 
     it "has the correct href " do

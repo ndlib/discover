@@ -6,7 +6,7 @@ group :application do
 
   # Use sqlite3 as the database for Active Record
   # gem 'sqlite3'
-  gem 'mysql2', '~> 0.3.10'
+  gem 'mysql2', '0.3.15'
 
   gem 'virtus'
 

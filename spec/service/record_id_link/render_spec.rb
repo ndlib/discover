@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RecordIdLink do
+describe RecordIdLink::Render do
   let(:record_id) { 'ndu_aleph12345' }
   subject { described_class.new(record_id) }
 
