@@ -171,8 +171,7 @@ class DetailsTab < PrimoRecordTab
   end
 
   def linked_record_ids
-    record_ids = record_source_ids.sort
-    record_ids.collect { | record_id | RecordIdLink::Render.render(record_id, record) }
+    record.sources.collect { | source | RecordIdLink::Render.render(source) }
   end
 
   def record_source_ids

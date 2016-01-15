@@ -231,7 +231,7 @@ describe DetailsTab do
 
     describe '#record_ids' do
       before(:each) do
-        record.stub(:record_ids).and_return(['ndu_aleph12345', 'hcc_aleph23456'])
+        record.stub(:sources).and_return([{ "title" => "title", "url" => "url" }, { "title" => "title2", "url" => "url2" }])
       end
 
       it 'uses the #linked_record_ids' do
@@ -240,26 +240,22 @@ describe DetailsTab do
       end
 
       it "returns an ul with the record ids" do
-        expect(subject.record_ids).to eq("<ul><li><a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=23456&amp;local_base=hcc01pub\" target=\"_blank\">Holy Cross College: 23456</a></li><li><a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=12345&amp;local_base=ndu01pub\" target=\"_blank\">Notre Dame: 12345</a></li></ul>")
+        expect(subject.record_ids).to eq("<ul><li><a href=\"url\" target=\"_blank\">title</a></li><li><a href=\"url2\" target=\"_blank\">title2</a></li></ul>")
       end
     end
 
     describe '#linked_record_ids' do
       before(:each) do
-        record.stub(:record_ids).and_return(['ndu_aleph12345', 'hcc_aleph23456'])
+        record.stub(:sources).and_return([{ "title" => "title", "url" => "url" }, { "title" => "title2", "url" => "url2" }])
       end
 
       it 'uses the record #record_ids' do
-        expect(record).to receive(:record_ids)
+        expect(record).to receive(:sources)
         subject.linked_record_ids
       end
 
       it "returns an array with linked record ids" do
-        expect(subject.linked_record_ids).to eq(["<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=23456&amp;local_base=hcc01pub\" target=\"_blank\">Holy Cross College: 23456</a>", "<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=12345&amp;local_base=ndu01pub\" target=\"_blank\">Notre Dame: 12345</a>"])
-      end
-
-      it "alphabatizes the record_ids" do
-        expect(subject.linked_record_ids).to eq(["<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=23456&amp;local_base=hcc01pub\" target=\"_blank\">Holy Cross College: 23456</a>", "<a href=\"https://alephprod.library.nd.edu/F/?func=direct&amp;doc_number=12345&amp;local_base=ndu01pub\" target=\"_blank\">Notre Dame: 12345</a>"])
+        expect(subject.linked_record_ids).to eq(["<a href=\"url\" target=\"_blank\">title</a>", "<a href=\"url2\" target=\"_blank\">title2</a>"])
       end
     end
 
