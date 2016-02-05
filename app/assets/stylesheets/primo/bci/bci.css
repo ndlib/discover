@@ -80,6 +80,7 @@
 
 #exlidHeaderTile {
 /*  width: 960px; */
+width:initial;
 }
 
 #exlidUserAreaTile ul {
@@ -95,5 +96,6 @@
 
 #exlidUserAreaRibbon li span.EXLUserAreaStart {
   background-color:#ffffff;
+  height: initial;
 }
 
