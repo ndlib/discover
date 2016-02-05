@@ -55,8 +55,8 @@
 
 #bci-header {
   height:95px;
-  background-image:url(banner.png);
-  background-repeat:no-repeat;
+/*  background-image:url(banner.png); */
+/*  background-repeat:no-repeat; */
 }
 
 #bci-link {
@@ -79,13 +79,21 @@
 }
 
 #exlidHeaderTile {
-  width: 960px;
+/*  width: 960px; */
 }
+
+#exlidUserAreaTile ul {
+    height: 30px;
+    background-color: #ffffff;
+}
+
 #exlidHeaderContainer {
   background-color:#fff;
+  background-image: url(banner.png);
+  background-repeat: no-repeat;
 }
 
 #exlidUserAreaRibbon li span.EXLUserAreaStart {
-  background-color:#f8f8f8;
+  background-color:#ffffff;
 }
 
