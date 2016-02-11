@@ -23,6 +23,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_access_control_headers
-    headers['X-Frame-Options'] = "ALLOW-FROM *"
+    headers['Access-Control-Allow-Origin'] = "*"
   end
 end
