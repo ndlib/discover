@@ -259,7 +259,7 @@ function EXLTA_recordId(element){
         rid = $(element).parents('.EXLResultsList').find('.EXLResultRecordId').attr('id');
     }
 
-    return encodeURI(rid);
+    return encodeURI(rid).replace(";", "%3b");
 }
 
 function EXLTA_lookupRecordId(element){
