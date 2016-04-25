@@ -85,6 +85,6 @@ $(document).ready(function(){
 function EXLTA_recordId(element){
   var id = $(element).parents('.EXLResult').find('.EXLResultRecordId').attr('id');
   console.log(id);
-  console.log(console.log(id));
+  console.log(encodeURI(id));
   return encodeURI(id);
 }

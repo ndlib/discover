@@ -84,12 +84,14 @@ jQuery ($) ->
   getOnlineAccess = (element, tabType) ->
     link = $(element)
     recordID = EXLTA_recordId(element)
+    console.log(recordID)
     if !link.data('loaded')
       success = (data) ->
         container = link.parents(".EXLResult").find(".#{tabType}-Container").children(".EXLTabContent").children(".#{tabType}-content")
         container.removeClass('EXLTabLoading')
         container.html data
         link.data('loaded', true)
+
         return
       $.get onlineAccessPath, {id: recordID, vid: currentVID, tab: currentTab}, success, "html"
 
