@@ -437,6 +437,7 @@ function getLocations(element, tabType) {
 }
 
 function EXLTA_recordId(element) {
+  console.log("malc")
   var id = $(element).parents('.EXLResult').find('.EXLResultRecordId').attr('id');
   return encodeURI(id);
 }

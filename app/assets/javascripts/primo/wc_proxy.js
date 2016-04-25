@@ -252,6 +252,7 @@ function getTNRequest(element, tabType){
 
 
 function EXLTA_recordId(element){
+   console.log("prox")
     var rid = $(element).parents('.EXLResult').find('.EXLResultRecordId').attr('id');
 
     if (!rid){
