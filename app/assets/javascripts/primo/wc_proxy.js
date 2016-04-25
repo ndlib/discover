@@ -254,11 +254,11 @@ function getTNRequest(element, tabType){
 function EXLTA_recordId(element){
     var rid = $(element).parents('.EXLResult').find('.EXLResultRecordId').attr('id');
 
-    if (rid){
-        return rid;
-    }else{
-        return $(element).parents('.EXLResultsList').find('.EXLResultRecordId').attr('id');
+    if (!rid){
+        rid = $(element).parents('.EXLResultsList').find('.EXLResultRecordId').attr('id');
     }
+
+    return encodeURI(rid);
 }
 
 function EXLTA_lookupRecordId(element){
@@ -336,7 +336,3 @@ function getWCIndex(exSearch){
     }
 
 }
-
-
-
-

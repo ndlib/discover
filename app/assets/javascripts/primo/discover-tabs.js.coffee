@@ -84,6 +84,7 @@ jQuery ($) ->
   getOnlineAccess = (element, tabType) ->
     link = $(element)
     recordID = EXLTA_recordId(element)
+    #recordID = encodeURI(recordID);
     console.log(recordID)
     if !link.data('loaded')
       success = (data) ->
