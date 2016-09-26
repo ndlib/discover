@@ -47,7 +47,6 @@ group :application do
   gem 'devise_cas_authenticatable'
   gem 'faraday'
   gem 'american_date'
-
 end
 
 # Server monitoring
@@ -68,8 +67,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -83,12 +80,10 @@ end
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
-  gem "debugger"
   gem "rspec-rails"
   gem "capybara"
   gem "factory_girl_rails", require: false
   gem "faker"
-
   gem "guard"
   gem "guard-bundler"
   gem "guard-coffeescript"
@@ -97,6 +92,8 @@ group :development, :test do
   gem "guard-spork"
   gem "spork", "1.0.0rc4"
   gem "growl"
+  gem "test-unit"
+  gem "minitest"
 end
 
 group :test do
