@@ -80,7 +80,8 @@ describe InstitutionLinksDecorator do
 
   describe '#finding_aid_links' do
     it 'is the finding aid links' do
-      expect(subject.finding_aid_links).to eq(["<a href=\"http://rbsc.library.nd.edu/finding_aid/RBSC-MSNEA0506:143\" target=\"_blank\">Full description / Finding Aid</a>"])
+      res = ["<a target=\"_blank\" href=\"http://rbsc.library.nd.edu/finding_aid/RBSC-MSNEA0506:143\">Full description / Finding Aid</a>"]
+      expect(subject.finding_aid_links).to eq(res)
     end
   end
 

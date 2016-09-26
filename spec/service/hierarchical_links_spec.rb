@@ -3,15 +3,15 @@ require 'spec_helper'
 describe HierarchicalLinks do
   let(:hierarchical_field) { double(HierarchicalField, search_values: [], scope: 'subject') }
   let(:primo_uri) { double(PrimoURI) }
-  let(:simple_group) { [["link1","link1"], ["link2","link1 link2"]] }
-  let(:single_link) { [["link1","link1"]] }
+  let(:simple_group) { [%w(link1 link1), ["link2", "link1 link2"]] }
+  let(:single_link) { [%w(link1 link1)] }
 
   subject { described_class.new(hierarchical_field) }
 
   describe '#group_links' do
     it 'creates an array of links' do
       primo_uri.stub(:advanced_search).and_return('url')
-      expect(subject.group_links(simple_group, primo_uri)).to eq(["<a href=\"url\" title=\"Search for &quot;link1&quot;\">link1</a>", "<a href=\"url\" title=\"Search for &quot;link1 link2&quot;\">link2</a>"])
+      expect(subject.group_links(simple_group, primo_uri)).to eq(["<a title=\"Search for &quot;link1&quot;\" href=\"url\">link1</a>", "<a title=\"Search for &quot;link1 link2&quot;\" href=\"url\">link2</a>"])
     end
 
     it "uses the primo uri service to generate the urls" do
@@ -22,20 +22,19 @@ describe HierarchicalLinks do
 
   describe '#group_lis' do
     it 'puts lis around #group_links' do
-      expect(subject).to receive(:group_links).with(simple_group, primo_uri).and_return(['link1', 'link2'])
+      expect(subject).to receive(:group_links).with(simple_group, primo_uri).and_return(%w(link1 link2))
       expect(subject.group_lis(simple_group, primo_uri)).to eq(["<li class=\"ndl-hierarchical-search-1\">link1</li>", "<li class=\"ndl-hierarchical-search-2\">link2</li>"])
     end
   end
 
   describe "#render_group" do
-
     it "create a ul using #group_lis" do
       expect(subject).to receive(:group_lis).with(simple_group, primo_uri).and_return([])
       expect(subject.render_group(simple_group, primo_uri)).to eq("<ul class=\"ndl-hierarchical-search\"></ul>")
     end
 
     it "concatenates lis" do
-      subject.stub(:group_links).and_return(['link1', 'link2'])
+      subject.stub(:group_links).and_return(%w(link1 link2))
       expect(subject.render_group(simple_group, primo_uri)).to eq("<ul class=\"ndl-hierarchical-search\"><li class=\"ndl-hierarchical-search-1\">link1</li><li class=\"ndl-hierarchical-search-2\">link2</li></ul>")
     end
   end
@@ -52,5 +51,4 @@ describe HierarchicalLinks do
       end
     end
   end
-
 end

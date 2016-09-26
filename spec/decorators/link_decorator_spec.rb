@@ -1,11 +1,8 @@
 require 'spec_helper'
 
 describe LinkDecorator do
-
   subject { LinkDecorator.new(object) }
-
-  let(:object) {   { 'title' => 'title', 'url' => 'url', 'notes' => [ 'notes' ] } }
-
+  let(:object) { { 'title' => 'title', 'url' => 'url', 'notes' => ['notes'] } }
 
   describe :title do
     it "returns title " do
@@ -19,13 +16,11 @@ describe LinkDecorator do
     end
   end
 
-
   describe :link do
     it "returns a link" do
-      expect(subject.link).to eq("<a href=\"url\" target=\"_blank\">title</a>")
+      expect(subject.link).to eq("<a target=\"_blank\" href=\"url\">title</a>")
     end
   end
-
 
   describe :notes do
     it "returns notes" do
@@ -50,7 +45,4 @@ describe LinkDecorator do
       expect(subject.from_primo?).to be_false
     end
   end
-
-
-
 end

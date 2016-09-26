@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 group :application do
   # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-  gem 'rails', '~> 4.0.4'
+  gem 'rails', '~> 4.2.7'
 
   # Use sqlite3 as the database for Active Record
   # gem 'sqlite3'
@@ -38,12 +38,12 @@ group :application do
   gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'
   gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
 
-  gem "hesburgh_errors", git: 'git@git.library.nd.edu:hesburgh_errors'
+  gem "hesburgh_errors", git: 'https://github.com/ndlib/hesburgh_errors.git'
   gem 'exception_notification', "~> 4.0.0"
 
   gem "rb-readline"
 
-  gem 'devise'
+  gem 'devise', "~> 3.4.0"
   gem 'devise_cas_authenticatable'
   gem 'faraday'
   gem 'american_date'

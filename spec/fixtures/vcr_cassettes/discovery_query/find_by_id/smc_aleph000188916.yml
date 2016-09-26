@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3005/2.0/discovery/detail.json?auth_token=discover&q=smc_aleph000188916&vid=smc
+    uri: http://localhost:3005/2.0/discovery/detail.json?auth_token=discover&q=smc_aleph000188916&vid=SMC
     body:
       encoding: US-ASCII
       string: ''
@@ -29,19 +29,19 @@ http_interactions:
       X-Ua-Compatible:
       - IE=Edge
       X-Request-Id:
-      - 5bfb4a1adc53aa33db8bcc2915604830
+      - 8e6660e1ef9481e1d8883fc24b95e253
       X-Runtime:
-      - '0.176306'
+      - '0.553649'
       Server:
       - WEBrick/1.3.1 (Ruby/2.1.2/2014-05-08)
       Date:
-      - Mon, 26 Sep 2016 16:46:48 GMT
+      - Mon, 26 Sep 2016 17:08:02 GMT
       Content-Length:
       - '13003'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _api_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWY0MzNmMTJiZWMyZTUxMmQ4ZGMxNzg5ZWEyY2FlMDYyBjsAVEkiHXdhcmRlbi51c2VyLmNvbnN1bWVyLmtleQY7AFRbB1sGaQsw--93286a2c255a073ef39270ad7a4997b08215b64f;
+      - _api_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWZmMWVjODQzN2UxODE2YjQ2MDU4ZjY3MTFjODkyN2YxBjsAVEkiHXdhcmRlbi51c2VyLmNvbnN1bWVyLmtleQY7AFRbB1sGaQsw--4fad01db833f85151953617feb30c0edf5403059;
         path=/; HttpOnly
     body:
       encoding: UTF-8
@@ -74,7 +74,7 @@ http_interactions:
         streaming video file (19 min.) : sd., col. + instructional materials (online)."],"rights":["Access
         requires authentication through Films on Demand."],"is_part_of":[],"earlier_title":[],"later_title":[],"supplement":[],"supplement_to":[],"issued_with":[],"parallel_title":[],"variant_title":["Metals"]},"identifiers":{"isbn":[],"issn":[],"eissn":[],"doi":[],"pmid":[],"lccn":[],"oclc":["817232351"],"record_ids":["smc_aleph000188916"]},"sources":[{"id":"smc_aleph000188916","type":"smc","url":"https://alephprod.library.nd.edu/F/?func=direct\u0026doc_number=000188916\u0026local_base=smc01pub","source_id":"000188916","title":"Saint
         Mary''s College: 000188916"}],"holdings":[],"online_access":{"institutions":{"smc":{"id":"smc","fulltext":[{"url":"http://smcproxy1.saintmarys.edu:2048/login?url=http://digital.films.com/PortalPlaylists.aspx?aid=24938\u0026xtid=43803","title":"Films
-        Media Group","notes":[],"service_type":"ProxyUrl","source":"Primo"}],"table_of_contents":[],"finding_aids":[],"findtext":{"url":"http://findtext.library.nd.edu:8889/smc_local?ctx_enc=info%3Aofi%2Fenc%3AUTF-8\u0026ctx_tim=2016-09-26T12%3A46%3A48EDT\u0026ctx_ver=Z39.88-2004\u0026rft.btitle=Practical+Use+of+Materials+Metals\u0026rft.date=2010\u0026rft.oclcnum=817232351","title":"FindText","notes":[],"service_type":"SFX","source":"findtext","targets_loaded":false,"number_of_targets":0},"ill":null,"report_a_problem":null},"ndu":{"id":"ndu","fulltext":[],"table_of_contents":[],"finding_aids":[],"findtext":{"url":"http://findtext.library.nd.edu:8889/ndu_local?ctx_enc=info%3Aofi%2Fenc%3AUTF-8\u0026ctx_tim=2016-09-26T12%3A46%3A48EDT\u0026ctx_ver=Z39.88-2004\u0026rft.btitle=Practical+Use+of+Materials+Metals\u0026rft.date=2010\u0026rft.oclcnum=817232351\u0026sid=ND:Primo","title":"FindText","notes":[],"service_type":"SFX","source":"findtext","targets_loaded":false,"number_of_targets":0},"ill":null,"report_a_problem":null},"bci":{"id":"bci","fulltext":[],"table_of_contents":[],"finding_aids":[],"findtext":{"url":"http://findtext.library.nd.edu:8889/bethel_local?ctx_enc=info%3Aofi%2Fenc%3AUTF-8\u0026ctx_tim=2016-09-26T12%3A46%3A48EDT\u0026ctx_ver=Z39.88-2004\u0026rft.btitle=Practical+Use+of+Materials+Metals\u0026rft.date=2010\u0026rft.oclcnum=817232351","title":"FindText","notes":[],"service_type":"SFX","source":"findtext","targets_loaded":false,"number_of_targets":0},"ill":null,"report_a_problem":null},"hcc":{"id":"hcc","fulltext":[],"table_of_contents":[],"finding_aids":[],"findtext":{"url":"http://findtext.library.nd.edu:8889/hcc_local?ctx_enc=info%3Aofi%2Fenc%3AUTF-8\u0026ctx_tim=2016-09-26T12%3A46%3A48EDT\u0026ctx_ver=Z39.88-2004\u0026rft.btitle=Practical+Use+of+Materials+Metals\u0026rft.date=2010\u0026rft.oclcnum=817232351","title":"FindText","notes":[],"service_type":"SFX","source":"findtext","targets_loaded":false,"number_of_targets":0},"ill":null,"report_a_problem":null}},"table_of_contents":[],"finding_aids":[],"reviews":[],"add_links":[]},"primo":{"control":{"sourcerecordid":"000188916","sourceid":"smc_aleph","recordid":"smc_aleph000188916","originalsourceid":"SMC01","ilsapiid":"SMC01000188916","sourceformat":"MARC21","sourcesystem":"Aleph"},"display":{"type":"video","title":"Practical
+        Media Group","notes":[],"service_type":"ProxyUrl","source":"Primo"}],"table_of_contents":[],"finding_aids":[],"findtext":{"url":"http://findtext.library.nd.edu:8889/smc_local?ctx_enc=info%3Aofi%2Fenc%3AUTF-8\u0026ctx_tim=2016-09-26T13%3A08%3A02EDT\u0026ctx_ver=Z39.88-2004\u0026rft.btitle=Practical+Use+of+Materials+Metals\u0026rft.date=2010\u0026rft.oclcnum=817232351","title":"FindText","notes":[],"service_type":"SFX","source":"findtext","targets_loaded":false,"number_of_targets":0},"ill":null,"report_a_problem":null},"ndu":{"id":"ndu","fulltext":[],"table_of_contents":[],"finding_aids":[],"findtext":{"url":"http://findtext.library.nd.edu:8889/ndu_local?ctx_enc=info%3Aofi%2Fenc%3AUTF-8\u0026ctx_tim=2016-09-26T13%3A08%3A02EDT\u0026ctx_ver=Z39.88-2004\u0026rft.btitle=Practical+Use+of+Materials+Metals\u0026rft.date=2010\u0026rft.oclcnum=817232351\u0026sid=ND:Primo","title":"FindText","notes":[],"service_type":"SFX","source":"findtext","targets_loaded":false,"number_of_targets":0},"ill":null,"report_a_problem":null},"bci":{"id":"bci","fulltext":[],"table_of_contents":[],"finding_aids":[],"findtext":{"url":"http://findtext.library.nd.edu:8889/bethel_local?ctx_enc=info%3Aofi%2Fenc%3AUTF-8\u0026ctx_tim=2016-09-26T13%3A08%3A02EDT\u0026ctx_ver=Z39.88-2004\u0026rft.btitle=Practical+Use+of+Materials+Metals\u0026rft.date=2010\u0026rft.oclcnum=817232351","title":"FindText","notes":[],"service_type":"SFX","source":"findtext","targets_loaded":false,"number_of_targets":0},"ill":null,"report_a_problem":null},"hcc":{"id":"hcc","fulltext":[],"table_of_contents":[],"finding_aids":[],"findtext":{"url":"http://findtext.library.nd.edu:8889/hcc_local?ctx_enc=info%3Aofi%2Fenc%3AUTF-8\u0026ctx_tim=2016-09-26T13%3A08%3A02EDT\u0026ctx_ver=Z39.88-2004\u0026rft.btitle=Practical+Use+of+Materials+Metals\u0026rft.date=2010\u0026rft.oclcnum=817232351","title":"FindText","notes":[],"service_type":"SFX","source":"findtext","targets_loaded":false,"number_of_targets":0},"ill":null,"report_a_problem":null}},"table_of_contents":[],"finding_aids":[],"reviews":[],"add_links":[]},"primo":{"control":{"sourcerecordid":"000188916","sourceid":"smc_aleph","recordid":"smc_aleph000188916","originalsourceid":"SMC01","ilsapiid":"SMC01000188916","sourceformat":"MARC21","sourcesystem":"Aleph"},"display":{"type":"video","title":"Practical
         Use of Materials Metals","contributor":["Video Education Australasia","Films
         for the Humanities [Firm]","Films Media Group."],"publisher":"New York, N.Y.
         : Films Media Group","creationdate":"2011, c2010","format":"1 streaming video
@@ -158,5 +158,5 @@ http_interactions:
         Use of Materials [series]"],"subject":["$$DMetals$$EMetals","$$DEducational
         films$$EEducational films","$$DInternet videos$$EInternet videos","$$DVideorecording$$EVideorecording$$TLOCAL"],"institution":"SMC"}}}]}'
     http_version: 
-  recorded_at: Mon, 26 Sep 2016 16:46:48 GMT
+  recorded_at: Mon, 26 Sep 2016 17:08:02 GMT
 recorded_with: VCR 2.4.0

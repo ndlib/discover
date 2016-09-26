@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe ExampleRecordDecorator do
-  let(:record) {
+  let(:record) do
     { 'id' => 'ndu_aleph001890313', "title" => "The catcher in the rye", 'description' => 'Book with multiple identifiers, hierarchical subjects, and 5 frbr results.'}
-  }
+  end
 
   let(:records) { [record] }
 
@@ -35,19 +35,19 @@ describe ExampleRecordDecorator do
 
   describe '#record_link' do
     it 'links to the record locally' do
-      expect(subject.record_link).to eq("<a href=\"/record?id=#{record['id']}\" target=\"_blank\">Details</a>")
+      expect(subject.record_link).to eq("<a target=\"_blank\" href=\"/record?id=ndu_aleph001890313\">Details</a>")
     end
   end
 
   describe '#online_access_link' do
     it 'links to the online_access locally' do
-      expect(subject.online_access_link).to eq("<a href=\"/online_access?id=ndu_aleph001890313\" target=\"_blank\">Online Access</a>")
+      expect(subject.online_access_link).to eq("<a target=\"_blank\" href=\"/online_access?id=ndu_aleph001890313\">Online Access</a>")
     end
   end
 
   describe '#json_link' do
     it 'links to json' do
-      expect(subject.json_link).to eq("<a href=\"/record.json?id=#{record['id']}\" target=\"_blank\">JSON</a>")
+      expect(subject.json_link).to eq("<a target=\"_blank\" href=\"/record.json?id=ndu_aleph001890313\">JSON</a>")
     end
   end
 
@@ -67,7 +67,7 @@ describe ExampleRecordDecorator do
   describe '#primo_link' do
     it 'links to primo' do
       expect(subject).to receive(:primo_search_id).and_return(subject.id)
-      expect(subject.primo_link).to eq("<a href=\"http://onesearchpprd.library.nd.edu/primo_library/libweb/action/search.do?fn=search&amp;mode=Basic&amp;tab=onesearch&amp;vid=NDU&amp;vl%28freeText0%29=ndu_aleph001890313\" target=\"_blank\">Primo 4</a>")
+      expect(subject.primo_link).to eq("<a target=\"_blank\" href=\"http://onesearchpprd.library.nd.edu/primo_library/libweb/action/search.do?fn=search&amp;mode=Basic&amp;tab=onesearch&amp;vid=NDU&amp;vl%28freeText0%29=ndu_aleph001890313\">Primo 4</a>")
     end
   end
 end

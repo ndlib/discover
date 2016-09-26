@@ -1,56 +1,45 @@
 require 'spec_helper'
 
-
 describe HoldsRequest do
-
   subject { described_class.new({}) }
 
   describe :save_params do
     it "saves the request_id param" do
-      subject.save_params({request_id: '1'})
+      subject.save_params(request_id: '1')
       expect(subject.request_id).to eq("1")
     end
 
     it "saves the pickup_location params" do
-      subject.save_params({pickup_location: '1'})
+      subject.save_params(pickup_location: '1')
       expect(subject.pickup_location).to eq("1")
     end
 
-
     it "saves the cancel_date params" do
-      subject.save_params({cancel_date: '1'})
+      subject.save_params(cancel_date: '1')
       expect(subject.cancel_date).to eq("1")
     end
 
-
     it "does not save extra keys" do
-      subject.save_params({request_id: 1, other_key: '2'})
-      expect(subject.attributes).to eq({ :request_id=>"1", :pickup_location=>nil, :cancel_date=>nil })
+      subject.save_params(request_id: 1, other_key: '2')
+      expect(subject.attributes).to eq(:request_id => "1", :pickup_location => nil, :cancel_date => nil)
     end
-
   end
 
-
   describe :initialize do
-
     it "allows you to pass in attributes" do
       o = described_class.new(request_id: '1', pickup_location: '2')
-      expect(o.params).to eq({:request_id=>"1", :pickup_location=>"2", :cancel_date=>nil})
+      expect(o.params).to eq(:request_id => "1", :pickup_location => "2", :cancel_date => nil)
     end
-
   end
 
   describe :params do
-
     it "returns all the values when they are set" do
       o = described_class.new(request_id: '1', pickup_location: '2', cancel_date: '10-10-1010')
-      expect(o.params).to eq({:request_id=>"1", :pickup_location=>"2", :cancel_date=>"10-10-1010"})
+      expect(o.params).to eq(:request_id => "1", :pickup_location => "2", :cancel_date => "10-10-1010")
     end
   end
 
-
   describe :complete? do
-
     it "returns true when they are all set" do
       o = described_class.new(request_id: '1', pickup_location: '2')
       expect(o.complete?).to be_true
@@ -64,18 +53,17 @@ describe HoldsRequest do
   describe '#decrypted_item_id' do
     let(:item_id) { 'test' }
     let(:encrypted_item_id) { HoldItem.encrypt_item_id(item_id) }
-
-    subject { described_class.new(request_id: encrypted_item_id)}
+    subject { described_class.new(request_id: encrypted_item_id) }
 
     it 'decrypts the request_id' do
       expect(subject.decrypted_item_id).to eq(item_id)
     end
 
     describe 'invalid request_id' do
-      subject { described_class.new(request_id: 'fake')}
+      subject { described_class.new(request_id: 'fake') }
 
       it 'raises an error' do
-        expect{subject.decrypted_item_id}.to raise_error(ActiveSupport::MessageVerifier::InvalidSignature)
+        expect { subject.decrypted_item_id }.to raise_error(ActiveSupport::MessageVerifier::InvalidSignature)
       end
     end
   end
@@ -112,7 +100,7 @@ describe HoldsRequest do
       subject.stub(:decrypted_item_id).and_return('decrypted_item_id')
       subject.stub(:pickup_location).and_return('pickup_location')
       subject.stub(:formatted_cancel_date).and_return('formatted_cancel_date')
-      expect(subject.hold_request_params).to eq({:item_number=>"decrypted_item_id", :pickup_location=>"pickup_location", :cancel_date=>"formatted_cancel_date"})
+      expect(subject.hold_request_params).to eq(:item_number => "decrypted_item_id", :pickup_location => "pickup_location", :cancel_date => "formatted_cancel_date")
     end
   end
 
@@ -121,7 +109,6 @@ describe HoldsRequest do
     let(:request_id) { HoldItem.encrypt_item_id(item_number) }
     subject { described_class.new(request_id: request_id, pickup_location: 'BCI') }
     describe 'valid request' do
-
       it 'succeeds' do
         VCR.use_cassette 'holds_request/ndu_aleph001526576' do
           response = subject.place_hold

@@ -2,19 +2,15 @@
 http_interactions:
 - request:
     method: put
-    uri: http://localhost:3005/2.0/discovery/holds/request?auth_token=C6epGyym6ynWy3gfJett
+    uri: http://localhost:3005/2.0/discovery/holds/request?auth_token=discover
     body:
       encoding: UTF-8
       string: cancel_date=&item_number=PRIMO%24%24%24BCI01000136357%24%24%24BCI50000136357000090&pickup_location=BCI
     headers:
       User-Agent:
-      - Faraday v0.9.0
+      - Faraday v0.9.1
       Content-Type:
       - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
   response:
     status:
       code: 200
@@ -31,23 +27,23 @@ http_interactions:
       X-Ua-Compatible:
       - IE=Edge
       X-Request-Id:
-      - 9e839f475e12f0789c025f52f24be6e3
+      - 5603a410ff963adc1faf421e3a2f4b35
       X-Runtime:
-      - '0.422241'
+      - '0.200709'
       Server:
-      - WEBrick/1.3.1 (Ruby/2.0.0/2014-05-08)
+      - WEBrick/1.3.1 (Ruby/2.1.2/2014-05-08)
       Date:
-      - Wed, 06 Aug 2014 18:11:04 GMT
+      - Mon, 26 Sep 2016 17:06:59 GMT
       Content-Length:
       - '43'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _api_session=BAh7BkkiD3Nlc3Npb25faWQGOgZFVEkiJWU1ODljZDJjYmU5NDZjNDM1ZjQ0MmE1YTIyNzBlMDMxBjsAVA%3D%3D--3b1ff32a6a6d9cc19888375a88e47a83b524299f;
+      - _api_session=BAh7BkkiD3Nlc3Npb25faWQGOgZFVEkiJWJmMTNiZGJiOWNhZjdjYjkxNjVhZDIzY2U3YmNmNzQzBjsAVA%3D%3D--c62a64ca9f063db4e7fa1a7900f034ec7aee6383;
         path=/; HttpOnly
     body:
       encoding: UTF-8
       string: '{"status":"Success","server_response":"ok"}'
     http_version: 
-  recorded_at: Wed, 06 Aug 2014 18:11:04 GMT
+  recorded_at: Mon, 26 Sep 2016 17:06:59 GMT
 recorded_with: VCR 2.4.0
