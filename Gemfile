@@ -17,7 +17,7 @@ group :application do
   gem 'uglifier', '>= 1.3.0'
 
   # Use CoffeeScript for .js.coffee assets and views
-  gem 'coffee-rails', '~> 4.0.0'
+  gem 'coffee-rails', '~> 4.0'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer'
@@ -29,7 +29,7 @@ group :application do
   gem 'turbolinks'
 
   # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-  gem 'jbuilder', '~> 1.2'
+  # gem 'jbuilder', '~> 1.2'
 
   gem "language_list"
   gem "iso-639"
@@ -80,6 +80,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
+  gem "pry"
   gem "rspec-rails"
   gem "capybara"
   gem "factory_girl_rails", require: false

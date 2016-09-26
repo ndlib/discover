@@ -18,7 +18,7 @@ class ConvertLanguageCodes
   end
 
   def translate
-    raw_translation.force_encoding('UTF-8')
+    raw_translation
   end
 
   def raw_translation

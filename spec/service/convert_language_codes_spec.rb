@@ -1,10 +1,8 @@
 require 'spec_helper'
 
-
 describe ConvertLanguageCodes do
-
-  let(:lang_result) { double(name: 'Name', present?: true ) }
-  let(:no_lang_result) { double(present?: false ) }
+  let(:lang_result) { double(name: 'Name', present?: true) }
+  let(:no_lang_result) { double(present?: false) }
 
   subject { described_class }
 
