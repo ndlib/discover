@@ -43,7 +43,7 @@ group :application do
 
   gem "rb-readline"
 
-  gem 'devise', "~> 3.4.0"
+  gem 'devise'
   gem 'devise_cas_authenticatable'
   gem 'faraday'
   gem 'american_date'
