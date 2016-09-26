@@ -36,6 +36,26 @@ describe PrimaryInstitutionLinksDecorator do
     end
   end
 
+  describe '#display_content?' do
+    it 'is false when has_fulltext_links? and display_sfx_link? are false' do
+      expect(subject).to receive(:has_fulltext_links?).and_return(false)
+      expect(subject).to receive(:display_sfx_link?).and_return(false)
+      expect(subject.display_content?).to be_false
+    end
+
+    it 'is true when has_fulltext_links? is true' do
+      expect(subject).to receive(:has_fulltext_links?).and_return(true)
+      allow(subject).to receive(:display_sfx_link?).and_return(false)
+      expect(subject.display_content?).to be_true
+    end
+
+    it 'is true when display_sfx_link? is true' do
+      expect(subject).to receive(:has_fulltext_links?).and_return(false)
+      expect(subject).to receive(:display_sfx_link?).and_return(true)
+      expect(subject.display_content?).to be_true
+    end
+  end
+
   describe '#display_sfx_link?' do
     it 'is false when there is no sfx_link_decorator' do
       expect(subject).to receive(:sfx_link_decorator).and_return(nil)
@@ -43,20 +63,20 @@ describe PrimaryInstitutionLinksDecorator do
     end
 
     it 'is true when the targets are not loaded' do
-      expect(subject.sfx_link_decorator).to receive(:targets_loaded?).and_return(false)
+      allow(subject.sfx_link_decorator).to receive(:targets_loaded?).and_return(false)
       expect(subject.display_sfx_link?).to be_true
     end
 
-    it 'is true when the targets are not loaded and targets were found' do
-      expect(subject.sfx_link_decorator).to receive(:targets_loaded?).and_return(true)
-      expect(subject.sfx_link_decorator).to receive(:number_of_targets).and_return(1)
+    it 'is true when the targets are loaded and targets were found' do
+      allow(subject.sfx_link_decorator).to receive(:targets_loaded?).and_return(true)
+      allow(subject.sfx_link_decorator).to receive(:number_of_targets).and_return(1)
       expect(subject.display_sfx_link?).to be_true
     end
 
-    it 'is false when the targets are not loaded and no targets were found' do
-      expect(subject.sfx_link_decorator).to receive(:targets_loaded?).and_return(true)
-      expect(subject.sfx_link_decorator).to receive(:number_of_targets).and_return(0)
-      expect(subject.display_sfx_link?).to be_false
+    it 'is true when the targets are loaded and no targets were found' do
+      allow(subject.sfx_link_decorator).to receive(:targets_loaded?).and_return(true)
+      allow(subject.sfx_link_decorator).to receive(:number_of_targets).and_return(0)
+      expect(subject.display_sfx_link?).to be_true
     end
   end
 

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: http://localhost:3005/2.0/discovery/holds/request?auth_token=qtyZ5f6GrM67WWteGFp1
+    uri: http://localhost:3005/2.0/discovery/holds/request?auth_token=C6epGyym6ynWy3gfJett
     body:
       encoding: UTF-8
       string: cancel_date=&item_number=FAKE%24%24%24FAKE%24%24%24FAKE&pickup_location=BCI

@@ -1,0 +1,22 @@
+##########################################
+# Shared settings
+##########################################
+
+mysql_settings: &mysql_settings
+  adapter: mysql2
+  pool:    5
+  timeout: 5000
+
+##########################################
+# Environments
+##########################################
+
+development:
+  <<: *mysql_settings
+  database: discovery_development
+  username: root
+
+test: &test
+  <<: *mysql_settings
+  database: discovery_test
+  username: root

@@ -1,12 +1,12 @@
 class PrimaryInstitutionLinksDecorator < InstitutionLinksDecorator
 
+  def display_content?
+    has_fulltext_links? || display_sfx_link?
+  end
+
   def display_sfx_link?
     if sfx_link_decorator.present?
-      if sfx_link_decorator.targets_loaded?
-        sfx_link_decorator.number_of_targets > 0
-      else
-        true
-      end
+      true
     else
       false
     end

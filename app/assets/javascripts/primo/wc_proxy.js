@@ -105,7 +105,7 @@ $(document).ready(function() {
                     }
 
 
-                    var ill_url = "https://nd.illiad.oclc.org/illiad/IND/illiad.dll/OpenURL?" + params_array.join('&');
+                    var ill_url = "https://login.proxy.library.nd.edu/login?url=https://nd.illiad.oclc.org/illiad/IND/illiad.dll/OpenURL?" + params_array.join('&');
 
                     var link = $("<a></a>");
                     link.text("Request via ILL ");
@@ -254,11 +254,11 @@ function getTNRequest(element, tabType){
 function EXLTA_recordId(element){
     var rid = $(element).parents('.EXLResult').find('.EXLResultRecordId').attr('id');
 
-    if (rid){
-        return rid;
-    }else{
-        return $(element).parents('.EXLResultsList').find('.EXLResultRecordId').attr('id');
+    if (!rid){
+        rid = $(element).parents('.EXLResultsList').find('.EXLResultRecordId').attr('id');
     }
+
+    return encodeURI(rid).replace(";", "%3b");
 }
 
 function EXLTA_lookupRecordId(element){
@@ -336,7 +336,3 @@ function getWCIndex(exSearch){
     }
 
 }
-
-
-
-

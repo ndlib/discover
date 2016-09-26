@@ -38,6 +38,8 @@ describe OnlineAccessTab do
 
   describe 'found record' do
     let(:record) { double(DiscoveryRecord, links: links, institution_code: 'ndu') }
+    let(:record2) { double(DiscoveryRecord, links: links, institution_code: 'hcc') }
+    let(:holdings) { [{ "institution_code" => "NDU" }, { "institution_code" => "BCI" }] }
 
     before do
       subject.stub(:record).and_return(record)
@@ -47,6 +49,20 @@ describe OnlineAccessTab do
       it 'is a RecordLinks' do
         expect(subject.record_links).to be_a_kind_of(RecordLinks)
         expect(subject.record_links.record).to eq(record)
+      end
+    end
+
+    describe '#held_by_institution?' do
+      it "returns true when the vid matches institution_code" do
+        expect(record).to receive(:holdings).and_return(holdings).at_least :once
+        expect(subject.held_by_institution?).to be_true
+      end
+
+      it "returns false when the vid does not match institution_code" do
+        subject.stub(:record).and_return(record2)
+        expect(record2).to receive(:holdings).and_return(holdings).at_least :once
+        expect(subject).to receive(:vid).and_return("HCC")
+        expect(subject.held_by_institution?).to be_false
       end
     end
 

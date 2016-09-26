@@ -71,7 +71,7 @@ Discover::Application.configure do
   :email => {
     :email_prefix => "[ Prod ] ",
     :sender_address => %{"discover notifier" <discover_notifier@nd.edu>},
-    :exception_recipients => %w{ jhartzle@nd.edu rfox2@nd.edu jkennel@nd.edu dwolfe2@nd.edu }
+    :exception_recipients => %w{  }
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

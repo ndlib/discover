@@ -45,11 +45,58 @@
   font-size: 12.3px;
 }
 
-
 #exlidMainMenuTile {
   width:20em;
+  margin-top: 2.2em;
 }
 
 #exlidMainMenuTile div.EXLMainMenuContainer {
   width: 100%;
 }
+
+#bci-header {
+  height:95px;
+/*  background-image:url(banner.png); */
+/*  background-repeat:no-repeat; */
+}
+
+#bci-link {
+  display:block;
+  height:65px;
+  width:220px;
+  margin-left:400px;
+  padding-top:30px;
+  text-decoration:none;
+  color:transparent;
+  text-indent:-1000px;
+}
+
+#bci-link a {
+  margin-top:30px;
+}
+
+#bci-link a:hover {
+  text-decoration:none;
+}
+
+#exlidHeaderTile {
+/*  width: 960px; */
+width:initial;
+}
+
+#exlidUserAreaTile ul {
+    height: 30px;
+    background-color: #ffffff;
+}
+
+#exlidHeaderContainer {
+  background-color:#fff;
+  background-image: url(banner.png);
+  background-repeat: no-repeat;
+}
+
+#exlidUserAreaRibbon li span.EXLUserAreaStart {
+  background-color:#ffffff;
+  height: initial;
+}
+

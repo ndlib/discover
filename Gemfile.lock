@@ -54,6 +54,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.6)
+    airbrake (4.3.0)
+      builder
+      multi_json
     american_date (1.1.0)
     arel (4.0.2)
     axiom-types (0.0.5)
@@ -174,7 +177,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     language_list (1.0.0)
-    libv8 (3.16.14.3)
+    libv8 (3.16.14.13)
     listen (2.4.0)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -302,7 +305,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   american_date
+  capistrano (= 2.15.5)
   capybara
   coffee-rails (~> 4.0.0)
   debugger
@@ -328,7 +333,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   language_list
-  mysql2
+  mysql2 (= 0.3.15)
   newrelic_rpm
   nokogiri (~> 1.6.6)
   rails (~> 4.0.4)

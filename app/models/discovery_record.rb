@@ -78,6 +78,10 @@ class DiscoveryRecord
     data['holds_list']
   end
 
+  def sources
+    data['sources']
+  end
+
   private
 
 
@@ -94,5 +98,3 @@ class DiscoveryRecord
     end
 
 end
-
-

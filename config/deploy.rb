@@ -11,13 +11,14 @@ require 'hesburgh/prompt_branch'
 begin
   require 'hipchat/capistrano'
   require 'new_relic/recipes'
+  require 'airbrake/capistrano'
 
   after "deploy:update", "newrelic:notice_deployment"
 rescue LoadError
 end
 
 set :application, 'discover'
-set :repository,  "git@git.library.nd.edu:discover"
+set :repository,  "https://github.com/ndlib/discover.git"
 # set :application_symlinks, ['config/initializers/devise_secret.rb']
 
 set :hipchat_token, "c290a842542721d6aee18a3cb900a1"

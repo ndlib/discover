@@ -171,8 +171,21 @@ class DetailsTab < PrimoRecordTab
   end
 
   def linked_record_ids
-    record_ids = record.record_ids.sort
-    record_ids.collect { | record_id | RecordIdLink.render(record_id) }
+    if record.sources
+      record.sources.collect { | source | RecordIdLink::Render.render(source) }
+    else
+      []
+    end
+  end
+
+  def record_source_ids
+    record_source_ids = record.record_ids
+    # add in the primo central as a source id
+    if (record.id =~ /^TN_/).present?
+      record_source_ids << record.id
+    end
+
+    record_source_ids
   end
 
   def oclc

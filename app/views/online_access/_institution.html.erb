@@ -1,17 +1,40 @@
-<% if institution.has_fulltext_links? %>
+<% if institution.display_content? %>
   <h2><%= t("institutions.#{institution.id}") %></h2>
-  <ul>
-    <% institution.fulltext.each do | link | %>
-      <li>
-        <%= link.link %>
-        <%= link.notes %>
-      </li>
+  <% unless institution.fulltext.count >= 1  || institution.sfx_link_decorator.from_primo? %>
+    <div class="ndl-online-access-disclaimer">
+      <img src="<%= image_url('primo/icon_caution.png') %>"/>
+      <% if @tab.vid == 'NDU' %>
+        <span style="font-weight: 600"><%= t("online_access.nd_no_access") %></span>
+      <% else %>
+        <%= t("online_access.other_no_access") %>
+      <% end %>
+  <% end %>
+    <ul class="ndl-online-external-links">
+  <% if held_flag %>
+        <li>A print copy is held at this library. Please check the locations tab.</li>
+  <% end %>
+  <% unless institution.fulltext.count >= 1 || institution.sfx_link_decorator.from_primo? %>
+    <% if other_flag %>
+        <li>Partner libraries may have online access which may require you to log in using that institution's ID.</li>
     <% end %>
-    <% if institution.sfx_link %>
-      <li><%= institution.sfx_link %></li>
+  <% end %>
+  <% institution.fulltext.each do | link | %>
+        <li>
+          <%= link.link %>
+          <%= link.notes %>
+        </li>
+    <% if institution.display_ill_link? %>
+        <li><%= institution.ill_link %></li>
     <% end %>
-    <% if institution.display_report_a_problem? %>
-      <li><%= institution.report_a_problem_link %></li>
-    <% end %>
-  </ul>
+  <% end %>
+  <% if institution.sfx_link %>
+        <li><%= institution.sfx_link %></li>
+  <% end %>
+  <% if institution.display_report_a_problem? %>
+        <li><%= institution.report_a_problem_link %></li>
+  <% end %>
+    </ul>
+  <% unless institution.fulltext.count >= 1 || institution.sfx_link_decorator.from_primo? %>
+    </div>
+  <% end %>
 <% end %>

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3005/2.0/discovery/detail.json?auth_token=qtyZ5f6GrM67WWteGFp1&q=ndu_aleph000188916&vid=NDU
+    uri: http://localhost:3005/2.0/discovery/detail.json?auth_token=C6epGyym6ynWy3gfJett&q=ndu_aleph000188916&vid=NDU
     body:
       encoding: US-ASCII
       string: ''

@@ -928,7 +928,7 @@ display: none;
 
 .ndl-details-list dd, .ndl-details-list dt, .ndl-online-access li {
   font-size:12px;
-  line-height: 1.8em;
+  line-height: 1.5em;
 }
 
 .EXLBriefResultsPagination, .EXLDisplayedCount {
@@ -983,7 +983,6 @@ display: none;
 }
 
 
-
 .ndl-hierarchical-search a {
   padding:3px;
   border-radius: 3px;
@@ -997,23 +996,24 @@ display: none;
   display: none;
 }
 
-.ndl-online-access-disclaimer {
-  background: none repeat scroll 0 0 #FFEDB8;
-  display: inline-block;
-  margin-left: 15px;
-  margin-top: 1em;
-  padding: 3px 5px;
-  border:solid  1px #E0CE99;
+
+.ndl-online-external-links {
+  margin-top: 5px;
+  padding: 2px;
+}
+
+.ndl-online-access-disclaimer > .ndl-online-external-links {
+  list-style-type: disc !important;
+}
+
+.ndl-online-access-disclaimer > img {
+  padding-right: 5px;
 }
 
 .about-outer-box {
   z-index: 300;
 }
 
-.ndl-sfx img {
-  vertical-align: middle;
-  margin-left: 5px;
-}
 
 .ndl-browse-search .EXLFacetContainer div.EXLFacetActionsV2 li.EXLFacetSaveToEShelfActionOff {
   display: none;

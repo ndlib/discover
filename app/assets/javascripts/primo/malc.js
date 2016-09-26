@@ -93,12 +93,12 @@ $(document).ready(function () {
       var regex = new RegExp("Online access available");
       var test_match = regex.test(results_availability.html());
       if (test_match) {
-          results_availability.children('.EXLResultStatusMaybeAvailable').children('.locations_link').click(function() { 
+          results_availability.children('.EXLResultStatusMaybeAvailable').children('.locations_link').click(function() {
               var locations = summary.children('.EXLTabsRibbon').children('div').children('.EXLResultTabs').children('.NewLocationTab');
               if (locations) {
-                  locations.children('a').trigger('click'); 
+                  locations.children('a').trigger('click');
               }
-              return false; 
+              return false;
           });
       }
   });
@@ -437,7 +437,8 @@ function getLocations(element, tabType) {
 }
 
 function EXLTA_recordId(element) {
-  return $(element).parents('.EXLResult').find('.EXLResultRecordId').attr('id');
+  var id = $(element).parents('.EXLResult').find('.EXLResultRecordId').attr('id');
+  return encodeURI(id).replace(";", "%3b");;
 }
 
 
