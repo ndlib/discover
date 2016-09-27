@@ -31,5 +31,4 @@ class DiscoveryQuery
   def holdings(id, vid)
     DiscoveryRecord.new(HesburghAPI2::Discovery.holdings(id, vid))
   end
-
 end

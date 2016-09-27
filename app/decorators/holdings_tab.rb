@@ -1,11 +1,11 @@
 class HoldingsTab < PrimoRecordTab
-
   def record_links
     @record_links ||= RecordLinks.new(record)
   end
 
   def institution_holdings(code)
-    record.holdings[code.downcase]
+    puts record.inspect
+    record.holdings
   end
 
   def primary_instituction_code
@@ -21,5 +21,4 @@ class HoldingsTab < PrimoRecordTab
   def load_record
     DiscoveryQuery.holdings(id, vid)
   end
-
 end

@@ -1,28 +1,24 @@
-<% if holdings.present? %>
+<% if holding.present? %>
   <h2><%= t("institutions.#{institution.downcase}") %></h2>
 
-  <% holdings.each do | holding | %>
-    <div class="holding">
-      <h4><%= holding["library"] %>, <%= holding["collection"] %></h4>
-      <p><%= holding["record_id"] %></p>
-      <p><%= holding["call_number"] %></p>
+  <div class="holding">
+    <h4><%= holding["library"].to_s %>, <%= holding["collection"].to_s %></h4>
+    <p><%= holding["call_number"] %></p>
 
-      <% if !holding["availble"].nil? %>
-        <% if holding["available"] %>
-          <p>Available</p>
-        <% else %>
-          <p>Not Available, Due: <%= holding["available_on"] %></p>
-        <% end %>
-      <% end %>
+    <% if holding["available"] %>
+      <p>Available</p>
+    <% else %>
+      <p>Not Available, Due: <%= holding["available_on"] %></p>
+    <% end %>
 
-      <% if holding["non_circulating"] %>
-        <p> In-Library Use Only </p>
-      <% end %>
 
-      <%= ul_list("Notes", holding["notes"])%>
-      <%= ul_list("Holdings", holding["holdings"])%>
-      <%= ul_list("Supplements", holding["supplements"])%>
-      <%= ul_list("Indexes", holding["indexes"])%>
-    </div>
-  <% end %>
+    <% if holding["non_circulating"] %>
+      <p> In-Library Use Only </p>
+    <% end %>
+
+    <%= ul_list("Notes", holding["notes"])%>
+    <%= ul_list("Holdings", holding["holdings"])%>
+    <%= ul_list("Supplements", holding["supplements"])%>
+    <%= ul_list("Indexes", holding["indexes"])%>
+  </div>
 <% end %>

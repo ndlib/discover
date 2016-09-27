@@ -1,5 +1,4 @@
 class PrimoRecordTab < Draper::Decorator
-
   delegate :params, to: :controller
 
   def controller
