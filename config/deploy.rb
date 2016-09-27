@@ -29,7 +29,7 @@ desc "Setup for the Pre-Production environment"
 task :pre_production do
   # Customize pre_production configuration
   set :rails_env, 'pre_production'
-  role :app, "discoverpprd-vm.library.nd.edu"
+  role :app, "discoverpprd.library.nd.edu"
 end
 
 desc "Setup for the production environment"
