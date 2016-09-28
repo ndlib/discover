@@ -18,21 +18,8 @@
   }
 }
 
-.ndl-details, .ndl-online-access, .ndl-request-container {
+.ndl-details, .ndl-online-access, .ndl-request-container .ndl-holdings {
   padding: 5px;
-
-  h2 {
-    font-size: 1.25em;
-    padding-top: 0.66667rem;
-    margin-bottom: 0.66667rem;
-    margin-left:15px;
-    clear: left;
-  }
-
-  h3 {
-    font-size: 1.1em;
-    margin-bottom: 0.25em;
-  }
 
   .ndl-debug {
     text-align: right;

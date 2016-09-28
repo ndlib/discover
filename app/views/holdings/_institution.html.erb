@@ -4,25 +4,39 @@
   <% holdings.each do | holding | %>
      <div class="holding">
        <h4>
-         <span class="availability-badge">
-           <% if holding["non_circulating"] %>
-             <span class="non-circulating">In-Library Use Only </span>
-           <% elsif holding["available"] %>
-             <span class="available">Available</span>
-           <% else %>
-             <span class="not-available">Not Available, Due: <%= holding["available_on"] %></span>
-           <% end %>
-         </span>
          <%= holding["library"] %>, <%= holding["collection"] %>
+         <button type="button" class="btn btn-default btn-xs">Map</button>
        </h4>
        <p class="call-number">
          <%= holding["call_number"] %>
-       </p>
+         <br />
+         <% if holding["non_circulating"] %>
+           <span class="label label-warning">In-Library Use Only </span>
+         <% elsif holding["available"] %>
+           <span class="label label-success">Available</span>
+         <% else %>
+           <span class="label label-danger">Not Available, Due: <%= holding["available_on"] %></span>
+         <% end %>
 
-       <%= ul_list("", holding["notes"]) %>
-       <%= ul_list("Holdings", holding["holdings"])%>
-       <%= ul_list("Supplements", holding["supplements"])%>
-       <%= ul_list("Indexes", holding["indexes"])%>
+       </p>
+       <%= ul_list("", holding["notes"], "list-unstyled") %>
+       <% if holding["holdings"].present? || holding["supplements"].present? || holding["indexes"].present? %>
+         <a class="" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+           More
+         </a>
+         <div class="collapse" id="collapseExample">
+           <div class="well">
+             <div class="pull-right">
+               <a class="btn btn-default" role="button">
+                 Item Details
+               </a>
+             </div>
+             <%= ul_list("Holdings", holding["holdings"], "list-unstyled")%>
+             <%= ul_list("Supplements", holding["supplements"], "list-unstyled")%>
+             <%= ul_list("Indexes", holding["indexes"], "list-unstyled")%>
+           </div>
+         </div>
+       <% end %>
      </div>
    <% end %>
    <hr />
