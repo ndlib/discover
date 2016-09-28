@@ -19,6 +19,8 @@ end
 
 set :application, 'discover'
 set :repository,  "https://github.com/ndlib/discover.git"
+set :ruby_bin, "/opt/rh/rh-ruby22/root/usr/bin"
+
 # set :application_symlinks, ['config/initializers/devise_secret.rb']
 
 set :hipchat_token, "c290a842542721d6aee18a3cb900a1"
@@ -29,7 +31,7 @@ desc "Setup for the Pre-Production environment"
 task :pre_production do
   # Customize pre_production configuration
   set :rails_env, 'pre_production'
-  role :app, "discoverpprd-vm.library.nd.edu"
+  role :app, "discoverpprd.library.nd.edu"
 end
 
 desc "Setup for the production environment"
