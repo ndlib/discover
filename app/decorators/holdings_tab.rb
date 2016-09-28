@@ -4,8 +4,7 @@ class HoldingsTab < PrimoRecordTab
   end
 
   def institution_holdings(code)
-    puts record.inspect
-    record.holdings
+    record.holdings[code.downcase]
   end
 
   def primary_instituction_code

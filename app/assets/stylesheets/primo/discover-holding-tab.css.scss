@@ -1,0 +1,26 @@
+.holding {
+  margin-left: 10px;
+
+  .available {
+    background-color: #e6efc2;
+    color: #56651a;
+  }
+  .non-circulating {
+    background-color: #fff6bf;
+    color: #8c7800;
+  }
+  .not-available {
+    background-color: #e6efc2;
+    color: #56651a;
+  }
+  .availability-badge {
+    font-weight: normal;
+  }
+  .call-number {
+    margin-top: 4px;
+  }
+  h4 {
+    margin-bottom: 4px;
+  }
+
+}

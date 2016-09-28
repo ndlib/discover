@@ -1,7 +1,8 @@
 <div class="ndl-holdings">
   <h3 class="ndl-debug">Debug ID: <%= @tab.record_id %></h3>
-  hi
-  <% @tab.institution_holdings("code").each do |holding| %>
-    <%= render partial: 'institution', locals: { institution: "ndu", holding: holding } %>
+
+  <%= render partial: 'institution', locals: { institution: @tab.vid, holdings: @tab.institution_holdings(@tab.vid) } %>
+  <% @tab.other_institution_codes.each do |institution_code| %>
+    <%= render partial: 'institution', locals: { institution: institution_code, holdings: @tab.institution_holdings(institution_code) } %>
   <% end %>
 </div>
