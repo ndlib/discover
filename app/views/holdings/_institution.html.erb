@@ -16,6 +16,9 @@
            <span class="label label-success">Available</span>
          <% else %>
            <span class="label label-danger">Not Available, Due: <%= holding["available_on"] %></span>
+           -
+           <button type="button" class="btn btn-default btn-xs">Recall</button>
+           <button type="button" class="btn btn-default btn-xs">Get from InterLibrary Loan</button>
          <% end %>
 
        </p>
