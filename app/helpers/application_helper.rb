@@ -9,4 +9,8 @@ module ApplicationHelper
 
     ret
   end
+
+  def id_from_strings(*args)
+    args.collect { |str| str.gsub(/[^0-9A-Za-z]/, '') }.join("-")
+  end
 end
