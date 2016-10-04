@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def ul_list(title, list, css_class="")
+  def ul_list(title, list, css_class = "")
     return "" if list.empty? || list.join.empty?
 
     ret = content_tag(:h5, title)

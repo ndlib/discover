@@ -18,14 +18,6 @@ GIT
       capistrano (~> 2.15.0)
       rails
 
-GIT
-  remote: https://github.com/ndlib/hesburgh_errors.git
-  revision: e2180bdd4c1053c22918421c07d5441bfc679872
-  specs:
-    hesburgh_errors (0.0.1)
-      rails (~> 4.0)
-      state_machine
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -300,7 +292,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    state_machine (1.2.0)
     test-unit (3.0.8)
       power_assert
     therubyracer (0.12.2)
@@ -358,7 +349,6 @@ DEPENDENCIES
   guard-rspec
   guard-spork
   hesburgh_api!
-  hesburgh_errors!
   hesburgh_infrastructure!
   hipchat
   iso-639
