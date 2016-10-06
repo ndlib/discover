@@ -18,7 +18,7 @@
            <span class="label label-danger">Not Available, Due: <%= holding["available_on"] %></span>
            -
            <button type="button" class="btn btn-default btn-xs">Recall</button>
-           <button type="button" class="btn btn-default btn-xs">Get from InterLibrary Loan</button>
+           <a type="button" target="_blank" href="https://nd.illiad.oclc.org/illiad/IND/illiad.dll/OpenURL?<%= record["openurl_query"] %>" class="btn btn-default btn-xs">Get from InterLibrary Loan</a>
          <% end %>
        </p>
        <%= ul_list("", holding["notes"], "list-unstyled") %>
