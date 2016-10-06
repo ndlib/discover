@@ -17,7 +17,7 @@
          <% else %>
            <span class="label label-danger">Not Available, Due: <%= holding["available_on"] %></span>
            -
-           <a type="button" class="mrecall btn btn-default btn-xs">Recall</a>
+           <a type="button" href="#" class="mrecall btn btn-default btn-xs">Recall</a>
            <a type="button" target="_blank" href="https://nd.illiad.oclc.org/illiad/IND/illiad.dll/OpenURL?<%= record["openurl_query"] %>" class="btn btn-default btn-xs">Get from InterLibrary Loan</a>
          <% end %>
        </p>
