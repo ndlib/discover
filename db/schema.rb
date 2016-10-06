@@ -13,22 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20140422150554) do
 
-  create_table "error_logs", force: true do |t|
-    t.string   "netid"
-    t.string   "path"
-    t.text     "message"
-    t.text     "params"
-    t.text     "stack_trace"
-    t.datetime "created_at"
-    t.string   "state"
-    t.text     "user_agent"
-    t.string   "exception_class"
-  end
-
-  create_table "primo_display_field_examples", force: true do |t|
-    t.string   "key"
-    t.string   "record_id"
-    t.text     "body"
+  create_table "primo_display_field_examples", force: :cascade do |t|
+    t.string   "key",        limit: 255
+    t.string   "record_id",  limit: 255
+    t.text     "body",       limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,21 +24,21 @@ ActiveRecord::Schema.define(version: 20140422150554) do
   add_index "primo_display_field_examples", ["key"], name: "index_primo_display_field_examples_on_key", using: :btree
   add_index "primo_display_field_examples", ["record_id"], name: "index_primo_display_field_examples_on_record_id", using: :btree
 
-  create_table "primo_display_fields", force: true do |t|
-    t.string   "key"
+  create_table "primo_display_fields", force: :cascade do |t|
+    t.string   "key",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "primo_display_fields", ["key"], name: "index_primo_display_fields_on_key", using: :btree
 
-  create_table "users", force: true do |t|
-    t.string   "username",                       null: false
-    t.integer  "sign_in_count",      default: 0, null: false
+  create_table "users", force: :cascade do |t|
+    t.string   "username",           limit: 255,             null: false
+    t.integer  "sign_in_count",      limit: 4,   default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip", limit: 255
+    t.string   "last_sign_in_ip",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end

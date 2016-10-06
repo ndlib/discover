@@ -23,7 +23,7 @@
        </p>
        <%= ul_list("", holding["notes"], "list-unstyled") %>
        <% if holding["holdings"].present? || holding["supplements"].present? || holding["indexes"].present? %>
-         <a class="" role="button" data-toggle="collapse" href="#collapse-<%= id_from_strings(holding["library"], holding["collection"]) %>" aria-expanded="false" aria-controls="collapseExample">
+         <a class="more" role="button" data-toggle="collapse" href="#collapse-<%= id_from_strings(holding["library"], holding["collection"]) %>" aria-expanded="false" aria-controls="collapseExample">
            More
          </a>
          <div class="collapse" id="collapse-<%= id_from_strings(holding["library"], holding["collection"]) %>">
