@@ -4,10 +4,13 @@
   <% holdings.each do | holding | %>
      <div class="holding">
        <h4>
-         <%= holding["library"] %>, <%= holding["collection"] %>
-         <a item="0" href="/primo_library/libweb/tiles/local/map.jsp?xml=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E%0D%0A%3Crecords%3E%0D%0A++%3Ctitle%3EARSC+journal%3C%2Ftitle%3E%0D%0A++%3Ccreator%3EBob%3C%2Fcreator%3E%0D%0A++%3Crecord%3E%0D%0A++++%3Csystem_base%3Endu_aleph%3C%2Fsystem_base%3E%0D%0A++++%3Csystem_number%3E002429316%3C%2Fsystem_number%3E%0D%0A++++%3Ccall_number%3EML+1+.A84%3C%2Fcall_number%3E%0D%0A++++%3Csublibrary+code%3D%22HESB%22%3EHesburgh+Library%3C%2Fsublibrary%3E%0D%0A++++%3Ccollection+code%3D%22MUS%22%3EMusic+Collection+%282nd+Floor%29%3C%2Fcollection%3E%0D%0A++%3C%2Frecord%3E%0D%0A%3C%2Frecords%3E"
-           class="mbox btn btn-default btn-xs">Map
-         </a>
+         <%= holding["library"] %>
+         <% if holding["collection"].present? %>
+           , <%= holding["collection"] %>
+         <% end %>
+         <% if holding["map_url"].present? %>
+           <a href="<%= holding["map_url"] %>" class="mbox btn btn-default btn-xs">Map</a>
+         <% end %>
        </h4>
        <p class="call-number">
          <%= holding["call_number"] %>
