@@ -12,7 +12,7 @@ class HoldingsTab < PrimoRecordTab
   end
 
   def other_institution_codes
-    ['ndu', 'smc', 'hcc', 'bci', 'ndlaw'].reject{ | code | code == primary_instituction_code }
+    ['ndu', 'smc', 'hcc', 'bci', 'ndlaw'].reject { |code| code == primary_instituction_code }
   end
 
   private

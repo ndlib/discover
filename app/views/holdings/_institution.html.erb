@@ -19,7 +19,7 @@
            <span class="label label-warning">In-Library Use Only </span>
          <% elsif holding["available"] %>
            <span class="label label-success">Available</span>
-           -
+
            <a type="button" href="#" class="mrecall btn btn-default btn-xs">Request</a>
          <% else %>
            <span class="label label-danger">Not Available, Due: <%= holding["available_on"] %></span>
@@ -28,17 +28,19 @@
            <a type="button" target="_blank" href="https://nd.illiad.oclc.org/illiad/IND/illiad.dll/OpenURL?<%= record["openurl_query"] %>" class="btn btn-default btn-xs">Get from InterLibrary Loan</a>
          <% end %>
        </p>
-       <% if holding["notes"].present? %>
-         <%= ul_list("", holding["notes"], "list-unstyled") %>
-       <% end %>
+       <%= ul_list("", holding["notes"], "list-unstyled") %>
        <% if holding["holdings"].present? || holding["supplements"].present? || holding["indexes"].present? %>
          <div class="collapse" id="collapse-<%= id_from_strings(holding["library"], holding["collection"]) %>">
-           <%= ul_list("Holdings", holding["holdings"], "list-unstyled")%>
-           <%= ul_list("Supplements", holding["supplements"], "list-unstyled")%>
-           <%= ul_list("Indexes", holding["indexes"], "list-unstyled")%>
-           <a class="btn btn-default" role="button" target="_blank" href="<%= holding["detail_url"] %>">
-             More Details
-           </a>
+           <div class="well">
+             <div class="pull-right">
+               <a class="btn btn-default" role="button" target="_blank" href="<%= holding["detail_url"] %>">
+                 Item Details
+               </a>
+             </div>
+             <%= ul_list("Holdings", holding["holdings"], "list-unstyled")%>
+             <%= ul_list("Supplements", holding["supplements"], "list-unstyled")%>
+             <%= ul_list("Indexes", holding["indexes"], "list-unstyled")%>
+           </div>
          </div>
        <% end %>
      </div>
