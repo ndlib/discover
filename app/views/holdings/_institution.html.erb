@@ -18,8 +18,8 @@
          <% if holding["non_circulating"] %>
            <span class="label label-warning">In-Library Use Only </span>
          <% elsif holding["available"] %>
-           -
            <span class="label label-success">Available</span>
+           -
            <a type="button" href="#" class="mrecall btn btn-default btn-xs">Request</a>
          <% else %>
            <span class="label label-danger">Not Available, Due: <%= holding["available_on"] %></span>
