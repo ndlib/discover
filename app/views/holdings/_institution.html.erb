@@ -9,7 +9,7 @@
            , <%= holding["collection"] %>
          <% end %>
          <% if holding["map_url"].present? %>
-           <a href="<%= holding["map_url"] %>" class="mbox btn btn-default btn-xs">Map</a>
+           - <a href="<%= holding["map_url"] %>" class="mbox btn btn-default btn-xs">Map</a>
          <% end %>
        </h4>
        <p class="call-number">
@@ -19,7 +19,7 @@
            <span class="label label-warning">In-Library Use Only </span>
          <% elsif holding["available"] %>
            <span class="label label-success">Available</span>
-
+           -
            <a type="button" href="#" class="mrecall btn btn-default btn-xs">Request</a>
          <% else %>
            <span class="label label-danger">Not Available, Due: <%= holding["available_on"] %></span>
