@@ -13,7 +13,7 @@
 // Make the tab container the height of its content rather than scrolling
 .EXLSummary {
   .ndl-details-tab-Container .EXLTabContent, .ndl-online-access-tab-Container .EXLTabContent {
-    height: auto;
+    height: auto !important;
     overflow: hidden;
   }
 }
@@ -179,8 +179,13 @@
     margin:21px 0 4px;
   }
 
+  h5 {
+    font-size:13px;
+  }
+
   .call-number {
     font-size:14px;
+    margin-bottom: 6px;
   }
 
   .label {
@@ -230,7 +235,10 @@
         margin-top: -1px;
 
       }
-
+  a.mrecall {
+    font-size:11px;
+    padding:4px 5px 3px;
+  }
   .more {
     text-decoration: none;
     font-size:14px;
