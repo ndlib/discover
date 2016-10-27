@@ -192,7 +192,7 @@ jQuery ($) ->
     searchTerms = buildSearchTerms(searchPhrase)
     addDetailsTab()
     addOnlineAccessTab()
-    addLocationTab
+    addLocationTab()
 
     $('.ndl-details').each ->
       attachEvents($(this))
