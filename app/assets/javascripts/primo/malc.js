@@ -123,11 +123,11 @@ $(document).ready(function () {
 
 
 
-  EXLTA_addTab('Locations', 'NewLocationTab', location.href, 'EXLDetailsTab', 'detailsTab', 'newLocationsTab', true, checkTabPresence, '.EXLLocationsTab');
+  //EXLTA_addTab('Locations', 'NewLocationTab', location.href, 'EXLDetailsTab', 'detailsTab', 'newLocationsTab', true, checkTabPresence, '.EXLLocationsTab');
 
   $('.NewLocationTab a').click(
     function (e) {
-      msTabHandler(e, this, 'NewLocationTab', '<div id="ndLocation" class="EXLTabLoading"></div>', getLocations, location.href, $(this).parents('.EXLResultTab').hasClass('EXLResultSelectedTab'));
+      //msTabHandler(e, this, 'NewLocationTab', '<div id="ndLocation" class="EXLTabLoading"></div>', getLocations, location.href, $(this).parents('.EXLResultTab').hasClass('EXLResultSelectedTab'));
     });
 
 
