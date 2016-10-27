@@ -5,7 +5,14 @@
 mysql_settings: &mysql_settings
   adapter: mysql2
   pool:    5
+  encoding: utf8
+  reconnect: false
   timeout: 5000
+  host: <%= Rails.application.secrets[:database][:host] %>
+  database: <%= Rails.application.secrets[:database][:name] %>
+  username: <%= Rails.application.secrets[:database][:username] %>
+  password: <%= Rails.application.secrets[:database][:password] %>
+
 
 ##########################################
 # Environments
@@ -13,10 +20,12 @@ mysql_settings: &mysql_settings
 
 development:
   <<: *mysql_settings
-  database: discovery_development
-  username: root
 
 test: &test
   <<: *mysql_settings
-  database: discovery_test
-  username: root
+
+pre_production:
+  <<: *mysql_settings
+
+production:
+  <<: *mysql_settings
