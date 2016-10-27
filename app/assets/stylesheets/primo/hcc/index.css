@@ -2,4 +2,5 @@
  *= require_self
  *= require ../malc/index.css
  *= require ./hcc.css
+ *= require ./colorbox.css
  */
