@@ -3,13 +3,10 @@ jQuery ($) ->
   window.currentTab = ''
   originalDetailsTabClass = "EXLDetailsTab"
   originalOnlineAccessTabClass = "EXLViewOnlineTab"
-  originalLocationTabClass = "NewLocationTab"
   detailsPath = "/primo_library/libweb/tiles/local/discover-details.jsp"
   onlineAccessPath = "/primo_library/libweb/tiles/local/discover-online-access.jsp"
-  locationPath = "/primo_library/libweb/tiles/local/location.jsp"
   detailsTabClass = 'ndl-details-tab'
   onlineAccessTabClass = 'ndl-online-access-tab'
-  locationTabClass = 'ndl-location-tab'
   searchPhrase = ''
   searchTerms = []
 
@@ -97,19 +94,6 @@ jQuery ($) ->
         return
       $.get onlineAccessPath, {id: recordID, vid: currentVID, tab: currentTab}, success, "html"
 
-  getLocation = (element, tabType) ->
-    link = $(element)
-    recordID = EXLTA_recordId(element)
-    if !link.data('loaded')
-      success = (data) ->
-        container = link.parents(".EXLResult").find(".#{tabType}-Container").children(".EXLTabContent").children(".#{tabType}-content")
-        container.removeClass('EXLTabLoading')
-        container.html data
-        link.data('loaded', true)
-
-        return
-      $.get locationPath, {id: recordID, vid: currentVID, tab: currentTab}, success, "html"
-
   window.addDiscoverTab = (originalTabClass, newTabClass, newTabName, loadTabFunction) ->
     originalTabs = $(".#{originalTabClass}")
     if originalTabs.length > 0
@@ -166,13 +150,6 @@ jQuery ($) ->
           # Temporarily show the findtext tab and hide the ILL tab
           # $tab.siblings(".#{onlineAccessTabClass}").find("a").text(tabText)
 
-  addLocationTab = ->
-    debugger
-    originalTab = $(".#{originalOnlineAccessTabClass}")
-    if originalTab.length > 0
-      addDiscoverTab(originalLocationTabClass, locationTabClass, "Location", getLocation)
-
-
 
   getCurrentVID = ->
     $vid = $('#vid')
@@ -193,7 +170,6 @@ jQuery ($) ->
     searchTerms = buildSearchTerms(searchPhrase)
     addDetailsTab()
     addOnlineAccessTab()
-    addLocationTab()
 
     $('.ndl-details').each ->
       attachEvents($(this))
