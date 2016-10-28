@@ -167,7 +167,7 @@ jQuery ($) ->
           # $tab.siblings(".#{onlineAccessTabClass}").find("a").text(tabText)
 
   addLocationTab = ->
-    originalTab = $(".#{originalOnlineAccessTabClass}")
+    originalTab = $(".#{originalLocationTabClass}")
     if originalTab.length > 0
       addDiscoverTab(originalLocationTabClass, locationTabClass, "Location", getLocation)
 
