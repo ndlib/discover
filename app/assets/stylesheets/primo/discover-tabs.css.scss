@@ -203,14 +203,17 @@
 
   .label-success {
     background-color:#53B350;
+    border:solid 1px #53b350;
   }
 
   .label-warning {
     background-color: #F6B135;
+    border:solid 1px #F6B135;
   }
 
   .label-danger {
     background-color:#E1463D;
+    border:solid 1px #E1463D;
   }
 
   .btn-default {
@@ -235,9 +238,11 @@
         margin-top: -1px;
 
       }
-  a.mrecall {
+  a.mrecall, a.btn {
     font-size:11px;
     padding:4px 5px 3px;
+    line-height: 1em;
+    height:11px !important;
   }
   .more {
     text-decoration: none;
@@ -249,7 +254,7 @@
     padding:0px 18px;
 
     a.btn-default {
-      padding:9px 10px 5px;
+      padding:8px 10px 5px;
     }
 
     h5 {
