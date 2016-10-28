@@ -167,7 +167,7 @@ jQuery ($) ->
           # $tab.siblings(".#{onlineAccessTabClass}").find("a").text(tabText)
 
   addLocationTab = ->
-    debugger
+    alert($(".#{originalLocationTabClass}"));
     originalTab = $(".#{originalLocationTabClass}")
     if originalTab.length > 0
       addDiscoverTab(originalLocationTabClass, locationTabClass, "Location", getLocation)
@@ -189,7 +189,7 @@ jQuery ($) ->
     $('#search_field, #input_freeText0, #input_freeText1, input_freeText2').each ->
       searchPhrase += " " + $(this).val()
     searchTerms = buildSearchTerms(searchPhrase)
-    debugger
+    alert("I am running");
     addDetailsTab()
     addOnlineAccessTab()
     addLocationTab()
