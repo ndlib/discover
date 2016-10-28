@@ -96,7 +96,7 @@ jQuery ($) ->
 
         return
       $.get onlineAccessPath, {id: recordID, vid: currentVID, tab: currentTab}, success, "html"
-      
+
   getLocation = (element, tabType) ->
     link = $(element)
     recordID = EXLTA_recordId(element)
@@ -166,6 +166,10 @@ jQuery ($) ->
           # Temporarily show the findtext tab and hide the ILL tab
           # $tab.siblings(".#{onlineAccessTabClass}").find("a").text(tabText)
 
+  addLocationTab = ->
+    originalTab = $(".#{originalOnlineAccessTabClass}")
+    if originalTab.length > 0
+      addDiscoverTab(originalLocationTabClass, locationTabClass, "Location", getLocation)
 
   getCurrentVID = ->
     $vid = $('#vid')
