@@ -123,11 +123,11 @@ $(document).ready(function () {
 
 
 
-  //EXLTA_addTab('Locations', 'NewLocationTab', location.href, 'EXLDetailsTab', 'detailsTab', 'newLocationsTab', true, checkTabPresence, '.EXLLocationsTab');
+  EXLTA_addTab('Locations', 'NewLocationTab', location.href, 'EXLDetailsTab', 'detailsTab', 'newLocationsTab', true, checkTabPresence, '.EXLLocationsTab');
 
   $('.NewLocationTab a').click(
     function (e) {
-      //msTabHandler(e, this, 'NewLocationTab', '<div id="ndLocation" class="EXLTabLoading"></div>', getLocations, location.href, $(this).parents('.EXLResultTab').hasClass('EXLResultSelectedTab'));
+      msTabHandler(e, this, 'NewLocationTab', '<div id="ndLocation" class="EXLTabLoading"></div>', getLocations, location.href, $(this).parents('.EXLResultTab').hasClass('EXLResultSelectedTab'));
     });
 
 
@@ -416,7 +416,7 @@ function EXLTA_isFullDisplay() {
 function getLocations(element, tabType) {
   var dn = EXLTA_recordId(element);
   var resp = '';
-  var ddud = 'pnxId=' + dn + '&primary=ndu_aleph';
+  var ddud = 'pnxId=' + dn + '&vid=' + getCurrentVID();
   var ddui = '/primo_library/libweb/tiles/local/location.jsp';
   $.ajax({
     type: "get",

@@ -12,7 +12,7 @@
 
 // Make the tab container the height of its content rather than scrolling
 .EXLSummary {
-  .ndl-details-tab-Container .EXLTabContent, .ndl-online-access-tab-Container .EXLTabContent, .ndl-location-tab-Container .EXLTabContent {
+  .ndl-details-tab-Container .EXLTabContent, .ndl-online-access-tab-Container .EXLTabContent, .NewLocationTab-Container .EXLTabContent {
     height: auto !important;
     overflow: hidden;
   }
