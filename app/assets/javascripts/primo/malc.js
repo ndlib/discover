@@ -416,7 +416,7 @@ function EXLTA_isFullDisplay() {
 function getLocations(element, tabType) {
   var dn = EXLTA_recordId(element);
   var resp = '';
-  var ddud = 'pnxId=' + dn + '&vid=' + getCurrentVID();
+  var ddud = 'pnxId=' + dn + '&vid=ndu';
   var ddui = '/primo_library/libweb/tiles/local/location.jsp';
   $.ajax({
     type: "get",
