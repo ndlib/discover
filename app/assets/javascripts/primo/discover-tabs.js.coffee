@@ -189,6 +189,7 @@ jQuery ($) ->
     $('#search_field, #input_freeText0, #input_freeText1, input_freeText2').each ->
       searchPhrase += " " + $(this).val()
     searchTerms = buildSearchTerms(searchPhrase)
+    debugger
     addDetailsTab()
     addOnlineAccessTab()
     addLocationTab()
