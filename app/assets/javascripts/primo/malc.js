@@ -433,7 +433,12 @@ function getLocations(element, tabType) {
 
 
 function getCurrentVID() {
-  return "ndu";
+  var vid = $('#vid');
+  if (vid.length == 0) {
+    // On the browse pages, the vid field has a different id
+    var vid = $('#vid_browse_input');
+  }
+  return vid.val();
 }
 
 function EXLTA_recordId(element) {
