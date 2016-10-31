@@ -416,7 +416,7 @@ function EXLTA_isFullDisplay() {
 function getLocations(element, tabType) {
   var dn = EXLTA_recordId(element);
   var resp = '';
-  var ddud = 'pnxId=' + dn + '&vid=ndu';
+  var ddud = 'pnxId=' + dn + '&vid=' + getCurrentVID();
   var ddui = '/primo_library/libweb/tiles/local/location.jsp';
   $.ajax({
     type: "get",
@@ -432,8 +432,16 @@ function getLocations(element, tabType) {
 
 
   });
+}
 
 
+function getCurrentVID() {
+  var vid = $('#vid');
+  if (vid.length == 0) {
+    // On the browse pages, the vid field has a different id
+    var vid = $('#vid_browse_input');
+  }
+  return vid.val()
 }
 
 function EXLTA_recordId(element) {
