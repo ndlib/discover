@@ -428,20 +428,12 @@ function getLocations(element, tabType) {
       $(p).removeClass();
       $(p).html(data);
     }
-
-
-
   });
 }
 
 
 function getCurrentVID() {
-  var vid = $('#vid');
-  if (vid.length == 0) {
-    // On the browse pages, the vid field has a different id
-    var vid = $('#vid_browse_input');
-  }
-  return vid.val()
+  return "ndu";
 }
 
 function EXLTA_recordId(element) {
@@ -488,9 +480,6 @@ function new_malc_review(id) {
     }
   });
 }
-
-
-
 
 // Show/Hide function for long fields in full display
 function showHideDetails() {
