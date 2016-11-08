@@ -1,7 +1,7 @@
 <% if holdings.present? %>
   <h2><%= t("institutions.#{institution.downcase}") %></h2>
 
-  <% holdings.each do | holding | %>
+  <% order_holdings_list(holdings).each do | holding | %>
      <div class="holding">
        <h4>
          <%= join_strings_safe(", ", holding["library"], holding["collection"]) %>
@@ -10,7 +10,7 @@
          <% end %>
        </h4>
        <p class="call-number">
-         <%= holding["call_number"] %>
+         <% holding["call_number"] %>
          <br />
          <% if holding["non_circulating"] %>
            <span class="label label-warning">In-Library Use Only </span>

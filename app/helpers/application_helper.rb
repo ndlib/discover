@@ -15,12 +15,51 @@ module ApplicationHelper
   end
 
   def join_strings_safe(joiner, *args)
-    args.collect { |str|
-      if str
-        str.strip
+    args.keep_if { |s| s && s.length > 0 }.collect { |s| s.strip }.join(joiner)
+  end
+
+  def order_holdings_list(list)
+    # key defines
+    lib = "library_code"
+    notes = "notes"
+
+    # library codes
+    annex = "ANNEX"
+    hesRef = "REF"
+
+    # notes
+    current = "Currently received."
+
+    # sort return values
+    equal = 0
+    xPriority = -1
+    yPriority = 1
+
+    # sort the list
+    list.sort do |xEntry, yEntry|
+      x = xEntry[lib]
+      y = yEntry[lib]
+
+      xCurrent = xEntry[notes].include?(current)
+      yCurrent = yEntry[notes].include?(current)
+
+      if x == y
+        equal
+      elsif xCurrent
+        xPriority
+      elsif yCurrent
+        yPriority
+      elsif x == annex
+        yPriority
+      elsif y == annex
+        xPriority
+      elsif x == hesRef
+        yPriority
+      elsif y == hesRef
+        xPriority
       else
-        ""
+        equal
       end
-    }.join(joiner)
+    end
   end
 end
