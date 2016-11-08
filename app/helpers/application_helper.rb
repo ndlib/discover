@@ -13,4 +13,14 @@ module ApplicationHelper
   def id_from_strings(*args)
     args.collect { |str| str.gsub(/[^0-9A-Za-z]/, '') }.join("-")
   end
+
+  def join_strings_safe(joiner, *args)
+    args.collect { |str|
+      if str
+        str.strip
+      else
+        ""
+      end
+    }.join(joiner)
+  end
 end
