@@ -3,15 +3,17 @@
 
   <% order_holdings_list(holdings).each do | holding | %>
      <div class="holding">
-       <h4>
+       <h2>
          <%= join_strings_safe(", ", holding["library"], holding["collection"]) %>
          <% if holding["map_url"].present? %>
            - <a href="<%= holding["map_url"] %>" class="mbox btn btn-default btn-xs">Map</a>
          <% end %>
-       </h4>
+       </h2>
        <p class="call-number">
-         <% holding["call_number"] %>
-         <br />
+         <% if holding["call_number"].present? %>
+          <%= holding["call_number"] %>
+          <br />
+         <% end %>
          <% if holding["non_circulating"] %>
            <span class="label label-warning">In-Library Use Only </span>
          <% elsif holding["available"] %>
