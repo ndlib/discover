@@ -19,6 +19,9 @@ module ApplicationHelper
   end
 
   def order_holdings_list(list)
+    # order should be
+    # current -> REF -> other libs -> HESB -> ANNEX
+
     # key defines
     lib = "library_code"
     notes = "notes"
@@ -26,6 +29,7 @@ module ApplicationHelper
     # library codes
     annex = "ANNEX"
     hesRef = "REF"
+    hesGen = "HESB"
 
     # notes
     current = "Currently received."
@@ -49,13 +53,17 @@ module ApplicationHelper
         xPriority
       elsif yCurrent
         yPriority
+      elsif x == hesRef
+        xPriority
+      elsif y == hesRef
+        yPriority
       elsif x == annex
         yPriority
       elsif y == annex
         xPriority
-      elsif x == hesRef
+      elsif x == hesGen
         yPriority
-      elsif y == hesRef
+      elsif y == hesGen
         xPriority
       else
         equal
