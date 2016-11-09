@@ -21,10 +21,14 @@
            -
            <a type="button" href="#" class="mrecall btn btn-default btn-xs">Request</a>
          <% else %>
-           <span class="label label-danger">Not Available, Due: <%= holding["available_on"] %></span>
-           -
-           <a type="button" href="#" class="mrecall btn btn-default btn-xs">Recall</a>
-           <a type="button" target="_blank" href="https://nd.illiad.oclc.org/illiad/IND/illiad.dll/OpenURL?<%= record["openurl_query"] %>" class="btn btn-default btn-xs">Get from InterLibrary Loan</a>
+           <% if holding["available_on"] %>
+             <span class="label label-danger">Not Available, Due: <%= holding["available_on"] %></span>
+           <% end %>
+           <% if holding["requestable"] %>
+             -
+             <a type="button" href="#" class="mrecall btn btn-default btn-xs">Recall</a>
+             <a type="button" target="_blank" href="https://nd.illiad.oclc.org/illiad/IND/illiad.dll/OpenURL?<%= record["openurl_query"] %>" class="btn btn-default btn-xs">Get from InterLibrary Loan</a>
+           <% end %>
          <% end %>
        </p>
        <%= ul_list("", holding["notes"], "list-unstyled") %>
