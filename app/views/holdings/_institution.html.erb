@@ -23,8 +23,14 @@
          <% else %>
            <% if holding["holdings"].present? && holding["holdings"].length > 1 %>
             <span class="label label-warning">Check Holdings Details For Information</span>
-           <% elsif holding["available_on"] %>
+           <% elsif holding["available_on"].present? %>
              <span class="label label-danger">Not Available, Due: <%= holding["available_on"] %></span>
+           <% else %>
+             <span class="label label-danger">Not Available</span>
+             -
+             <a class="btn btn-default" role="button" target="_blank" href="<%= holding["detail_url"] %>">
+               More Holdings Details
+             </a>
            <% end %>
            <% if holding["requestable"] %>
              -
