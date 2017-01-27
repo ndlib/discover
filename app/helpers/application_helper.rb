@@ -2,12 +2,21 @@ module ApplicationHelper
   def ul_list(title, list, css_class = "")
     return "" if list.empty? || list.join.empty?
 
-    ret = content_tag(:h5, title)
+    ret = ""
+    ret += content_tag(:h5, title) if title.present?
     ret += content_tag(:ul, class: css_class) do
-      list.each { |note| concat(content_tag(:li, note)) }
+      list.each { |note| concat(content_tag(:li, process_li(note))) }
     end
 
-    ret
+    ret.html_safe
+  end
+
+  def process_li(note)
+    if note.to_s.match(/<(.*)>/)
+      note.gsub(/<(.*)>/, Regexp.last_match(1))
+    else
+      note
+    end
   end
 
   def id_from_strings(*args)
