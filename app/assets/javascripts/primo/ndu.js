@@ -17,6 +17,20 @@ $(document).ready(function(){
       var rt = $(this);
       var dn = EXLTA_recordId($(this));
       if(dn){
+        var ddud = 'pnxId=' + dn;
+        var ddui = '/primo_library/libweb/tiles/local/docdel.jsp';
+        $.ajax({
+          type: "get",
+          url: ddui,
+          dataType: "html",
+          data: ddud,
+          success: function(data) {
+          var dre = /http/;
+          if(data.match(dre)){
+            rt.after('<li id="docDelUrl" class="EXLResultTab">' + data + '</li>');
+          }
+          }
+        });
         var rud = 'pnxId=' + dn + '&institution=NDU';
         var rui = '/primo_library/libweb/tiles/local/request.jsp';
         if (/aleph/.test(dn)) {
@@ -51,6 +65,17 @@ $(document).ready(function(){
         function(){
             var dt = $(this);
             var dn = EXLTA_recordId($(this));
+            if(dn){
+                var ddud = 'pnxId=' + dn;
+                var ddui = '/primo_library/libweb/tiles/local/docdel.jsp';
+                $.ajax({type: "get", url: ddui, dataType: "html", data: ddud,  success: function(data){
+                    var dre = /http/;
+                    if(data.match(dre)){
+                        dt.before('<li id="docDelUrl" class="EXLResultTab">' + data + '</li>');
+                    }
+                }});
+
+            }
     });
 
 
