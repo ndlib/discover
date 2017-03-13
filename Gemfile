@@ -6,7 +6,7 @@ group :application do
 
   # Use sqlite3 as the database for Active Record
   # gem 'sqlite3'
-  gem 'mysql2', '0.3.15'
+  gem 'mysql2', '0.3.18'
 
   gem 'virtus'
 
@@ -39,7 +39,7 @@ group :application do
   gem "hesburgh_api", git: 'https://github.com/ndlib/hesburgh_api.git'
 
   gem "hesburgh_errors", git: 'https://github.com/ndlib/hesburgh_errors.git'
-  
+
   gem 'exception_notification', "~> 4.0.0"
 
   gem "rb-readline"
