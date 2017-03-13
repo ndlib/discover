@@ -36,7 +36,6 @@ group :application do
 
   gem "draper"
   gem "hesburgh_infrastructure", git: 'https://github.com/ndlib/hesburgh_infrastructure.git'
-  gem "hesburgh_api", git: 'https://github.com/ndlib/hesburgh_api.git'
 
   gem "hesburgh_errors", git: 'https://github.com/ndlib/hesburgh_errors.git'
 
