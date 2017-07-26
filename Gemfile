@@ -84,7 +84,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
-  gem "debugger"
+  # gem "debugger"
   gem "rspec-rails"
   gem "capybara"
   gem "factory_girl_rails", require: false
