@@ -1,7 +1,7 @@
 .search-appliance {
   clear: left;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-  background-color:#F8F7E9;
+  background-color:#f8f8f8;
 }
 
 .search-appliance button.btn::-moz-focus-inner,
