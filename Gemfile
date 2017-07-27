@@ -4,6 +4,8 @@ group :application do
   # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
   gem 'rails', '~> 4.2.7'
 
+  gem 'rake', '~> 11.0'
+
   # Use sqlite3 as the database for Active Record
   # gem 'sqlite3'
   gem 'mysql2', '0.3.18'
@@ -81,7 +83,7 @@ end
 
 group :development, :test do
   gem "pry-rails"
-  gem "rspec-rails", "~> 2.0"
+  gem "rspec-rails", "~> 2.14.0"
   gem "capybara"
   gem "factory_girl_rails", require: false
   gem "faker"
