@@ -31,8 +31,8 @@ height: 100px;
 }
 
 
-#exlidHeaderTile {background:url(header.jpg) #2b5681 center top no-repeat; margin:0 auto; padding:0; height: 100px;}
-
+#exlidHeaderTile {display: none !important }
+#d a:link, #d a:visited { color: #fff !important; text-decoration: none !important;}
 #website-header h3                              {clear:both; margin:0; display:block;}
 #website-header h3 a                            {display:block; width:700px; height:50px; margin:0; text-indent:-9999px; border:none; overflow:hidden;}
 #website-header h4                              {margin:0;}

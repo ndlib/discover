@@ -1,4 +1,16 @@
 GIT
+  remote: https://github.com/ndlib/hesburgh_api.git
+  revision: 7e65d334a0e3262ad51c02670792da44aaa98c3b
+  specs:
+    hesburgh_api (0.0.3)
+      excon
+      faraday
+      faraday_middleware
+      multi_xml
+      rails (~> 4.0)
+      typhoeus
+
+GIT
   remote: https://github.com/ndlib/hesburgh_errors.git
   revision: e2180bdd4c1053c22918421c07d5441bfc679872
   specs:
@@ -362,4 +374,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.14.6
+   1.15.1

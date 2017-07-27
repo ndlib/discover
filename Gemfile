@@ -37,10 +37,12 @@ group :application do
   gem "iso-639"
 
   gem "draper"
+
   gem "hesburgh_infrastructure", git: 'https://github.com/ndlib/hesburgh_infrastructure.git'
+  gem "hesburgh_api", git: 'https://github.com/ndlib/hesburgh_api.git'
 
   gem "hesburgh_errors", git: 'https://github.com/ndlib/hesburgh_errors.git'
-
+  gem 'exception_notification', "~> 4.0.0"
   gem 'exception_notification', "~> 4.0.0"
 
   gem "rb-readline"
@@ -84,6 +86,7 @@ end
 group :development, :test do
   gem "pry-rails"
   gem "rspec-rails", "~> 2.14.0"
+
   gem "capybara"
   gem "factory_girl_rails", require: false
   gem "faker"
