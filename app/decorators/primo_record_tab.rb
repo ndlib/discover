@@ -47,13 +47,7 @@ class PrimoRecordTab < Draper::Decorator
     end
 
     def param(key)
-      Rails.logger.info "Processing the request..."
-      Rails.logger.info  key
-      Rails.logger.info  params.inspect
-      Rails.logger.info  params[key]
-      Rails.logger.info  params[key.to_s]
-
-      params[key.to_s]
+      params[key]
     end
 
 end

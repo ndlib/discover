@@ -4,9 +4,6 @@ class HoldingsTab < PrimoRecordTab
   end
 
   def institution_holdings(code)
-    Rails.logger.info "here--->"
-    Rails.logger.info record.holdings.inspect
-
     record.holdings[code.downcase]
   end
 
