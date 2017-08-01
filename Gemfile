@@ -4,7 +4,7 @@ group :application do
   # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
   gem 'rails', '~> 4.2.7'
 
-  gem 'rake', '~> 11.0'
+  gem 'rake', '~> 12.0'
 
   # Use sqlite3 as the database for Active Record
   # gem 'sqlite3'
@@ -37,12 +37,10 @@ group :application do
   gem "iso-639"
 
   gem "draper"
-
   gem "hesburgh_infrastructure", git: 'https://github.com/ndlib/hesburgh_infrastructure.git'
   gem "hesburgh_api", git: 'https://github.com/ndlib/hesburgh_api.git'
 
   gem "hesburgh_errors", git: 'https://github.com/ndlib/hesburgh_errors.git'
-  gem 'exception_notification', "~> 4.0.0"
   gem 'exception_notification', "~> 4.0.0"
 
   gem "rb-readline"
@@ -84,9 +82,8 @@ end
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
-  gem "pry-rails"
-  gem "rspec-rails", "~> 2.14.0"
-
+  # gem "debugger"
+  gem "rspec-rails"
   gem "capybara"
   gem "factory_girl_rails", require: false
   gem "faker"
