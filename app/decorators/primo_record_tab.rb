@@ -47,10 +47,11 @@ class PrimoRecordTab < Draper::Decorator
     end
 
     def param(key)
-      puts key
-      puts params.inspect
-      puts params[key]
-      puts params[key.to_s]
+      logger.info "Processing the request..."
+      logger.info  key
+      logger.info  params.inspect
+      logger.info  params[key]
+      logger.info  params[key.to_s]
 
       params[key.to_s]
     end
