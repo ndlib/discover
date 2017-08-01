@@ -47,7 +47,7 @@ class PrimoRecordTab < Draper::Decorator
     end
 
     def param(key)
-      rails params.inspect
+      puts params.inspect
 
       params[key]
     end
