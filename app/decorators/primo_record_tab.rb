@@ -47,7 +47,7 @@ class PrimoRecordTab < Draper::Decorator
     end
 
     def param(key)
-      raise key + "|" + params[key] +"|"+ params.inspect
+      raise key.to_s + "|" + params[key].to_s +"|"+ params.inspect
 
       params[key]
     end
