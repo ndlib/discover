@@ -1047,7 +1047,17 @@ z-index: 1000 ;
 } */
 
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: sans-serif !important;
+}
 
+.EXLResultTabs li {
+  box-sizing: content-box;
+}
+
+.EXLSearchWrapper, .EXLHeader {
+  clear: both;
+}
 
 #exliWhiteContent {
   z-index: 2000 !important;
