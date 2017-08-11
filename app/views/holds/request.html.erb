@@ -4,6 +4,11 @@
     <h2>Request
       <%= @record.page_title %></h2>
     <div class="ndl-request">
+      <% if @record.request_links %>
+        <% @record.request_links.each do | r | %>
+          <p><a target="_blank" href="<%= r.url %>"><%= r.title %></a></p>
+        <% end %>
+      <% end %>
       <% if @record.volumes.count > 0 %>
         <%= form_tag(place_request_path, method: "post", id: 'ndl-request-form') do %>
           <div class="ndl-request-row <%= @record.single_volume? ? 'ndl-request-single-volume' : '' %>">
@@ -59,7 +64,7 @@
           <div class="ndl-request-failure ndl-hidden"><p>There was a problem placing your request.
               <span class="ndl-request-failure-message"></span></p></div>
         <% end %>
-      <% else %>
+      <% elsif @record.request_links.size == 0 %>
         Unable to request items. See location tab for availability information.
       <% end %>
     </div>

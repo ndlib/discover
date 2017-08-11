@@ -1,5 +1,12 @@
 class HoldsTab < PrimoRecordTab
 
+  def record_links
+    @record_links ||= RecordLinks.new(record)
+  end
+
+  def request_links
+    record_links.primary_institution_links.request_links
+  end
 
   def url_params(merge_params = {})
     {
@@ -108,10 +115,8 @@ class HoldsTab < PrimoRecordTab
     end
 
     def load_record
-      DiscoveryQuery.holds_list(id, patron_id)
+      DiscoveryQuery.holds_list(id, patron_id, vid)
     end
 
 
 end
-
-

@@ -12,6 +12,8 @@ class RecordLinks < Draper::Decorator
   end
 
   def institution_code
+    puts "inst code ->"
+    puts record.class.to_s
     record.institution_code
   end
 

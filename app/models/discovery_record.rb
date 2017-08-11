@@ -4,8 +4,9 @@ class DiscoveryRecord
 
   attr_reader :data
 
-  def initialize(json_result)
+  def initialize(json_result, vid)
     @data = json_result
+    @vid = vid
     log_unknown_display_fields
   end
 
@@ -24,7 +25,7 @@ class DiscoveryRecord
   end
 
   def institution_code
-    data['institution_code']
+    @vid
   end
 
   # identifier methods
