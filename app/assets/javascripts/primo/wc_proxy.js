@@ -8,7 +8,7 @@ $(document).ready(function() {
         var summary = $(this);
         var dn = EXLTA_recordId($(this));
         var lookupPNX = "";
-
+        debugger
         if((dn) && (dn.substring(0, 2) == 'TN')){
             var sdn = dn.substring(3);
 
