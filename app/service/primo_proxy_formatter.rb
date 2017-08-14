@@ -41,11 +41,11 @@ class PrimoProxyFormatter < Draper::Decorator
   end
 
   def set_local_css(text)
-    text.gsub(/<link[^>]+discover(pprd-vm)?.library.nd.edu[^>]+>/, local_css)
+    text.gsub(/<link[^>]+discover(pprd)?.library.nd.edu[^>]+>/, local_css)
   end
 
   def set_local_js(text)
-    text.gsub(/<script[^>]+discover(pprd-vm)?.library.nd.edu[^>]+><\/script>/, local_js)
+    text.gsub(/<script[^>]+discover(pprd)?.library.nd.edu[^>]+><\/script>/, local_js)
   end
 
   # Renaming the reviews tab intentionally breaks the scripts that trigger ajax requests on page load,

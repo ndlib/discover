@@ -1,21 +1,21 @@
 //Javascript to perform metadata lookups
 //Robin Schaaf, 1/9/2013
 
-
 $(document).ready(function() {
 
     $('.EXLSummary').each(function(){
         var summary = $(this);
         var dn = EXLTA_recordId($(this));
         var lookupPNX = "";
-        debugger
         if((dn) && (dn.substring(0, 2) == 'TN')){
             var sdn = dn.substring(3);
 
             var rud = 'recordId=' + sdn + '&issn=&isbn=&year=&institution=ndu01pub';
             var rui = '/primo_library/libweb/tiles/local/wc_proxy.jsp';
 
+            var requests = $('.request', summary)
             $.ajax({type: "get", url: rui, dataType: "text", data: rud,  success: function(data){
+                debugger
                 var pnxResult = data.replace(/\n/g,"");
 
                 if (pnxResult.indexOf(":") >=0){
