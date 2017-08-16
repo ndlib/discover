@@ -1,6 +1,6 @@
 Discover::Application.routes.draw do
   devise_for :users
-  mount HesburghErrors::Engine => "/hesburgh_errors"
+#  mount HesburghErrors::Engine => "/hesburgh_errors"
 
   if Rails.env.development?
     root to: redirect('/examples')

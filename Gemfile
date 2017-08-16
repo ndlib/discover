@@ -40,7 +40,7 @@ group :application do
   gem "hesburgh_infrastructure", git: 'https://github.com/ndlib/hesburgh_infrastructure.git'
   gem "hesburgh_api", git: 'https://github.com/ndlib/hesburgh_api.git'
 
-  gem "hesburgh_errors", git: 'https://github.com/ndlib/hesburgh_errors.git'
+  #gem "hesburgh_errors", git: 'https://github.com/ndlib/hesburgh_errors.git'
   gem 'exception_notification', "~> 4.0.0"
 
   gem "rb-readline"
