@@ -204,12 +204,12 @@ jQuery ($) ->
         $(element).prepend(customTab);
       else
         $(element).parents('.EXLResult').find('.' + appendAfter).after(customTab);
-
+      console.log($(element))
       result = $(element).parents('.EXLResult');
-
+      console.log(result)
       if !EXLTA_isFullDisplay()  #Solves full display bug where container isn't added to page.
         result = result.find('.EXLSummary');
-
+      console.log(customTabContainer)
       result.append(customTabContainer);
 
     $('.EXLSummary .'+tabType+'-Container').hide();
