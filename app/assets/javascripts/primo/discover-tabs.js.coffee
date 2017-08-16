@@ -96,15 +96,6 @@ jQuery ($) ->
 
   window.addDiscoverTab = (originalTabClass, newTabClass, newTabName, loadTabFunction) ->
     originalTabs = $(".#{originalTabClass}")
-    console.log(originalTabs)
-    console.log(newTabName)
-    console.log(newTabClass)
-    console.log(location.href)
-    console.log(originalTabClass)
-    console.log(newTabClass)
-    console.log(newTabClass)
-    console.log(checkTabPresence)
-    console.log(".#{originalTabClass}")
     if originalTabs.length > 0
       EXLTA_addTab newTabName, newTabClass, location.href, originalTabClass, newTabClass, newTabClass, false, checkTabPresence, ".#{originalTabClass}"
       newTabs = $(".#{newTabClass}")

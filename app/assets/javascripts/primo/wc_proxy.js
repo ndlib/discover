@@ -15,7 +15,6 @@ $(document).ready(function() {
 
             var requests = $('.request', summary)
             $.ajax({type: "get", url: rui, dataType: "text", data: rud,  success: function(data){
-                debugger
                 var pnxResult = data.replace(/\n/g,"");
 
                 if (pnxResult.indexOf(":") >=0){
