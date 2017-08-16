@@ -67,12 +67,12 @@ Discover::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'discover.library.nd.edu', :protocol => 'https' }
 
-  config.middleware.use ExceptionNotification::Rack,
-  :email => {
-    :email_prefix => "[ Prod ] ",
-    :sender_address => %{"discover notifier" <discover_notifier@nd.edu>},
-    :exception_recipients => %w{  }
-  }
+  #config.middleware.use ExceptionNotification::Rack,
+  #:email => {
+  #  :email_prefix => "[ Prod ] ",
+  #  :sender_address => %{"discover notifier" <discover_notifier@nd.edu>},
+  #  :exception_recipients => %w{  }
+  #}
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
