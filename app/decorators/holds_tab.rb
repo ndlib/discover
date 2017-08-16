@@ -5,7 +5,7 @@ class HoldsTab < PrimoRecordTab
   end
 
   def request_links
-    record_links.primary_institution_links.request_links
+    record_links.primary_institution_links.request_links || []
   end
 
   def url_params(merge_params = {})
