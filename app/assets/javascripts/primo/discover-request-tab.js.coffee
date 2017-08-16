@@ -190,9 +190,11 @@ jQuery ($) ->
     console.log(summaryElement)
     console.log("this->")
     element = summaryElement.find('.EXLResultTabs');
+    console.log($(element))
     customTab = $('<li class="EXLResultTab '+tabType+'"><a href="'+url+'">'+tabName+'</a></li>');
     customTabContainer = $('<div class="EXLResultTabContainer '+tabType+'-Container"></div>');
     if !evaluator || (evaluator && evaluator(element, evaluatorVar) == true)
+      console.log("hi")
       scu = $(element).parents('.EXLResult').find('.' + tabSelectorCopy + ' a').attr('href');
       if scu
         url = scu;
