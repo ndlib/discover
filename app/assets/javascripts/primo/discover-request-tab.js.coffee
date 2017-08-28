@@ -161,9 +161,9 @@ class RequestForm
 
 jQuery ($) ->
   addRequestTab = ->
-    console.log($('.EXLSummary'))
     $('.EXLSummary').each (summary) ->
-      createNewRequestTab($(this), 'Request', 'EXLRequestTab', location.href, "not-used", "not-used", false, 'EXLResultTab')
+      if $(this).find('.request')
+        createNewRequestTab($(this), 'Requesty!!', 'EXLRequestTab', location.href, "not-used", "not-used", true, 'EXLResultTab')
 
     window.addDiscoverTab('EXLRequestTab', 'ndl-request-tab', "Request", getRequestTab)
 
@@ -187,14 +187,13 @@ jQuery ($) ->
       )
 
   createNewRequestTab = (summaryElement, tabName, tabType, url, tabSelectorCopy, tabUrlReplace, tabUrlReplaceValue, firstTab,appendAfter,evaluator,evaluatorVar) ->
-    console.log(summaryElement)
-    console.log("this->")
     element = summaryElement.find('.EXLResultTabs');
-    console.log($(element))
+    if element.length > 0
+      return
+
     customTab = $('<li class="EXLResultTab '+tabType+'"><a href="'+url+'">'+tabName+'</a></li>');
     customTabContainer = $('<div class="EXLResultTabContainer '+tabType+'-Container"></div>');
     if !evaluator || (evaluator && evaluator(element, evaluatorVar) == true)
-      console.log("hi")
       scu = $(element).parents('.EXLResult').find('.' + tabSelectorCopy + ' a').attr('href');
       if scu
         url = scu;
@@ -206,12 +205,11 @@ jQuery ($) ->
         $(element).prepend(customTab);
       else
         $(element).parents('.EXLResult').find('.' + appendAfter).after(customTab);
-      console.log($(element))
+
       result = $(element).parents('.EXLResult');
-      console.log(result)
       if !EXLTA_isFullDisplay()  #Solves full display bug where container isn't added to page.
         result = result.find('.EXLSummary');
-      console.log(customTabContainer)
+
       result.append(customTabContainer);
 
     $('.EXLSummary .'+tabType+'-Container').hide();
