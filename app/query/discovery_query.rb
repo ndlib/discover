@@ -9,7 +9,7 @@ class DiscoveryQuery
   end
 
   def self.holds_list(id, patron_id, vid)
-    self.new.holds_list(id, patron_id, vid)
+    self.new.holds_list(id, patron_id, vid.downcase)
   end
 
   def find_by_id(id, vid)
