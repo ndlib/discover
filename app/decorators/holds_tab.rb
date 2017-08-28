@@ -5,7 +5,7 @@ class HoldsTab < PrimoRecordTab
   end
 
   def request_links
-    if record_links.primary_institution_links.request_links.present?
+    if record_links.primary_institution_links && record_links.primary_institution_links.request_links.present?
       return record_links.primary_institution_links.request_links
     end
     []
