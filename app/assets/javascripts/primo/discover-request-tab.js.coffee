@@ -33,6 +33,12 @@ class RequestForm
     @find('.ndl-request-form-location').change ->
       location_id = $(this).val()
       object.selectPickupLocation(location_id)
+    @find('.ndl-request-book-link').click ->
+      console.log("here")
+      console.log(object.container.find('.ndl-step1-form'))
+      object.show('.ndl-step1-form')
+      object.hide('.ndl-individual-links')
+
     date = @find('.date-pick')
     if date.datePicker
       date.datePicker()
