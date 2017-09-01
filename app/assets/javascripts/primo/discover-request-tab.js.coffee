@@ -167,7 +167,6 @@ jQuery ($) ->
   addRequestTab = ->
     $('.EXLSummary').each (summary) ->
       if $(this).find('.request')
-        console.log(location.href)
         createNewRequestTab($(this), 'Request', 'EXLRequestTab', location.href, "not-used", "not-used", true, 'EXLResultTab')
 
     window.addDiscoverTab('EXLRequestTab', 'ndl-request-tab', "Request", getRequestTab)
@@ -193,10 +192,8 @@ jQuery ($) ->
 
   createNewRequestTab = (summaryElement, tabName, tabType, url, tabSelectorCopy, tabUrlReplace, tabUrlReplaceValue, firstTab,appendAfter,evaluator,evaluatorVar) ->
     element = summaryElement.find('.EXLResultTabs');
-    console.log("test")
     if element.length > 0
       return
-    console.log("find if")
     customTab = $('<li class="EXLResultTab '+tabType+'"><a href="'+url+'">'+tabName+'</a></li>');
     customTabContainer = $('<div class="EXLResultTabContainer '+tabType+'-Container"></div>');
     if !evaluator || (evaluator && evaluator(element, evaluatorVar) == true)
@@ -223,7 +220,6 @@ jQuery ($) ->
   ready = ->
     addRequestTab()
     $('.ndl-request-container').each ->
-      console.log("yo")
       new RequestForm($(this))
 
 

@@ -5,7 +5,7 @@
       <%= @record.page_title %></h2>
     <div class="ndl-request">
       <%= form_tag(place_request_path, method: "post", id: 'ndl-request-form') do %>
-      <% if @record.request_links %>
+      <% if @record.request_links.count %>
         <ol class="ndl-individual-links">
           <% @record.request_links.each do | r | %>
             <li><a class="" target="_blank" href="<%= r.url %>"><%= r.title %></a></li>
