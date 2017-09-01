@@ -5,12 +5,12 @@
       <%= @record.page_title %></h2>
     <div class="ndl-request">
       <%= form_tag(place_request_path, method: "post", id: 'ndl-request-form') do %>
-      <% if @record.request_links.count %>
+      <% if @record.request_links.count > 0 %>
         <ol class="ndl-individual-links">
           <% @record.request_links.each do | r | %>
             <li><a class="" target="_blank" href="<%= r.url %>"><%= r.title %></a></li>
           <% end %>
-          <% if @record.volumes.count %>
+          <% if @record.volumes.count > 0 %>
             <li><%= link_to 'Request Book or Volume', '#', { class: 'ndl-request-book-link' } %></li>
             </ol>
             <div class="ndl-step1-form ndl-hidden">
