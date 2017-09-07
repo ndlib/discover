@@ -4,7 +4,7 @@ group :application do
   # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
   gem 'rails', '~> 4.2.7'
 
-  gem 'rake', '~> 12.0'
+  gem 'rake', '< 11.0'
 
   # Use sqlite3 as the database for Active Record
   # gem 'sqlite3'

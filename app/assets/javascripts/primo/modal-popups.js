@@ -13,14 +13,15 @@ $(document).ready(function(){
   $('.mbox').live('click', function(event){
     event.preventDefault();
     var dat = $(this).attr('value');
-    var it = $(this).attr('item');
-    var ur = $(this).attr('href');
-    var ht = '<div id="mps" style="width: 300px; height: 200px;"><img style="display: block; margin: auto; padding-top: 70px;" src="../images/local/loading_alt.gif" /></div>';
-    var pdat = "xml=" + dat + "&item=" + it;
+    var i = parseInt($(this).attr('item'));
+    var ht = '<div id="mps" style="width: 300px; height: 300px;"><img style="display: block; margin: auto; padding-top: 70px;" src="../images/local/loading_alt.gif" /></div>';
+    var xml = $.parseXML(decodeURIComponent(dat));
+    var col = xml.getElementsByTagName('collection')[i].getAttribute('code');
+    var sublib = xml.getElementsByTagName('sublibrary')[i].getAttribute('code');
+    var cn = encodeURIComponent(xml.getElementsByTagName('call_number')[i].innerHTML);
     var xh = ajHandle();
     $.colorbox({html:ht, onClosed:function(){ xh.abort(); } });
-    performAj(xh, ur, "POST", pdat, "colorbox");
-
+    performAjContentful(xh, col, sublib, cn);
   });
 
 });
@@ -40,6 +41,20 @@ function ajHandle(){
   return xmlhttp;
 
 }
+
+function performAjContentful(xmlhttp, col, sublib, cn) {
+  xmlhttp.onreadystatechange=function(){
+    if (xmlhttp.readyState==4 && xmlhttp.status==200){
+      var json = JSON.parse(xmlhttp.responseText);
+      var imageUrl = json.fields.image.fields.file.url;
+      var size = Math.floor(Math.min($(window).height(), $(window).width()) * 0.85);
+      $.colorbox({html: '<div><img src="' + imageUrl +'" width="' + size + 'px" height="' + size + 'px"/></div>', scrolling: false});
+    }
+  }
+  xmlhttp.open('GET', 'https://bj5rh8poa7.execute-api.us-east-1.amazonaws.com/dev/map?collection=' + col + '&sublibrary=' + sublib + '&call_number=' + cn);
+  xmlhttp.send();
+}
+
 
 function performAj(xmlhttp, url, m, dat, type){
 
