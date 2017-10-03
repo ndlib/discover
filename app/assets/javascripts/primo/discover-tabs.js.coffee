@@ -94,7 +94,7 @@ jQuery ($) ->
         return
       $.get onlineAccessPath, {id: recordID, vid: currentVID, tab: currentTab}, success, "html"
 
-  window.addDiscoverTab = (originalTabClass, newTabClass, newTabName, loadTabFunction) ->
+  window.addDiscoverTab = (originalTabClass, newTabClass, newTabName, loadTabFunction, executeTabNow) ->
     originalTabs = $(".#{originalTabClass}")
     if originalTabs.length > 0
       EXLTA_addTab newTabName, newTabClass, location.href, originalTabClass, newTabClass, newTabClass, false, checkTabPresence, ".#{originalTabClass}"
@@ -131,7 +131,9 @@ jQuery ($) ->
         originalTab = newTab.siblings(".#{originalTabClass}")
         originalTab.before(newTab)
         # Automatically load the new tab if the original tab is already selected
-        if originalTab.hasClass('EXLResultSelectedTab')
+        console.log(originalTab)
+        if originalTab.hasClass('EXLResultSelectedTab') || originalTab.hasClass('EXLResultSelectedTabEXLResultTabIconPopout')
+          console.log("hi")
           newTab.click()
 
   addDetailsTab = ->

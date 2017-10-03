@@ -347,7 +347,7 @@ function EXLTA_addTab(tabName, tabType, url, tabSelectorCopy, tabUrlReplace, tab
 
       //  $(this).parents('.EXLResult').find('.EXLSummary').append(customTabContainer);
       var result = $(this).parents('.EXLResult');
-
+      console.log(isFullDisplay());
       if (!isFullDisplay()) { //Solves full display bug where container isn't added to page.
         result = result.find('.EXLSummary');
       }
