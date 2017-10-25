@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
 
   #include HesburghErrors::ControllerErrorTrapping
 
-  unless Rails.configuration.consider_all_requests_local
-    setup_controller_errors
-  end
+#  unless Rails.configuration.consider_all_requests_local
+  #  setup_controller_errors
+#  end
 
 
   def check_authentication!

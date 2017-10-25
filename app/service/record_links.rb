@@ -12,8 +12,6 @@ class RecordLinks < Draper::Decorator
   end
 
   def institution_code
-    puts "inst code ->"
-    puts record.class.to_s
     record.institution_code
   end
 
@@ -21,7 +19,7 @@ class RecordLinks < Draper::Decorator
     if @institution_links_decorators.nil?
       @institution_links_decorators = {primary: nil, other: []}
       institution_links.each do |id, data|
-        if id == institution_code
+        if id.upcase == institution_code.upcase
           @institution_links_decorators[:primary] = PrimaryInstitutionLinksDecorator.new(data)
         else
           @institution_links_decorators[:other] << InstitutionLinksDecorator.new(data)
