@@ -24,7 +24,6 @@ $(document).ready(function() {
                 }else{
                     lookupPNX = pnxResult;
                 }
-
                 if (lookupPNX != ''){
 
                     EXLTA_addTab_TN(summary, 'Locations','NewTNLocationTab',location.href,'EXLDetailsTab','detailsTab','newLocationsTab',true);
