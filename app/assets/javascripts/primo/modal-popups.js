@@ -12,13 +12,13 @@ $(document).ready(function(){
 
   $('.mbox').live('click', function(event){
     event.preventDefault();
-    var dat = $(this).attr('value');
-    var i = parseInt($(this).attr('item'));
+    var dat = $(this).attr('href').split('jsp?xml=')[1];
     var ht = '<div id="mps" style="width: 300px; height: 300px;"><img style="display: block; margin: auto; padding-top: 70px;" src="../images/local/loading_alt.gif" /></div>';
     var xml = $.parseXML(decodeURIComponent(dat));
-    var col = xml.getElementsByTagName('collection')[i].getAttribute('code');
-    var sublib = xml.getElementsByTagName('sublibrary')[i].getAttribute('code');
-    var cn = encodeURIComponent(xml.getElementsByTagName('call_number')[i].innerHTML);
+    console.log(xml.getElementsByTagName('collection'))
+    var col = xml.getElementsByTagName('collection')[0].getAttribute('code');
+    var sublib = xml.getElementsByTagName('sublibrary')[0].getAttribute('code');
+    var cn = encodeURIComponent(xml.getElementsByTagName('call_number')[0].innerHTML);
     var xh = ajHandle();
     $.colorbox({html:ht, onClosed:function(){ xh.abort(); } });
     performAjContentful(xh, col, sublib, cn);
@@ -27,9 +27,7 @@ $(document).ready(function(){
 });
 
 function ajHandle(){
-
   var xmlhttp;
-
   if (window.XMLHttpRequest){
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
