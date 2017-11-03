@@ -47,9 +47,10 @@ function performAjContentful(xmlhttp, col, sublib, cn) {
       var building = json.fields.building.fields.title;
       var imageUrl = json.fields.image.fields.file.url;
       var size = Math.floor(Math.min($(window).height(), $(window).width()) *  0.95);
-      var mapHTML = '<div id="call-map"><div style="position: absolute;"><div class="wb">' + decodeURIComponent(cn) + '</div><div class="wb">' + floor + '</div><div class="wb">' + building + '</div></div><img src="' + imageUrl +'" width="' + size + 'px" height="' + size + 'px" style="padding: 5%"/></div>'
+      var mapHTML = '<div id="call-map"><div style="position: absolute;"><div class="wb">' + decodeURIComponent(cn) + '</div><div class="wb">' + floor + '</div><div class="wb">' + building + '</div></div><img src="' + imageUrl +'" width="' + size + 'px" height="' + size + 'px" style="padding: 5%"/><button onClick="printMap(\'' + cn +'\', \'' + floor + '\', \'' + building + '\', \''+ imageUrl + '\' )" style="position: absolute; bottom: 20px; right: 10px;">Print</button></div>'
 
       $.colorbox({html: mapHTML, scrolling: false});
+
     }
   }
   xmlhttp.open('GET', 'https://bj5rh8poa7.execute-api.us-east-1.amazonaws.com/dev/map?collection=' + col + '&sublibrary=' + sublib + '&call_number=' + cn);
@@ -80,4 +81,22 @@ function performAj(xmlhttp, url, m, dat, type){
     xmlhttp.open("GET",url + "&t=" + Math.random(),true);
     xmlhttp.send();
   }
+}
+
+
+function printMap(cn, floor, building, imageUrl) {
+  var WinPrint = window.open('', '', 'left=0,top=0,width=900,height=900,toolbar=0,scrollbars=0,status=0');
+  var img = new Image();
+  var html = '<div id="call-map"><div><div class="wb">' + decodeURIComponent(cn) + '</div><div class="wb">' + floor + '</div><div class="wb">' + building + '</div></div><img src="' + imageUrl +'" width="100%" height="auto"/></div>'
+
+  img.onload = function() {
+    WinPrint.document.write(html);
+    WinPrint.document.close();
+    WinPrint.focus();
+    WinPrint.print();
+    WinPrint.close();
+  }
+  img.src = imageUrl;
+
+
 }
