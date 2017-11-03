@@ -629,6 +629,14 @@ div.EXLBackToResults a, .EXLResultsNavigation .EXLDisplayedCountTitle, .EXLResul
   font-size: 11px;
   width: 100% !important;
 }
+#cboxLoadedContent div.wb {
+  font-size: 16px;
+  width: auto !important;
+  background: white;
+  float: left;
+  clear: left;
+  padding: .2em;
+}
 
 #cboxLoadedContent div[style="margin-bottom: 10px;"] {
   margin:0 !important;

@@ -15,7 +15,6 @@ $(document).ready(function(){
     var dat = $(this).attr('href').split('jsp?xml=')[1];
     var ht = '<div id="mps" style="width: 300px; height: 300px;"><img style="display: block; margin: auto; padding-top: 70px;" src="../images/local/loading_alt.gif" /></div>';
     var xml = $.parseXML(decodeURIComponent(dat));
-    console.log(xml.getElementsByTagName('collection'))
     var col = xml.getElementsByTagName('collection')[0].getAttribute('code');
     var sublib = xml.getElementsByTagName('sublibrary')[0].getAttribute('code');
     var cn = encodeURIComponent(xml.getElementsByTagName('call_number')[0].innerHTML);
@@ -44,9 +43,13 @@ function performAjContentful(xmlhttp, col, sublib, cn) {
   xmlhttp.onreadystatechange=function(){
     if (xmlhttp.readyState==4 && xmlhttp.status==200){
       var json = JSON.parse(xmlhttp.responseText);
+      var floor = json.fields.title;
+      var building = json.fields.building.fields.title;
       var imageUrl = json.fields.image.fields.file.url;
-      var size = Math.floor(Math.min($(window).height(), $(window).width()) * 0.85);
-      $.colorbox({html: '<div><img src="' + imageUrl +'" width="' + size + 'px" height="' + size + 'px"/></div>', scrolling: false});
+      var size = Math.floor(Math.min($(window).height(), $(window).width()) *  0.95);
+      var mapHTML = '<div id="call-map"><div style="position: absolute;"><div class="wb">' + decodeURIComponent(cn) + '</div><div class="wb">' + floor + '</div><div class="wb">' + building + '</div></div><img src="' + imageUrl +'" width="' + size + 'px" height="' + size + 'px" style="padding: 5%"/></div>'
+
+      $.colorbox({html: mapHTML, scrolling: false});
     }
   }
   xmlhttp.open('GET', 'https://bj5rh8poa7.execute-api.us-east-1.amazonaws.com/dev/map?collection=' + col + '&sublibrary=' + sublib + '&call_number=' + cn);
@@ -64,7 +67,7 @@ function performAj(xmlhttp, url, m, dat, type){
       }
     }else if(xmlhttp.readyState==4 && xmlhttp.status != 200){
       if(type == "colorbox"){
-             // setTimeout($.colorbox({html:xmlhttp.responseText}), 1000);
+        // setTimeout($.colorbox({html:xmlhttp.responseText}), 1000);
       }
     }
   };
