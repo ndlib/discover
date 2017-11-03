@@ -87,7 +87,7 @@ function performAj(xmlhttp, url, m, dat, type){
 function printMap(cn, floor, building, imageUrl) {
   var WinPrint = window.open('', '', 'left=0,top=0,width=900,height=900,toolbar=0,scrollbars=0,status=0');
   var img = new Image();
-  var html = '<div id="call-map"><div><div class="wb">' + decodeURIComponent(cn) + '</div><div class="wb">' + floor + '</div><div class="wb">' + building + '</div></div><img src="' + imageUrl +'" width="100%" height="auto"/></div>'
+  var html = '<div id="call-map"><div><div class="wb">' + decodeURIComponent(cn) + '</div><div class="wb">' + floor + '</div><div class="wb">' + building + '</div><div>&nbsp;</div></div><img src="' + imageUrl +'" width="100%" height="auto"/></div>'
 
   img.onload = function() {
     WinPrint.document.write(html);
