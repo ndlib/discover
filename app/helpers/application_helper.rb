@@ -12,11 +12,7 @@ module ApplicationHelper
   end
 
   def process_li(note)
-    if note.to_s.match(/<(.*)>/)
-      note.gsub(/<(.*)>/, Regexp.last_match(1))
-    else
-      note
-    end
+    note
   end
 
   def id_from_strings(*args)
