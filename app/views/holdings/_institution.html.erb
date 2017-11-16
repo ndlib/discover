@@ -48,14 +48,16 @@
          <% end %>
        </p>
        <%= ul_list("", holding["notes"], "list-unstyled") %>
+       <% if holding["detail_url"] %>
+         <div class="pull-right">
+           <a class="btn btn-default" role="button" target="_blank" href="<%= holding["detail_url"] %>">
+             More Holdings Details
+           </a>
+         </div>
+       <% end %>
        <% if holding["holdings"].present? || holding["supplements"].present? || holding["indexes"].present? %>
          <div class="collapse" id="collapse-<%= id_from_strings(holding["library"], holding["collection"]) %>">
            <div class="well">
-             <div class="pull-right">
-               <a class="btn btn-default" role="button" target="_blank" href="<%= holding["detail_url"] %>">
-                 More Holdings Details
-               </a>
-             </div>
              <%= ul_list("Holdings", holding["holdings"], "list-unstyled")%>
              <%= ul_list("Supplements", holding["supplements"], "list-unstyled")%>
              <%= ul_list("Indexes", holding["indexes"], "list-unstyled")%>
