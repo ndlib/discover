@@ -15,7 +15,6 @@ $(document).ready(function(){
     event.preventDefault();
     var url = $(this).attr('href');
     var query = parseQuery(url.substring(url.indexOf("?")))
-    console.log(query)
     var ht = '<div id="mps" style="width: 300px; height: 300px;"><img style="display: block; margin: auto; padding-top: 70px;" src="../images/local/loading_alt.gif" /></div>';
     var xh = ajHandle();
     $.colorbox({html:ht, onClosed:function(){ xh.abort(); } });
