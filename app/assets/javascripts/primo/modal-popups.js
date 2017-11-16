@@ -2,6 +2,7 @@ $(document).ready(function(){
 
   $('.cbox').live('click', function(event){
     event.preventDefault();
+    console.log("hi ---?")
     var ur = $(this).attr('href');
     var ht = '<div id="itoutter" style="width: 300px; height: 200px;"><img style="display: block; margin: auto; padding-top: 70px;" src="../images/local/loading_alt.gif" /></div>';
     var xh = ajHandle();
@@ -13,6 +14,8 @@ $(document).ready(function(){
   $('.mbox').live('click', function(event){
     event.preventDefault();
     var url = $(this).attr('href');
+    var query = parseQuery(url.substring(url.indexOf("?")))
+    console.log(query)
     var ht = '<div id="mps" style="width: 300px; height: 300px;"><img style="display: block; margin: auto; padding-top: 70px;" src="../images/local/loading_alt.gif" /></div>';
     var xh = ajHandle();
     $.colorbox({html:ht, onClosed:function(){ xh.abort(); } });
@@ -39,7 +42,6 @@ function performAjContentful(xmlhttp, url) {
   xmlhttp.onreadystatechange=function(){
     if (xmlhttp.readyState==4 && xmlhttp.status==200){
       var json = JSON.parse(xmlhttp.responseText);
-      console.log(json)
       var cn = "call number"
       var floor = json.fields.title;
       var building = json.fields.building.fields.title;
@@ -95,6 +97,14 @@ function printMap(cn, floor, building, imageUrl) {
     WinPrint.close();
   }
   img.src = imageUrl;
+}
 
-
+function parseQuery(queryString) {
+    var query = {};
+    var pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&');
+    for (var i = 0; i < pairs.length; i++) {
+        var pair = pairs[i].split('=');
+        query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+    }
+    return query;
 }
