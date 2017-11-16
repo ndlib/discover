@@ -19,7 +19,7 @@ $(document).ready(function(){
     var ht = '<div id="mps" style="width: 300px; height: 300px;"><img style="display: block; margin: auto; padding-top: 70px;" src="../images/local/loading_alt.gif" /></div>';
     var xh = ajHandle();
     $.colorbox({html:ht, onClosed:function(){ xh.abort(); } });
-    performAjContentful(xh, url);
+    performAjContentful(xh, url, query.call_number);
   });
 
 });
@@ -38,11 +38,10 @@ function ajHandle(){
 
 }
 
-function performAjContentful(xmlhttp, url) {
+function performAjContentful(xmlhttp, url, cn) {
   xmlhttp.onreadystatechange=function(){
     if (xmlhttp.readyState==4 && xmlhttp.status==200){
       var json = JSON.parse(xmlhttp.responseText);
-      var cn = "call number"
       var floor = json.fields.title;
       var building = json.fields.building.fields.title;
       var imageUrl = json.fields.image.fields.file.url;
