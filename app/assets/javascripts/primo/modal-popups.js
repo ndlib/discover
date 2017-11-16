@@ -39,6 +39,8 @@ function performAjContentful(xmlhttp, url) {
   xmlhttp.onreadystatechange=function(){
     if (xmlhttp.readyState==4 && xmlhttp.status==200){
       var json = JSON.parse(xmlhttp.responseText);
+      console.log(json)
+      var cn = "call number"
       var floor = json.fields.title;
       var building = json.fields.building.fields.title;
       var imageUrl = json.fields.image.fields.file.url;
