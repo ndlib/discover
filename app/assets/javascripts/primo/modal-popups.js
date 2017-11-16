@@ -12,15 +12,11 @@ $(document).ready(function(){
 
   $('.mbox').live('click', function(event){
     event.preventDefault();
-    var dat = $(this).attr('href').split('jsp?xml=')[1];
+    var url = $(this).attr('href');
     var ht = '<div id="mps" style="width: 300px; height: 300px;"><img style="display: block; margin: auto; padding-top: 70px;" src="../images/local/loading_alt.gif" /></div>';
-    var xml = $.parseXML(decodeURIComponent(dat));
-    var col = xml.getElementsByTagName('collection')[0].getAttribute('code');
-    var sublib = xml.getElementsByTagName('sublibrary')[0].getAttribute('code');
-    var cn = encodeURIComponent(xml.getElementsByTagName('call_number')[0].innerHTML);
     var xh = ajHandle();
     $.colorbox({html:ht, onClosed:function(){ xh.abort(); } });
-    performAjContentful(xh, col, sublib, cn);
+    performAjContentful(xh, url);
   });
 
 });
@@ -39,7 +35,7 @@ function ajHandle(){
 
 }
 
-function performAjContentful(xmlhttp, col, sublib, cn) {
+function performAjContentful(xmlhttp, url) {
   xmlhttp.onreadystatechange=function(){
     if (xmlhttp.readyState==4 && xmlhttp.status==200){
       var json = JSON.parse(xmlhttp.responseText);
@@ -53,7 +49,7 @@ function performAjContentful(xmlhttp, col, sublib, cn) {
 
     }
   }
-  xmlhttp.open('GET', 'https://bj5rh8poa7.execute-api.us-east-1.amazonaws.com/dev/map?collection=' + col + '&sublibrary=' + sublib + '&call_number=' + cn);
+  xmlhttp.open('GET', url);
   xmlhttp.send();
 }
 
