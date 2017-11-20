@@ -44,7 +44,9 @@ function performAjContentful(xmlhttp, url, cn) {
       var building = json.fields.building.fields.title;
       var imageUrl = json.fields.image.fields.file.url;
       var size = Math.floor(Math.min($(window).height(), $(window).width()) *  0.95);
-      var mapHTML = '<div id="call-map"><div style="position: absolute;"><div class="wb">' + decodeURIComponent(cn) + '</div><div class="wb">' + floor + '</div><div class="wb">' + building + '</div></div><img src="' + imageUrl +'" width="' + size + 'px" height="' + size + 'px" style="padding: 5%"/><button onClick="printMap(\'' + cn +'\', \'' + floor + '\', \'' + building + '\', \''+ imageUrl + '\' )" style="position: absolute; bottom: 20px; right: 10px;">Print</button></div>'
+      var mapHTML = '<div id="call-map"><img style="display: block; margin: auto; padding: 70px;" src="https://discover.library.nd.edu/assets/ajax-loader.gif" /></div>'
+
+      //<div style="position: absolute;"><div class="wb">' + decodeURIComponent(cn) + '</div><div class="wb">' + floor + '</div><div class="wb">' + building + '</div></div><img src="' + imageUrl +'" width="' + size + 'px" height="' + size + 'px" style="padding: 5%"/><button onClick="printMap(\'' + cn +'\', \'' + floor + '\', \'' + building + '\', \''+ imageUrl + '\' )" style="position: absolute; bottom: 20px; right: 10px;">Print</button></div>'
 
       $.colorbox({html: mapHTML, scrolling: false});
 
