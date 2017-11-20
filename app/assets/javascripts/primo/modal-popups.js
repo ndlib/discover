@@ -3,7 +3,7 @@ $(document).ready(function(){
   $('.cbox').live('click', function(event){
     event.preventDefault();
     var ur = $(this).attr('href');
-    var ht = '<div id="itoutter" style="width: 300px; height: 200px;"><img style="display: block; margin: auto; padding-top: 70px;" src="/assets/ajax-loader.gif" /></div>';
+    var ht = '<div id="itoutter" style="width: 300px; height: 200px;">HEREHERE<img style="display: block; margin: auto; padding-top: 70px;" src="/assets/ajax-loader.gif" /></div>';
     var xh = ajHandle();
     $.colorbox({html:ht, onClosed:function(){ xh.abort(); }});
     performAj(xh, ur, "GET", "", "colorbox");
@@ -14,7 +14,7 @@ $(document).ready(function(){
     event.preventDefault();
     var url = $(this).attr('href');
     var query = parseQuery(url.substring(url.indexOf("?")))
-    var ht = '<div id="mps" style="width: 300px; height: 300px;"><img style="display: block; margin: auto; padding-top: 70px;" src="/assets/ajax-loader.gif" /></div>';
+    var ht = '<div id="mps" style="width: 300px; height: 300px;">LOADLOAD<img style="display: block; margin: auto; padding-top: 70px;" src="/assets/ajax-loader.gif" /></div>';
     var xh = ajHandle();
     $.colorbox({html:ht, onClosed:function(){ xh.abort(); } });
     performAjContentful(xh, url, query.call_number);
@@ -44,7 +44,7 @@ function performAjContentful(xmlhttp, url, cn) {
       var building = json.fields.building.fields.title;
       var imageUrl = json.fields.image.fields.file.url;
       var size = Math.floor(Math.min($(window).height(), $(window).width()) *  0.95);
-      var mapHTML = '<div id="call-map"><div style="position: absolute;"><div class="wb">' + decodeURIComponent(cn) + '</div><div class="wb">' + floor + '</div><div class="wb">' + building + '</div></div><img src="' + imageUrl +'" width="' + size + 'px" height="' + size + 'px" style="padding: 5%"/><button onClick="printMap(\'' + cn +'\', \'' + floor + '\', \'' + building + '\', \''+ imageUrl + '\' )" style="position: absolute; bottom: 20px; right: 10px;">Print</button></div>'
+      var mapHTML = '<div id="call-map"><div style="position: absolute;">empty<div class="wb">' + decodeURIComponent(cn) + '</div><div class="wb">' + floor + '</div><div class="wb">' + building + '</div></div><img src="' + imageUrl +'" width="' + size + 'px" height="' + size + 'px" style="padding: 5%"/><button onClick="printMap(\'' + cn +'\', \'' + floor + '\', \'' + building + '\', \''+ imageUrl + '\' )" style="position: absolute; bottom: 20px; right: 10px;">Print</button></div>'
 
       $.colorbox({html: mapHTML, scrolling: false});
 
