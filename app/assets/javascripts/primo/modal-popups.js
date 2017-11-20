@@ -2,9 +2,8 @@ $(document).ready(function(){
 
   $('.cbox').live('click', function(event){
     event.preventDefault();
-    console.log("hi ---?")
     var ur = $(this).attr('href');
-    var ht = '<div id="itoutter" style="width: 300px; height: 200px;"><img style="display: block; margin: auto; padding-top: 70px;" src="../images/local/loading_alt.gif" /></div>';
+    var ht = '<div id="itoutter" style="width: 300px; height: 200px;"><img style="display: block; margin: auto; padding-top: 70px;" src="/assets/ajax-loader.gif" /></div>';
     var xh = ajHandle();
     $.colorbox({html:ht, onClosed:function(){ xh.abort(); }});
     performAj(xh, ur, "GET", "", "colorbox");
@@ -15,7 +14,7 @@ $(document).ready(function(){
     event.preventDefault();
     var url = $(this).attr('href');
     var query = parseQuery(url.substring(url.indexOf("?")))
-    var ht = '<div id="mps" style="width: 300px; height: 300px;"><img style="display: block; margin: auto; padding-top: 70px;" src="../images/local/loading_alt.gif" /></div>';
+    var ht = '<div id="mps" style="width: 300px; height: 300px;"><img style="display: block; margin: auto; padding-top: 70px;" src="/assets/ajax-loader.gif" /></div>';
     var xh = ajHandle();
     $.colorbox({html:ht, onClosed:function(){ xh.abort(); } });
     performAjContentful(xh, url, query.call_number);
