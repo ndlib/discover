@@ -50,11 +50,11 @@ class PrimoProxy < Draper::Decorator
   end
 
   def port
-    80
+    443
   end
 
   def host_with_port
-    if port == 80
+    if port == 80 || port == 443
       host
     else
       "#{host}:#{port}"
@@ -62,7 +62,7 @@ class PrimoProxy < Draper::Decorator
   end
 
   def base_url
-    "http://#{host_with_port}"
+    "https://#{host_with_port}"
   end
 
   def libweb_path(path_string = nil)
