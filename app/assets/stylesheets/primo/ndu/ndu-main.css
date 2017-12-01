@@ -31,8 +31,8 @@ height: 100px;
 }
 
 
-#exlidHeaderTile {background:url(header.jpg) #2b5681 center top no-repeat; margin:0 auto; padding:0; height: 100px;}
-
+#exlidHeaderTile {display: none !important }
+#d a:link, #d a:visited { color: #fff !important; text-decoration: none !important;}
 #website-header h3                              {clear:both; margin:0; display:block;}
 #website-header h3 a                            {display:block; width:700px; height:50px; margin:0; text-indent:-9999px; border:none; overflow:hidden;}
 #website-header h4                              {margin:0;}
@@ -91,7 +91,7 @@ p.EXLResultAvailability {
 }
 
 .EXLTabsRibbon {
-  height:36px;
+  height:50px;
   margin-bottom: 0;
 }
 
@@ -629,6 +629,14 @@ div.EXLBackToResults a, .EXLResultsNavigation .EXLDisplayedCountTitle, .EXLResul
   font-size: 11px;
   width: 100% !important;
 }
+#cboxLoadedContent div.wb {
+  font-size: 16px;
+  width: auto !important;
+  background: white;
+  float: left;
+  clear: left;
+  padding: .2em;
+}
 
 #cboxLoadedContent div[style="margin-bottom: 10px;"] {
   margin:0 !important;
@@ -1047,7 +1055,17 @@ z-index: 1000 ;
 } */
 
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: sans-serif !important;
+}
 
+.EXLResultTabs li {
+  box-sizing: content-box;
+}
+
+.EXLSearchWrapper, .EXLHeader {
+  clear: both;
+}
 
 #exliWhiteContent {
   z-index: 2000 !important;

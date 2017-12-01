@@ -13,6 +13,18 @@
 
 ActiveRecord::Schema.define(version: 20140422150554) do
 
+  create_table "error_logs", force: :cascade do |t|
+    t.string   "netid",           limit: 255
+    t.string   "path",            limit: 255
+    t.text     "message",         limit: 65535
+    t.text     "params",          limit: 65535
+    t.text     "stack_trace",     limit: 65535
+    t.datetime "created_at"
+    t.string   "state",           limit: 255
+    t.text     "user_agent",      limit: 65535
+    t.string   "exception_class", limit: 255
+  end
+
   create_table "primo_display_field_examples", force: :cascade do |t|
     t.string   "key",        limit: 255
     t.string   "record_id",  limit: 255

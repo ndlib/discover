@@ -62,7 +62,7 @@ class PrimoProxy < Draper::Decorator
   end
 
   def base_url
-    "http://#{host_with_port}"
+    "https://#{host_with_port}"
   end
 
   def libweb_path(path_string = nil)
