@@ -61,6 +61,10 @@ body {
     font-family: Arial,Helvetica,serif;
 }
 
+p.EXLResultAvailability {
+  font-size: 12px;
+}
+
 .EXLResultsList td.EXLSummary {
   padding-top:1em;
   padding-bottom:1.5em;
@@ -75,7 +79,7 @@ body {
 }
 
 .EXLResultsList h2.EXLResultTitle {
-  font-size:16px;
+  font-size:18px;
 }
 
 .EXLResultsList h3.EXLResultAuthor  {
@@ -91,7 +95,7 @@ p.EXLResultAvailability {
 }
 
 .EXLTabsRibbon {
-  height:36px;
+  height:50px;
   margin-bottom: 0;
 }
 
@@ -200,7 +204,7 @@ p.EXLResultAvailability {
   width:16em;
   text-align:center;
   border:solid #ccc;
-  border-width: 1px 1px 0 1px;
+  border-width: 1px;
   padding:5px 0;
   position: relative;
 }
@@ -696,9 +700,11 @@ div.EXLBackToResults a, .EXLResultsNavigation .EXLDisplayedCountTitle, .EXLResul
 }
 
 
-.EXLResultNumber { display:block;text-align:center;vertical-align:middle; }
+.EXLResultNumber { display:block;text-align:center;vertical-align:middle;}
 
-.EXLResultsList td,  .EXLResultsList td.EXLMyShelfStar {padding-top: 2em;}
+#exlidMainMenuItem3 {display:none;}
+
+.EXLResultsList td,  .EXLResultsList td.EXLMyShelfStar {padding-top: 2em;border-bottom:none;}
 
 
 /* -- Help Tooktips -- */
@@ -1061,4 +1067,17 @@ h1, h2, h3, h4, h5, h6 {
 
 #exliWhiteContent {
   z-index: 2000 !important;
+}
+
+#exlidSuggestedList .by {
+  max-width: 100%;
+}
+
+.citeBtn a:link, .citeBtn a:visited {
+  border-color: #0075b0;
+  color: #0075b0;
+}
+
+.citeBtn a:hover {
+  background-color: #0075b0;
 }
