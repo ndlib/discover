@@ -605,6 +605,17 @@ div.EXLBackToResults a, .EXLResultsNavigation .EXLDisplayedCountTitle, .EXLResul
   margin:0 10px;
 }
 
+#cboxLoadedContent table > tbody > tr >td {
+  padding-bottom: 0  !important;
+  padding-top: 0  !important;
+}
+#cboxLoadedContent #maps {
+  margin: 0 !important;
+}
+#map_img img {
+  max-height: 500px;
+}
+
 /* Modal Window */
 
 #cboxOverlay {
