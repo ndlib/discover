@@ -67,7 +67,7 @@ $(document).ready(function () {
     jQuery.getJSON('/primo_library/libweb/current_session.jsp', function (data) {
       var on_campus = data.on_campus;
       var logged_in = data.logged_in;
-      var logURL = $('.EXLSignOut a').attr('href');
+      var logURL = $('#exlidSignIn a').attr('href');
       if (!on_campus && !logged_in && (!tab || tab[1] == "onesearch")) {
         $('.EXLResultsTable').before(
           '<h1 class="sign_in_alert">Please <a href="' + logURL + '">sign in</a> to see all search results when off-campus.</h1>'
